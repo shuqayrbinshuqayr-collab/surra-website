@@ -85,23 +85,12 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        {/* Background photo */}
+        {/* Solid black background */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/manus-storage/Artboard2@2x_96adcf84.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-        {/* Dark overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(135deg, rgba(28, 43, 58, 0.88) 0%, rgba(28, 43, 58, 0.65) 60%, rgba(28, 43, 58, 0.40) 100%)",
+            backgroundColor: "#000000",
           }}
         />
         {/* Brand pattern overlay (Wallpaper1 — geometric mark) */}
