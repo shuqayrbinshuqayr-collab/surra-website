@@ -1,9 +1,6 @@
 /* ============================================================
-   Navbar Component — سُرّة
-   Font: TheYearofHandicrafts
-     - Logo: weight 900 (Black)
-     - Nav links: weight 500 (Medium)
-     - CTA button: weight 700 (Bold) via .btn-gold
+   Navbar — سُرّة | SURRAH
+   Brand: cream/off-white background, dark navy text, official logo image
    ============================================================ */
 
 import { useState, useEffect } from "react";
@@ -15,6 +12,7 @@ const navLinks = [
   { href: "/services", label: "خدماتنا" },
   { href: "/communities", label: "مجتمعاتنا" },
   { href: "/join", label: "أنشئ مجتمعك" },
+  { href: "/contact", label: "تواصل معنا" },
 ];
 
 export default function Navbar() {
@@ -23,59 +21,50 @@ export default function Navbar() {
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location]);
+  useEffect(() => { setMenuOpen(false); }, [location]);
 
   return (
     <header
-      className="fixed top-0 right-0 left-0 z-50 transition-all duration-500"
+      className="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled
-          ? "oklch(0.08 0.01 60 / 95%)"
-          : "linear-gradient(to bottom, oklch(0.05 0.01 60 / 80%), transparent)",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid oklch(0.25 0.02 75 / 20%)" : "none",
+        background: scrolled ? "rgba(250, 248, 244, 0.97)" : "rgba(250, 248, 244, 0.95)",
+        backdropFilter: "blur(12px)",
+        borderBottom: scrolled ? "1px solid rgba(28, 43, 58, 0.12)" : "1px solid rgba(28, 43, 58, 0.06)",
+        boxShadow: scrolled ? "0 2px 20px rgba(28, 43, 58, 0.08)" : "none",
       }}
     >
       <div className="container">
-        <nav className="flex items-center justify-between py-4 gap-8">
-          {/* Logo */}
+        <nav className="flex items-center justify-between" style={{ height: "72px" }}>
+          {/* Official Logo */}
           <Link href="/" className="flex-shrink-0">
-            <span
-              style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
-                fontWeight: 900,
-                fontSize: "1.6rem",
-                color: "oklch(0.72 0.12 75)",
-                letterSpacing: "0.05em",
-                lineHeight: 1,
-              }}
-            >
-              سُرّة
-            </span>
+            <img
+              src="/manus-storage/Surrah-Black_97bb663c.png"
+              alt="سُرّة SURRAH"
+              style={{ height: "36px", width: "auto", objectFit: "contain" }}
+            />
           </Link>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
+          <div className="hidden md:flex items-center gap-7 flex-1 justify-center">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="nav-link"
                 style={{
-                  color:
-                    location === link.href
-                      ? "oklch(0.72 0.12 75)"
-                      : "oklch(0.80 0.01 80)",
-                  fontWeight: location === link.href ? 600 : 500,
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: location === link.href ? 700 : 500,
+                  fontSize: "0.88rem",
+                  color: location === link.href ? "#B5453A" : "#1C2B3A",
+                  textDecoration: "none",
+                  letterSpacing: "0.02em",
+                  transition: "color 0.2s ease",
+                  borderBottom: location === link.href ? "2px solid #B5453A" : "2px solid transparent",
+                  paddingBottom: "2px",
                 }}
               >
                 {link.label}
@@ -83,76 +72,71 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
-            <Link href="/contact" className="btn-gold text-sm py-2 px-5">
-              تواصل معنا
-            </Link>
-          </div>
+          {/* CTA Button */}
+          <Link
+            href="/join"
+            className="hidden md:inline-flex btn-surrah-primary"
+            style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem" }}
+          >
+            أنشئ مجتمعك
+          </Link>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="القائمة"
           >
-            <span
-              className="block w-6 h-0.5 transition-all duration-300"
-              style={{
-                background: "oklch(0.72 0.12 75)",
-                transform: menuOpen ? "rotate(45deg) translate(4px, 4px)" : "none",
-              }}
-            />
-            <span
-              className="block w-6 h-0.5 transition-all duration-300"
-              style={{
-                background: "oklch(0.72 0.12 75)",
-                opacity: menuOpen ? 0 : 1,
-              }}
-            />
-            <span
-              className="block w-6 h-0.5 transition-all duration-300"
-              style={{
-                background: "oklch(0.72 0.12 75)",
-                transform: menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
-              }}
-            />
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="block w-6 h-0.5 transition-all duration-300"
+                style={{
+                  background: "#1C2B3A",
+                  transform:
+                    i === 0 && menuOpen ? "rotate(45deg) translate(4px, 4px)" :
+                    i === 2 && menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
+                  opacity: i === 1 && menuOpen ? 0 : 1,
+                }}
+              />
+            ))}
           </button>
         </nav>
 
         {/* Mobile Menu */}
         <div
-          className="md:hidden overflow-hidden transition-all duration-400"
-          style={{
-            maxHeight: menuOpen ? "400px" : "0",
-            opacity: menuOpen ? 1 : 0,
-          }}
+          className="md:hidden overflow-hidden transition-all duration-300"
+          style={{ maxHeight: menuOpen ? "420px" : "0", opacity: menuOpen ? 1 : 0 }}
         >
           <div
-            className="flex flex-col gap-1 pb-6 pt-2 border-t"
-            style={{ borderColor: "oklch(0.25 0.02 75 / 20%)" }}
+            className="flex flex-col pb-6 pt-2 border-t"
+            style={{ borderColor: "rgba(28, 43, 58, 0.1)" }}
           >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 px-2 text-base transition-colors duration-200"
                 style={{
-                  color:
-                    location === link.href
-                      ? "oklch(0.72 0.12 75)"
-                      : "oklch(0.80 0.01 80)",
+                  display: "block",
                   fontFamily: "'TheYearofHandicrafts', sans-serif",
-                  fontWeight: location === link.href ? 600 : 500,
-                  borderBottom: "1px solid oklch(0.25 0.02 75 / 15%)",
+                  fontWeight: location === link.href ? 700 : 500,
+                  fontSize: "1rem",
+                  color: location === link.href ? "#B5453A" : "#1C2B3A",
+                  textDecoration: "none",
+                  padding: "0.75rem 0",
+                  borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
+                  borderRight: location === link.href ? "3px solid #B5453A" : "3px solid transparent",
+                  paddingRight: "0.75rem",
                 }}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-gold mt-4 text-sm justify-center">
-              تواصل معنا
-            </Link>
+            <div style={{ marginTop: "1rem" }}>
+              <Link href="/join" className="btn-surrah-primary" style={{ width: "100%", justifyContent: "center" }}>
+                أنشئ مجتمعك
+              </Link>
+            </div>
           </div>
         </div>
       </div>

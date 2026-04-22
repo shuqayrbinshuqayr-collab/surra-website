@@ -50,9 +50,9 @@ export default function Contact() {
   };
 
   const inputStyle = {
-    background: "oklch(0.12 0.01 60)",
-    border: "1px solid oklch(0.25 0.02 75 / 30%)",
-    color: "oklch(0.90 0.01 80)",
+    background: "#F5F0E8",
+    border: "1px solid rgba(28, 43, 58, 0.15)",
+    color: "#1C2B3A",
     fontFamily: "'TheYearofHandicrafts', sans-serif",
     outline: "none",
     width: "100%",
@@ -62,20 +62,20 @@ export default function Contact() {
   };
 
   return (
-    <div ref={pageRef} style={{ background: "oklch(0.08 0.01 60)", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pt-32 pb-16"
-        style={{ background: "oklch(0.06 0.01 60)" }}
+        style={{ background: "#F0EBE1" }}
       >
         <div className="container">
           <div className="max-w-3xl">
             <p
               className="text-sm mb-4 tracking-widest"
               style={{
-                color: "oklch(0.72 0.12 75)",
+                color: "#B5453A",
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 letterSpacing: "0.2em",
               }}
@@ -87,32 +87,32 @@ export default function Contact() {
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "oklch(0.97 0.01 80)",
+                color: "#1C2B3A",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
             >
               نؤمن أن كل حوار
               <br />
-              <span style={{ color: "oklch(0.72 0.12 75)" }}>جاد هو بداية…</span>
+              <span style={{ color: "#B5453A" }}>جاد هو بداية…</span>
             </h1>
           </div>
         </div>
       </section>
 
       {/* ── Contact Form ── */}
-      <section className="py-16" style={{ background: "oklch(0.08 0.01 60)" }}>
+      <section className="py-16" style={{ background: "#FAF8F4" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left: Info */}
             <div className="reveal">
-              <div className="gold-divider" />
+              <div className="surrah-divider" />
               <h2
                 style={{
                   fontFamily: "'TheYearofHandicrafts', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
-                  color: "oklch(0.95 0.01 80)",
+                  color: "#1C2B3A",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -122,7 +122,7 @@ export default function Contact() {
                 className="mb-8"
                 style={{
                   fontFamily: "'TheYearofHandicrafts', sans-serif",
-                  color: "oklch(0.65 0.01 80)",
+                  color: "#6B7A8A",
                   lineHeight: 1.9,
                   fontSize: "0.95rem",
                 }}
@@ -135,7 +135,7 @@ export default function Contact() {
                 <p
                   className="text-xs tracking-widest"
                   style={{
-                    color: "oklch(0.72 0.12 75)",
+                    color: "#B5453A",
                     fontFamily: "'TheYearofHandicrafts', sans-serif",
                     letterSpacing: "0.2em",
                   }}
@@ -152,27 +152,27 @@ export default function Contact() {
                     href={social.href}
                     className="flex items-center justify-between py-3 px-4 transition-all duration-200"
                     style={{
-                      border: "1px solid oklch(0.25 0.02 75 / 20%)",
-                      color: "oklch(0.70 0.01 80)",
+                      border: "1px solid rgba(28, 43, 58, 0.12)",
+                      color: "#5A6A7A",
                       fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontSize: "0.9rem",
                       textDecoration: "none",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "oklch(0.72 0.12 75 / 40%)";
-                      el.style.color = "oklch(0.72 0.12 75)";
+                      el.style.borderColor = "rgba(181, 69, 58, 0.4)";
+                      el.style.color = "#B5453A";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "oklch(0.25 0.02 75 / 20%)";
-                      el.style.color = "oklch(0.70 0.01 80)";
+                      el.style.borderColor = "rgba(28, 43, 58, 0.12)";
+                      el.style.color = "#5A6A7A";
                     }}
                   >
                     <span>{social.label}</span>
                     <span
                       style={{
-                        color: "oklch(0.55 0.01 80)",
+                        color: "#8A9AAA",
                         fontSize: "0.8rem",
                       }}
                     >
@@ -189,13 +189,13 @@ export default function Contact() {
                 <div
                   className="p-10 text-center"
                   style={{
-                    background: "oklch(0.10 0.01 60)",
-                    border: "1px solid oklch(0.72 0.12 75 / 30%)",
+                    background: "#FFFFFF",
+                    border: "1px solid rgba(181, 69, 58, 0.3)",
                   }}
                 >
                   <div
                     className="text-5xl mb-4"
-                    style={{ color: "oklch(0.72 0.12 75)" }}
+                    style={{ color: "#B5453A" }}
                   >
                     ✓
                   </div>
@@ -204,7 +204,7 @@ export default function Contact() {
                       fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
-                      color: "oklch(0.90 0.01 80)",
+                      color: "#1C2B3A",
                       marginBottom: "0.75rem",
                     }}
                   >
@@ -213,7 +213,7 @@ export default function Contact() {
                   <p
                     style={{
                       fontFamily: "'TheYearofHandicrafts', sans-serif",
-                      color: "oklch(0.65 0.01 80)",
+                      color: "#6B7A8A",
                       lineHeight: 1.8,
                     }}
                   >
@@ -225,8 +225,8 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                   className="space-y-5"
                   style={{
-                    background: "oklch(0.10 0.01 60)",
-                    border: "1px solid oklch(0.25 0.02 75 / 20%)",
+                    background: "#FFFFFF",
+                    border: "1px solid rgba(28, 43, 58, 0.12)",
                     padding: "2.5rem",
                   }}
                 >
@@ -235,10 +235,10 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'TheYearofHandicrafts', sans-serif",
-                        color: "oklch(0.65 0.01 80)",
+                        color: "#6B7A8A",
                       }}
                     >
-                      الاسم <span style={{ color: "oklch(0.72 0.12 75)" }}>*</span>
+                      الاسم <span style={{ color: "#B5453A" }}>*</span>
                     </label>
                     <input
                       type="text"
@@ -249,10 +249,10 @@ export default function Contact() {
                       }
                       style={inputStyle}
                       onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.72 0.12 75 / 60%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
                       }}
                       onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 30%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     />
                   </div>
@@ -262,10 +262,10 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'TheYearofHandicrafts', sans-serif",
-                        color: "oklch(0.65 0.01 80)",
+                        color: "#6B7A8A",
                       }}
                     >
-                      البريد الإلكتروني <span style={{ color: "oklch(0.72 0.12 75)" }}>*</span>
+                      البريد الإلكتروني <span style={{ color: "#B5453A" }}>*</span>
                     </label>
                     <input
                       type="email"
@@ -276,10 +276,10 @@ export default function Contact() {
                       }
                       style={inputStyle}
                       onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.72 0.12 75 / 60%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
                       }}
                       onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 30%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     />
                   </div>
@@ -289,7 +289,7 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'TheYearofHandicrafts', sans-serif",
-                        color: "oklch(0.65 0.01 80)",
+                        color: "#6B7A8A",
                       }}
                     >
                       سبب التواصل
@@ -301,20 +301,20 @@ export default function Contact() {
                       }
                       style={{ ...inputStyle, appearance: "none" }}
                       onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.72 0.12 75 / 60%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
                       }}
                       onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 30%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     >
-                      <option value="" style={{ background: "oklch(0.12 0.01 60)" }}>
+                      <option value="" style={{ background: "#F5F0E8" }}>
                         اختر سبب التواصل
                       </option>
                       {contactReasons.map((r) => (
                         <option
                           key={r.value}
                           value={r.value}
-                          style={{ background: "oklch(0.12 0.01 60)" }}
+                          style={{ background: "#F5F0E8" }}
                         >
                           {r.label}
                         </option>
@@ -327,10 +327,10 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'TheYearofHandicrafts', sans-serif",
-                        color: "oklch(0.65 0.01 80)",
+                        color: "#6B7A8A",
                       }}
                     >
-                      رسالتك <span style={{ color: "oklch(0.72 0.12 75)" }}>*</span>
+                      رسالتك <span style={{ color: "#B5453A" }}>*</span>
                     </label>
                     <textarea
                       rows={5}
@@ -341,10 +341,10 @@ export default function Contact() {
                       }
                       style={{ ...inputStyle, resize: "none" }}
                       onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.72 0.12 75 / 60%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
                       }}
                       onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 30%)";
+                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     />
                   </div>
@@ -353,13 +353,13 @@ export default function Contact() {
                     className="text-xs"
                     style={{
                       fontFamily: "'TheYearofHandicrafts', sans-serif",
-                      color: "oklch(0.45 0.01 80)",
+                      color: "#9AAABB",
                     }}
                   >
                     نقرأ كل رسالة باهتمام.
                   </p>
 
-                  <button type="submit" className="btn-gold-filled w-full justify-center">
+                  <button type="submit" className="btn-surrah-primary-filled w-full justify-center">
                     أرسل رسالتك
                   </button>
                 </form>

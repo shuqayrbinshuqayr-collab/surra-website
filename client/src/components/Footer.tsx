@@ -43,8 +43,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "oklch(0.05 0.01 60)",
-        borderTop: "1px solid oklch(0.25 0.02 75 / 15%)",
+        background: "#1C2B3A",
+        borderTop: "1px solid rgba(240, 235, 225, 0.1)",
       }}
     >
       <div className="container py-16">
@@ -52,23 +52,16 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/">
-              <span
-                className="block mb-4"
-                style={{
-                  fontFamily: fontBase,
-                  fontWeight: 900,
-                  fontSize: "2.2rem",
-                  color: "oklch(0.72 0.12 75)",
-                  lineHeight: 1,
-                }}
-              >
-                سُرّة
-              </span>
+              <img
+                src="/manus-storage/Surrah-White_c79141b5.png"
+                alt="سُرّة SURRAH"
+                style={{ height: "42px", width: "auto", objectFit: "contain", marginBottom: "1rem", display: "block" }}
+              />
             </Link>
             <p
               className="text-sm leading-relaxed mb-6 max-w-xs"
               style={{
-                color: "oklch(0.55 0.01 80)",
+                color: "rgba(240, 235, 225, 0.6)",
                 fontFamily: fontBase,
                 fontWeight: 400,
                 lineHeight: "1.8",
@@ -85,17 +78,17 @@ export default function Footer() {
                   aria-label={s.label}
                   className="w-9 h-9 flex items-center justify-center text-sm transition-all duration-200"
                   style={{
-                    border: "1px solid oklch(0.25 0.02 75 / 40%)",
-                    color: "oklch(0.55 0.01 80)",
+                    border: "1px solid rgba(240, 235, 225, 0.25)",
+                    color: "rgba(240, 235, 225, 0.6)",
                     fontFamily: "sans-serif",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.12 75)";
-                    (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#B5453A";
+                    (e.currentTarget as HTMLElement).style.color = "#B5453A";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 40%)";
-                    (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(240, 235, 225, 0.25)";
+                    (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
                   }}
                 >
                   {s.icon}
@@ -109,7 +102,7 @@ export default function Footer() {
             <h4
               className="mb-5"
               style={{
-                color: "oklch(0.72 0.12 75)",
+                color: "#B5453A",
                 fontFamily: fontBase,
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -125,15 +118,15 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm transition-colors duration-200"
                     style={{
-                      color: "oklch(0.55 0.01 80)",
+                      color: "rgba(240, 235, 225, 0.6)",
                       fontFamily: fontBase,
                       fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                      (e.currentTarget as HTMLElement).style.color = "#B5453A";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                      (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
                     }}
                   >
                     {link.label}
@@ -148,7 +141,7 @@ export default function Footer() {
             <h4
               className="mb-5"
               style={{
-                color: "oklch(0.72 0.12 75)",
+                color: "#B5453A",
                 fontFamily: fontBase,
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -164,15 +157,15 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm transition-colors duration-200"
                     style={{
-                      color: "oklch(0.55 0.01 80)",
+                      color: "rgba(240, 235, 225, 0.6)",
                       fontFamily: fontBase,
                       fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                      (e.currentTarget as HTMLElement).style.color = "#B5453A";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                      (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
                     }}
                   >
                     {link.label}
@@ -187,7 +180,7 @@ export default function Footer() {
             <h4
               className="mb-5"
               style={{
-                color: "oklch(0.72 0.12 75)",
+                color: "#B5453A",
                 fontFamily: fontBase,
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -203,15 +196,15 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm transition-colors duration-200"
                     style={{
-                      color: "oklch(0.55 0.01 80)",
+                      color: "rgba(240, 235, 225, 0.6)",
                       fontFamily: fontBase,
                       fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                      (e.currentTarget as HTMLElement).style.color = "#B5453A";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                      (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
                     }}
                   >
                     {link.label}
@@ -225,12 +218,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div
           className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid oklch(0.25 0.02 75 / 15%)" }}
+          style={{ borderTop: "1px solid rgba(240, 235, 225, 0.1)" }}
         >
           <p
             className="text-xs"
             style={{
-              color: "oklch(0.40 0.01 80)",
+              color: "rgba(240, 235, 225, 0.4)",
               fontFamily: fontBase,
               fontWeight: 400,
             }}
@@ -240,7 +233,7 @@ export default function Footer() {
           <p
             className="text-xs"
             style={{
-              color: "oklch(0.40 0.01 80)",
+              color: "rgba(240, 235, 225, 0.4)",
               fontFamily: fontBase,
               fontWeight: 400,
             }}

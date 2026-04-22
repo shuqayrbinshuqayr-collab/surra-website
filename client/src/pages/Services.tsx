@@ -65,19 +65,19 @@ export default function Services() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "oklch(0.08 0.01 60)", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
-      <section className="relative pt-32 pb-24" style={{ background: "oklch(0.06 0.01 60)" }}>
+      <section className="relative pt-32 pb-24" style={{ background: "#F0EBE1" }}>
         <div className="container">
           <div className="max-w-3xl">
-            <p className="text-sm mb-4" style={{ color: "oklch(0.72 0.12 75)", fontFamily: F, fontWeight: 400, letterSpacing: "0.2em" }}>خدماتنا</p>
-            <h1 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(2rem, 5vw, 4rem)", color: "oklch(0.97 0.01 80)", lineHeight: 1.3, marginBottom: "1rem" }}>
+            <p className="text-sm mb-4" style={{ color: "#B5453A", fontFamily: F, fontWeight: 400, letterSpacing: "0.2em" }}>خدماتنا</p>
+            <h1 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1C2B3A", lineHeight: 1.3, marginBottom: "1rem" }}>
               نرافقك من الفكرة
-              <br /><span style={{ color: "oklch(0.72 0.12 75)" }}>حتى الاستدامة</span>
+              <br /><span style={{ color: "#B5453A" }}>حتى الاستدامة</span>
             </h1>
-            <p style={{ fontFamily: F, fontWeight: 500, color: "oklch(0.60 0.01 80)", fontSize: "1.05rem", lineHeight: 1.8, maxWidth: "500px" }}>
+            <p style={{ fontFamily: F, fontWeight: 500, color: "#7A8A9A", fontSize: "1.05rem", lineHeight: 1.8, maxWidth: "500px" }}>
               أربع خدمات متكاملة تُغطي كل مراحل بناء المجتمع الثقافي، من التأسيس إلى التأثير.
             </p>
           </div>
@@ -85,24 +85,24 @@ export default function Services() {
       </section>
 
       {/* ── Services Detail ── */}
-      <section className="py-16" style={{ background: "oklch(0.08 0.01 60)" }}>
+      <section className="py-16" style={{ background: "#FAF8F4" }}>
         <div className="container">
-          <div className="space-y-px" style={{ background: "oklch(0.25 0.02 75 / 15%)" }}>
+          <div className="space-y-px" style={{ background: "rgba(28, 43, 58, 0.08)" }}>
             {services.map((service, i) => (
-              <div key={service.id} id={service.id} className="reveal grid grid-cols-1 lg:grid-cols-3 gap-0" style={{ background: "oklch(0.08 0.01 60)", transitionDelay: `${i * 0.1}s` }}>
+              <div key={service.id} id={service.id} className="reveal grid grid-cols-1 lg:grid-cols-3 gap-0" style={{ background: "#FAF8F4", transitionDelay: `${i * 0.1}s` }}>
                 {/* Number + Title */}
-                <div className="p-8 md:p-12 lg:border-l" style={{ borderColor: "oklch(0.25 0.02 75 / 15%)" }}>
-                  <span className="block text-5xl mb-4" style={{ fontFamily: F, fontWeight: 900, color: "oklch(0.72 0.12 75 / 30%)" }}>{service.number}</span>
-                  <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", color: "oklch(0.95 0.01 80)", marginBottom: "0.5rem" }}>{service.title}</h2>
-                  <p style={{ fontFamily: F, fontWeight: 600, color: "oklch(0.72 0.12 75)", fontSize: "0.95rem", fontStyle: "italic" }}>{service.tagline}</p>
+                <div className="p-8 md:p-12 lg:border-l" style={{ borderColor: "rgba(28, 43, 58, 0.08)" }}>
+                  <span className="block text-5xl mb-4" style={{ fontFamily: F, fontWeight: 900, color: "rgba(181, 69, 58, 0.3)" }}>{service.number}</span>
+                  <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", color: "#1C2B3A", marginBottom: "0.5rem" }}>{service.title}</h2>
+                  <p style={{ fontFamily: F, fontWeight: 600, color: "#B5453A", fontSize: "0.95rem", fontStyle: "italic" }}>{service.tagline}</p>
                 </div>
                 {/* Description + Points */}
-                <div className="p-8 md:p-12 lg:border-l" style={{ borderColor: "oklch(0.25 0.02 75 / 15%)" }}>
-                  <p className="mb-6" style={{ fontFamily: F, fontWeight: 500, color: "oklch(0.70 0.01 80)", fontSize: "0.95rem", lineHeight: 1.9 }}>{service.description}</p>
+                <div className="p-8 md:p-12 lg:border-l" style={{ borderColor: "rgba(28, 43, 58, 0.08)" }}>
+                  <p className="mb-6" style={{ fontFamily: F, fontWeight: 500, color: "#5A6A7A", fontSize: "0.95rem", lineHeight: 1.9 }}>{service.description}</p>
                   <ul className="space-y-2">
                     {service.points.map((point, j) => (
-                      <li key={j} className="flex items-center gap-3 text-sm" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.65 0.01 80)" }}>
-                        <span style={{ color: "oklch(0.72 0.12 75)" }}>◈</span>
+                      <li key={j} className="flex items-center gap-3 text-sm" style={{ fontFamily: F, fontWeight: 400, color: "#6B7A8A" }}>
+                        <span style={{ color: "#B5453A" }}>◈</span>
                         {point}
                       </li>
                     ))}
@@ -110,10 +110,10 @@ export default function Services() {
                 </div>
                 {/* For Whom */}
                 <div className="p-8 md:p-12">
-                  <p className="text-xs mb-4" style={{ color: "oklch(0.72 0.12 75)", fontFamily: F, fontWeight: 400, letterSpacing: "0.15em" }}>لمن هذه الخدمة؟</p>
+                  <p className="text-xs mb-4" style={{ color: "#B5453A", fontFamily: F, fontWeight: 400, letterSpacing: "0.15em" }}>لمن هذه الخدمة؟</p>
                   <div className="flex flex-wrap gap-2">
                     {service.forWhom.map((item, j) => (
-                      <span key={j} className="text-xs px-3 py-1.5" style={{ border: "1px solid oklch(0.72 0.12 75 / 30%)", color: "oklch(0.72 0.12 75)", fontFamily: F, fontWeight: 400 }}>{item}</span>
+                      <span key={j} className="text-xs px-3 py-1.5" style={{ border: "1px solid rgba(181, 69, 58, 0.3)", color: "#B5453A", fontFamily: F, fontWeight: 400 }}>{item}</span>
                     ))}
                   </div>
                 </div>
@@ -124,12 +124,12 @@ export default function Services() {
       </section>
 
       {/* ── Work Stages ── */}
-      <section className="py-24" style={{ background: "oklch(0.06 0.01 60)" }}>
+      <section className="py-24" style={{ background: "#F0EBE1" }}>
         <div className="container">
           <div className="reveal mb-14">
-            <div className="gold-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "oklch(0.95 0.01 80)" }}>ماذا نقدم لك؟</h2>
-            <p className="mt-2" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.55 0.01 80)" }}>نرافقك من الفكرة حتى الاستدامة</p>
+            <div className="surrah-divider" />
+            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "#1C2B3A" }}>ماذا نقدم لك؟</h2>
+            <p className="mt-2" style={{ fontFamily: F, fontWeight: 400, color: "#8A9AAA" }}>نرافقك من الفكرة حتى الاستدامة</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -137,10 +137,10 @@ export default function Services() {
               { step: "٢", title: "تصميم المجتمع وهويته", desc: "نصمم المجتمع من الجذور: الهوية، الهيكل، التجربة." },
               { step: "٣", title: "الإطلاق والتشغيل والتطوير", desc: "نُطلق، نُشغّل، نقيس، ونطوّر باستمرار." },
             ].map((item, i) => (
-              <div key={i} className="reveal p-8" style={{ background: "oklch(0.10 0.01 60)", border: "1px solid oklch(0.25 0.02 75 / 20%)", transitionDelay: `${i * 0.1}s` }}>
-                <span className="block text-5xl mb-4" style={{ fontFamily: F, fontWeight: 900, color: "oklch(0.72 0.12 75 / 30%)" }}>{item.step}</span>
-                <h4 className="mb-2" style={{ fontFamily: F, fontWeight: 600, color: "oklch(0.90 0.01 80)", fontSize: "1.1rem" }}>{item.title}</h4>
-                <p className="text-sm" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.55 0.01 80)", lineHeight: 1.7 }}>{item.desc}</p>
+              <div key={i} className="reveal p-8" style={{ background: "#FFFFFF", border: "1px solid rgba(28, 43, 58, 0.12)", transitionDelay: `${i * 0.1}s` }}>
+                <span className="block text-5xl mb-4" style={{ fontFamily: F, fontWeight: 900, color: "rgba(181, 69, 58, 0.3)" }}>{item.step}</span>
+                <h4 className="mb-2" style={{ fontFamily: F, fontWeight: 600, color: "#1C2B3A", fontSize: "1.1rem" }}>{item.title}</h4>
+                <p className="text-sm" style={{ fontFamily: F, fontWeight: 400, color: "#8A9AAA", lineHeight: 1.7 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -148,12 +148,12 @@ export default function Services() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24" style={{ background: "oklch(0.08 0.01 60)" }}>
+      <section className="py-24" style={{ background: "#FAF8F4" }}>
         <div className="container text-center">
           <div className="reveal max-w-xl mx-auto">
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "oklch(0.95 0.01 80)", marginBottom: "1rem" }}>ابدأ الحديث معنا</h2>
-            <p className="mb-8" style={{ fontFamily: F, fontWeight: 500, color: "oklch(0.60 0.01 80)", lineHeight: 1.8 }}>نؤمن أن كل حوار جاد هو بداية…</p>
-            <Link href="/contact" className="btn-gold-filled text-base px-8 py-3.5">تواصل معنا ←</Link>
+            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "#1C2B3A", marginBottom: "1rem" }}>ابدأ الحديث معنا</h2>
+            <p className="mb-8" style={{ fontFamily: F, fontWeight: 500, color: "#7A8A9A", lineHeight: 1.8 }}>نؤمن أن كل حوار جاد هو بداية…</p>
+            <Link href="/contact" className="btn-surrah-primary-filled text-base px-8 py-3.5">تواصل معنا ←</Link>
           </div>
         </div>
       </section>

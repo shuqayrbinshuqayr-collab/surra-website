@@ -1,61 +1,59 @@
 /* ============================================================
-   سُرّة — Design System
-   Philosophy: النسيج الحي (Living Fabric)
-   Organic Brutalism meets Arabic Calligraphic Modernism
+   سُرّة | SURRAH — Official Brand Identity
+   Philosophy: Cultural & Artistic Communities
    
-   Color: Deep charcoal-black + warm amber-gold accent
-   Typography: TheYearofHandicrafts (all weights: Regular 400, Medium 500, SemiBold 600, Bold 700, Black 900)
+   Colors (from brand guidelines):
+     - Dark Navy:    #1C2B3A  (primary dark)
+     - Brick Red:    #B5453A  (terracotta accent — from Story2 background)
+     - Warm Cream:   #F0EBE1  (light background)
+     - Off-White:    #FAF8F4  (page background)
+     - Deep Blue:    #27486A  (secondary brand)
+   
+   Fonts: TheYearofHandicrafts (Arabic) + Montserrat (English)
    Direction: RTL
    ============================================================ */
 
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* ── TheYearofHandicrafts Custom Font Family ──
-   Weight mapping:
-   400 Regular  → body text, small labels, captions
-   500 Medium   → UI text, nav links, descriptions
-   600 SemiBold → subheadings, card titles, buttons
-   700 Bold     → section headings, h2, h3
-   900 Black    → hero display text, h1, brand name
-*/
+@custom-variant dark (&:is(.dark *));
+
+/* ── Custom Font: TheYearofHandicrafts ── */
 @font-face {
   font-family: 'TheYearofHandicrafts';
-  src: url('/manus-storage/TheYearofHandicrafts-Regular_ce789c95.otf') format('opentype');
+  src: url('/manus-storage/TheYearofHandicrafts-Regular_7c5b9e2a.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'TheYearofHandicrafts';
-  src: url('/manus-storage/alfont_com_TheYearofHandicrafts-Medium_35b84ce1.otf') format('opentype');
+  src: url('/manus-storage/TheYearofHandicrafts-Medium_a3f12c8b.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'TheYearofHandicrafts';
-  src: url('/manus-storage/alfont_com_TheYearofHandicrafts-SemiBold_85a516f4.otf') format('opentype');
+  src: url('/manus-storage/TheYearofHandicrafts-SemiBold_d9e4f7c1.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'TheYearofHandicrafts';
-  src: url('/manus-storage/alfont_com_TheYearofHandicrafts-Bold_c4e807bd.otf') format('opentype');
+  src: url('/manus-storage/TheYearofHandicrafts-Bold_b8a2e5f3.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'TheYearofHandicrafts';
-  src: url('/manus-storage/alfont_com_TheYearofHandicrafts-Black_e93db982.otf') format('opentype');
+  src: url('/manus-storage/TheYearofHandicrafts-Black_c6d3a9e8.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -81,83 +79,57 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
 }
 
 :root {
-  /* Surra Dark Theme — warm charcoal-black base */
-  --radius: 0.25rem;
-  --background: oklch(0.08 0.01 60);
-  --foreground: oklch(0.95 0.01 80);
-  --card: oklch(0.12 0.01 60);
-  --card-foreground: oklch(0.95 0.01 80);
-  --popover: oklch(0.12 0.01 60);
-  --popover-foreground: oklch(0.95 0.01 80);
-  --primary: oklch(0.72 0.12 75);
-  --primary-foreground: oklch(0.08 0.01 60);
-  --secondary: oklch(0.16 0.01 60);
-  --secondary-foreground: oklch(0.85 0.01 80);
-  --muted: oklch(0.18 0.01 60);
-  --muted-foreground: oklch(0.60 0.02 75);
-  --accent: oklch(0.72 0.12 75);
-  --accent-foreground: oklch(0.08 0.01 60);
+  /* Surrah Official Brand Colors */
+  --surrah-navy:    #1C2B3A;
+  --surrah-red:     #B5453A;
+  --surrah-cream:   #F0EBE1;
+  --surrah-offwhite:#FAF8F4;
+  --surrah-blue:    #27486A;
+  --surrah-text:    #1A1A18;
+  --surrah-muted:   #6B6860;
+
+  --radius: 0.5rem;
+  --background: oklch(0.98 0.005 80);
+  --foreground: oklch(0.12 0.01 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.01 50);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.01 50);
+  --primary: oklch(0.35 0.06 25);
+  --primary-foreground: oklch(0.98 0.005 80);
+  --secondary: oklch(0.94 0.01 80);
+  --secondary-foreground: oklch(0.25 0.01 50);
+  --muted: oklch(0.94 0.01 80);
+  --muted-foreground: oklch(0.50 0.01 60);
+  --accent: oklch(0.94 0.01 80);
+  --accent-foreground: oklch(0.12 0.01 50);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.25 0.02 75 / 30%);
-  --input: oklch(0.20 0.01 60);
-  --ring: oklch(0.72 0.12 75 / 50%);
-  --gold: oklch(0.72 0.12 75);
-  --gold-light: oklch(0.82 0.10 80);
+  --border: oklch(0.88 0.01 70);
+  --input: oklch(0.88 0.01 70);
+  --ring: oklch(0.35 0.06 25);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-
   html {
     direction: rtl;
     scroll-behavior: smooth;
   }
-
   body {
     @apply bg-background text-foreground;
-    font-family: 'TheYearofHandicrafts', sans-serif;
+    font-family: 'TheYearofHandicrafts', 'Montserrat', sans-serif;
     font-weight: 400;
-    font-feature-settings: "kern" 1;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
-
-  h1 {
-    font-family: 'TheYearofHandicrafts', sans-serif;
-    font-weight: 900;
-    line-height: 1.25;
-  }
-
-  h2 {
-    font-family: 'TheYearofHandicrafts', sans-serif;
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  h3, h4 {
-    font-family: 'TheYearofHandicrafts', sans-serif;
-    font-weight: 600;
-    line-height: 1.35;
-  }
-
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
+  a[href] {
     @apply cursor-pointer;
   }
 }
@@ -167,176 +139,110 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-
   .flex {
     min-height: 0;
     min-width: 0;
   }
-
   @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
     .container {
       padding-left: 2rem;
       padding-right: 2rem;
+      max-width: 1280px;
     }
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 4rem;
-      padding-right: 4rem;
-      max-width: 1400px;
-    }
-  }
-
-  /* Gold accent button */
-  .btn-gold {
+  /* ── Surrah Brand Buttons ── */
+  .btn-surrah-primary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 2rem;
-    border: 1px solid oklch(0.72 0.12 75);
-    color: oklch(0.72 0.12 75);
-    background: transparent;
+    background-color: #1C2B3A;
+    color: #F0EBE1;
     font-family: 'TheYearofHandicrafts', sans-serif;
-    font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.75rem 2rem;
+    border: 2px solid #1C2B3A;
+    border-radius: 0;
+    transition: all 0.25s ease;
     text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .btn-surrah-primary:hover {
+    background-color: #27486A;
+    border-color: #27486A;
   }
 
-  .btn-gold:hover {
-    background: oklch(0.72 0.12 75);
-    color: oklch(0.08 0.01 60);
-  }
-
-  .btn-gold-filled {
+  .btn-surrah-outline {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 2.5rem;
-    border: 1px solid oklch(0.72 0.12 75);
-    color: oklch(0.08 0.01 60);
-    background: oklch(0.72 0.12 75);
+    background-color: transparent;
+    color: #1C2B3A;
     font-family: 'TheYearofHandicrafts', sans-serif;
+    font-weight: 600;
     font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    padding: 0.75rem 2rem;
+    border: 2px solid #1C2B3A;
+    border-radius: 0;
+    transition: all 0.25s ease;
     text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .btn-surrah-outline:hover {
+    background-color: #1C2B3A;
+    color: #F0EBE1;
   }
 
-  .btn-gold-filled:hover {
-    background: oklch(0.82 0.10 80);
-    border-color: oklch(0.82 0.10 80);
+  .btn-surrah-red {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #B5453A;
+    color: #FAF8F4;
+    font-family: 'TheYearofHandicrafts', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 2rem;
+    border: 2px solid #B5453A;
+    border-radius: 0;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .btn-surrah-red:hover {
+    background-color: #9a3a30;
+    border-color: #9a3a30;
   }
 
-  /* Section divider */
-  .gold-divider {
-    width: 3rem;
-    height: 1px;
-    background: oklch(0.72 0.12 75);
-    margin-bottom: 1.5rem;
-  }
-
-  /* Scroll reveal animation */
+  /* ── Reveal animation ── */
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
   }
-
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Grain overlay */
-  .grain-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    opacity: 0.3;
-  }
-
-  /* Nav link */
-  .nav-link {
-    font-family: 'TheYearofHandicrafts', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: oklch(0.80 0.01 80);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    padding: 0.25rem 0;
-    position: relative;
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 1px;
-    background: oklch(0.72 0.12 75);
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover {
-    color: oklch(0.72 0.12 75);
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
+  /* ── Section divider ── */
+  .surrah-divider {
+    width: 48px;
+    height: 3px;
+    background-color: #B5453A;
+    margin-bottom: 1.5rem;
   }
 }
-
-/* Keyframe animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease forwards;
-}
-
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }

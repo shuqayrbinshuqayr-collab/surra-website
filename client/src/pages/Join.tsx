@@ -135,20 +135,20 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
       <div
         className="p-8 text-center"
         style={{
-          background: "oklch(0.10 0.01 60)",
-          border: "1px solid oklch(0.72 0.12 75 / 30%)",
+          background: "#FFFFFF",
+          border: "1px solid rgba(181, 69, 58, 0.3)",
         }}
       >
         <div
           className="text-4xl mb-4"
-          style={{ color: "oklch(0.72 0.12 75)" }}
+          style={{ color: "#B5453A" }}
         >
           ✓
         </div>
         <p
           style={{
             fontFamily: "'TheYearofHandicrafts', sans-serif",
-            color: "oklch(0.80 0.01 80)",
+            color: "#3D4F60",
             lineHeight: 1.8,
           }}
         >
@@ -166,12 +166,12 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
             className="block text-sm mb-1.5"
             style={{
               fontFamily: "'TheYearofHandicrafts', sans-serif",
-              color: "oklch(0.65 0.01 80)",
+              color: "#6B7A8A",
             }}
           >
             {field.label}
             {field.required && (
-              <span style={{ color: "oklch(0.72 0.12 75)" }}> *</span>
+              <span style={{ color: "#B5453A" }}> *</span>
             )}
           </label>
           {field.type === "textarea" ? (
@@ -184,17 +184,17 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               }
               className="w-full px-4 py-3 text-sm resize-none transition-colors duration-200"
               style={{
-                background: "oklch(0.12 0.01 60)",
-                border: "1px solid oklch(0.25 0.02 75 / 30%)",
-                color: "oklch(0.90 0.01 80)",
+                background: "#F5F0E8",
+                border: "1px solid rgba(28, 43, 58, 0.15)",
+                color: "#1C2B3A",
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 outline: "none",
               }}
               onFocus={(e) => {
-                (e.target as HTMLElement).style.borderColor = "oklch(0.72 0.12 75 / 60%)";
+                (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
               }}
               onBlur={(e) => {
-                (e.target as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 30%)";
+                (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
               }}
             />
           ) : (
@@ -207,23 +207,23 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               }
               className="w-full px-4 py-3 text-sm transition-colors duration-200"
               style={{
-                background: "oklch(0.12 0.01 60)",
-                border: "1px solid oklch(0.25 0.02 75 / 30%)",
-                color: "oklch(0.90 0.01 80)",
+                background: "#F5F0E8",
+                border: "1px solid rgba(28, 43, 58, 0.15)",
+                color: "#1C2B3A",
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 outline: "none",
               }}
               onFocus={(e) => {
-                (e.target as HTMLElement).style.borderColor = "oklch(0.72 0.12 75 / 60%)";
+                (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
               }}
               onBlur={(e) => {
-                (e.target as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 30%)";
+                (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
               }}
             />
           )}
         </div>
       ))}
-      <button type="submit" className="btn-gold-filled w-full justify-center mt-2">
+      <button type="submit" className="btn-surrah-primary-filled w-full justify-center mt-2">
         {option.cta}
       </button>
     </form>
@@ -235,20 +235,20 @@ export default function Join() {
   const [activeOption, setActiveOption] = useState<string | null>(null);
 
   return (
-    <div ref={pageRef} style={{ background: "oklch(0.08 0.01 60)", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pt-32 pb-24"
-        style={{ background: "oklch(0.06 0.01 60)" }}
+        style={{ background: "#F0EBE1" }}
       >
         <div className="container">
           <div className="max-w-3xl">
             <p
               className="text-sm mb-4 tracking-widest"
               style={{
-                color: "oklch(0.72 0.12 75)",
+                color: "#B5453A",
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 letterSpacing: "0.2em",
               }}
@@ -260,7 +260,7 @@ export default function Join() {
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "oklch(0.97 0.01 80)",
+                color: "#1C2B3A",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -270,7 +270,7 @@ export default function Join() {
             <p
               style={{
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
-                color: "oklch(0.60 0.01 80)",
+                color: "#7A8A9A",
                 fontSize: "1.05rem",
                 lineHeight: 1.8,
                 maxWidth: "550px",
@@ -283,7 +283,7 @@ export default function Join() {
       </section>
 
       {/* ── Join Options ── */}
-      <section className="py-16" style={{ background: "oklch(0.08 0.01 60)" }}>
+      <section className="py-16" style={{ background: "#FAF8F4" }}>
         <div className="container">
           {/* Options List */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-12">
@@ -297,12 +297,12 @@ export default function Join() {
                 style={{
                   background:
                     activeOption === option.id
-                      ? "oklch(0.14 0.01 60)"
-                      : "oklch(0.10 0.01 60)",
+                      ? "#1C2B3A"
+                      : "#FFFFFF",
                   border:
                     activeOption === option.id
-                      ? "1px solid oklch(0.72 0.12 75 / 60%)"
-                      : "1px solid oklch(0.25 0.02 75 / 20%)",
+                      ? "1px solid rgba(181, 69, 58, 0.6)"
+                      : "1px solid rgba(28, 43, 58, 0.12)",
                   cursor: "pointer",
                 }}
               >
@@ -313,8 +313,8 @@ export default function Join() {
                     fontFamily: "'TheYearofHandicrafts', sans-serif",
                     color:
                       activeOption === option.id
-                        ? "oklch(0.72 0.12 75)"
-                        : "oklch(0.90 0.01 80)",
+                        ? "#B5453A"
+                        : "#1C2B3A",
                     fontSize: "1rem",
                   }}
                 >
@@ -324,7 +324,7 @@ export default function Join() {
                   className="text-xs"
                   style={{
                     fontFamily: "'TheYearofHandicrafts', sans-serif",
-                    color: "oklch(0.50 0.01 80)",
+                    color: "#6B7A8A",
                     lineHeight: 1.6,
                   }}
                 >
@@ -342,8 +342,8 @@ export default function Join() {
               <div
                 className="reveal visible max-w-2xl mx-auto"
                 style={{
-                  background: "oklch(0.10 0.01 60)",
-                  border: "1px solid oklch(0.25 0.02 75 / 20%)",
+                  background: "#FFFFFF",
+                  border: "1px solid rgba(28, 43, 58, 0.12)",
                   padding: "2.5rem",
                 }}
               >
@@ -354,7 +354,7 @@ export default function Join() {
                       fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
-                      color: "oklch(0.95 0.01 80)",
+                      color: "#1C2B3A",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -363,7 +363,7 @@ export default function Join() {
                   <p
                     style={{
                       fontFamily: "'TheYearofHandicrafts', sans-serif",
-                      color: "oklch(0.60 0.01 80)",
+                      color: "#7A8A9A",
                       fontSize: "0.9rem",
                       lineHeight: 1.7,
                     }}
@@ -375,7 +375,7 @@ export default function Join() {
                   className="mb-6"
                   style={{
                     height: "1px",
-                    background: "oklch(0.25 0.02 75 / 20%)",
+                    background: "rgba(28, 43, 58, 0.12)",
                   }}
                 />
                 <JoinForm key={option.id} option={option} />
@@ -388,7 +388,7 @@ export default function Join() {
               <p
                 style={{
                   fontFamily: "'TheYearofHandicrafts', sans-serif",
-                  color: "oklch(0.45 0.01 80)",
+                  color: "#9AAABB",
                   fontSize: "0.95rem",
                 }}
               >
@@ -400,14 +400,14 @@ export default function Join() {
       </section>
 
       {/* ── Bottom note ── */}
-      <section className="py-16" style={{ background: "oklch(0.06 0.01 60)" }}>
+      <section className="py-16" style={{ background: "#F0EBE1" }}>
         <div className="container text-center">
           <div className="reveal max-w-lg mx-auto">
             <p
               style={{
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontSize: "1.1rem",
-                color: "oklch(0.65 0.01 80)",
+                color: "#6B7A8A",
                 lineHeight: 1.8,
                 fontStyle: "italic",
               }}
@@ -419,7 +419,7 @@ export default function Join() {
               style={{
                 width: "3rem",
                 height: "1px",
-                background: "oklch(0.72 0.12 75 / 40%)",
+                background: "rgba(181, 69, 58, 0.4)",
               }}
             />
           </div>

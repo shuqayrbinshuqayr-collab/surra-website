@@ -1,11 +1,10 @@
 /* ============================================================
-   Home Page — سُرّة
-   Font: TheYearofHandicrafts
-     h1 / hero display: weight 900 (Black)
-     h2 / section titles: weight 700 (Bold)
-     h3 / card titles: weight 600 (SemiBold)
-     body / descriptions: weight 500 (Medium)
-     labels / meta: weight 400 (Regular)
+   Home Page — سُرّة | SURRAH
+   Brand Identity:
+     - Hero: real event photo (Artboard1@2x) as full-bleed background
+     - Colors: #1C2B3A (navy), #B5453A (terracotta), #F0EBE1 (cream)
+     - Pattern: Wallpaper1 brand mark used as decorative element
+     - Logo: official calligraphic image
    ============================================================ */
 
 import { useEffect, useRef } from "react";
@@ -13,232 +12,630 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const HERO_BG = "/manus-storage/surra-hero-bg_a31f141f.jpg";
-const CTA_BG = "/manus-storage/surra-cta-bg_587fcd97.jpg";
-const ABOUT_BG = "/manus-storage/surra-about-bg_9b961487.jpg";
-const F = "'TheYearofHandicrafts', sans-serif";
-
-const services = [
-  {
-    number: "٠١",
-    title: "صناعة المجتمعات",
-    desc: "نصمم المجتمعات من الجذور لا من الواجهة",
-    detail: "بناء هوية المجتمع، تحديد الفئة المستهدفة، الهيكلة والتنظيم، خطط التشغيل والاستدامة.",
-  },
-  {
-    number: "٠٢",
-    title: "إنشاء البرامج الثقافية",
-    desc: "نحول المحتوى إلى تجربة",
-    detail: "برامج حوارية، سلاسل معرفية، تجارب ثقافية متخصصة.",
-  },
-  {
-    number: "٠٣",
-    title: "تنظيم الفعاليات الحية",
-    desc: "نصمم الفعالية كرحلة لا كموعد",
-    detail: "تصميم التجربة، إدارة الحدث وتشغيله، إدارة الحضور، التوثيق.",
-  },
-  {
-    number: "٠٤",
-    title: "توفير الجمهور المستهدف",
-    desc: "نوصل الرسالة إلى من يهمه سماعها",
-    detail: "بناء مجتمعات متخصصة، إدارة قواعد الجمهور، ربط العلامات التجارية بجمهورها الحقيقي.",
-  },
-];
-
-const communities = [
-  { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "oklch(0.72 0.12 75)" },
-  { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول في القطاعات الرقمية والهندسية.", color: "oklch(0.65 0.08 200)" },
-  { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "oklch(0.70 0.10 320)" },
-  { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "oklch(0.68 0.09 160)" },
-  { name: "مقام", nameEn: "Maqam", desc: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته على الوصول.", color: "oklch(0.72 0.12 75)" },
-];
-
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.15 }
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1 }
     );
-    el.querySelectorAll(".reveal").forEach((e) => observer.observe(e));
+    el.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
   return ref;
 }
 
+const services = [
+  {
+    num: "٠١",
+    title: "صناعة المجتمعات",
+    desc: "نصمم المجتمعات من الجذور لا من الواجهة. بناء هوية المجتمع، تحديد الفئة المستهدفة، الهيكلة والتنظيم، خطط التشغيل والاستدامة.",
+    href: "/services#communities",
+  },
+  {
+    num: "٠٢",
+    title: "إنشاء البرامج الثقافية",
+    desc: "نحول المحتوى إلى تجربة. برامج حوارية، سلاسل معرفية، تجارب ثقافية متخصصة.",
+    href: "/services#programs",
+  },
+  {
+    num: "٠٣",
+    title: "تنظيم الفعاليات الحية",
+    desc: "نصمم الفعالية كرحلة لا كموعد. تصميم التجربة، إدارة الحدث وتشغيله، إدارة الحضور، التوثيق.",
+    href: "/services#events",
+  },
+  {
+    num: "٠٤",
+    title: "توفير الجمهور المستهدف",
+    desc: "نوصل الرسالة إلى من يهمه سماعها. بناء مجتمعات متخصصة، إدارة قواعد الجمهور، ربط العلامات التجارية بجمهورها الحقيقي.",
+    href: "/services#audience",
+  },
+];
+
+const communities = [
+  { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "#B5453A" },
+  { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.", color: "#27486A" },
+  { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "#7B4F8E" },
+  { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "#1C6B4A" },
+  { name: "مقام", nameEn: "Maqam", desc: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته.", color: "#8B6914" },
+];
+
+const whyPoints = [
+  { num: "١", text: "لأن الأثر أطول من الحدث" },
+  { num: "٢", text: "لأن الإنسان هو البداية" },
+  { num: "٣", text: "لأن الاستدامة تُبنى من الداخل" },
+];
+
 export default function Home() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "oklch(0.08 0.01 60)", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
       <Navbar />
 
-      {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "oklch(0.06 0.01 60)" }}>
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${HERO_BG})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.45 }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, oklch(0.06 0.01 60 / 60%) 0%, oklch(0.06 0.01 60 / 20%) 40%, oklch(0.06 0.01 60 / 70%) 80%, oklch(0.06 0.01 60) 100%)" }} />
+      {/* ── HERO SECTION ── */}
+      <section
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          overflow: "hidden",
+        }}
+      >
+        {/* Background photo */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/manus-storage/Artboard2@2x_96adcf84.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        {/* Dark overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(135deg, rgba(28, 43, 58, 0.88) 0%, rgba(28, 43, 58, 0.65) 60%, rgba(28, 43, 58, 0.40) 100%)",
+          }}
+        />
+        {/* Brand pattern overlay (Wallpaper1 — geometric mark) */}
+        <div
+          style={{
+            position: "absolute",
+            left: "-60px",
+            bottom: "-40px",
+            width: "380px",
+            height: "380px",
+            backgroundImage: "url('/manus-storage/Wallpaper1_a9f6821c.png')",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "bottom left",
+            opacity: 0.06,
+          }}
+        />
 
-        <div className="relative z-10 container text-center">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-sm mb-6 animate-fade-in" style={{ color: "oklch(0.72 0.12 75)", fontFamily: F, fontWeight: 400, letterSpacing: "0.2em", opacity: 0 }}>
-              كيان سعودي ثقافي
+        {/* Hero Content */}
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px" }}>
+          <div style={{ maxWidth: "680px" }}>
+            <p
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                fontWeight: 600,
+                fontSize: "0.75rem",
+                color: "#B5453A",
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+                marginBottom: "1.5rem",
+              }}
+            >
+              SURRAH — كيان سعودي ثقافي
             </p>
-            <h1 className="animate-fade-in-up" style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(2.5rem, 7vw, 5.5rem)", color: "oklch(0.97 0.01 80)", lineHeight: 1.25, marginBottom: "1.5rem", opacity: 0, animationDelay: "0.2s" }}>
+            <h1
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 900,
+                fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                color: "#FAF8F4",
+                lineHeight: 1.15,
+                marginBottom: "1.5rem",
+              }}
+            >
               نصنع المجتمعات
               <br />
-              <span style={{ color: "oklch(0.72 0.12 75)" }}>ونمنح الأفكار حياة…</span>
+              <span style={{ color: "#F0EBE1", fontWeight: 700 }}>ونمنح الأفكار حياة</span>
             </h1>
-            <p className="text-lg mb-10 animate-fade-in-up" style={{ color: "oklch(0.70 0.01 80)", fontFamily: F, fontWeight: 500, maxWidth: "600px", margin: "0 auto 2.5rem", lineHeight: 1.8, opacity: 0, animationDelay: "0.4s" }}>
-              تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام
+            <p
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 400,
+                fontSize: "1.05rem",
+                color: "rgba(240, 235, 225, 0.8)",
+                lineHeight: 2,
+                maxWidth: "520px",
+                marginBottom: "2.5rem",
+              }}
+            >
+              تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام.
             </p>
-            <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in-up" style={{ opacity: 0, animationDelay: "0.6s" }}>
-              <Link href="/join" className="btn-gold-filled text-base px-8 py-3.5">أنشئ مجتمعك</Link>
-              <Link href="/about" className="btn-gold text-base px-8 py-3.5">تعرّف على سُرّة</Link>
+            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+              <Link href="/join" className="btn-surrah-red">
+                أنشئ مجتمعك
+              </Link>
+              <Link
+                href="/about"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "transparent",
+                  color: "#F0EBE1",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "0.95rem",
+                  padding: "0.75rem 2rem",
+                  border: "2px solid rgba(240, 235, 225, 0.5)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "#F0EBE1";
+                  (e.currentTarget as HTMLElement).style.background = "rgba(240, 235, 225, 0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(240, 235, 225, 0.5)";
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                }}
+              >
+                تعرّف على سُرّة
+              </Link>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in" style={{ opacity: 0, animationDelay: "1s" }}>
-          <div className="w-px h-12" style={{ background: "linear-gradient(to bottom, oklch(0.72 0.12 75), transparent)" }} />
+        {/* Scroll indicator */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "2rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "0.5rem",
+            opacity: 0.5,
+          }}
+        >
+          <div style={{ width: "1px", height: "48px", background: "#F0EBE1", animation: "pulse 2s infinite" }} />
         </div>
       </section>
 
-      {/* ── Why Surra ── */}
-      <section className="py-24 md:py-32" style={{ background: "oklch(0.08 0.01 60)" }}>
+      {/* ── WHY SECTION ── */}
+      <section style={{ background: "#FAF8F4", padding: "6rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal">
-              <div className="gold-divider" />
-              <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 3.5rem)", color: "oklch(0.95 0.01 80)", lineHeight: 1.4, marginBottom: "1rem" }}>
+              <div className="surrah-divider" />
+              <h2
+                style={{
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "clamp(1.8rem, 4vw, 3rem)",
+                  color: "#1C2B3A",
+                  lineHeight: 1.3,
+                  marginBottom: "1.5rem",
+                }}
+              >
                 لماذا نصمم
-                <br />المجتمعات؟
+                <br />
+                <span style={{ color: "#B5453A" }}>المجتمعات؟</span>
               </h2>
+              <p
+                style={{
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1rem",
+                  color: "#5A6A7A",
+                  lineHeight: 2,
+                  maxWidth: "440px",
+                }}
+              >
+                لأن المجتمعات لا تنشأ صدفة. هي تُصمَّم بوعي، تُبنى بعمق، وتُشغَّل باستدامة.
+                سُرّة هي النقطة التي تنبثق منها الدوائر.
+              </p>
+              <Link href="/about" className="btn-surrah-outline" style={{ marginTop: "2rem" }}>
+                اعرف المزيد
+              </Link>
             </div>
-            <div className="space-y-8">
-              {[
-                { num: "١", text: "لأن الأثر أطول من الحدث" },
-                { num: "٢", text: "لأن الإنسان هو البداية" },
-                { num: "٣", text: "لأن الاستدامة تُبنى من الداخل" },
-              ].map((item, i) => (
-                <div key={i} className="reveal flex items-start gap-5" style={{ transitionDelay: `${i * 0.15}s` }}>
-                  <span style={{ fontFamily: F, fontWeight: 900, fontSize: "2rem", color: "oklch(0.72 0.12 75)", lineHeight: 1, flexShrink: 0, marginTop: "0.1rem" }}>{item.num}</span>
-                  <p style={{ fontFamily: F, fontWeight: 500, fontSize: "1.15rem", color: "oklch(0.80 0.01 80)", lineHeight: 1.7 }}>{item.text}</p>
+            <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+              {whyPoints.map((p, i) => (
+                <div
+                  key={p.num}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "1.5rem",
+                    padding: "1.5rem 0",
+                    borderBottom: i < whyPoints.length - 1 ? "1px solid rgba(28, 43, 58, 0.08)" : "none",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Montserrat, sans-serif",
+                      fontWeight: 800,
+                      fontSize: "2.5rem",
+                      color: "#B5453A",
+                      lineHeight: 1,
+                      minWidth: "3rem",
+                      opacity: 0.4,
+                    }}
+                  >
+                    {p.num}
+                  </span>
+                  <p
+                    style={{
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
+                      fontWeight: 600,
+                      fontSize: "1.1rem",
+                      color: "#1C2B3A",
+                      lineHeight: 1.6,
+                      paddingTop: "0.5rem",
+                    }}
+                  >
+                    {p.text}
+                  </p>
                 </div>
               ))}
-              <div className="reveal pt-4" style={{ transitionDelay: "0.45s" }}>
-                <Link href="/about" className="btn-gold">اعرف المزيد ←</Link>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Services Preview ── */}
-      <section className="py-24 md:py-32" style={{ background: "oklch(0.06 0.01 60)" }}>
+      {/* ── SERVICES SECTION ── */}
+      <section style={{ background: "#F0EBE1", padding: "6rem 0" }}>
         <div className="container">
-          <div className="reveal mb-16">
-            <div className="gold-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "oklch(0.95 0.01 80)", marginBottom: "0.75rem" }}>خدماتنا</h2>
-            <p style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.55 0.01 80)", fontSize: "1rem", maxWidth: "500px" }}>نرافقك من الفكرة حتى الاستدامة</p>
+          <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+            <div className="surrah-divider" />
+            <h2
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 900,
+                fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
+                color: "#1C2B3A",
+                marginBottom: "0.75rem",
+              }}
+            >
+              خدماتنا
+            </h2>
+            <p
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 400,
+                color: "#5A6A7A",
+                fontSize: "1rem",
+              }}
+            >
+              نرافقك من الفكرة حتى الاستدامة
+            </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "oklch(0.25 0.02 75 / 15%)" }}>
-            {services.map((service, i) => (
-              <div
-                key={i}
-                className="reveal p-8 md:p-10 transition-all duration-300"
-                style={{ background: "oklch(0.08 0.01 60)", transitionDelay: `${i * 0.1}s` }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.11 0.01 60)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.08 0.01 60)"; }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {services.map((s, i) => (
+              <Link
+                key={s.num}
+                href={s.href}
+                className="reveal"
+                style={{
+                  display: "block",
+                  padding: "2.5rem",
+                  background: i % 2 === 0 ? "#FFFFFF" : "#F8F4EE",
+                  borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
+                  borderLeft: i % 2 === 0 ? "none" : "1px solid rgba(28, 43, 58, 0.08)",
+                  textDecoration: "none",
+                  transition: "background 0.25s ease",
+                  transitionDelay: `${i * 0.1}s`,
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#EDE8E0")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = i % 2 === 0 ? "#FFFFFF" : "#F8F4EE")}
               >
-                <span className="block mb-4 text-sm" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.72 0.12 75)", letterSpacing: "0.1em" }}>{service.number}</span>
-                <h3 className="mb-3" style={{ fontFamily: F, fontWeight: 600, fontSize: "1.4rem", color: "oklch(0.92 0.01 80)" }}>{service.title}</h3>
-                <p className="mb-4 text-base" style={{ fontFamily: F, fontWeight: 500, color: "oklch(0.72 0.12 75)", fontStyle: "italic" }}>{service.desc}</p>
-                <p className="text-sm leading-relaxed" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.55 0.01 80)", lineHeight: 1.8 }}>{service.detail}</p>
-              </div>
+                <span
+                  style={{
+                    fontFamily: "Montserrat, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.75rem",
+                    color: "#B5453A",
+                    letterSpacing: "0.15em",
+                    display: "block",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {s.num}
+                </span>
+                <h3
+                  style={{
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1.2rem",
+                    color: "#1C2B3A",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "0.9rem",
+                    color: "#5A6A7A",
+                    lineHeight: 1.9,
+                  }}
+                >
+                  {s.desc}
+                </p>
+              </Link>
             ))}
           </div>
-
-          <div className="reveal mt-10 text-center">
-            <Link href="/services" className="btn-gold">استكشف خدماتنا ←</Link>
+          <div className="reveal" style={{ marginTop: "2.5rem", textAlign: "center" }}>
+            <Link href="/services" className="btn-surrah-primary">
+              استكشف خدماتنا
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Communities ── */}
-      <section className="py-24 md:py-32" style={{ background: "oklch(0.08 0.01 60)" }}>
+      {/* ── COMMUNITIES SECTION ── */}
+      <section style={{ background: "#FAF8F4", padding: "6rem 0" }}>
         <div className="container">
-          <div className="reveal mb-16">
-            <div className="gold-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "oklch(0.95 0.01 80)", marginBottom: "0.75rem" }}>مجتمعاتنا</h2>
-            <p style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.55 0.01 80)", fontSize: "1rem", maxWidth: "500px" }}>
+          <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+            <div className="surrah-divider" />
+            <h2
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 900,
+                fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
+                color: "#1C2B3A",
+                marginBottom: "0.75rem",
+              }}
+            >
+              مجتمعاتنا
+            </h2>
+            <p
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 400,
+                color: "#5A6A7A",
+                fontSize: "1rem",
+                maxWidth: "500px",
+              }}
+            >
               تضم سُرّة تحت مظلتها مجتمعات مستقلة، لكل منها هويتها وتجربتها، وتجمعها فلسفة واحدة: العمق.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {communities.map((community, i) => (
-              <div
-                key={i}
-                className="reveal p-6 transition-all duration-400 cursor-pointer"
-                style={{ background: "oklch(0.10 0.01 60)", border: "1px solid oklch(0.25 0.02 75 / 20%)", transitionDelay: `${i * 0.08}s` }}
-                onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = community.color; el.style.background = "oklch(0.13 0.01 60)"; }}
-                onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "oklch(0.25 0.02 75 / 20%)"; el.style.background = "oklch(0.10 0.01 60)"; }}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+            {communities.map((c, i) => (
+              <Link
+                key={c.name}
+                href="/communities"
+                className="reveal"
+                style={{
+                  display: "block",
+                  padding: "2rem 1.5rem",
+                  background: "#FFFFFF",
+                  borderLeft: `3px solid ${c.color}`,
+                  borderBottom: "1px solid rgba(28, 43, 58, 0.06)",
+                  borderRight: "1px solid rgba(28, 43, 58, 0.06)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                  transitionDelay: `${i * 0.08}s`,
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "#F8F4EE";
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "#FFFFFF";
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                }}
               >
-                <h3 className="text-2xl mb-1" style={{ fontFamily: F, fontWeight: 900, color: community.color }}>{community.name}</h3>
-                <p className="text-xs mb-3" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.45 0.01 80)", letterSpacing: "0.05em" }}>{community.nameEn}</p>
-                <p className="text-sm leading-relaxed" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.60 0.01 80)", lineHeight: 1.7 }}>{community.desc}</p>
-              </div>
+                <h3
+                  style={{
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: 900,
+                    fontSize: "1.8rem",
+                    color: c.color,
+                    marginBottom: "0.25rem",
+                  }}
+                >
+                  {c.name}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Montserrat, sans-serif",
+                    fontSize: "0.7rem",
+                    color: "#9AAABB",
+                    letterSpacing: "0.12em",
+                    marginBottom: "0.75rem",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {c.nameEn}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "0.82rem",
+                    color: "#5A6A7A",
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {c.desc}
+                </p>
+              </Link>
             ))}
           </div>
-
-          <div className="reveal mt-10 text-center">
-            <Link href="/communities" className="btn-gold">تعرّف على مجتمعاتنا ←</Link>
+          <div className="reveal" style={{ marginTop: "2.5rem", textAlign: "center" }}>
+            <Link href="/communities" className="btn-surrah-outline">
+              تعرّف على مجتمعاتنا
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── About BG Section ── */}
-      <section className="relative py-32 overflow-hidden" style={{ background: "oklch(0.06 0.01 60)" }}>
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${ABOUT_BG})`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.25 }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, oklch(0.06 0.01 60 / 90%) 0%, oklch(0.06 0.01 60 / 50%) 100%)" }} />
-        <div className="relative z-10 container">
-          <div className="max-w-2xl reveal">
-            <div className="gold-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 3.5rem)", color: "oklch(0.97 0.01 80)", lineHeight: 1.4, marginBottom: "1.5rem" }}>
+      {/* ── EVENTS GALLERY STRIP ── */}
+      <section style={{ background: "#1C2B3A", padding: "0", overflow: "hidden" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", height: "420px" }}>
+          <div
+            style={{
+              backgroundImage: "url('/manus-storage/Artboard2copy@2x_cbab6746.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              position: "relative",
+            }}
+          >
+            <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.4)" }} />
+            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#FAF8F4" }}>
+              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
+                فعاليات حية
+              </p>
+              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
+                تجارب ثقافية أصيلة
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: "url('/manus-storage/Artboard1copy@2x_2c9b6cef.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              position: "relative",
+            }}
+          >
+            <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.35)" }} />
+            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#FAF8F4" }}>
+              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
+                مؤتمرات وملتقيات
+              </p>
+              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
+                الأثر الثقافي والاستثمار
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA SECTION ── */}
+      <section
+        style={{
+          position: "relative",
+          background: "#B5453A",
+          padding: "6rem 0",
+          overflow: "hidden",
+        }}
+      >
+        {/* Brand pattern watermark */}
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "500px",
+            height: "500px",
+            backgroundImage: "url('/manus-storage/Wallpaper1_a9f6821c.png')",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            opacity: 0.06,
+          }}
+        />
+        <div className="container" style={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+          <div className="reveal max-w-2xl mx-auto">
+            <h2
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 900,
+                fontSize: "clamp(1.8rem, 4vw, 3rem)",
+                color: "#FAF8F4",
+                lineHeight: 1.3,
+                marginBottom: "1.25rem",
+              }}
+            >
               نبني سرداً ثقافياً ملهماً
-              <br /><span style={{ color: "oklch(0.72 0.12 75)" }}>يعكس قيمنا الأصيلة</span>
+              <br />
+              يعكس قيمنا الأصيلة
             </h2>
-            <p className="mb-8 text-lg" style={{ fontFamily: F, fontWeight: 500, color: "oklch(0.70 0.01 80)", lineHeight: 1.8 }}>
+            <p
+              style={{
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 400,
+                fontSize: "1rem",
+                color: "rgba(250, 248, 244, 0.85)",
+                lineHeight: 2,
+                marginBottom: "2.5rem",
+              }}
+            >
               هل لديك فكرة تستحق أن تصبح مجتمعاً؟
             </p>
-            <Link href="/join" className="btn-gold-filled text-base px-8 py-3.5">ابدأ الحديث معنا ←</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Final CTA ── */}
-      <section className="relative py-32 overflow-hidden" style={{ background: "oklch(0.06 0.01 60)" }}>
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${CTA_BG})`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.20 }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, oklch(0.06 0.01 60 / 70%), oklch(0.06 0.01 60 / 80%))" }} />
-        <div className="relative z-10 container text-center">
-          <div className="reveal max-w-2xl mx-auto">
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "oklch(0.97 0.01 80)", lineHeight: 1.4, marginBottom: "1.5rem" }}>
-              لأن المجتمعات لا تنشأ صدفة…
-              <br /><span style={{ color: "oklch(0.72 0.12 75)" }}>سُرّة</span>
-            </h2>
-            <p className="mb-10 text-base" style={{ fontFamily: F, fontWeight: 400, color: "oklch(0.65 0.01 80)", lineHeight: 1.8 }}>
-              تُصمَّم بوعي، تُبنى بعمق، وتُشغَّل باستدامة.
-            </p>
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              <Link href="/join" className="btn-gold-filled text-base px-8 py-3.5">أنشئ مجتمعك</Link>
-              <Link href="/contact" className="btn-gold text-base px-8 py-3.5">تواصل معنا</Link>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link
+                href="/contact"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  background: "#FAF8F4",
+                  color: "#B5453A",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.95rem",
+                  padding: "0.85rem 2.5rem",
+                  border: "2px solid #FAF8F4",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                  (e.currentTarget as HTMLElement).style.color = "#FAF8F4";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "#FAF8F4";
+                  (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                }}
+              >
+                ابدأ الحديث معنا
+              </Link>
+              <Link
+                href="/join"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  background: "transparent",
+                  color: "#FAF8F4",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "0.95rem",
+                  padding: "0.85rem 2.5rem",
+                  border: "2px solid rgba(250, 248, 244, 0.5)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "#FAF8F4";
+                  (e.currentTarget as HTMLElement).style.background = "rgba(250, 248, 244, 0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(250, 248, 244, 0.5)";
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                }}
+              >
+                أنشئ مجتمعك
+              </Link>
             </div>
           </div>
         </div>
