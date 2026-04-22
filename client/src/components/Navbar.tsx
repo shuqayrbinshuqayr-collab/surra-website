@@ -56,7 +56,7 @@ export default function Navbar() {
             <img
               src="/manus-storage/Surrah-White_308323ba.png"
               alt="سُرّة SURRAH"
-              style={{ height: "52px", width: "auto", objectFit: "contain" }}
+              style={{ height: '95px', width: "auto", objectFit: "contain" }}
             />
           </Link>
 
