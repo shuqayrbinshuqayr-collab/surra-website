@@ -70,7 +70,7 @@ export default function Navbar() {
                   onClick={(e) => handlePlaceholderClick(e, link.label)}
                   style={{
                     fontFamily: F,
-                    fontWeight: 500,
+                    fontWeight: 700,
                     fontSize: "18px",
                     color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
@@ -88,7 +88,7 @@ export default function Navbar() {
                   href={link.href}
                   style={{
                     fontFamily: F,
-                    fontWeight: 500,
+                    fontWeight: 700,
                     fontSize: "18px",
                     color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
