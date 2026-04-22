@@ -1,6 +1,7 @@
 /* ============================================================
    Navbar — سُرّة | SURRAH
-   Layout (LTR visual order): Logo (left) | Nav Links (center) | CTA Button (right)
+   Layout (LTR visual order): CTA Button (left) | Nav Links (center) | Logo (right)
+   In RTL: Logo appears on the right, CTA on the left
    Nav order: من نحن | مجتمعاتنا | خدماتنا | أنشئ مجتمعك | المركز الاعلامي | عضويات
    ============================================================ */
 
@@ -50,16 +51,14 @@ export default function Navbar() {
       <div className="container">
         <nav className="flex items-center justify-between" style={{ height: "72px" }}>
 
-          {/* RIGHT: CTA Button — separated, on the far left in RTL = far right visually */}
-          <div className="hidden md:flex items-center flex-shrink-0">
-            <Link
-              href="/join"
-              className="btn-surrah-primary"
-              style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem" }}
-            >
-              أنشئ مجتمعك
-            </Link>
-          </div>
+          {/* LEFT: Official Logo — on the far left visually */}
+          <Link href="/" className="flex-shrink-0">
+            <img
+              src="/manus-storage/Surrah-Black_97bb663c.png"
+              alt="سُرّة SURRAH"
+              style={{ height: "36px", width: "auto", objectFit: "contain" }}
+            />
+          </Link>
 
           {/* CENTER: Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
@@ -115,14 +114,16 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* LEFT: Official Logo — on the far right in RTL = far left visually */}
-          <Link href="/" className="flex-shrink-0">
-            <img
-              src="/manus-storage/Surrah-Black_97bb663c.png"
-              alt="سُرّة SURRAH"
-              style={{ height: "36px", width: "auto", objectFit: "contain" }}
-            />
-          </Link>
+          {/* RIGHT: CTA Button — on the far right visually */}
+          <div className="hidden md:flex items-center flex-shrink-0">
+            <Link
+              href="/join"
+              className="btn-surrah-primary"
+              style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem" }}
+            >
+              أنشئ مجتمعك
+            </Link>
+          </div>
 
           {/* Mobile Toggle */}
           <button
