@@ -17,7 +17,7 @@ const navLinks = [
   { href: "/membership", label: "عضويات", placeholder: true },
 ];
 
-const F = "'Rakik', sans-serif";
+const F = "'ManchetteFine', sans-serif";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

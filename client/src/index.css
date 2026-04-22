@@ -9,7 +9,7 @@
      - Off-White:    #FAF8F4  (page background)
      - Deep Blue:    #27486A  (secondary brand)
    
-   Font: Rakik (all text — Regular/Medium/SemiBold/Bold)
+   Font: ManchetteFine (all text — Thin)
    Direction: RTL
    ============================================================ */
 
@@ -18,31 +18,38 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Custom Font: Rakik ── */
+/* ── Custom Font: ManchetteFine ── */
 @font-face {
-  font-family: 'Rakik';
-  src: url('/manus-storage/Rakik-Regular_ede5ae15.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Thin_dc77640e.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Thin_dc77640e.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Rakik';
-  src: url('/manus-storage/Rakik-Medium_11ca7096.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Thin_dc77640e.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Rakik';
-  src: url('/manus-storage/Rakik-SemiBold_f569ab9e.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Thin_dc77640e.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Rakik';
-  src: url('/manus-storage/Rakik-Bold_ea12866f.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Thin_dc77640e.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -116,7 +123,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Rakik', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
@@ -161,7 +168,7 @@
     gap: 0.5rem;
     background-color: #1C2B3A;
     color: #F0EBE1;
-    font-family: 'Rakik', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
@@ -183,7 +190,7 @@
     gap: 0.5rem;
     background-color: transparent;
     color: #1C2B3A;
-    font-family: 'Rakik', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
@@ -205,7 +212,7 @@
     gap: 0.5rem;
     background-color: #B5453A;
     color: #FAF8F4;
-    font-family: 'Rakik', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;

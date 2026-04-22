@@ -147,7 +147,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
         </div>
         <p
           style={{
-            fontFamily: "'Rakik', sans-serif",
+            fontFamily: "'ManchetteFine', sans-serif",
             color: "#3D4F60",
             lineHeight: 1.8,
           }}
@@ -165,7 +165,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
           <label
             className="block text-sm mb-1.5"
             style={{
-              fontFamily: "'Rakik', sans-serif",
+              fontFamily: "'ManchetteFine', sans-serif",
               color: "#6B7A8A",
             }}
           >
@@ -187,7 +187,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
                 background: "#F5F0E8",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
                 color: "#1C2B3A",
-                fontFamily: "'Rakik', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 outline: "none",
               }}
               onFocus={(e) => {
@@ -210,7 +210,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
                 background: "#F5F0E8",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
                 color: "#1C2B3A",
-                fontFamily: "'Rakik', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 outline: "none",
               }}
               onFocus={(e) => {
@@ -249,7 +249,7 @@ export default function Join() {
               className="text-sm mb-4 tracking-widest"
               style={{
                 color: "#B5453A",
-                fontFamily: "'Rakik', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 letterSpacing: "0.2em",
               }}
             >
@@ -257,7 +257,7 @@ export default function Join() {
             </p>
             <h1
               style={{
-                fontFamily: "'Rakik', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
                 color: "#1C2B3A",
@@ -269,7 +269,7 @@ export default function Join() {
             </h1>
             <p
               style={{
-                fontFamily: "'Rakik', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 color: "#7A8A9A",
                 fontSize: "1.05rem",
                 lineHeight: 1.8,
@@ -310,7 +310,7 @@ export default function Join() {
                 <h3
                   className="font-semibold mb-1"
                   style={{
-                    fontFamily: "'Rakik', sans-serif",
+                    fontFamily: "'ManchetteFine', sans-serif",
                     color:
                       activeOption === option.id
                         ? "#B5453A"
@@ -323,7 +323,7 @@ export default function Join() {
                 <p
                   className="text-xs"
                   style={{
-                    fontFamily: "'Rakik', sans-serif",
+                    fontFamily: "'ManchetteFine', sans-serif",
                     color: "#6B7A8A",
                     lineHeight: 1.6,
                   }}
@@ -351,7 +351,7 @@ export default function Join() {
                   <span className="text-3xl block mb-2">{option.icon}</span>
                   <h2
                     style={{
-                      fontFamily: "'Rakik', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
                       color: "#1C2B3A",
@@ -362,7 +362,7 @@ export default function Join() {
                   </h2>
                   <p
                     style={{
-                      fontFamily: "'Rakik', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       color: "#7A8A9A",
                       fontSize: "0.9rem",
                       lineHeight: 1.7,
@@ -387,7 +387,7 @@ export default function Join() {
             <div className="text-center py-8 reveal">
               <p
                 style={{
-                  fontFamily: "'Rakik', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   color: "#9AAABB",
                   fontSize: "0.95rem",
                 }}
@@ -405,7 +405,7 @@ export default function Join() {
           <div className="reveal max-w-lg mx-auto">
             <p
               style={{
-                fontFamily: "'Rakik', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "1.1rem",
                 color: "#6B7A8A",
                 lineHeight: 1.8,

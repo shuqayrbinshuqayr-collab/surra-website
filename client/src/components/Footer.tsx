@@ -1,6 +1,6 @@
 /* ============================================================
    Footer Component — سُرّة
-   Font: Rakik
+   Font: ManchetteFine
      - Brand name: weight 900 (Black)
      - Section headings: weight 700 (Bold)
      - Links & body: weight 400 (Regular)
@@ -37,7 +37,7 @@ const socialLinks = [
   { href: "#", label: "لينكدإن", icon: "in" },
 ];
 
-const fontBase = "'Rakik', sans-serif";
+const fontBase = "'ManchetteFine', sans-serif";
 
 export default function Footer() {
   return (
