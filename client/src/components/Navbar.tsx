@@ -75,18 +75,9 @@ export default function Navbar() {
                     color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
-                    transition: "color 0.2s ease",
                     borderBottom: "2px solid transparent",
                     paddingBottom: "2px",
                     cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#E8A89C";
-                    (e.currentTarget as HTMLElement).style.opacity = "1";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
-                    (e.currentTarget as HTMLElement).style.opacity = "0.75";
                   }}
                 >
                   {link.label}
@@ -97,13 +88,12 @@ export default function Navbar() {
                   href={link.href}
                   style={{
                     fontFamily: F,
-                    fontWeight: location === link.href ? 700 : 500,
+                    fontWeight: 500,
                     fontSize: "16px",
-                    color: location === link.href ? "#ffffff" : "rgba(255,255,255,0.85)",
+                    color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
-                    transition: "color 0.2s ease",
-                    borderBottom: location === link.href ? "2px solid #ffffff" : "2px solid transparent",
+                    borderBottom: "2px solid transparent",
                     paddingBottom: "2px",
                   }}
                 >
