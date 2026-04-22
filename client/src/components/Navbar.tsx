@@ -49,14 +49,14 @@ export default function Navbar() {
       }}
     >
       <div className="container">
-        <nav className="flex items-center justify-between" style={{ height: "72px" }}>
+        <nav className="flex items-center justify-between" style={{ height: "96px" }}>
 
           {/* LEFT: Official Logo — on the far left visually, close to edge */}
           <Link href="/" className="flex-shrink-0" style={{ marginRight: "-0.5rem" }}>
             <img
               src="/manus-storage/Surrah-White_308323ba.png"
               alt="سُرّة SURRAH"
-              style={{ height: "36px", width: "auto", objectFit: "contain" }}
+              style={{ height: "52px", width: "auto", objectFit: "contain" }}
             />
           </Link>
 
@@ -71,7 +71,7 @@ export default function Navbar() {
                   style={{
                     fontFamily: F,
                     fontWeight: 500,
-                    fontSize: "16px",
+                    fontSize: "18px",
                     color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
@@ -89,7 +89,7 @@ export default function Navbar() {
                   style={{
                     fontFamily: F,
                     fontWeight: 500,
-                    fontSize: "16px",
+                    fontSize: "18px",
                     color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
@@ -108,7 +108,7 @@ export default function Navbar() {
             <Link
               href="/join"
               className="btn-surrah-primary"
-              style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem", color: '#000000', backgroundColor: '#ffffff' }}
+              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: '#000000', backgroundColor: '#ffffff' }}
             >
               أنشئ مجتمعك
             </Link>
