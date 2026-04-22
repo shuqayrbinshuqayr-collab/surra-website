@@ -1,18 +1,21 @@
 /* ============================================================
    Navbar — سُرّة | SURRAH
    Brand: cream/off-white background, dark navy text, official logo image
+   Nav order (RTL): من نحن | مجتمعاتنا | خدماتنا | أنشئ مجتمعك | المركز الاعلامي | عضويات
+   CTA button "أنشئ مجتمعك" separated on the left side
    ============================================================ */
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { toast } from "sonner";
 
 const navLinks = [
-  { href: "/", label: "الرئيسية" },
   { href: "/about", label: "من نحن" },
-  { href: "/services", label: "خدماتنا" },
   { href: "/communities", label: "مجتمعاتنا" },
+  { href: "/services", label: "خدماتنا" },
   { href: "/join", label: "أنشئ مجتمعك" },
-  { href: "/contact", label: "تواصل معنا" },
+  { href: "/media", label: "المركز الاعلامي", placeholder: true },
+  { href: "/membership", label: "عضويات", placeholder: true },
 ];
 
 export default function Navbar() {
@@ -28,6 +31,11 @@ export default function Navbar() {
 
   useEffect(() => { setMenuOpen(false); }, [location]);
 
+  const handlePlaceholderClick = (e: React.MouseEvent, label: string) => {
+    e.preventDefault();
+    toast.info(`${label} — قريباً`);
+  };
+
   return (
     <header
       className="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
@@ -40,45 +48,79 @@ export default function Navbar() {
     >
       <div className="container">
         <nav className="flex items-center justify-between" style={{ height: "72px" }}>
-          {/* Official Logo */}
+
+          {/* LEFT: CTA Button (separated, on the far left) */}
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/join"
+              className="btn-surrah-primary"
+              style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem" }}
+            >
+              أنشئ مجتمعك
+            </Link>
+          </div>
+
+          {/* CENTER: Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
+            {navLinks.map((link) => (
+              link.placeholder ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handlePlaceholderClick(e, link.label)}
+                  style={{
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: 500,
+                    fontSize: "0.88rem",
+                    color: "#1C2B3A",
+                    textDecoration: "none",
+                    letterSpacing: "0.02em",
+                    transition: "color 0.2s ease",
+                    borderBottom: "2px solid transparent",
+                    paddingBottom: "2px",
+                    cursor: "pointer",
+                    opacity: 0.75,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                    (e.currentTarget as HTMLElement).style.opacity = "1";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#1C2B3A";
+                    (e.currentTarget as HTMLElement).style.opacity = "0.75";
+                  }}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: location === link.href ? 700 : 500,
+                    fontSize: "0.88rem",
+                    color: location === link.href ? "#B5453A" : "#1C2B3A",
+                    textDecoration: "none",
+                    letterSpacing: "0.02em",
+                    transition: "color 0.2s ease",
+                    borderBottom: location === link.href ? "2px solid #B5453A" : "2px solid transparent",
+                    paddingBottom: "2px",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              )
+            ))}
+          </div>
+
+          {/* RIGHT: Official Logo */}
           <Link href="/" className="flex-shrink-0">
             <img
               src="/manus-storage/Surrah-Black_97bb663c.png"
               alt="سُرّة SURRAH"
               style={{ height: "36px", width: "auto", objectFit: "contain" }}
             />
-          </Link>
-
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-7 flex-1 justify-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                style={{
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
-                  fontWeight: location === link.href ? 700 : 500,
-                  fontSize: "0.88rem",
-                  color: location === link.href ? "#B5453A" : "#1C2B3A",
-                  textDecoration: "none",
-                  letterSpacing: "0.02em",
-                  transition: "color 0.2s ease",
-                  borderBottom: location === link.href ? "2px solid #B5453A" : "2px solid transparent",
-                  paddingBottom: "2px",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <Link
-            href="/join"
-            className="hidden md:inline-flex btn-surrah-primary"
-            style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem" }}
-          >
-            أنشئ مجتمعك
           </Link>
 
           {/* Mobile Toggle */}
@@ -106,31 +148,54 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div
           className="md:hidden overflow-hidden transition-all duration-300"
-          style={{ maxHeight: menuOpen ? "420px" : "0", opacity: menuOpen ? 1 : 0 }}
+          style={{ maxHeight: menuOpen ? "500px" : "0", opacity: menuOpen ? 1 : 0 }}
         >
           <div
             className="flex flex-col pb-6 pt-2 border-t"
             style={{ borderColor: "rgba(28, 43, 58, 0.1)" }}
           >
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                style={{
-                  display: "block",
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
-                  fontWeight: location === link.href ? 700 : 500,
-                  fontSize: "1rem",
-                  color: location === link.href ? "#B5453A" : "#1C2B3A",
-                  textDecoration: "none",
-                  padding: "0.75rem 0",
-                  borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
-                  borderRight: location === link.href ? "3px solid #B5453A" : "3px solid transparent",
-                  paddingRight: "0.75rem",
-                }}
-              >
-                {link.label}
-              </Link>
+              link.placeholder ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handlePlaceholderClick(e, link.label)}
+                  style={{
+                    display: "block",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: 500,
+                    fontSize: "1rem",
+                    color: "#1C2B3A",
+                    textDecoration: "none",
+                    padding: "0.75rem 0",
+                    borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
+                    borderRight: "3px solid transparent",
+                    paddingRight: "0.75rem",
+                    opacity: 0.75,
+                  }}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    display: "block",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontWeight: location === link.href ? 700 : 500,
+                    fontSize: "1rem",
+                    color: location === link.href ? "#B5453A" : "#1C2B3A",
+                    textDecoration: "none",
+                    padding: "0.75rem 0",
+                    borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
+                    borderRight: location === link.href ? "3px solid #B5453A" : "3px solid transparent",
+                    paddingRight: "0.75rem",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <div style={{ marginTop: "1rem" }}>
               <Link href="/join" className="btn-surrah-primary" style={{ width: "100%", justifyContent: "center" }}>
