@@ -42,19 +42,19 @@ export default function Navbar() {
     <header
       className="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(250, 248, 244, 0.97)" : "rgba(250, 248, 244, 0.95)",
+        background: scrolled ? "rgba(10, 10, 10, 0.98)" : "rgba(10, 10, 10, 0.92)",
         backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid rgba(28, 43, 58, 0.12)" : "1px solid rgba(28, 43, 58, 0.06)",
-        boxShadow: scrolled ? "0 2px 20px rgba(28, 43, 58, 0.08)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0.04)",
+        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.4)" : "none",
       }}
     >
       <div className="container">
         <nav className="flex items-center justify-between" style={{ height: "72px" }}>
 
-          {/* LEFT: Official Logo — on the far left visually */}
-          <Link href="/" className="flex-shrink-0">
+          {/* LEFT: Official Logo — on the far left visually, close to edge */}
+          <Link href="/" className="flex-shrink-0" style={{ marginRight: "-0.5rem" }}>
             <img
-              src="/manus-storage/Surrah-Black_97bb663c.png"
+              src="/manus-storage/Surrah-White_e4e02c4c.png"
               alt="سُرّة SURRAH"
               style={{ height: "36px", width: "auto", objectFit: "contain" }}
             />
@@ -82,11 +82,11 @@ export default function Navbar() {
                     opacity: 0.75,
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                    (e.currentTarget as HTMLElement).style.color = "#E8A89C";
                     (e.currentTarget as HTMLElement).style.opacity = "1";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#1C2B3A";
+                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
                     (e.currentTarget as HTMLElement).style.opacity = "0.75";
                   }}
                 >
@@ -100,11 +100,11 @@ export default function Navbar() {
                     fontFamily: F,
                     fontWeight: location === link.href ? 700 : 500,
                     fontSize: "0.88rem",
-                    color: location === link.href ? "#B5453A" : "#1C2B3A",
+                      color: location === link.href ? "#E8A89C" : "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
                     transition: "color 0.2s ease",
-                    borderBottom: location === link.href ? "2px solid #B5453A" : "2px solid transparent",
+                    borderBottom: location === link.href ? "2px solid #E8A89C" : "2px solid transparent",
                     paddingBottom: "2px",
                   }}
                 >
@@ -114,8 +114,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* RIGHT: CTA Button — on the far right visually */}
-          <div className="hidden md:flex items-center flex-shrink-0">
+          {/* RIGHT: CTA Button — on the far right visually, close to edge */}
+          <div className="hidden md:flex items-center flex-shrink-0" style={{ marginLeft: "-0.5rem" }}>
             <Link
               href="/join"
               className="btn-surrah-primary"
@@ -136,7 +136,7 @@ export default function Navbar() {
                 key={i}
                 className="block w-6 h-0.5 transition-all duration-300"
                 style={{
-                  background: "#1C2B3A",
+                  background: "rgba(255,255,255,0.85)",
                   transform:
                     i === 0 && menuOpen ? "rotate(45deg) translate(4px, 4px)" :
                     i === 2 && menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
@@ -154,7 +154,7 @@ export default function Navbar() {
         >
           <div
             className="flex flex-col pb-6 pt-2 border-t"
-            style={{ borderColor: "rgba(28, 43, 58, 0.1)" }}
+            style={{ borderColor: "rgba(255,255,255,0.1)" }}
           >
             {navLinks.map((link) => (
               link.placeholder ? (
@@ -167,10 +167,10 @@ export default function Navbar() {
                     fontFamily: F,
                     fontWeight: 500,
                     fontSize: "1rem",
-                    color: "#1C2B3A",
+                    color: "rgba(255,255,255,0.75)",
                     textDecoration: "none",
                     padding: "0.75rem 0",
-                    borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
+                    borderBottom: "1px solid rgba(255,255,255,0.08)",
                     borderRight: "3px solid transparent",
                     paddingRight: "0.75rem",
                     opacity: 0.75,
@@ -187,11 +187,11 @@ export default function Navbar() {
                     fontFamily: F,
                     fontWeight: location === link.href ? 700 : 500,
                     fontSize: "1rem",
-                    color: location === link.href ? "#B5453A" : "#1C2B3A",
+                    color: location === link.href ? "#E8A89C" : "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     padding: "0.75rem 0",
-                    borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
-                    borderRight: location === link.href ? "3px solid #B5453A" : "3px solid transparent",
+                    borderBottom: "1px solid rgba(255,255,255,0.08)",
+                    borderRight: location === link.href ? "3px solid #E8A89C" : "3px solid transparent",
                     paddingRight: "0.75rem",
                   }}
                 >
