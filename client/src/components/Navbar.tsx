@@ -108,7 +108,7 @@ export default function Navbar() {
             <Link
               href="/join"
               className="btn-surrah-primary"
-              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: '#000000', backgroundColor: '#ffffff' }}
+              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: '#ffffff', backgroundColor: '#000000', border: '1px solid #ffffff' }}
             >
               أنشئ مجتمعك
             </Link>
