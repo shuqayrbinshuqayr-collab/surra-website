@@ -17,7 +17,7 @@ const navLinks = [
   { href: "/membership", label: "عضويات", placeholder: true },
 ];
 
-const F = "'TheYearofHandicrafts', sans-serif";
+const F = "'Rakik', sans-serif";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

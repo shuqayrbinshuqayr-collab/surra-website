@@ -126,7 +126,7 @@ export default function Home() {
 
             <h1
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
                 color: "#FAF8F4",
@@ -140,7 +140,7 @@ export default function Home() {
             </h1>
             <p
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 400,
                 fontSize: "1.05rem",
                 color: "rgba(240, 235, 225, 0.8)",
@@ -163,7 +163,7 @@ export default function Home() {
                   gap: "0.5rem",
                   background: "transparent",
                   color: "#F0EBE1",
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontFamily: "'Rakik', sans-serif",
                   fontWeight: 600,
                   fontSize: "0.95rem",
                   padding: "0.75rem 2rem",
@@ -212,7 +212,7 @@ export default function Home() {
               <div className="surrah-divider" />
               <h2
                 style={{
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontFamily: "'Rakik', sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.8rem, 4vw, 3rem)",
                   color: "#1C2B3A",
@@ -226,7 +226,7 @@ export default function Home() {
               </h2>
               <p
                 style={{
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontFamily: "'Rakik', sans-serif",
                   fontWeight: 400,
                   fontSize: "1rem",
                   color: "#5A6A7A",
@@ -255,7 +255,7 @@ export default function Home() {
                 >
                   <span
                     style={{
-                      fontFamily: "'TheYearofHandicrafts', sans-serif",
+                      fontFamily: "'Rakik', sans-serif",
                       fontWeight: 800,
                       fontSize: "2.5rem",
                       color: "#B5453A",
@@ -268,7 +268,7 @@ export default function Home() {
                   </span>
                   <p
                     style={{
-                      fontFamily: "'TheYearofHandicrafts', sans-serif",
+                      fontFamily: "'Rakik', sans-serif",
                       fontWeight: 600,
                       fontSize: "1.1rem",
                       color: "#1C2B3A",
@@ -292,7 +292,7 @@ export default function Home() {
             <div className="surrah-divider" />
             <h2
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
                 color: "#1C2B3A",
@@ -303,7 +303,7 @@ export default function Home() {
             </h2>
             <p
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 400,
                 color: "#5A6A7A",
                 fontSize: "1rem",
@@ -333,7 +333,7 @@ export default function Home() {
               >
                 <span
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: "'Rakik', sans-serif",
                     fontWeight: 700,
                     fontSize: "0.75rem",
                     color: "#B5453A",
@@ -346,7 +346,7 @@ export default function Home() {
                 </span>
                 <h3
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: "'Rakik', sans-serif",
                     fontWeight: 700,
                     fontSize: "1.2rem",
                     color: "#1C2B3A",
@@ -357,7 +357,7 @@ export default function Home() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: "'Rakik', sans-serif",
                     fontWeight: 400,
                     fontSize: "0.9rem",
                     color: "#5A6A7A",
@@ -384,7 +384,7 @@ export default function Home() {
             <div className="surrah-divider" />
             <h2
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
                 color: "#1C2B3A",
@@ -395,7 +395,7 @@ export default function Home() {
             </h2>
             <p
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 400,
                 color: "#5A6A7A",
                 fontSize: "1rem",
@@ -433,7 +433,7 @@ export default function Home() {
               >
                 <h3
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: "'Rakik', sans-serif",
                     fontWeight: 900,
                     fontSize: "1.8rem",
                     color: c.color,
@@ -444,7 +444,7 @@ export default function Home() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: "'Rakik', sans-serif",
                     fontSize: "0.7rem",
                     color: "#9AAABB",
                     letterSpacing: "0.12em",
@@ -456,7 +456,7 @@ export default function Home() {
                 </p>
                 <p
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: "'Rakik', sans-serif",
                     fontWeight: 400,
                     fontSize: "0.82rem",
                     color: "#5A6A7A",
@@ -489,10 +489,10 @@ export default function Home() {
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.4)" }} />
             <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#FAF8F4" }}>
-              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
+              <p style={{ fontFamily: "'Rakik', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 فعاليات حية
               </p>
-              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
+              <p style={{ fontFamily: "'Rakik', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
                 تجارب ثقافية أصيلة
               </p>
             </div>
@@ -507,10 +507,10 @@ export default function Home() {
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.35)" }} />
             <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#FAF8F4" }}>
-              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
+              <p style={{ fontFamily: "'Rakik', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 مؤتمرات وملتقيات
               </p>
-              <p style={{ fontFamily: "'TheYearofHandicrafts', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
+              <p style={{ fontFamily: "'Rakik', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
                 الأثر الثقافي والاستثمار
               </p>
             </div>
@@ -547,7 +547,7 @@ export default function Home() {
           <div className="reveal max-w-2xl mx-auto">
             <h2
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.8rem, 4vw, 3rem)",
                 color: "#FAF8F4",
@@ -561,7 +561,7 @@ export default function Home() {
             </h2>
             <p
               style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontFamily: "'Rakik', sans-serif",
                 fontWeight: 400,
                 fontSize: "1rem",
                 color: "rgba(250, 248, 244, 0.85)",
@@ -579,7 +579,7 @@ export default function Home() {
                   alignItems: "center",
                   background: "#FAF8F4",
                   color: "#B5453A",
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontFamily: "'Rakik', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",
@@ -605,7 +605,7 @@ export default function Home() {
                   alignItems: "center",
                   background: "transparent",
                   color: "#FAF8F4",
-                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontFamily: "'Rakik', sans-serif",
                   fontWeight: 600,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",

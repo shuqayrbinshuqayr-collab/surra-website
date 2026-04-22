@@ -1,6 +1,6 @@
 /* ============================================================
    Footer Component — سُرّة
-   Font: TheYearofHandicrafts
+   Font: Rakik
      - Brand name: weight 900 (Black)
      - Section headings: weight 700 (Bold)
      - Links & body: weight 400 (Regular)
@@ -37,7 +37,7 @@ const socialLinks = [
   { href: "#", label: "لينكدإن", icon: "in" },
 ];
 
-const fontBase = "'TheYearofHandicrafts', sans-serif";
+const fontBase = "'Rakik', sans-serif";
 
 export default function Footer() {
   return (
