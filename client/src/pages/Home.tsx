@@ -121,8 +121,8 @@ export default function Home() {
         />
 
         {/* Hero Content */}
-        <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px" }}>
-          <div style={{ maxWidth: "680px" }}>
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+          <div style={{ maxWidth: "680px", textAlign: "center" }}>
 
             <h1
               style={{
