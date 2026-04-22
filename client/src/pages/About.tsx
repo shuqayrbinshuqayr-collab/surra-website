@@ -78,7 +78,7 @@ export default function About() {
         <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "3.5rem" }}>
           <p
             style={{
-              fontFamily: "Montserrat, sans-serif",
+              fontFamily: "'TheYearofHandicrafts', sans-serif",
               fontWeight: 600,
               fontSize: "0.7rem",
               color: "#B5453A",
@@ -184,7 +184,7 @@ export default function About() {
             >
               <p
                 style={{
-                  fontFamily: "Montserrat, sans-serif",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.7rem",
                   color: "#B5453A",
@@ -230,7 +230,7 @@ export default function About() {
             >
               <p
                 style={{
-                  fontFamily: "Montserrat, sans-serif",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.7rem",
                   color: "#27486A",
@@ -352,7 +352,7 @@ export default function About() {
                 <span
                   style={{
                     display: "block",
-                    fontFamily: "Montserrat, sans-serif",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
                     fontWeight: 800,
                     fontSize: "2.5rem",
                     color: "#B5453A",

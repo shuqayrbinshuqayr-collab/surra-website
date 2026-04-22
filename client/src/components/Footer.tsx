@@ -80,7 +80,7 @@ export default function Footer() {
                   style={{
                     border: "1px solid rgba(240, 235, 225, 0.25)",
                     color: "rgba(240, 235, 225, 0.6)",
-                    fontFamily: "sans-serif",
+                    fontFamily: fontBase,
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor = "#B5453A";

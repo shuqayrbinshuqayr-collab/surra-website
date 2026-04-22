@@ -125,7 +125,7 @@ export default function Home() {
           <div style={{ maxWidth: "680px" }}>
             <p
               style={{
-                fontFamily: "Montserrat, sans-serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontWeight: 600,
                 fontSize: "0.75rem",
                 color: "#B5453A",
@@ -267,7 +267,7 @@ export default function Home() {
                 >
                   <span
                     style={{
-                      fontFamily: "Montserrat, sans-serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontWeight: 800,
                       fontSize: "2.5rem",
                       color: "#B5453A",
@@ -345,7 +345,7 @@ export default function Home() {
               >
                 <span
                   style={{
-                    fontFamily: "Montserrat, sans-serif",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
                     fontWeight: 700,
                     fontSize: "0.75rem",
                     color: "#B5453A",
@@ -456,7 +456,7 @@ export default function Home() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "Montserrat, sans-serif",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
                     fontSize: "0.7rem",
                     color: "#9AAABB",
                     letterSpacing: "0.12em",
