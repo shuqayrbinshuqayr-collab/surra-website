@@ -71,15 +71,14 @@ export default function Navbar() {
                   style={{
                     fontFamily: F,
                     fontWeight: 500,
-                    fontSize: "0.88rem",
-                    color: "#1C2B3A",
+                    fontSize: "16px",
+                    color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
                     transition: "color 0.2s ease",
                     borderBottom: "2px solid transparent",
                     paddingBottom: "2px",
                     cursor: "pointer",
-                    opacity: 0.75,
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.color = "#E8A89C";
@@ -99,12 +98,12 @@ export default function Navbar() {
                   style={{
                     fontFamily: F,
                     fontWeight: location === link.href ? 700 : 500,
-                    fontSize: "0.88rem",
-                      color: location === link.href ? "#E8A89C" : "rgba(255,255,255,0.85)",
+                    fontSize: "16px",
+                    color: location === link.href ? "#ffffff" : "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
                     transition: "color 0.2s ease",
-                    borderBottom: location === link.href ? "2px solid #E8A89C" : "2px solid transparent",
+                    borderBottom: location === link.href ? "2px solid #ffffff" : "2px solid transparent",
                     paddingBottom: "2px",
                   }}
                 >
