@@ -1,7 +1,9 @@
 /* ============================================================
    Navbar Component — سُرّة
-   Design: Dark sticky nav, transparent → solid on scroll
-   RTL Arabic layout, gold CTA button
+   Font: TheYearofHandicrafts
+     - Logo: weight 900 (Black)
+     - Nav links: weight 500 (Medium)
+     - CTA button: weight 700 (Bold) via .btn-gold
    ============================================================ */
 
 import { useState, useEffect } from "react";
@@ -48,11 +50,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <span
-              className="text-2xl font-bold tracking-wide"
               style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
+                fontWeight: 900,
+                fontSize: "1.6rem",
                 color: "oklch(0.72 0.12 75)",
                 letterSpacing: "0.05em",
+                lineHeight: 1,
               }}
             >
               سُرّة
@@ -71,7 +75,7 @@ export default function Navbar() {
                     location === link.href
                       ? "oklch(0.72 0.12 75)"
                       : "oklch(0.80 0.01 80)",
-                  fontWeight: location === link.href ? "500" : "400",
+                  fontWeight: location === link.href ? 600 : 500,
                 }}
               >
                 {link.label}
@@ -138,8 +142,8 @@ export default function Navbar() {
                     location === link.href
                       ? "oklch(0.72 0.12 75)"
                       : "oklch(0.80 0.01 80)",
-                  fontFamily: "'IBM Plex Sans Arabic', sans-serif",
-                  fontWeight: location === link.href ? "500" : "400",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
+                  fontWeight: location === link.href ? 600 : 500,
                   borderBottom: "1px solid oklch(0.25 0.02 75 / 15%)",
                 }}
               >

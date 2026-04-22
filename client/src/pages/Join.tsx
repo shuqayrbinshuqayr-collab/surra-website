@@ -147,7 +147,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
         </div>
         <p
           style={{
-            fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+            fontFamily: "'TheYearofHandicrafts', sans-serif",
             color: "oklch(0.80 0.01 80)",
             lineHeight: 1.8,
           }}
@@ -165,7 +165,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
           <label
             className="block text-sm mb-1.5"
             style={{
-              fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+              fontFamily: "'TheYearofHandicrafts', sans-serif",
               color: "oklch(0.65 0.01 80)",
             }}
           >
@@ -187,7 +187,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
                 background: "oklch(0.12 0.01 60)",
                 border: "1px solid oklch(0.25 0.02 75 / 30%)",
                 color: "oklch(0.90 0.01 80)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 outline: "none",
               }}
               onFocus={(e) => {
@@ -210,7 +210,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
                 background: "oklch(0.12 0.01 60)",
                 border: "1px solid oklch(0.25 0.02 75 / 30%)",
                 color: "oklch(0.90 0.01 80)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 outline: "none",
               }}
               onFocus={(e) => {
@@ -249,7 +249,7 @@ export default function Join() {
               className="text-sm mb-4 tracking-widest"
               style={{
                 color: "oklch(0.72 0.12 75)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 letterSpacing: "0.2em",
               }}
             >
@@ -257,7 +257,7 @@ export default function Join() {
             </p>
             <h1
               style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
                 color: "oklch(0.97 0.01 80)",
@@ -269,7 +269,7 @@ export default function Join() {
             </h1>
             <p
               style={{
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 color: "oklch(0.60 0.01 80)",
                 fontSize: "1.05rem",
                 lineHeight: 1.8,
@@ -310,7 +310,7 @@ export default function Join() {
                 <h3
                   className="font-semibold mb-1"
                   style={{
-                    fontFamily: "'Noto Naskh Arabic', serif",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
                     color:
                       activeOption === option.id
                         ? "oklch(0.72 0.12 75)"
@@ -323,7 +323,7 @@ export default function Join() {
                 <p
                   className="text-xs"
                   style={{
-                    fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
                     color: "oklch(0.50 0.01 80)",
                     lineHeight: 1.6,
                   }}
@@ -351,7 +351,7 @@ export default function Join() {
                   <span className="text-3xl block mb-2">{option.icon}</span>
                   <h2
                     style={{
-                      fontFamily: "'Noto Naskh Arabic', serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
                       color: "oklch(0.95 0.01 80)",
@@ -362,7 +362,7 @@ export default function Join() {
                   </h2>
                   <p
                     style={{
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       color: "oklch(0.60 0.01 80)",
                       fontSize: "0.9rem",
                       lineHeight: 1.7,
@@ -387,7 +387,7 @@ export default function Join() {
             <div className="text-center py-8 reveal">
               <p
                 style={{
-                  fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
                   color: "oklch(0.45 0.01 80)",
                   fontSize: "0.95rem",
                 }}
@@ -405,7 +405,7 @@ export default function Join() {
           <div className="reveal max-w-lg mx-auto">
             <p
               style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontSize: "1.1rem",
                 color: "oklch(0.65 0.01 80)",
                 lineHeight: 1.8,

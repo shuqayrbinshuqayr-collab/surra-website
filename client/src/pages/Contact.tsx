@@ -53,7 +53,7 @@ export default function Contact() {
     background: "oklch(0.12 0.01 60)",
     border: "1px solid oklch(0.25 0.02 75 / 30%)",
     color: "oklch(0.90 0.01 80)",
-    fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+    fontFamily: "'TheYearofHandicrafts', sans-serif",
     outline: "none",
     width: "100%",
     padding: "0.875rem 1rem",
@@ -76,7 +76,7 @@ export default function Contact() {
               className="text-sm mb-4 tracking-widest"
               style={{
                 color: "oklch(0.72 0.12 75)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 letterSpacing: "0.2em",
               }}
             >
@@ -84,7 +84,7 @@ export default function Contact() {
             </p>
             <h1
               style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'TheYearofHandicrafts', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
                 color: "oklch(0.97 0.01 80)",
@@ -109,7 +109,7 @@ export default function Contact() {
               <div className="gold-divider" />
               <h2
                 style={{
-                  fontFamily: "'Noto Naskh Arabic', serif",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
                   color: "oklch(0.95 0.01 80)",
@@ -121,7 +121,7 @@ export default function Contact() {
               <p
                 className="mb-8"
                 style={{
-                  fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                  fontFamily: "'TheYearofHandicrafts', sans-serif",
                   color: "oklch(0.65 0.01 80)",
                   lineHeight: 1.9,
                   fontSize: "0.95rem",
@@ -136,7 +136,7 @@ export default function Contact() {
                   className="text-xs tracking-widest"
                   style={{
                     color: "oklch(0.72 0.12 75)",
-                    fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                    fontFamily: "'TheYearofHandicrafts', sans-serif",
                     letterSpacing: "0.2em",
                   }}
                 >
@@ -154,7 +154,7 @@ export default function Contact() {
                     style={{
                       border: "1px solid oklch(0.25 0.02 75 / 20%)",
                       color: "oklch(0.70 0.01 80)",
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontSize: "0.9rem",
                       textDecoration: "none",
                     }}
@@ -201,7 +201,7 @@ export default function Contact() {
                   </div>
                   <h3
                     style={{
-                      fontFamily: "'Noto Naskh Arabic', serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
                       color: "oklch(0.90 0.01 80)",
@@ -212,7 +212,7 @@ export default function Contact() {
                   </h3>
                   <p
                     style={{
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       color: "oklch(0.65 0.01 80)",
                       lineHeight: 1.8,
                     }}
@@ -234,7 +234,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                        fontFamily: "'TheYearofHandicrafts', sans-serif",
                         color: "oklch(0.65 0.01 80)",
                       }}
                     >
@@ -261,7 +261,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                        fontFamily: "'TheYearofHandicrafts', sans-serif",
                         color: "oklch(0.65 0.01 80)",
                       }}
                     >
@@ -288,7 +288,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                        fontFamily: "'TheYearofHandicrafts', sans-serif",
                         color: "oklch(0.65 0.01 80)",
                       }}
                     >
@@ -326,7 +326,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                        fontFamily: "'TheYearofHandicrafts', sans-serif",
                         color: "oklch(0.65 0.01 80)",
                       }}
                     >
@@ -352,7 +352,7 @@ export default function Contact() {
                   <p
                     className="text-xs"
                     style={{
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: "'TheYearofHandicrafts', sans-serif",
                       color: "oklch(0.45 0.01 80)",
                     }}
                   >

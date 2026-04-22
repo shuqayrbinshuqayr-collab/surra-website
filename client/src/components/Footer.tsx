@@ -1,6 +1,10 @@
 /* ============================================================
    Footer Component — سُرّة
-   Design: Dark footer with columns, social links, email form
+   Font: TheYearofHandicrafts
+     - Brand name: weight 900 (Black)
+     - Section headings: weight 700 (Bold)
+     - Links & body: weight 400 (Regular)
+     - Copyright: weight 400 (Regular)
    ============================================================ */
 
 import { Link } from "wouter";
@@ -33,6 +37,8 @@ const socialLinks = [
   { href: "#", label: "لينكدإن", icon: "in" },
 ];
 
+const fontBase = "'TheYearofHandicrafts', sans-serif";
+
 export default function Footer() {
   return (
     <footer
@@ -47,10 +53,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/">
               <span
-                className="text-3xl font-bold block mb-4"
+                className="block mb-4"
                 style={{
-                  fontFamily: "'Noto Naskh Arabic', serif",
+                  fontFamily: fontBase,
+                  fontWeight: 900,
+                  fontSize: "2.2rem",
                   color: "oklch(0.72 0.12 75)",
+                  lineHeight: 1,
                 }}
               >
                 سُرّة
@@ -60,7 +69,8 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-6 max-w-xs"
               style={{
                 color: "oklch(0.55 0.01 80)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: fontBase,
+                fontWeight: 400,
                 lineHeight: "1.8",
               }}
             >
@@ -97,10 +107,12 @@ export default function Footer() {
           {/* About Links */}
           <div>
             <h4
-              className="text-sm font-semibold mb-5"
+              className="mb-5"
               style={{
                 color: "oklch(0.72 0.12 75)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: fontBase,
+                fontWeight: 700,
+                fontSize: "0.9rem",
                 letterSpacing: "0.05em",
               }}
             >
@@ -114,7 +126,8 @@ export default function Footer() {
                     className="text-sm transition-colors duration-200"
                     style={{
                       color: "oklch(0.55 0.01 80)",
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: fontBase,
+                      fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
@@ -133,10 +146,12 @@ export default function Footer() {
           {/* Services Links */}
           <div>
             <h4
-              className="text-sm font-semibold mb-5"
+              className="mb-5"
               style={{
                 color: "oklch(0.72 0.12 75)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: fontBase,
+                fontWeight: 700,
+                fontSize: "0.9rem",
                 letterSpacing: "0.05em",
               }}
             >
@@ -150,7 +165,8 @@ export default function Footer() {
                     className="text-sm transition-colors duration-200"
                     style={{
                       color: "oklch(0.55 0.01 80)",
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: fontBase,
+                      fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
@@ -169,10 +185,12 @@ export default function Footer() {
           {/* Communities Links */}
           <div>
             <h4
-              className="text-sm font-semibold mb-5"
+              className="mb-5"
               style={{
                 color: "oklch(0.72 0.12 75)",
-                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                fontFamily: fontBase,
+                fontWeight: 700,
+                fontSize: "0.9rem",
                 letterSpacing: "0.05em",
               }}
             >
@@ -186,7 +204,8 @@ export default function Footer() {
                     className="text-sm transition-colors duration-200"
                     style={{
                       color: "oklch(0.55 0.01 80)",
-                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                      fontFamily: fontBase,
+                      fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
@@ -212,7 +231,8 @@ export default function Footer() {
             className="text-xs"
             style={{
               color: "oklch(0.40 0.01 80)",
-              fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+              fontFamily: fontBase,
+              fontWeight: 400,
             }}
           >
             © {new Date().getFullYear()} سُرّة. جميع الحقوق محفوظة.
@@ -221,7 +241,8 @@ export default function Footer() {
             className="text-xs"
             style={{
               color: "oklch(0.40 0.01 80)",
-              fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+              fontFamily: fontBase,
+              fontWeight: 400,
             }}
           >
             لأن المجتمعات لا تنشأ صدفة، بل تُصمَّم بوعي.
