@@ -123,19 +123,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px" }}>
           <div style={{ maxWidth: "680px" }}>
-            <p
-              style={{
-                fontFamily: "'TheYearofHandicrafts', sans-serif",
-                fontWeight: 600,
-                fontSize: "0.75rem",
-                color: "#B5453A",
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                marginBottom: "1.5rem",
-              }}
-            >
-              SURRAH — كيان سعودي ثقافي
-            </p>
+
             <h1
               style={{
                 fontFamily: "'TheYearofHandicrafts', sans-serif",
