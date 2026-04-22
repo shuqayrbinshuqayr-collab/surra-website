@@ -1,0 +1,233 @@
+/* ============================================================
+   Footer Component — سُرّة
+   Design: Dark footer with columns, social links, email form
+   ============================================================ */
+
+import { Link } from "wouter";
+
+const footerLinks = {
+  about: [
+    { href: "/about", label: "من نحن" },
+    { href: "/about#vision", label: "رؤيتنا" },
+    { href: "/about#mission", label: "رسالتنا" },
+    { href: "/about#values", label: "قيمنا" },
+  ],
+  services: [
+    { href: "/services#communities", label: "صناعة المجتمعات" },
+    { href: "/services#programs", label: "البرامج الثقافية" },
+    { href: "/services#events", label: "تنظيم الفعاليات" },
+    { href: "/services#audience", label: "توفير الجمهور" },
+  ],
+  communities: [
+    { href: "/communities#basar", label: "بصر" },
+    { href: "/communities#sifr", label: "صفر" },
+    { href: "/communities#sada", label: "سدى" },
+    { href: "/communities#mada", label: "مدى" },
+    { href: "/communities#maqam", label: "مقام" },
+  ],
+};
+
+const socialLinks = [
+  { href: "#", label: "X (تويتر)", icon: "𝕏" },
+  { href: "#", label: "إنستجرام", icon: "◎" },
+  { href: "#", label: "لينكدإن", icon: "in" },
+];
+
+export default function Footer() {
+  return (
+    <footer
+      style={{
+        background: "oklch(0.05 0.01 60)",
+        borderTop: "1px solid oklch(0.25 0.02 75 / 15%)",
+      }}
+    >
+      <div className="container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <Link href="/">
+              <span
+                className="text-3xl font-bold block mb-4"
+                style={{
+                  fontFamily: "'Noto Naskh Arabic', serif",
+                  color: "oklch(0.72 0.12 75)",
+                }}
+              >
+                سُرّة
+              </span>
+            </Link>
+            <p
+              className="text-sm leading-relaxed mb-6 max-w-xs"
+              style={{
+                color: "oklch(0.55 0.01 80)",
+                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                lineHeight: "1.8",
+              }}
+            >
+              كيان سعودي متخصص في تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية. نصنع المجتمعات ونمنح الأفكار حياة.
+            </p>
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="w-9 h-9 flex items-center justify-center text-sm transition-all duration-200"
+                  style={{
+                    border: "1px solid oklch(0.25 0.02 75 / 40%)",
+                    color: "oklch(0.55 0.01 80)",
+                    fontFamily: "sans-serif",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.12 75)";
+                    (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.25 0.02 75 / 40%)";
+                    (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                  }}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* About Links */}
+          <div>
+            <h4
+              className="text-sm font-semibold mb-5"
+              style={{
+                color: "oklch(0.72 0.12 75)",
+                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                letterSpacing: "0.05em",
+              }}
+            >
+              من نحن
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.about.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition-colors duration-200"
+                    style={{
+                      color: "oklch(0.55 0.01 80)",
+                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services Links */}
+          <div>
+            <h4
+              className="text-sm font-semibold mb-5"
+              style={{
+                color: "oklch(0.72 0.12 75)",
+                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                letterSpacing: "0.05em",
+              }}
+            >
+              خدماتنا
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.services.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition-colors duration-200"
+                    style={{
+                      color: "oklch(0.55 0.01 80)",
+                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Communities Links */}
+          <div>
+            <h4
+              className="text-sm font-semibold mb-5"
+              style={{
+                color: "oklch(0.72 0.12 75)",
+                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                letterSpacing: "0.05em",
+              }}
+            >
+              مجتمعاتنا
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.communities.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition-colors duration-200"
+                    style={{
+                      color: "oklch(0.55 0.01 80)",
+                      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.12 75)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.55 0.01 80)";
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div
+          className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
+          style={{ borderTop: "1px solid oklch(0.25 0.02 75 / 15%)" }}
+        >
+          <p
+            className="text-xs"
+            style={{
+              color: "oklch(0.40 0.01 80)",
+              fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+            }}
+          >
+            © {new Date().getFullYear()} سُرّة. جميع الحقوق محفوظة.
+          </p>
+          <p
+            className="text-xs"
+            style={{
+              color: "oklch(0.40 0.01 80)",
+              fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+            }}
+          >
+            لأن المجتمعات لا تنشأ صدفة، بل تُصمَّم بوعي.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
