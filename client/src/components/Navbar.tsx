@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* LEFT: Official Logo — on the far left visually, close to edge */}
           <Link href="/" className="flex-shrink-0" style={{ marginRight: "-0.5rem" }}>
             <img
-              src="/manus-storage/Surrah-White_e4e02c4c.png"
+              src="/manus-storage/Surrah-White_308323ba.png"
               alt="سُرّة SURRAH"
               style={{ height: "36px", width: "auto", objectFit: "contain" }}
             />
@@ -119,7 +119,7 @@ export default function Navbar() {
             <Link
               href="/join"
               className="btn-surrah-primary"
-              style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem" }}
+              style={{ fontSize: "0.85rem", padding: "0.55rem 1.4rem", color: '#000000', backgroundColor: '#ffffff' }}
             >
               أنشئ مجتمعك
             </Link>
