@@ -60,8 +60,8 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* CENTER: Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
+          {/* CENTER: Desktop Nav Links — aligned toward logo (right side) */}
+          <div className="hidden md:flex items-center gap-6 flex-1 justify-end" style={{ paddingLeft: "2rem" }}>
             {navLinks.map((link) => (
               link.placeholder ? (
                 <a
