@@ -1,8 +1,7 @@
 /* ============================================================
    Navbar — سُرّة | SURRAH
-   Brand: cream/off-white background, dark navy text, official logo image
-   Nav order (RTL): من نحن | مجتمعاتنا | خدماتنا | أنشئ مجتمعك | المركز الاعلامي | عضويات
-   CTA button "أنشئ مجتمعك" separated on the left side
+   Layout (LTR visual order): Logo (left) | Nav Links (center) | CTA Button (right)
+   Nav order: من نحن | مجتمعاتنا | خدماتنا | أنشئ مجتمعك | المركز الاعلامي | عضويات
    ============================================================ */
 
 import { useState, useEffect } from "react";
@@ -17,6 +16,8 @@ const navLinks = [
   { href: "/media", label: "المركز الاعلامي", placeholder: true },
   { href: "/membership", label: "عضويات", placeholder: true },
 ];
+
+const F = "'TheYearofHandicrafts', sans-serif";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,8 +50,8 @@ export default function Navbar() {
       <div className="container">
         <nav className="flex items-center justify-between" style={{ height: "72px" }}>
 
-          {/* LEFT: CTA Button (separated, on the far left) */}
-          <div className="hidden md:flex items-center">
+          {/* RIGHT: CTA Button — separated, on the far left in RTL = far right visually */}
+          <div className="hidden md:flex items-center flex-shrink-0">
             <Link
               href="/join"
               className="btn-surrah-primary"
@@ -69,7 +70,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => handlePlaceholderClick(e, link.label)}
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: F,
                     fontWeight: 500,
                     fontSize: "0.88rem",
                     color: "#1C2B3A",
@@ -97,7 +98,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   style={{
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: F,
                     fontWeight: location === link.href ? 700 : 500,
                     fontSize: "0.88rem",
                     color: location === link.href ? "#B5453A" : "#1C2B3A",
@@ -114,7 +115,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* RIGHT: Official Logo */}
+          {/* LEFT: Official Logo — on the far right in RTL = far left visually */}
           <Link href="/" className="flex-shrink-0">
             <img
               src="/manus-storage/Surrah-Black_97bb663c.png"
@@ -162,7 +163,7 @@ export default function Navbar() {
                   onClick={(e) => handlePlaceholderClick(e, link.label)}
                   style={{
                     display: "block",
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: F,
                     fontWeight: 500,
                     fontSize: "1rem",
                     color: "#1C2B3A",
@@ -182,7 +183,7 @@ export default function Navbar() {
                   href={link.href}
                   style={{
                     display: "block",
-                    fontFamily: "'TheYearofHandicrafts', sans-serif",
+                    fontFamily: F,
                     fontWeight: location === link.href ? 700 : 500,
                     fontSize: "1rem",
                     color: location === link.href ? "#B5453A" : "#1C2B3A",
