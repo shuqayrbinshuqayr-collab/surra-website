@@ -279,15 +279,15 @@ export default function Home() {
                 style={{
                   display: "block",
                   padding: "2.5rem",
-                  background: i % 2 === 0 ? "#FFFFFF" : "#F8F4EE",
-                  borderBottom: "1px solid rgba(28, 43, 58, 0.08)",
-                  borderLeft: i % 2 === 0 ? "none" : "1px solid rgba(28, 43, 58, 0.08)",
+                  background: i % 2 === 0 ? "#000000" : "#0a0a0a",
+                  borderBottom: "1px solid rgba(255,255,255,0.06)",
+                  borderLeft: i % 2 === 0 ? "none" : "1px solid rgba(255,255,255,0.06)",
                   textDecoration: "none",
                   transition: "background 0.25s ease",
                   transitionDelay: `${i * 0.1}s`,
                 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#EDE8E0")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = i % 2 === 0 ? "#FFFFFF" : "#F8F4EE")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#111111")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = i % 2 === 0 ? "#000000" : "#0a0a0a")}
               >
                 <span
                   style={{
