@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/about", label: "من نحن" },
   { href: "/communities", label: "مجتمعاتنا" },
   { href: "/services", label: "خدماتنا" },
-  { href: "/join", label: "أنشئ مجتمعك" },
   { href: "/media", label: "المركز الاعلامي", placeholder: true },
   { href: "/membership", label: "عضويات", placeholder: true },
 ];
