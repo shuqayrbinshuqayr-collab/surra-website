@@ -346,58 +346,66 @@ export default function Home() {
         }}
       >
         <style>{`
-          @keyframes marquee-rtl {
-            0%   { transform: translateX(-50%); }
-            100% { transform: translateX(0%); }
+          @keyframes ticker-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
           }
-          .communities-ticker {
+          .ticker-wrapper {
             display: flex;
             width: max-content;
-            animation: marquee-rtl 18s linear infinite;
           }
-          .communities-ticker:hover {
-            animation-play-state: paused;
+          .ticker-track {
+            display: flex;
+            flex-shrink: 0;
+            animation: ticker-scroll 24s linear infinite;
+          }
+          .ticker-track:nth-child(2) {
+            animation-delay: -12s;
           }
         `}</style>
-        <div className="communities-ticker">
-          {[...communities, ...communities, ...communities, ...communities].map((c, i) => (
-            <Link
-              key={i}
-              href="/communities"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                padding: "0 2.5rem",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-                flexShrink: 0,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
-                  color: c.color,
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {c.name}
-              </span>
-              <span
-                style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  fontSize: "0.75rem",
-                  color: "rgba(255,255,255,0.3)",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {c.nameEn}
-              </span>
-              <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "1.2rem", marginRight: "0.5rem" }}>·</span>
-            </Link>
+        <div className="ticker-wrapper">
+          {[0, 1].map((trackIdx) => (
+            <div key={trackIdx} className="ticker-track">
+              {communities.map((c, i) => (
+                <Link
+                  key={i}
+                  href="/communities"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
+                    padding: "0 2.5rem",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontWeight: 700,
+                      fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+                      color: c.color,
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {c.name}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontSize: "0.75rem",
+                      color: "rgba(255,255,255,0.3)",
+                      letterSpacing: "0.15em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {c.nameEn}
+                  </span>
+                  <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "1.2rem", marginLeft: "0.5rem" }}>·</span>
+                </Link>
+              ))}
+            </div>
           ))}
         </div>
       </section>
