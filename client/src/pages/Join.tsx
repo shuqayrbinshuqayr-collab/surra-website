@@ -184,9 +184,9 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               }
               className="w-full px-4 py-3 text-sm resize-none transition-colors duration-200"
               style={{
-                background: "#F5F0E8",
+                background: "#1a1a1a",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 fontFamily: "'ManchetteFine', sans-serif",
                 outline: "none",
               }}
@@ -207,9 +207,9 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               }
               className="w-full px-4 py-3 text-sm transition-colors duration-200"
               style={{
-                background: "#F5F0E8",
+                background: "#1a1a1a",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 fontFamily: "'ManchetteFine', sans-serif",
                 outline: "none",
               }}
@@ -235,13 +235,13 @@ export default function Join() {
   const [activeOption, setActiveOption] = useState<string | null>(null);
 
   return (
-    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pt-32 pb-24"
-        style={{ background: "#F0EBE1" }}
+        style={{ background: "#111111" }}
       >
         <div className="container">
           <div className="max-w-3xl">
@@ -260,7 +260,7 @@ export default function Join() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -283,7 +283,7 @@ export default function Join() {
       </section>
 
       {/* ── Join Options ── */}
-      <section className="py-16" style={{ background: "#FAF8F4" }}>
+      <section className="py-16" style={{ background: "#0a0a0a" }}>
         <div className="container">
           {/* Options List */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-12">
@@ -354,7 +354,7 @@ export default function Join() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
-                      color: "#1C2B3A",
+                      color: "#F0EBE1",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -400,7 +400,7 @@ export default function Join() {
       </section>
 
       {/* ── Bottom note ── */}
-      <section className="py-16" style={{ background: "#F0EBE1" }}>
+      <section className="py-16" style={{ background: "#111111" }}>
         <div className="container text-center">
           <div className="reveal max-w-lg mx-auto">
             <p

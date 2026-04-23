@@ -50,9 +50,9 @@ export default function Contact() {
   };
 
   const inputStyle = {
-    background: "#F5F0E8",
+    background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
-    color: "#1C2B3A",
+    color: "#F0EBE1",
     fontFamily: "'ManchetteFine', sans-serif",
     outline: "none",
     width: "100%",
@@ -62,13 +62,13 @@ export default function Contact() {
   };
 
   return (
-    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pt-32 pb-16"
-        style={{ background: "#F0EBE1" }}
+        style={{ background: "#111111" }}
       >
         <div className="container">
           <div className="max-w-3xl">
@@ -87,7 +87,7 @@ export default function Contact() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -101,7 +101,7 @@ export default function Contact() {
       </section>
 
       {/* ── Contact Form ── */}
-      <section className="py-16" style={{ background: "#FAF8F4" }}>
+      <section className="py-16" style={{ background: "#0a0a0a" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left: Info */}
@@ -112,7 +112,7 @@ export default function Contact() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
-                  color: "#1C2B3A",
+                  color: "#F0EBE1",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -204,7 +204,7 @@ export default function Contact() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
-                      color: "#1C2B3A",
+                      color: "#F0EBE1",
                       marginBottom: "0.75rem",
                     }}
                   >
@@ -307,14 +307,14 @@ export default function Contact() {
                         (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     >
-                      <option value="" style={{ background: "#F5F0E8" }}>
+                      <option value="" style={{ background: "#1a1a1a" }}>
                         اختر سبب التواصل
                       </option>
                       {contactReasons.map((r) => (
                         <option
                           key={r.value}
                           value={r.value}
-                          style={{ background: "#F5F0E8" }}
+                          style={{ background: "#1a1a1a" }}
                         >
                           {r.label}
                         </option>

@@ -65,15 +65,15 @@ export default function Services() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
-      <section className="relative pt-32 pb-24" style={{ background: "#F0EBE1" }}>
+      <section className="relative pt-32 pb-24" style={{ background: "#111111" }}>
         <div className="container">
           <div className="max-w-3xl">
             <p className="text-sm mb-4" style={{ color: "#B5453A", fontFamily: F, fontWeight: 400, letterSpacing: "0.2em" }}>خدماتنا</p>
-            <h1 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1C2B3A", lineHeight: 1.3, marginBottom: "1rem" }}>
+            <h1 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(2rem, 5vw, 4rem)", color: "#F0EBE1", lineHeight: 1.3, marginBottom: "1rem" }}>
               نرافقك من الفكرة
               <br /><span style={{ color: "#B5453A" }}>حتى الاستدامة</span>
             </h1>
@@ -85,15 +85,15 @@ export default function Services() {
       </section>
 
       {/* ── Services Detail ── */}
-      <section className="py-16" style={{ background: "#FAF8F4" }}>
+      <section className="py-16" style={{ background: "#0a0a0a" }}>
         <div className="container">
           <div className="space-y-px" style={{ background: "rgba(28, 43, 58, 0.08)" }}>
             {services.map((service, i) => (
-              <div key={service.id} id={service.id} className="reveal grid grid-cols-1 lg:grid-cols-3 gap-0" style={{ background: "#FAF8F4", transitionDelay: `${i * 0.1}s` }}>
+              <div key={service.id} id={service.id} className="reveal grid grid-cols-1 lg:grid-cols-3 gap-0" style={{ background: "#0a0a0a", transitionDelay: `${i * 0.1}s` }}>
                 {/* Number + Title */}
                 <div className="p-8 md:p-12 lg:border-l" style={{ borderColor: "rgba(28, 43, 58, 0.08)" }}>
                   <span className="block text-5xl mb-4" style={{ fontFamily: F, fontWeight: 900, color: "rgba(181, 69, 58, 0.3)" }}>{service.number}</span>
-                  <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", color: "#1C2B3A", marginBottom: "0.5rem" }}>{service.title}</h2>
+                  <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", color: "#F0EBE1", marginBottom: "0.5rem" }}>{service.title}</h2>
                   <p style={{ fontFamily: F, fontWeight: 600, color: "#B5453A", fontSize: "0.95rem", fontStyle: "italic" }}>{service.tagline}</p>
                 </div>
                 {/* Description + Points */}
@@ -124,11 +124,11 @@ export default function Services() {
       </section>
 
       {/* ── Work Stages ── */}
-      <section className="py-24" style={{ background: "#F0EBE1" }}>
+      <section className="py-24" style={{ background: "#111111" }}>
         <div className="container">
           <div className="reveal mb-14">
             <div className="surrah-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "#1C2B3A" }}>ماذا نقدم لك؟</h2>
+            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "#F0EBE1" }}>ماذا نقدم لك؟</h2>
             <p className="mt-2" style={{ fontFamily: F, fontWeight: 400, color: "#8A9AAA" }}>نرافقك من الفكرة حتى الاستدامة</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -139,7 +139,7 @@ export default function Services() {
             ].map((item, i) => (
               <div key={i} className="reveal p-8" style={{ background: "#FFFFFF", border: "1px solid rgba(28, 43, 58, 0.12)", transitionDelay: `${i * 0.1}s` }}>
                 <span className="block text-5xl mb-4" style={{ fontFamily: F, fontWeight: 900, color: "rgba(181, 69, 58, 0.3)" }}>{item.step}</span>
-                <h4 className="mb-2" style={{ fontFamily: F, fontWeight: 600, color: "#1C2B3A", fontSize: "1.1rem" }}>{item.title}</h4>
+                <h4 className="mb-2" style={{ fontFamily: F, fontWeight: 600, color: "#F0EBE1", fontSize: "1.1rem" }}>{item.title}</h4>
                 <p className="text-sm" style={{ fontFamily: F, fontWeight: 400, color: "#8A9AAA", lineHeight: 1.7 }}>{item.desc}</p>
               </div>
             ))}
@@ -148,10 +148,10 @@ export default function Services() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24" style={{ background: "#FAF8F4" }}>
+      <section className="py-24" style={{ background: "#0a0a0a" }}>
         <div className="container text-center">
           <div className="reveal max-w-xl mx-auto">
-            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "#1C2B3A", marginBottom: "1rem" }}>ابدأ الحديث معنا</h2>
+            <h2 style={{ fontFamily: F, fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", color: "#F0EBE1", marginBottom: "1rem" }}>ابدأ الحديث معنا</h2>
             <p className="mb-8" style={{ fontFamily: F, fontWeight: 500, color: "#7A8A9A", lineHeight: 1.8 }}>نؤمن أن كل حوار جاد هو بداية…</p>
             <Link href="/contact" className="btn-surrah-primary-filled text-base px-8 py-3.5">تواصل معنا ←</Link>
           </div>

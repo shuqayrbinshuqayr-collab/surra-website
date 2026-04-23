@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "#1C2B3A",
+        background: "#000000",
         borderTop: "1px solid rgba(240, 235, 225, 0.1)",
       }}
     >

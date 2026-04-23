@@ -45,7 +45,7 @@ export default function About() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Hero ── */}
@@ -94,7 +94,7 @@ export default function About() {
               fontFamily: F,
               fontWeight: 900,
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
-              color: "#FAF8F4",
+              color: "#0a0a0a",
               lineHeight: 1.2,
             }}
           >
@@ -104,7 +104,7 @@ export default function About() {
       </section>
 
       {/* ── Who is Surra ── */}
-      <section style={{ background: "#FAF8F4", padding: "5rem 0" }}>
+      <section style={{ background: "#0a0a0a", padding: "5rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="reveal">
@@ -114,7 +114,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 900,
                   fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
-                  color: "#1C2B3A",
+                  color: "#F0EBE1",
                   lineHeight: 1.3,
                   marginBottom: "1.5rem",
                 }}
@@ -171,14 +171,14 @@ export default function About() {
       </section>
 
       {/* ── Vision & Mission ── */}
-      <section id="vision" style={{ background: "#F0EBE1", padding: "5rem 0" }}>
+      <section id="vision" style={{ background: "#111111", padding: "5rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             <div
               className="reveal"
               style={{
                 padding: "3rem",
-                background: "#1C2B3A",
+                background: "#111111",
                 borderLeft: "4px solid #B5453A",
               }}
             >
@@ -233,7 +233,7 @@ export default function About() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.7rem",
-                  color: "#27486A",
+                  color: "#c8c4bc",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   marginBottom: "1rem",
@@ -246,7 +246,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 700,
                   fontSize: "1.1rem",
-                  color: "#1C2B3A",
+                  color: "#F0EBE1",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -269,7 +269,7 @@ export default function About() {
       </section>
 
       {/* ── Values ── */}
-      <section id="values" style={{ background: "#FAF8F4", padding: "5rem 0" }}>
+      <section id="values" style={{ background: "#0a0a0a", padding: "5rem 0" }}>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3rem" }}>
             <div className="surrah-divider" />
@@ -278,7 +278,7 @@ export default function About() {
                 fontFamily: F,
                 fontWeight: 900,
                 fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
-                color: "#1C2B3A",
+                color: "#F0EBE1",
               }}
             >
               قيمنا
@@ -301,7 +301,7 @@ export default function About() {
                     fontFamily: F,
                     fontWeight: 900,
                     fontSize: "1.3rem",
-                    color: "#1C2B3A",
+                    color: "#F0EBE1",
                     marginBottom: "0.75rem",
                   }}
                 >
@@ -325,11 +325,11 @@ export default function About() {
       </section>
 
       {/* ── How We Work ── */}
-      <section style={{ background: "#F0EBE1", padding: "5rem 0" }}>
+      <section style={{ background: "#111111", padding: "5rem 0" }}>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3rem" }}>
             <div className="surrah-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "#1C2B3A" }}>
+            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "#F0EBE1" }}>
               كيف نعمل؟
             </h2>
             <p style={{ fontFamily: F, fontWeight: 400, color: "#5A6A7A", fontSize: "1rem", marginTop: "0.5rem" }}>
@@ -367,7 +367,7 @@ export default function About() {
                   style={{
                     fontFamily: F,
                     fontWeight: 700,
-                    color: "#1C2B3A",
+                    color: "#F0EBE1",
                     fontSize: "1.05rem",
                     marginBottom: "0.5rem",
                   }}
@@ -389,7 +389,7 @@ export default function About() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ background: "#1C2B3A", padding: "5rem 0" }}>
+      <section style={{ background: "#111111", padding: "5rem 0" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <div className="reveal max-w-xl mx-auto">
             <img

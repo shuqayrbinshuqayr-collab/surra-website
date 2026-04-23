@@ -44,7 +44,7 @@ const communities = [
     id: "sifr",
     name: "صفر",
     nameEn: "Sifr",
-    color: "#27486A",
+    color: "#c8c4bc",
     tagline: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.",
     description:
       "صفر هو مساحة للبدايات والأسئلة الأولى. مجتمع للذين يقفون عند نقطة الانطلاق في القطاعات الرقمية والهندسية، يبحثون عن التجربة والتوجيه والمجتمع الداعم.",
@@ -68,7 +68,7 @@ const communities = [
     id: "mada",
     name: "مدى",
     nameEn: "Mada",
-    color: "#27486A",
+    color: "#c8c4bc",
     tagline: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.",
     description:
       "مدى مجتمع للمفكرين والمتأملين. مساحة للتفكير العميق والحوارات الهادئة وبناء الرؤية. لمن يؤمن أن التغيير يبدأ من الداخل.",
@@ -94,13 +94,13 @@ export default function Communities() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pt-32 pb-24"
-        style={{ background: "#F0EBE1" }}
+        style={{ background: "#111111" }}
       >
         <div className="container">
           <div className="max-w-3xl">
@@ -119,7 +119,7 @@ export default function Communities() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -144,7 +144,7 @@ export default function Communities() {
       </section>
 
       {/* ── Communities Grid ── */}
-      <section className="py-16" style={{ background: "#FAF8F4" }}>
+      <section className="py-16" style={{ background: "#0a0a0a" }}>
         <div className="container">
           <div className="space-y-6">
             {communities.map((community, i) => (
@@ -159,7 +159,7 @@ export default function Communities() {
                   transitionDelay: `${i * 0.1}s`,
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#F5F0E8";
+                  (e.currentTarget as HTMLElement).style.background = "#1a1a1a";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "#FFFFFF";
@@ -291,7 +291,7 @@ export default function Communities() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24" style={{ background: "#F0EBE1" }}>
+      <section className="py-24" style={{ background: "#111111" }}>
         <div className="container text-center">
           <div className="reveal max-w-xl mx-auto">
             <h2
@@ -299,7 +299,7 @@ export default function Communities() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
                 fontWeight: 700,
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 marginBottom: "1rem",
               }}
             >

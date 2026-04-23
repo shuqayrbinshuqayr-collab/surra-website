@@ -56,7 +56,7 @@ const services = [
 
 const communities = [
   { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "#B5453A" },
-  { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.", color: "#27486A" },
+  { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.", color: "#c8c4bc" },
   { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "#7B4F8E" },
   { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "#1C6B4A" },
   { name: "مقام", nameEn: "Maqam", desc: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته.", color: "#8B6914" },
@@ -72,7 +72,7 @@ export default function Home() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#FAF8F4", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── HERO SECTION ── */}
@@ -118,7 +118,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
-                color: "#FAF8F4",
+                color: "#0a0a0a",
                 lineHeight: 1.15,
                 marginBottom: "1.5rem",
               }}
@@ -158,12 +158,12 @@ export default function Home() {
             opacity: 0.5,
           }}
         >
-          <div style={{ width: "1px", height: "48px", background: "#F0EBE1", animation: "pulse 2s infinite" }} />
+          <div style={{ width: "1px", height: "48px", background: "#111111", animation: "pulse 2s infinite" }} />
         </div>
       </section>
 
       {/* ── WHY SECTION ── */}
-      <section style={{ background: "#FAF8F4", padding: "6rem 0" }}>
+      <section style={{ background: "#0a0a0a", padding: "6rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal">
@@ -173,7 +173,7 @@ export default function Home() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                  color: "#1C2B3A",
+                  color: "#F0EBE1",
                   lineHeight: 1.3,
                   marginBottom: "1.5rem",
                 }}
@@ -229,7 +229,7 @@ export default function Home() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 600,
                       fontSize: "1.1rem",
-                      color: "#1C2B3A",
+                      color: "#F0EBE1",
                       lineHeight: 1.6,
                       paddingTop: "0.5rem",
                     }}
@@ -244,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES SECTION ── */}
-      <section style={{ background: "#F0EBE1", padding: "6rem 0" }}>
+      <section style={{ background: "#111111", padding: "6rem 0" }}>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3.5rem" }}>
             <div className="surrah-divider" />
@@ -253,7 +253,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 marginBottom: "0.75rem",
               }}
             >
@@ -307,7 +307,7 @@ export default function Home() {
                     fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 700,
                     fontSize: "1.2rem",
-                    color: "#1C2B3A",
+                    color: "#F0EBE1",
                     marginBottom: "0.75rem",
                   }}
                 >
@@ -336,7 +336,7 @@ export default function Home() {
       </section>
 
       {/* ── COMMUNITIES SECTION ── */}
-      <section style={{ background: "#FAF8F4", padding: "6rem 0" }}>
+      <section style={{ background: "#0a0a0a", padding: "6rem 0" }}>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3.5rem" }}>
             <div className="surrah-divider" />
@@ -345,7 +345,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
-                color: "#1C2B3A",
+                color: "#F0EBE1",
                 marginBottom: "0.75rem",
               }}
             >
@@ -435,7 +435,7 @@ export default function Home() {
       </section>
 
       {/* ── EVENTS GALLERY STRIP ── */}
-      <section style={{ background: "#1C2B3A", padding: "0", overflow: "hidden" }}>
+      <section style={{ background: "#111111", padding: "0", overflow: "hidden" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", height: "420px" }}>
           <div
             style={{
@@ -446,7 +446,7 @@ export default function Home() {
             }}
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.4)" }} />
-            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#FAF8F4" }}>
+            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#0a0a0a" }}>
               <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 فعاليات حية
               </p>
@@ -464,7 +464,7 @@ export default function Home() {
             }}
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.35)" }} />
-            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#FAF8F4" }}>
+            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#0a0a0a" }}>
               <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 مؤتمرات وملتقيات
               </p>
@@ -508,7 +508,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                color: "#FAF8F4",
+                color: "#0a0a0a",
                 lineHeight: 1.3,
                 marginBottom: "1.25rem",
               }}
@@ -535,22 +535,22 @@ export default function Home() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  background: "#FAF8F4",
+                  background: "#0a0a0a",
                   color: "#B5453A",
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",
-                  border: "2px solid #FAF8F4",
+                  border: "2px solid #0a0a0a",
                   textDecoration: "none",
                   transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "transparent";
-                  (e.currentTarget as HTMLElement).style.color = "#FAF8F4";
+                  (e.currentTarget as HTMLElement).style.color = "#0a0a0a";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#FAF8F4";
+                  (e.currentTarget as HTMLElement).style.background = "#0a0a0a";
                   (e.currentTarget as HTMLElement).style.color = "#B5453A";
                 }}
               >
@@ -562,7 +562,7 @@ export default function Home() {
                   display: "inline-flex",
                   alignItems: "center",
                   background: "transparent",
-                  color: "#FAF8F4",
+                  color: "#0a0a0a",
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 600,
                   fontSize: "0.95rem",
@@ -572,7 +572,7 @@ export default function Home() {
                   transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "#FAF8F4";
+                  (e.currentTarget as HTMLElement).style.borderColor = "#0a0a0a";
                   (e.currentTarget as HTMLElement).style.background = "rgba(250, 248, 244, 0.1)";
                 }}
                 onMouseLeave={(e) => {
