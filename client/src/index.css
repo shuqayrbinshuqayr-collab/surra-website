@@ -172,21 +172,22 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #1C2B3A;
-    color: #F0EBE1;
+    background-color: #ffffff;
+    color: #000000;
     font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
-    border: 2px solid #1C2B3A;
+    border: 2px solid #ffffff;
     border-radius: 0;
     transition: all 0.25s ease;
     text-decoration: none;
     letter-spacing: 0.02em;
   }
   .btn-surrah-primary:hover {
-    background-color: #27486A;
-    border-color: #27486A;
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
   }
 
   .btn-surrah-outline {
@@ -195,20 +196,20 @@
     justify-content: center;
     gap: 0.5rem;
     background-color: transparent;
-    color: #1C2B3A;
+    color: #ffffff;
     font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
-    border: 2px solid #1C2B3A;
+    border: 2px solid #ffffff;
     border-radius: 0;
     transition: all 0.25s ease;
     text-decoration: none;
     letter-spacing: 0.02em;
   }
   .btn-surrah-outline:hover {
-    background-color: #1C2B3A;
-    color: #F0EBE1;
+    background-color: #ffffff;
+    color: #000000;
   }
 
   .btn-surrah-red {
