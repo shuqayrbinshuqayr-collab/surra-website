@@ -140,38 +140,7 @@ export default function Home() {
             >
               تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام.
             </p>
-            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-              <Link href="/join" className="btn-surrah-red">
-                أنشئ مجتمعك
-              </Link>
-              <Link
-                href="/about"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  background: "transparent",
-                  color: "#F0EBE1",
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "0.95rem",
-                  padding: "0.75rem 2rem",
-                  border: "2px solid rgba(240, 235, 225, 0.5)",
-                  textDecoration: "none",
-                  transition: "all 0.25s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "#F0EBE1";
-                  (e.currentTarget as HTMLElement).style.background = "rgba(240, 235, 225, 0.1)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(240, 235, 225, 0.5)";
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                }}
-              >
-                تعرّف على سُرّة
-              </Link>
-            </div>
+
           </div>
         </div>
 
