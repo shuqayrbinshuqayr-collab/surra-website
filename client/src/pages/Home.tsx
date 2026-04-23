@@ -355,7 +355,7 @@ export default function Home() {
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
-                color: "#5A6A7A",
+                  color: "#9AAABB",
                 fontSize: "1rem",
                 maxWidth: "500px",
               }}
@@ -372,20 +372,20 @@ export default function Home() {
                 style={{
                   display: "block",
                   padding: "2rem 1.5rem",
-                  background: "#FFFFFF",
+                  background: "#000000",
                   borderLeft: `3px solid ${c.color}`,
-                  borderBottom: "1px solid rgba(28, 43, 58, 0.06)",
-                  borderRight: "1px solid rgba(28, 43, 58, 0.06)",
+                  borderBottom: "1px solid rgba(255,255,255,0.06)",
+                  borderRight: "1px solid rgba(255,255,255,0.06)",
                   textDecoration: "none",
                   transition: "all 0.25s ease",
                   transitionDelay: `${i * 0.08}s`,
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#F8F4EE";
+                  (e.currentTarget as HTMLElement).style.background = "#111111";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#FFFFFF";
+                  (e.currentTarget as HTMLElement).style.background = "#000000";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
@@ -417,8 +417,8 @@ export default function Home() {
                     fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 400,
                     fontSize: "0.82rem",
-                    color: "#5A6A7A",
-                    lineHeight: 1.8,
+                    color: "#9AAABB",
+                  lineHeight: 1.7,
                   }}
                 >
                   {c.desc}
