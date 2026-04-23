@@ -173,7 +173,7 @@ export default function Home() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                  color: "#F0EBE1",
+                  color: "#ffffff",
                   lineHeight: 1.3,
                   marginBottom: "1.5rem",
                 }}
@@ -187,7 +187,7 @@ export default function Home() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 400,
                   fontSize: "1rem",
-                  color: "#5A6A7A",
+                  color: "#ffffff",
                   lineHeight: 2,
                   maxWidth: "440px",
                 }}
@@ -195,7 +195,7 @@ export default function Home() {
                 لأن المجتمعات لا تنشأ صدفة. هي تُصمَّم بوعي، تُبنى بعمق، وتُشغَّل باستدامة.
                 سُرّة هي النقطة التي تنبثق منها الدوائر.
               </p>
-              <Link href="/about" className="btn-surrah-outline" style={{ marginTop: "2rem" }}>
+              <Link href="/about" className="btn-surrah-outline" style={{ marginTop: "2rem", color: "#ffffff", borderColor: "#ffffff" }}>
                 اعرف المزيد
               </Link>
             </div>
@@ -216,7 +216,7 @@ export default function Home() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 800,
                       fontSize: "2.5rem",
-                      color: "#B5453A",
+                      color: "#ffffff",
                       lineHeight: 1,
                       minWidth: "3rem",
                       opacity: 0.4,
@@ -263,7 +263,7 @@ export default function Home() {
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
-                color: "#5A6A7A",
+                color: "#ffffff",
                 fontSize: "1rem",
               }}
             >
@@ -294,7 +294,7 @@ export default function Home() {
                     fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 700,
                     fontSize: "0.75rem",
-                    color: "#B5453A",
+                    color: "#ffffff",
                     letterSpacing: "0.15em",
                     display: "block",
                     marginBottom: "1rem",
@@ -318,7 +318,7 @@ export default function Home() {
                     fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 400,
                     fontSize: "0.9rem",
-                    color: "#5A6A7A",
+                    color: "#ffffff",
                     lineHeight: 1.9,
                   }}
                 >
@@ -448,7 +448,7 @@ export default function Home() {
       <section
         style={{
           position: "relative",
-          background: "#B5453A",
+              background: "#000000",
           padding: "6rem 0",
           overflow: "hidden",
         }}
@@ -476,7 +476,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                color: "#0a0a0a",
+                color: "#ffffff",
                 lineHeight: 1.3,
                 marginBottom: "1.25rem",
               }}
@@ -503,23 +503,23 @@ export default function Home() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  background: "#0a0a0a",
-                  color: "#B5453A",
+                  background: "#ffffff",
+                  color: "#000000",
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",
-                  border: "2px solid #0a0a0a",
+                  border: "2px solid #ffffff",
                   textDecoration: "none",
                   transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "transparent";
-                  (e.currentTarget as HTMLElement).style.color = "#0a0a0a";
+                  (e.currentTarget as HTMLElement).style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#0a0a0a";
-                  (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                  (e.currentTarget as HTMLElement).style.background = "#ffffff";
+                  (e.currentTarget as HTMLElement).style.color = "#000000";
                 }}
               >
                 ابدأ الحديث معنا
@@ -530,21 +530,21 @@ export default function Home() {
                   display: "inline-flex",
                   alignItems: "center",
                   background: "transparent",
-                  color: "#0a0a0a",
+                  color: "#ffffff",
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 600,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",
-                  border: "2px solid rgba(250, 248, 244, 0.5)",
+                  border: "2px solid #ffffff",
                   textDecoration: "none",
                   transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "#0a0a0a";
+                  (e.currentTarget as HTMLElement).style.borderColor = "#ffffff";
                   (e.currentTarget as HTMLElement).style.background = "rgba(250, 248, 244, 0.1)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(250, 248, 244, 0.5)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "#ffffff";
                   (e.currentTarget as HTMLElement).style.background = "transparent";
                 }}
               >
