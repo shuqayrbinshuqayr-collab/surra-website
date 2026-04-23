@@ -335,102 +335,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMMUNITIES SECTION ── */}
-      <section style={{ background: "#0a0a0a", padding: "6rem 0" }}>
-        <div className="container">
-          <div className="reveal" style={{ marginBottom: "3.5rem" }}>
-            <div className="surrah-divider" />
-            <h2
+      {/* ── COMMUNITIES MARQUEE TICKER ── */}
+      <section
+        style={{
+          background: "#000000",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          overflow: "hidden",
+          padding: "1.5rem 0",
+        }}
+      >
+        <style>{`
+          @keyframes marquee-rtl {
+            0%   { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+          }
+          .communities-ticker {
+            display: flex;
+            width: max-content;
+            animation: marquee-rtl 18s linear infinite;
+          }
+          .communities-ticker:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+        <div className="communities-ticker">
+          {[...communities, ...communities, ...communities, ...communities].map((c, i) => (
+            <Link
+              key={i}
+              href="/communities"
               style={{
-                fontFamily: "'ManchetteFine', sans-serif",
-                fontWeight: 900,
-                fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
-                color: "#F0EBE1",
-                marginBottom: "0.75rem",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                padding: "0 2.5rem",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
               }}
             >
-              مجتمعاتنا
-            </h2>
-            <p
-              style={{
-                fontFamily: "'ManchetteFine', sans-serif",
-                fontWeight: 400,
-                  color: "#9AAABB",
-                fontSize: "1rem",
-                maxWidth: "500px",
-              }}
-            >
-              تضم سُرّة تحت مظلتها مجتمعات مستقلة، لكل منها هويتها وتجربتها، وتجمعها فلسفة واحدة: العمق.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
-            {communities.map((c, i) => (
-              <Link
-                key={c.name}
-                href="/communities"
-                className="reveal"
+              <span
                 style={{
-                  display: "block",
-                  padding: "2rem 1.5rem",
-                  background: "#000000",
-                  borderLeft: `3px solid ${c.color}`,
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
-                  borderRight: "1px solid rgba(255,255,255,0.06)",
-                  textDecoration: "none",
-                  transition: "all 0.25s ease",
-                  transitionDelay: `${i * 0.08}s`,
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#111111";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#000000";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                  fontFamily: "'ManchetteFine', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+                  color: c.color,
+                  letterSpacing: "0.02em",
                 }}
               >
-                <h3
-                  style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontWeight: 900,
-                    fontSize: "1.8rem",
-                    color: c.color,
-                    marginBottom: "0.25rem",
-                  }}
-                >
-                  {c.name}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontSize: "0.7rem",
-                    color: "#9AAABB",
-                    letterSpacing: "0.12em",
-                    marginBottom: "0.75rem",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {c.nameEn}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "0.82rem",
-                    color: "#9AAABB",
-                  lineHeight: 1.7,
-                  }}
-                >
-                  {c.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
-          <div className="reveal" style={{ marginTop: "2.5rem", textAlign: "center" }}>
-            <Link href="/communities" className="btn-surrah-outline">
-              تعرّف على مجتمعاتنا
+                {c.name}
+              </span>
+              <span
+                style={{
+                  fontFamily: "'ManchetteFine', sans-serif",
+                  fontSize: "0.75rem",
+                  color: "rgba(255,255,255,0.3)",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {c.nameEn}
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "1.2rem", marginRight: "0.5rem" }}>·</span>
             </Link>
-          </div>
+          ))}
         </div>
       </section>
 
