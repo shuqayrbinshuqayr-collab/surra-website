@@ -163,7 +163,6 @@ export default function Navbar() {
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = item.color; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
-                                <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: item.color, flexShrink: 0 }} />
                                 <span>{item.label}</span>
                                 <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", marginRight: "auto" }}>{item.labelEn}</span>
                               </Link>
