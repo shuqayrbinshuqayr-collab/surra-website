@@ -112,7 +112,7 @@ export default function Contact() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
-                  color: "#111111",
+                  color: "#ffffff",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -130,57 +130,7 @@ export default function Contact() {
                 سواء كان لديك فكرة تريد مشاركتها، أو استفسار عن خدماتنا، أو رغبة في الشراكة — نحن هنا نستمع.
               </p>
 
-              {/* Social Links */}
-              <div className="space-y-4">
-                <p
-                  className="text-xs tracking-widest"
-                  style={{
-                    color: "#C4622D",
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    letterSpacing: "0.2em",
-                  }}
-                >
-                  تابعنا على
-                </p>
-                {[
-                  { label: "منصة X (تويتر)", handle: "@surra_sa", href: "#" },
-                  { label: "إنستجرام", handle: "@surra.sa", href: "#" },
-                  { label: "لينكدإن", handle: "Surra", href: "#" },
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    className="flex items-center justify-between py-3 px-4 transition-all duration-200"
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.12)",
-                      color: "rgba(255,255,255,0.75)",
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      fontSize: "0.9rem",
-                      textDecoration: "none",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "rgba(181, 69, 58, 0.4)";
-                      el.style.color = "#C4622D";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "rgba(28, 43, 58, 0.12)";
-                      el.style.color = "#5A6A7A";
-                    }}
-                  >
-                    <span>{social.label}</span>
-                    <span
-                      style={{
-                        color: "rgba(255,255,255,0.65)",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      {social.handle}
-                    </span>
-                  </a>
-                ))}
-              </div>
+
             </div>
 
             {/* Right: Form */}
