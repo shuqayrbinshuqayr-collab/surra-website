@@ -55,11 +55,12 @@ const services = [
 ];
 
 const communities = [
-  { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "#C4622D" },
-  { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.", color: "#c8c4bc" },
-  { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "#7B4F8E" },
-  { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "#1C6B4A" },
-  { name: "مقام", nameEn: "Maqam", desc: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته.", color: "#8B6914" },
+  { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "#C4622D", logoWhite: "/manus-storage/Basar-White_7d406934.png" },
+  { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.", color: "#c8c4bc", logoWhite: "/manus-storage/Sifr-Black_c3ab7e46.webp", invertLogo: true },
+  { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png" },
+  { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "#1C6B4A", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png" },
+  { name: "مقام", nameEn: "Maqam", desc: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته.", color: "#8B6914", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png" },
+  { name: "عُملة", nameEn: "Umlah", desc: "مجتمع لريادة الأعمال والاقتصاد الإبداعي.", color: "#c8c4bc", logoWhite: "/manus-storage/Umlah-Black_f8a8fa99.webp", invertLogo: true },
 ];
 
 const whyPoints = [
@@ -381,36 +382,24 @@ export default function Home() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "0.75rem",
                 padding: "0 2.5rem",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
                 flexShrink: 0,
               }}
             >
-              <span
+              <img
+                src={c.logoWhite}
+                alt={c.name}
                 style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
-                  color: c.color,
-                  letterSpacing: "0.02em",
+                  height: "clamp(28px, 3.5vw, 44px)",
+                  width: "auto",
+                  objectFit: "contain",
+                  filter: (c as any).invertLogo ? "invert(1)" : "none",
+                  opacity: 0.9,
                 }}
-              >
-                {c.name}
-              </span>
-              <span
-                style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  fontSize: "0.75rem",
-                  color: "rgba(255,255,255,0.3)",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {c.nameEn}
-              </span>
-              <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "1.2rem", marginLeft: "0.5rem" }}>·</span>
+              />
+              <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "1.2rem", marginLeft: "2rem" }}>·</span>
             </Link>
           ))}
         </div>

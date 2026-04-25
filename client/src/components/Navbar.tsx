@@ -12,11 +12,12 @@ import { toast } from "sonner";
 const F = "'ManchetteFine', sans-serif";
 
 const communities = [
-  { href: "/communities/basar", label: "بصر", labelEn: "Basar", color: "#C4622D" },
-  { href: "/communities/sifr", label: "صفر", labelEn: "Sifr", color: "#c8c4bc" },
-  { href: "/communities/sada", label: "سدى", labelEn: "Sada", color: "#7B4F8E" },
-  { href: "/communities/mada", label: "مدى", labelEn: "Mada", color: "#c8c4bc" },
-  { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", color: "#C4622D" },
+  { href: "/communities/basar", label: "بصر", labelEn: "Basar", color: "#C4622D", logoWhite: "/manus-storage/Basar-White_7d406934.png", logoBlack: "/manus-storage/Basar-Black_b4fc3a42.png" },
+  { href: "/communities/sifr", label: "صفر", labelEn: "Sifr", color: "#c8c4bc", logoWhite: "/manus-storage/Sifr-Black_c3ab7e46.webp", logoBlack: "/manus-storage/Sifr-Black_c3ab7e46.webp" },
+  { href: "/communities/sada", label: "سدى", labelEn: "Sada", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png" },
+  { href: "/communities/mada", label: "مدى", labelEn: "Mada", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png" },
+  { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png" },
+  { href: "/communities/umlah", label: "عُملة", labelEn: "Umlah", color: "#c8c4bc", logoWhite: "/manus-storage/Umlah-Black_f8a8fa99.webp", logoBlack: "/manus-storage/Umlah-Black_f8a8fa99.webp" },
 ];
 
 const services = [
@@ -153,18 +154,17 @@ export default function Navbar() {
                     {activeDropdown === link.dropdown && (
                       <div style={dropdownStyle} onMouseEnter={keepDropdown} onMouseLeave={closeDropdown}>
                         {link.dropdown === "communities" ? (
-                          <>
+                          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0", padding: "0.5rem" }}>
                             {(items as typeof communities).map((item) => (
                               <Link key={item.href} href={item.href}
-                                style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
-                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = item.color; }}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
+                                style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0.75rem 1rem", textDecoration: "none", borderRadius: "4px", transition: "background 0.15s", border: "1px solid transparent" }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)"; }}
+                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "transparent"; }}
                               >
-                                <span>{item.label}</span>
-                                <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", marginRight: "auto" }}>{item.labelEn}</span>
+                                <img src={item.logoWhite} alt={item.label} style={{ height: "36px", width: "auto", objectFit: "contain", filter: item.labelEn === "Sifr" || item.labelEn === "Umlah" ? "invert(1)" : "none" }} />
                               </Link>
                             ))}
-                          </>
+                          </div>
                         ) : link.dropdown === "media" ? (
                           <>
                             {(items as typeof mediaItems).map((item) => (
@@ -333,10 +333,9 @@ export default function Navbar() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontFamily: F, fontSize: "0.9rem", color: "#ffffff", padding: "0.6rem 0.75rem", textDecoration: "none" }}
+                              style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0.6rem 0.75rem", textDecoration: "none" }}
                             >
-                              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: item.color }} />
-                              {item.label}
+                              <img src={item.logoWhite} alt={item.label} style={{ height: "28px", width: "auto", objectFit: "contain", filter: item.labelEn === "Sifr" || item.labelEn === "Umlah" ? "invert(1)" : "none" }} />
                             </Link>
                           ))
                           : (items as typeof services).map((item) => (
