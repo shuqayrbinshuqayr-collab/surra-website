@@ -7,7 +7,7 @@
      - Logo: official calligraphic image
    ============================================================ */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -87,10 +87,20 @@ export default function Home() {
       >
         {/* Video background */}
         <video
+          ref={(el) => {
+            if (el) {
+              el.muted = true;
+              el.defaultMuted = true;
+              el.play().catch(() => {});
+            }
+          }}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
+          disablePictureInPicture
+          disableRemotePlayback
           style={{
             position: "absolute",
             inset: 0,
@@ -98,6 +108,7 @@ export default function Home() {
             height: "100%",
             objectFit: "cover",
             zIndex: 0,
+            pointerEvents: "none",
           }}
         >
           <source src="/manus-storage/hero-bg_6887ae74.mp4" type="video/mp4" />
