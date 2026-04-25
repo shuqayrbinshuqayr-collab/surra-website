@@ -100,10 +100,8 @@ function Field({ label, axisNum, children }: {
   return (
     <div style={{ marginBottom: "1.5rem" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "8px" }}>
-        <label style={{ fontFamily: FONT, fontSize: "14px", color: WHITE, lineHeight: 1.5 }}>{label}</label>
-        {axisNum !== undefined && (
-          <span style={{ fontFamily: FONT, fontSize: "11px", color: ORANGE }}>{axisNum}</span>
-        )}
+        <label style={{ fontFamily: FONT, fontSize: "16px", color: WHITE, lineHeight: 1.5 }}>{label}</label>
+
       </div>
       {children}
     </div>
@@ -118,7 +116,7 @@ function AxisHeader({ tag, title, goal }: { tag: string; title: string; goal: st
         fontSize: "11px", fontFamily: FONT, background: "rgba(196,98,45,0.15)",
         color: ORANGE, border: `1px solid ${BORDER_ACTIVE}`, marginBottom: "10px",
       }}>{tag}</div>
-      <div style={{ fontSize: "22px", fontFamily: FONT, color: WHITE, fontWeight: 300, marginBottom: "8px" }}>{title}</div>
+      <div style={{ fontSize: "28px", fontFamily: FONT, color: WHITE, fontWeight: 300, marginBottom: "8px" }}>{title}</div>
       <div style={{
         fontSize: "13px", color: "rgba(255,255,255,0.55)", padding: "8px 12px",
         borderRight: `2px solid ${ORANGE}`, background: "rgba(196,98,45,0.06)",
@@ -390,34 +388,22 @@ function Form1({ onQualified, onRejected }: {
             {/* Axes preview */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "2rem" }}>
               {[
-                ["١", "الدافع والغاية"], ["٢", "الجمهور المستهدف"],
-                ["٣", "القيمة والتجربة"], ["٤", "الاستدامة"],
-              ].map(([num, label]) => (
-                <div key={num} style={{
-                  padding: "10px 12px", borderRadius: "6px", background: DARK_CARD,
-                  border: `1px solid ${BORDER}`, display: "flex", alignItems: "center", gap: "10px",
+                "الدافع والغاية", "الجمهور المستهدف",
+                "القيمة والتجربة", "الاستدامة",
+              ].map((label) => (
+                <div key={label} style={{
+                  padding: "12px 16px", borderRadius: "6px", background: DARK_CARD,
+                  border: `1px solid ${BORDER}`, display: "flex", alignItems: "center",
                 }}>
-                  <div style={{
-                    width: "22px", height: "22px", borderRadius: "50%",
-                    background: "rgba(196,98,45,0.15)", color: ORANGE,
-                    fontSize: "11px", display: "flex", alignItems: "center", justifyContent: "center",
-                    fontFamily: FONT, flexShrink: 0,
-                  }}>{num}</div>
-                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.65)", fontFamily: FONT }}>{label}</span>
+                  <span style={{ fontSize: "16px", color: WHITE, fontFamily: FONT, fontWeight: 300 }}>{label}</span>
                 </div>
               ))}
               <div style={{
-                gridColumn: "span 2", padding: "10px 12px", borderRadius: "6px",
+                gridColumn: "span 2", padding: "12px 16px", borderRadius: "6px",
                 background: DARK_CARD, border: `1px solid ${BORDER}`,
-                display: "flex", alignItems: "center", gap: "10px",
+                display: "flex", alignItems: "center",
               }}>
-                <div style={{
-                  width: "22px", height: "22px", borderRadius: "50%",
-                  background: "rgba(196,98,45,0.15)", color: ORANGE,
-                  fontSize: "11px", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: FONT, flexShrink: 0,
-                }}>٥</div>
-                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.65)", fontFamily: FONT }}>الحوكمة والنمو</span>
+                <span style={{ fontSize: "16px", color: WHITE, fontFamily: FONT, fontWeight: 300 }}>الحوكمة والنمو</span>
               </div>
             </div>
 
