@@ -327,25 +327,61 @@ export default function Home() {
       </section>
 
       {/* ── TEAM SECTION (قادتنا) ── */}
-      <section style={{ background: "#111111", padding: "6rem 0" }}>
+      <section style={{ background: "#111111", padding: "5rem 0 0 0", overflow: "hidden" }}>
         <style>{`
-          .team-card img {
+          @keyframes team-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .team-strip {
+            display: flex;
+            width: max-content;
+            animation: team-scroll 45s linear infinite;
+            will-change: transform;
+          }
+          .team-strip:hover {
+            animation-play-state: paused;
+          }
+          .team-card-strip {
+            position: relative;
+            flex-shrink: 0;
+            width: 260px;
+            height: 340px;
+            overflow: hidden;
+          }
+          .team-card-strip img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
             filter: grayscale(1) contrast(1.05);
             transition: filter 0.45s ease;
           }
-          .team-card:hover img {
+          .team-card-strip:hover img {
             filter: grayscale(0) contrast(1);
           }
-          .team-card .member-overlay {
-            opacity: 0;
-            transition: opacity 0.35s ease;
+          .team-card-strip .team-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.2rem 1rem 1rem 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+            z-index: 2;
+            text-align: right;
           }
-          .team-card:hover .member-overlay {
+          .team-card-strip .team-role {
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+          }
+          .team-card-strip:hover .team-role {
             opacity: 1;
+            transform: translateY(0);
           }
         `}</style>
-        <div className="container">
-          <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+        <div className="container" style={{ marginBottom: "2.5rem" }}>
+          <div className="reveal">
             <div className="surrah-divider" />
             <h2
               style={{
@@ -369,77 +405,32 @@ export default function Home() {
               تعرف على الرواد الذين يقودون الابتكار الإبداعي في مجتمعات سُرّة
             </p>
           </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-              gap: "0",
-            }}
-          >
-            {teamMembers.map((member, i) => (
-              <div
-                key={member.name}
-                className="team-card reveal"
-                style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  cursor: "default",
-                  transitionDelay: `${(i % 5) * 0.07}s`,
-                  aspectRatio: "1 / 1",
-                }}
-              >
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                />
-                {/* Dark gradient overlay always visible at bottom */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: "60%",
-                    background: "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)",
-                    zIndex: 1,
-                  }}
-                />
-                {/* Member info always visible */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: "1rem",
-                    zIndex: 2,
-                    textAlign: "right",
-                  }}
-                >
+        </div>
+        {/* Full-width scrolling strip — bleeds edge-to-edge */}
+        <div style={{ width: "100%", overflow: "hidden" }}>
+          <div className="team-strip">
+            {[...teamMembers, ...teamMembers].map((member, i) => (
+              <div key={`${member.name}-${i}`} className="team-card-strip">
+                <img src={member.photo} alt={member.name} />
+                <div className="team-info">
                   <p
                     style={{
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 700,
-                      fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
+                      fontSize: "0.95rem",
                       color: "#ffffff",
-                      marginBottom: "0.2rem",
+                      marginBottom: "0.25rem",
                       lineHeight: 1.3,
                     }}
                   >
                     {member.name}
                   </p>
                   <p
-                    className="member-overlay"
+                    className="team-role"
                     style={{
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 400,
-                      fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)",
+                      fontSize: "0.78rem",
                       color: "#C4622D",
                       lineHeight: 1.4,
                     }}
@@ -453,7 +444,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMMUNITIES MARQUEE TICKER ── */}
+            {/* ── COMMUNITIES MARQUEE TICKER ── */}
       <section
         style={{
           background: "#000000",
