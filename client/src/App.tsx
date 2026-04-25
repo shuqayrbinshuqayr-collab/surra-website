@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Communities from "./pages/Communities";
 import Join from "./pages/Join";
 import Contact from "./pages/Contact";
+import CommunityDetail from "./pages/CommunityDetail";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path={"/services"} component={Services} />
       <Route path={"/communities"} component={Communities} />
+      <Route path={"/communities/:id"} component={CommunityDetail} />
       <Route path={"/join"} component={Join} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
