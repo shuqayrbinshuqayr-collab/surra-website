@@ -125,7 +125,7 @@ export default function Home() {
 
 
         {/* Hero Content */}
-        <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div className="container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", width: "100%" }}>
           <div style={{ maxWidth: "900px", textAlign: "center" }}>
 
             <h1
