@@ -154,9 +154,6 @@ export default function Navbar() {
                       <div style={dropdownStyle} onMouseEnter={keepDropdown} onMouseLeave={closeDropdown}>
                         {link.dropdown === "communities" ? (
                           <>
-                            <div style={{ padding: "0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                              <Link href="/communities" style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}>جميع المجتمعات</Link>
-                            </div>
                             {(items as typeof communities).map((item) => (
                               <Link key={item.href} href={item.href}
                                 style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
@@ -183,9 +180,6 @@ export default function Navbar() {
                           </>
                         ) : link.dropdown === "services" ? (
                           <>
-                            <div style={{ padding: "0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                              <Link href="/services" style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}>جميع الخدمات</Link>
-                            </div>
                             {(items as typeof services).map((item) => (
                               <Link key={item.href} href={item.href}
                                 style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
