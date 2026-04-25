@@ -116,7 +116,7 @@ export default function Home() {
             <h1
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
-                fontWeight: 300,
+                fontWeight: 200,
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
                 color: "#ffffff",
                 lineHeight: 1.15,
