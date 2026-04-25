@@ -111,22 +111,7 @@ export default function Home() {
             zIndex: 1,
           }}
         />
-        {/* Brand pattern overlay (Wallpaper1 — geometric mark) */}
-        <div
-          style={{
-            position: "absolute",
-            left: "-60px",
-            bottom: "-40px",
-            width: "380px",
-            height: "380px",
-            backgroundImage: "url('/manus-storage/Wallpaper1_a9f6821c.png')",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "bottom left",
-            opacity: 0.06,
-            zIndex: 2,
-          }}
-        />
+
 
         {/* Hero Content */}
         <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
