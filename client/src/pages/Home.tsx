@@ -138,9 +138,7 @@ export default function Home() {
                 marginBottom: "1.5rem",
               }}
             >
-              نصنع المجتمعات
-              <br />
-              <span style={{ color: "#ffffff", fontWeight: 200 }}>ونمنح الأفكار حياة</span>
+              نصنع المجتمعات ونمنح الأفكار حياة
             </h1>
             <p
               style={{
