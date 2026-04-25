@@ -245,7 +245,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center flex-shrink-0" style={{ marginLeft: "-0.5rem" }}>
             <Link
-              href="/join"
+              href="/create-community"
               className="btn-surrah-primary"
               style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: "#ffffff", backgroundColor: "#212121", border: "1px solid #ffffff" }}
             >
@@ -394,7 +394,7 @@ export default function Navbar() {
               );
             })}
             <div style={{ marginTop: "1rem" }}>
-              <Link href="/join" className="btn-surrah-primary" style={{ width: "100%", justifyContent: "center" }}>
+              <Link href="/create-community" className="btn-surrah-primary" style={{ width: "100%", justifyContent: "center" }}>
                 أنشئ مجتمعك
               </Link>
             </div>
