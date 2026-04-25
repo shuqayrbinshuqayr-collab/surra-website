@@ -192,9 +192,6 @@ export default function Navbar() {
                           </>
                         ) : (
                           <>
-                            <div style={{ padding: "0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                              <Link href="/join" style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}>جميع العضويات</Link>
-                            </div>
                             {(items as typeof memberships).map((item) => (
                               <Link key={item.href} href={item.href}
                                 style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.65rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
