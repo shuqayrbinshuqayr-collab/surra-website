@@ -85,12 +85,30 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        {/* Solid black background */}
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 0,
+          }}
+        >
+          <source src="/manus-storage/hero-bg_6887ae74.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay to keep text readable */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "#000000",
+            backgroundColor: "rgba(0,0,0,0.55)",
+            zIndex: 1,
           }}
         />
         {/* Brand pattern overlay (Wallpaper1 — geometric mark) */}
@@ -106,6 +124,7 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "bottom left",
             opacity: 0.06,
+            zIndex: 2,
           }}
         />
 
