@@ -501,8 +501,8 @@ export default function Home() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  background: "#111111",
-                  color: "#000000",
+                  background: "#000000",
+                  color: "#ffffff",
                   fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.95rem",
@@ -512,12 +512,12 @@ export default function Home() {
                   transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                  (e.currentTarget as HTMLElement).style.color = "#ffffff";
+                  (e.currentTarget as HTMLElement).style.background = "#ffffff";
+                  (e.currentTarget as HTMLElement).style.color = "#000000";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#111111";
-                  (e.currentTarget as HTMLElement).style.color = "#000000";
+                  (e.currentTarget as HTMLElement).style.background = "#000000";
+                  (e.currentTarget as HTMLElement).style.color = "#ffffff";
                 }}
               >
                 ابدأ الحديث معنا

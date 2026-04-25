@@ -172,8 +172,8 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000;
+    color: #ffffff;
     font-family: 'ThmanyahSerifText', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
@@ -185,8 +185,8 @@
     letter-spacing: 0.02em;
   }
   .btn-surrah-primary:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     border-color: #ffffff;
   }
 
@@ -210,6 +210,7 @@
   .btn-surrah-outline:hover {
     background-color: #ffffff;
     color: #000000;
+    border-color: #ffffff;
   }
 
   .btn-surrah-red {
@@ -217,21 +218,22 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #C4622D;
-    color: #FAF8F4;
+    background-color: #000000;
+    color: #ffffff;
     font-family: 'ThmanyahSerifText', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
-    border: 2px solid #B5453A;
+    border: 2px solid #ffffff;
     border-radius: 0;
     transition: all 0.25s ease;
     text-decoration: none;
     letter-spacing: 0.02em;
   }
   .btn-surrah-red:hover {
-    background-color: #a8521f;
-    border-color: #a8521f;
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
   }
 
   /* ── Reveal animation ── */
