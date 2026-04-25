@@ -78,7 +78,7 @@ export default function Directory() {
 
   const [form, setForm] = useState({
     name: "", type: "", city: "", year: "", desc: "", focus: "",
-    activity: "نشط", partnership: "متوسطة", instagram: "", tagInput: "", tags: [] as string[],
+    activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [] as string[],
   });
 
   const filtered = useMemo(() => {
@@ -118,7 +118,7 @@ export default function Directory() {
     };
     setEntities((prev) => [...prev, newEntity]);
     setSubmitSuccess(true);
-    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", activity: "نشط", partnership: "متوسطة", instagram: "", tagInput: "", tags: [] });
+    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [] });
     setTimeout(() => setSubmitSuccess(false), 5000);
   }
 
@@ -401,7 +401,7 @@ export default function Directory() {
           <div style={{ maxWidth: "680px", margin: "0 auto" }}>
             {/* Header */}
             <div style={{ marginBottom: "2.5rem", paddingBottom: "2rem", borderBottom: `1px solid ${C.border}` }}>
-              <p style={{ color: C.gold, fontSize: "0.75rem", letterSpacing: "0.3em", marginBottom: "0.75rem", textTransform: "uppercase" }}>الانضمام للدليل</p>
+              <p style={{ color: C.gold, fontSize: "0.75rem", marginBottom: "0.75rem", textTransform: "uppercase" }}>الانضمام للدليل</p>
               <h1 style={{ fontFamily: fontBase, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: 700, color: C.white, marginBottom: "0.75rem" }}>
                 سجّل جهتك في <span style={{ color: C.gold }}>دليل سُرّة</span>
               </h1>
@@ -421,7 +421,7 @@ export default function Directory() {
 
                 {/* Section label */}
                 <div style={{ gridColumn: "span 2", paddingBottom: "0.5rem", borderBottom: `1px solid ${C.border}`, marginBottom: "0.25rem" }}>
-                  <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: C.gold, textTransform: "uppercase", letterSpacing: "0.15em" }}>معلومات الجهة الأساسية</span>
+                  <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: C.gold, textTransform: "uppercase" }}>معلومات الجهة الأساسية</span>
                 </div>
 
                 {[
@@ -468,7 +468,7 @@ export default function Directory() {
 
                 {/* Section label */}
                 <div style={{ gridColumn: "span 2", paddingBottom: "0.5rem", borderBottom: `1px solid ${C.border}`, marginTop: "0.5rem", marginBottom: "0.25rem" }}>
-                  <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: C.gold, textTransform: "uppercase", letterSpacing: "0.15em" }}>التخصص والمجال</span>
+                  <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: C.gold, textTransform: "uppercase" }}>التخصص والمجال</span>
                 </div>
 
                 <div style={{ gridColumn: "span 2" }}>
@@ -489,6 +489,12 @@ export default function Directory() {
                   </select>
                 </div>
 
+
+
+                {/* Social Media Section */}
+                <div style={{ gridColumn: "span 2", paddingBottom: "0.5rem", borderBottom: `1px solid ${C.border}`, marginTop: "0.5rem", marginBottom: "0.25rem" }}>
+                  <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: C.gold, textTransform: "uppercase" }}>وسائل التواصل الاجتماعي</span>
+                </div>
                 <div>
                   <label style={labelStyle}>إنستغرام</label>
                   <input
@@ -499,7 +505,70 @@ export default function Directory() {
                     style={inputStyle}
                   />
                 </div>
-
+                <div>
+                  <label style={labelStyle}>إكس (تويتر)</label>
+                  <input
+                    type="text"
+                    placeholder="@handle"
+                    value={form.twitter}
+                    onChange={(e) => setForm((prev) => ({ ...prev, twitter: e.target.value }))}
+                    style={inputStyle}
+                  />
+                </div>
+                <div style={{ gridColumn: "span 2" }}>
+                  <label style={labelStyle}>لينكدإن</label>
+                  <input
+                    type="text"
+                    placeholder="linkedin.com/company/..."
+                    value={form.linkedin}
+                    onChange={(e) => setForm((prev) => ({ ...prev, linkedin: e.target.value }))}
+                    style={inputStyle}
+                  />
+                </div>
+                {/* Contact Person Section */}
+                <div style={{ gridColumn: "span 2", paddingBottom: "0.5rem", borderBottom: `1px solid ${C.border}`, marginTop: "0.5rem", marginBottom: "0.25rem" }}>
+                  <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: C.gold, textTransform: "uppercase" }}>معلومات الموكل / جهة التواصل</span>
+                </div>
+                <div>
+                  <label style={labelStyle}>اسم الموكل</label>
+                  <input
+                    type="text"
+                    placeholder="الاسم الكامل"
+                    value={form.contactName}
+                    onChange={(e) => setForm((prev) => ({ ...prev, contactName: e.target.value }))}
+                    style={inputStyle}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>المنصب / الدور</label>
+                  <input
+                    type="text"
+                    placeholder="مثال: مدير التسويق"
+                    value={form.contactRole}
+                    onChange={(e) => setForm((prev) => ({ ...prev, contactRole: e.target.value }))}
+                    style={inputStyle}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>رقم الجوال</label>
+                  <input
+                    type="text"
+                    placeholder="+966 5X XXX XXXX"
+                    value={form.contactPhone}
+                    onChange={(e) => setForm((prev) => ({ ...prev, contactPhone: e.target.value }))}
+                    style={inputStyle}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>البريد الإلكتروني</label>
+                  <input
+                    type="email"
+                    placeholder="email@example.com"
+                    value={form.contactEmail}
+                    onChange={(e) => setForm((prev) => ({ ...prev, contactEmail: e.target.value }))}
+                    style={inputStyle}
+                  />
+                </div>
                 <div style={{ gridColumn: "span 2" }}>
                   <label style={labelStyle}>الوسوم</label>
                   <div style={{ display: "flex", gap: "0.5rem" }}>
