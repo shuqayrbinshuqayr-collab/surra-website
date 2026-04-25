@@ -45,7 +45,7 @@ const navLinks = [
   { href: "/services", label: "خدماتنا", dropdown: "services" },
   { href: "/media", label: "المركز الإعلامي", dropdown: "media" },
   { href: "/join", label: "عضويات", dropdown: "memberships" },
-  { href: "/guide", label: "دليل سُرّة", placeholder: true },
+  { href: "/directory", label: "دليل سُرّة" },
   { href: "/store", label: "المتجر", placeholder: true },
 ];
 
