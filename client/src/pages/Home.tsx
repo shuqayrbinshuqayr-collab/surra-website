@@ -126,16 +126,17 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "120px", paddingBottom: "80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          <div style={{ maxWidth: "680px", textAlign: "center" }}>
+          <div style={{ maxWidth: "900px", textAlign: "center" }}>
 
             <h1
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 200,
-                fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                fontSize: "clamp(2rem, 4.5vw, 3.8rem)",
                 color: "#ffffff",
-                lineHeight: 1.15,
+                lineHeight: 1.2,
                 marginBottom: "1.5rem",
+                whiteSpace: "nowrap",
               }}
             >
               نصنع المجتمعات ونمنح الأفكار حياة
