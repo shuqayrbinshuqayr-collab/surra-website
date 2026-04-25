@@ -27,30 +27,96 @@ function useReveal() {
   return ref;
 }
 
-const services = [
+const teamMembers = [
   {
-    num: "٠١",
-    title: "صناعة المجتمعات",
-    desc: "نصمم المجتمعات من الجذور لا من الواجهة. بناء هوية المجتمع، تحديد الفئة المستهدفة، الهيكلة والتنظيم، خطط التشغيل والاستدامة.",
-    href: "/services#communities",
+    name: "منصور باخلعة",
+    role: "مؤسس ومنتج مجتمعات",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D9%85%D9%86%D8%B5%D9%88%D8%B1-%D8%A8%D8%A7%D8%AE%D9%84%D8%B9%D8%A9-2-768x768.webp",
   },
   {
-    num: "٠٢",
-    title: "إنشاء البرامج الثقافية",
-    desc: "نحول المحتوى إلى تجربة. برامج حوارية، سلاسل معرفية، تجارب ثقافية متخصصة.",
-    href: "/services#programs",
+    name: "م.معتز العبدالقادر",
+    role: "الرئيس التنفيذي",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D9%85.%D9%85%D8%B9%D8%AA%D8%B2-%D8%A7%D9%84%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%82%D8%A7%D8%AF%D8%B1-1-768x768.webp",
   },
   {
-    num: "٠٣",
-    title: "تنظيم الفعاليات الحية",
-    desc: "نصمم الفعالية كرحلة لا كموعد. تصميم التجربة، إدارة الحدث وتشغيله، إدارة الحضور، التوثيق.",
-    href: "/services#events",
+    name: "محمد المصري",
+    role: "نائب الرئيس للمنتجات والتسويق",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-1-768x768.webp",
   },
   {
-    num: "٠٤",
-    title: "توفير الجمهور المستهدف",
-    desc: "نوصل الرسالة إلى من يهمه سماعها. بناء مجتمعات متخصصة، إدارة قواعد الجمهور، ربط العلامات التجارية بجمهورها الحقيقي.",
-    href: "/services#audience",
+    name: "م. شقير بن شقير",
+    role: "رئيس أنظمة المجتمعات",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D8%B4%D9%82%D9%8A%D8%B1-%D8%B1%D8%B4%D9%8A%D8%AF-%D8%A8%D9%86-%D8%B4%D9%82%D9%8A%D8%B1-1-768x768.webp",
+  },
+  {
+    name: "عبدالرحمن النهدي",
+    role: "مدير تقنية المعلومات",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%A7%D9%84%D9%86%D9%87%D8%AF%D9%8A-2-768x768.webp",
+  },
+  {
+    name: "أحمد فضل",
+    role: "مدير إبداعي",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%AD%D9%85%D8%AF-%D9%81%D8%B6%D9%84-1-768x768.webp",
+  },
+  {
+    name: "د.الهنوف الزنيتان",
+    role: "مستشارة ومديرة تطوير الأعمال",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D8%AF.%D8%A7%D9%84%D9%87%D9%86%D9%88%D9%81-%D8%A7%D9%84%D8%B2%D9%86%D9%8A%D8%AA%D8%A7%D9%86-768x768.webp",
+  },
+  {
+    name: "أحمد خليل",
+    role: "مسؤول الانتاج الإعلامي",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%AD%D9%85%D8%AF-%D8%AE%D9%84%D9%8A%D9%84-1-768x768.webp",
+  },
+  {
+    name: "أسماء الظافري",
+    role: "منسقة فعاليات ومحتوى",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%B3%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%B8%D8%A7%D9%81%D8%B1%D9%8A-768x768.webp",
+  },
+  {
+    name: "قتيبة تركستاني",
+    role: "العلاقات العامة",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D9%82%D8%AA%D9%8A%D8%A8%D8%A9-%D8%AA%D8%B1%D9%83%D8%B3%D8%AA%D8%A7%D9%86%D9%8A-2-768x768.webp",
+  },
+  {
+    name: "محمد بن محمد",
+    role: "قائد تشغيل الفعاليات",
+    org: "سُرّة",
+    photo: "https://surrah.net/wp-content/uploads/%D9%85%D8%AD%D9%85%D8%AF-%D8%A8%D9%86-%D9%85%D8%AD%D9%85%D8%AF-1-768x768.webp",
+  },
+  {
+    name: "معاذ الحازمي",
+    role: "قائد الحوار - ثلوثية بصر",
+    org: "بصر",
+    photo: "https://surrah.net/wp-content/uploads/%D9%85%D8%B9%D8%A7%D8%B0-%D8%A7%D9%84%D8%AD%D8%A7%D8%B2%D9%85%D9%8A-1-768x768.webp",
+  },
+  {
+    name: "أسامة فقيه",
+    role: "قائد المجتمع",
+    org: "مقام",
+    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%B3%D8%A7%D9%85%D8%A9-%D9%81%D9%82%D9%8A%D9%87-768x768.webp",
+  },
+  {
+    name: "دلال العتيبي",
+    role: "مدير العلاقات والشراكات",
+    org: "سدى",
+    photo: "https://surrah.net/wp-content/uploads/%D8%AF%D9%84%D8%A7%D9%84-%D8%A7%D9%84%D8%B9%D8%AA%D9%8A%D8%A8%D9%8A-1-768x768.webp",
+  },
+  {
+    name: "عبدللطيف الثويني",
+    role: "قائد منتج ثلوثية بصر",
+    org: "بصر",
+    photo: "https://surrah.net/wp-content/uploads/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D8%B7%D9%8A%D9%81-%D8%A7%D9%84%D8%AB%D9%88%D9%8A%D9%86%D9%8A-768x768.webp",
   },
 ];
 
@@ -260,8 +326,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES SECTION ── */}
+      {/* ── TEAM SECTION (قادتنا) ── */}
       <section style={{ background: "#111111", padding: "6rem 0" }}>
+        <style>{`
+          .team-card img {
+            filter: grayscale(1) contrast(1.05);
+            transition: filter 0.45s ease;
+          }
+          .team-card:hover img {
+            filter: grayscale(0) contrast(1);
+          }
+          .team-card .member-overlay {
+            opacity: 0;
+            transition: opacity 0.35s ease;
+          }
+          .team-card:hover .member-overlay {
+            opacity: 1;
+          }
+        `}</style>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3.5rem" }}>
             <div className="surrah-divider" />
@@ -274,80 +356,99 @@ export default function Home() {
                 marginBottom: "0.75rem",
               }}
             >
-              خدماتنا
+              قادتنا
             </h2>
             <p
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
-                color: "#ffffff",
+                color: "rgba(255,255,255,0.6)",
                 fontSize: "1rem",
               }}
             >
-              نرافقك من الفكرة حتى الاستدامة
+              تعرف على الرواد الذين يقودون الابتكار الإبداعي في مجتمعات سُرّة
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            {services.map((s, i) => (
-              <Link
-                key={s.num}
-                href={s.href}
-                className="reveal"
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+              gap: "0",
+            }}
+          >
+            {teamMembers.map((member, i) => (
+              <div
+                key={member.name}
+                className="team-card reveal"
                 style={{
-                  display: "block",
-                  padding: "2.5rem",
-                  background: i % 2 === 0 ? "#000000" : "#0a0a0a",
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
-                  borderLeft: i % 2 === 0 ? "none" : "1px solid rgba(255,255,255,0.06)",
-                  textDecoration: "none",
-                  transition: "background 0.25s ease",
-                  transitionDelay: `${i * 0.1}s`,
+                  position: "relative",
+                  overflow: "hidden",
+                  cursor: "default",
+                  transitionDelay: `${(i % 5) * 0.07}s`,
+                  aspectRatio: "1 / 1",
                 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#111111")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = i % 2 === 0 ? "#000000" : "#0a0a0a")}
               >
-                <span
+                <img
+                  src={member.photo}
+                  alt={member.name}
                   style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "0.75rem",
-                    color: "#ffffff",
-                    letterSpacing: "0.15em",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                     display: "block",
-                    marginBottom: "1rem",
                   }}
-                >
-                  {s.num}
-                </span>
-                <h3
+                />
+                {/* Dark gradient overlay always visible at bottom */}
+                <div
                   style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.2rem",
-                    color: "#ffffff",
-                    marginBottom: "0.75rem",
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "60%",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)",
+                    zIndex: 1,
                   }}
-                >
-                  {s.title}
-                </h3>
-                <p
+                />
+                {/* Member info always visible */}
+                <div
                   style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "0.9rem",
-                    color: "#ffffff",
-                    lineHeight: 1.9,
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "1rem",
+                    zIndex: 2,
+                    textAlign: "right",
                   }}
                 >
-                  {s.desc}
-                </p>
-              </Link>
+                  <p
+                    style={{
+                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontWeight: 700,
+                      fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
+                      color: "#ffffff",
+                      marginBottom: "0.2rem",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {member.name}
+                  </p>
+                  <p
+                    className="member-overlay"
+                    style={{
+                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontWeight: 400,
+                      fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)",
+                      color: "#C4622D",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {member.role}
+                  </p>
+                </div>
+              </div>
             ))}
-          </div>
-          <div className="reveal" style={{ marginTop: "2.5rem", textAlign: "center" }}>
-            <Link href="/services" className="btn-surrah-primary">
-              استكشف خدماتنا
-            </Link>
           </div>
         </div>
       </section>
