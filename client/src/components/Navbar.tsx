@@ -101,8 +101,8 @@ export default function Navbar() {
     <header
       className="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(10, 10, 10, 0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
+        background: menuOpen ? "#000000" : scrolled ? "rgba(10, 10, 10, 0.92)" : "transparent",
+        backdropFilter: menuOpen ? "none" : scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.4)" : "none",
       }}
@@ -290,7 +290,7 @@ export default function Navbar() {
         >
           <div
             className="flex flex-col pb-6 pt-2 border-t"
-            style={{ borderColor: "rgba(255,255,255,0.1)" }}
+            style={{ borderColor: "rgba(255,255,255,0.15)", background: "#000000" }}
           >
             {navLinks.map((link) => {
               if (link.dropdown) {
