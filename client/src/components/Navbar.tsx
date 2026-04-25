@@ -26,12 +26,20 @@ const services = [
   { href: "/services#audience", label: "توفير الجمهور المستهدف" },
 ];
 
+const memberships = [
+  { href: "/join?type=member", label: "عضو في المجتمع", desc: "انضم إلى مجتمع سُرّة" },
+  { href: "/join?type=partner", label: "شريك أو راعٍ", desc: "كن شريكاً في الأثر" },
+  { href: "/join?type=volunteer", label: "متطوع أو متعاون", desc: "تطوّع معنا" },
+  { href: "/join?type=team", label: "عضو فريق سُرّة", desc: "انضم إلى فريق العمل" },
+  { href: "/join?type=initiative", label: "مبادرة", desc: "شاركنا مبادرتك" },
+];
+
 const navLinks = [
   { href: "/about", label: "من نحن" },
   { href: "/communities", label: "مجتمعاتنا", dropdown: "communities" },
   { href: "/services", label: "خدماتنا", dropdown: "services" },
   { href: "/media", label: "المركز الاعلامي", placeholder: true },
-  { href: "/membership", label: "عضويات", placeholder: true },
+  { href: "/join", label: "عضويات", dropdown: "memberships" },
   { href: "/guide", label: "دليل سُرّة", placeholder: true },
   { href: "/store", label: "المتجر", placeholder: true },
 ];
@@ -109,7 +117,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-5 flex-1 justify-start" style={{ paddingRight: "2rem" }}>
             {navLinks.map((link) => {
               if (link.dropdown) {
-                const items = link.dropdown === "communities" ? communities : services;
+                const items = link.dropdown === "communities" ? communities : link.dropdown === "services" ? services : memberships;
                 return (
                   <div
                     key={link.href}
@@ -142,38 +150,13 @@ export default function Navbar() {
                         {link.dropdown === "communities" ? (
                           <>
                             <div style={{ padding: "0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                              <Link
-                                href="/communities"
-                                style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}
-                              >
-                                جميع المجتمعات
-                              </Link>
+                              <Link href="/communities" style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}>جميع المجتمعات</Link>
                             </div>
                             {(items as typeof communities).map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "0.75rem",
-                                  fontFamily: F,
-                                  fontSize: "0.95rem",
-                                  fontWeight: 500,
-                                  color: "#ffffff",
-                                  padding: "0.75rem 1.25rem",
-                                  textDecoration: "none",
-                                  borderRight: `2px solid transparent`,
-                                  transition: "background 0.15s, border-color 0.15s",
-                                }}
-                                onMouseEnter={(e) => {
-                                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
-                                  (e.currentTarget as HTMLElement).style.borderRightColor = item.color;
-                                }}
-                                onMouseLeave={(e) => {
-                                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                                  (e.currentTarget as HTMLElement).style.borderRightColor = "transparent";
-                                }}
+                              <Link key={item.href} href={item.href}
+                                style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = item.color; }}
+                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
                                 <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: item.color, flexShrink: 0 }} />
                                 <span>{item.label}</span>
@@ -181,41 +164,34 @@ export default function Navbar() {
                               </Link>
                             ))}
                           </>
+                        ) : link.dropdown === "services" ? (
+                          <>
+                            <div style={{ padding: "0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                              <Link href="/services" style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}>جميع الخدمات</Link>
+                            </div>
+                            {(items as typeof services).map((item) => (
+                              <Link key={item.href} href={item.href}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
+                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </>
                         ) : (
                           <>
                             <div style={{ padding: "0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                              <Link
-                                href="/services"
-                                style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}
-                              >
-                                جميع الخدمات
-                              </Link>
+                              <Link href="/join" style={{ display: "block", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 1.25rem", textDecoration: "none", letterSpacing: "0.15em" }}>جميع العضويات</Link>
                             </div>
-                            {(items as typeof services).map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                style={{
-                                  display: "block",
-                                  fontFamily: F,
-                                  fontSize: "0.95rem",
-                                  fontWeight: 500,
-                                  color: "#ffffff",
-                                  padding: "0.75rem 1.25rem",
-                                  textDecoration: "none",
-                                  borderRight: "2px solid transparent",
-                                  transition: "background 0.15s, border-color 0.15s",
-                                }}
-                                onMouseEnter={(e) => {
-                                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
-                                  (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D";
-                                }}
-                                onMouseLeave={(e) => {
-                                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                                  (e.currentTarget as HTMLElement).style.borderRightColor = "transparent";
-                                }}
+                            {(items as typeof memberships).map((item) => (
+                              <Link key={item.href} href={item.href}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.65rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
+                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
-                                {item.label}
+                                <span style={{ display: "block" }}>{item.label}</span>
+                                <span style={{ display: "block", fontSize: "0.75rem", color: "rgba(255,255,255,0.4)", fontWeight: 300, marginTop: "1px" }}>{item.desc}</span>
                               </Link>
                             ))}
                           </>
