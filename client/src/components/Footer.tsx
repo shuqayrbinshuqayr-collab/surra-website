@@ -1,6 +1,6 @@
 /* ============================================================
    Footer Component — سُرّة
-   Font: ManchetteFine
+   Font: ThmanyahSerifText
      - Brand name: weight 900 (Black)
      - Section headings: weight 700 (Bold)
      - Links & body: weight 400 (Regular)
@@ -32,12 +32,12 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { href: "#", label: "X (تويتر)", icon: "𝕏" },
-  { href: "#", label: "إنستجرام", icon: "◎" },
-  { href: "#", label: "لينكدإن", icon: "in" },
+  { href: "https://x.com/SurrahComm", label: "X (تويتر)", icon: "𝕏" },
+  { href: "https://www.instagram.com/surrah.comm/", label: "إنستجرام", icon: "◎" },
+  { href: "https://www.linkedin.com/company/surrah-comm", label: "لينكدإن", icon: "in" },
 ];
 
-const fontBase = "'ManchetteFine', sans-serif";
+const fontBase = "'ThmanyahSerifText', sans-serif";
 
 export default function Footer() {
   return (
@@ -76,6 +76,8 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center text-sm transition-all duration-200"
                   style={{
                     border: "1px solid rgba(240, 235, 225, 0.25)",
@@ -228,7 +230,7 @@ export default function Footer() {
               fontWeight: 400,
             }}
           >
-            © {new Date().getFullYear()} سُرّة. جميع الحقوق محفوظة.
+            © 2026 سُرّة. جميع الحقوق محفوظة.
           </p>
           <p
             className="text-xs"
@@ -238,7 +240,7 @@ export default function Footer() {
               fontWeight: 400,
             }}
           >
-            لأن المجتمعات لا تنشأ صدفة، بل تُصمَّم بوعي.
+            صُنع بحب في الدرعية — SIGN 2025 ©
           </p>
         </div>
       </div>

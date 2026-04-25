@@ -53,7 +53,7 @@ export default function Contact() {
     background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
     color: "#F0EBE1",
-    fontFamily: "'ManchetteFine', sans-serif",
+    fontFamily: "'ThmanyahSerifText', sans-serif",
     outline: "none",
     width: "100%",
     padding: "0.875rem 1rem",
@@ -76,7 +76,7 @@ export default function Contact() {
               className="text-sm mb-4 tracking-widest"
               style={{
                 color: "#B5453A",
-                fontFamily: "'ManchetteFine', sans-serif",
+                fontFamily: "'ThmanyahSerifText', sans-serif",
                 letterSpacing: "0.2em",
               }}
             >
@@ -84,7 +84,7 @@ export default function Contact() {
             </p>
             <h1
               style={{
-                fontFamily: "'ManchetteFine', sans-serif",
+                fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
                 color: "#F0EBE1",
@@ -109,7 +109,7 @@ export default function Contact() {
               <div className="surrah-divider" />
               <h2
                 style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
+                  fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
                   color: "#F0EBE1",
@@ -121,7 +121,7 @@ export default function Contact() {
               <p
                 className="mb-8"
                 style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
+                  fontFamily: "'ThmanyahSerifText', sans-serif",
                   color: "#6B7A8A",
                   lineHeight: 1.9,
                   fontSize: "0.95rem",
@@ -136,7 +136,7 @@ export default function Contact() {
                   className="text-xs tracking-widest"
                   style={{
                     color: "#B5453A",
-                    fontFamily: "'ManchetteFine', sans-serif",
+                    fontFamily: "'ThmanyahSerifText', sans-serif",
                     letterSpacing: "0.2em",
                   }}
                 >
@@ -154,7 +154,7 @@ export default function Contact() {
                     style={{
                       border: "1px solid rgba(28, 43, 58, 0.12)",
                       color: "#5A6A7A",
-                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "0.9rem",
                       textDecoration: "none",
                     }}
@@ -201,7 +201,7 @@ export default function Contact() {
                   </div>
                   <h3
                     style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
                       color: "#F0EBE1",
@@ -212,7 +212,7 @@ export default function Contact() {
                   </h3>
                   <p
                     style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontFamily: "'ThmanyahSerifText', sans-serif",
                       color: "#6B7A8A",
                       lineHeight: 1.8,
                     }}
@@ -234,7 +234,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontFamily: "'ThmanyahSerifText', sans-serif",
                         color: "#6B7A8A",
                       }}
                     >
@@ -261,7 +261,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontFamily: "'ThmanyahSerifText', sans-serif",
                         color: "#6B7A8A",
                       }}
                     >
@@ -288,7 +288,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontFamily: "'ThmanyahSerifText', sans-serif",
                         color: "#6B7A8A",
                       }}
                     >
@@ -326,7 +326,7 @@ export default function Contact() {
                     <label
                       className="block text-sm mb-1.5"
                       style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontFamily: "'ThmanyahSerifText', sans-serif",
                         color: "#6B7A8A",
                       }}
                     >
@@ -352,7 +352,7 @@ export default function Contact() {
                   <p
                     className="text-xs"
                     style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontFamily: "'ThmanyahSerifText', sans-serif",
                       color: "#9AAABB",
                     }}
                   >

@@ -1,6 +1,6 @@
 /* ============================================================
    Services Page — خدماتنا — سُرّة
-   Font: ManchetteFine
+   Font: ThmanyahSerifText
      h1: weight 900 (Black)
      h2/service titles: weight 700 (Bold)
      taglines/subheadings: weight 600 (SemiBold)
@@ -13,7 +13,7 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const F = "'ManchetteFine', sans-serif";
+const F = "'ThmanyahSerifText', sans-serif";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
