@@ -31,7 +31,7 @@ function useReveal() {
 const joinOptions = [
   {
     id: "member",
-    icon: "👥",
+    icon: "",
     title: "عضو في المجتمع",
     subtitle: "انضم إلى مجتمع سُرّة",
     desc: "مساحة تجمع عشاق الفنون والإبداع في المملكة، تتيح لك المشاركة في الفعاليات واللقاءات والنقاشات الخاصة.",
@@ -48,7 +48,7 @@ const joinOptions = [
   },
   {
     id: "partner",
-    icon: "🤝",
+    icon: "",
     title: "شريك أو راعٍ",
     subtitle: "كن شريكاً في الأثر",
     desc: "نفتح أبواب الشراكة أمام الجهات التي تؤمن بدور الثقافة والفن في صناعة مجتمع نابض بالحياة.",
@@ -65,7 +65,7 @@ const joinOptions = [
   },
   {
     id: "volunteer",
-    icon: "🙌",
+    icon: "",
     title: "متطوع أو متعاون",
     subtitle: "تطوّع معنا",
     desc: "يُرحّب سُرّة بكل من يرغب في المساهمة بوقته ومهارته في إحياء الفعاليات والأنشطة الثقافية.",
@@ -83,7 +83,7 @@ const joinOptions = [
   },
   {
     id: "team",
-    icon: "🧠",
+    icon: "",
     title: "عضو فريق سُرّة",
     subtitle: "انضم إلى فريق العمل",
     desc: "نبحث عن كفاءات مفعمة بالشغف بالثقافة والفن لتكون جزءاً من الفريق الإداري والتنظيمي لسُرّة.",
@@ -102,7 +102,7 @@ const joinOptions = [
   },
   {
     id: "initiative",
-    icon: "💡",
+    icon: "",
     title: "مبادرة",
     subtitle: "شاركنا مبادرتك",
     desc: "نحتضن الأفكار والمشاريع الثقافية التي تصنع فرقاً وتُضيف للمشهد الإبداعي المحلي.",
@@ -297,12 +297,12 @@ export default function Join() {
                 style={{
                   background:
                     activeOption === option.id
-                      ? "#1C2B3A"
+                      ? "#1a1a1a"
                       : "#111111",
                   border:
                     activeOption === option.id
-                      ? "1px solid rgba(181, 69, 58, 0.6)"
-                      : "1px solid rgba(28, 43, 58, 0.12)",
+                      ? "1px solid rgba(196, 98, 45, 0.6)"
+                      : "1px solid rgba(255,255,255,0.1)",
                   cursor: "pointer",
                 }}
               >
@@ -313,8 +313,8 @@ export default function Join() {
                     fontFamily: "'ManchetteFine', sans-serif",
                     color:
                       activeOption === option.id
-                        ? "#B5453A"
-                        : "#111111",
+                        ? "#C4622D"
+                        : "#ffffff",
                     fontSize: "1rem",
                   }}
                 >
@@ -354,7 +354,7 @@ export default function Join() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
-                      color: "#111111",
+                      color: "#ffffff",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -363,7 +363,7 @@ export default function Join() {
                   <p
                     style={{
                       fontFamily: "'ManchetteFine', sans-serif",
-                      color: "#7A8A9A",
+                      color: "rgba(255,255,255,0.6)",
                       fontSize: "0.9rem",
                       lineHeight: 1.7,
                     }}
@@ -375,7 +375,7 @@ export default function Join() {
                   className="mb-6"
                   style={{
                     height: "1px",
-                    background: "rgba(28, 43, 58, 0.12)",
+                    background: "rgba(255,255,255,0.1)",
                   }}
                 />
                 <JoinForm key={option.id} option={option} />
