@@ -219,7 +219,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div
-          className="mt-12 pt-6 flex items-center justify-between"
+          className="mt-12 pt-6 flex items-center justify-center"
           style={{ borderTop: "1px solid rgba(240, 235, 225, 0.1)" }}
         >
           <p
@@ -230,7 +230,7 @@ export default function Footer() {
               fontWeight: 400,
             }}
           >
-            © 2026 سُرّة. جميع الحقوق محفوظة. &nbsp;|&nbsp; صُنع بحب في الدرعية — SIGN 2025 ©
+            جميع الحقوق محفوظة لسُرّة الثقافية © 2025 صُنع بحب في الدرعية
           </p>
         </div>
       </div>

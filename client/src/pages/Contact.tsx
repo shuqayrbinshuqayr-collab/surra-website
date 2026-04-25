@@ -52,7 +52,7 @@ export default function Contact() {
   const inputStyle = {
     background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
-    color: "#111111",
+    color: "#ffffff",
     fontFamily: "'ManchetteFine', sans-serif",
     outline: "none",
     width: "100%",
@@ -87,7 +87,7 @@ export default function Contact() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#111111",
+                color: "#ffffff",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -154,7 +154,7 @@ export default function Contact() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
-                      color: "#111111",
+                      color: "#ffffff",
                       marginBottom: "0.75rem",
                     }}
                   >
@@ -257,7 +257,7 @@ export default function Contact() {
                         (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     >
-                      <option value="" style={{ background: "#1a1a1a" }}>
+                      <option value="" style={{ background: "#1a1a1a", color: "#ffffff" }}>
                         اختر سبب التواصل
                       </option>
                       {contactReasons.map((r) => (
