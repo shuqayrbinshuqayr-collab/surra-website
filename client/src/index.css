@@ -9,7 +9,7 @@
      - Off-White:    #FAF8F4  (page background)
      - Deep Blue:    #27486A  (secondary brand)
    
-   Font: ThmanyahSerifText (all text)
+   Font: ManchetteFine (all text)
    Direction: RTL
    ============================================================ */
 
@@ -18,39 +18,74 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Custom Font: ThmanyahSerifText ── */
+/* ── Custom Font: ManchetteFine ── */
 @font-face {
-  font-family: 'ThmanyahSerifText';
-  src: url('/manus-storage/thmanyahseriftext-Light_9e30a11d.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-UltraLight_eaf6548f.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Thin_63d5077d.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Light_c13ab84d.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'ThmanyahSerifText';
-  src: url('/manus-storage/thmanyahseriftext-Regular_f051dbab.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Regular_1bc431a3.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'ThmanyahSerifText';
-  src: url('/manus-storage/thmanyahseriftext-Medium_fbfe250c.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Medium_f127a1c6.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'ThmanyahSerifText';
-  src: url('/manus-storage/thmanyahseriftext-Bold_c855e538.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-SemiBold_e8b0009f.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Bold_10cc9a2f.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'ThmanyahSerifText';
-  src: url('/manus-storage/thmanyahseriftext-Black_933097f8.otf') format('opentype');
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-ExtraBold_d796415e.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Black_23a5229c.otf') format('opentype');
   font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ManchetteFine';
+  src: url('/manus-storage/ManchetteFine-Heavy_cea22dcd.otf') format('opentype');
+  font-weight: 950;
   font-style: normal;
   font-display: swap;
 }
@@ -125,13 +160,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'ThmanyahSerifText', sans-serif !important;
+    font-family: 'ManchetteFine', sans-serif !important;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     background-color: #000000;
   }
   * {
-    font-family: 'ThmanyahSerifText', sans-serif !important;
+    font-family: 'ManchetteFine', sans-serif !important;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -174,7 +209,7 @@
     gap: 0.5rem;
     background-color: #000000;
     color: #ffffff;
-    font-family: 'ThmanyahSerifText', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
@@ -197,7 +232,7 @@
     gap: 0.5rem;
     background-color: transparent;
     color: #ffffff;
-    font-family: 'ThmanyahSerifText', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;
@@ -220,7 +255,7 @@
     gap: 0.5rem;
     background-color: #000000;
     color: #ffffff;
-    font-family: 'ThmanyahSerifText', sans-serif;
+    font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 2rem;

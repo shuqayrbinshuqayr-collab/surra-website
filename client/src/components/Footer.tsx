@@ -1,6 +1,6 @@
 /* ============================================================
    Footer Component — سُرّة
-   Font: ThmanyahSerifText
+   Font: ManchetteFine
      - Brand name: weight 900 (Black)
      - Section headings: weight 700 (Bold)
      - Links & body: weight 400 (Regular)
@@ -37,7 +37,7 @@ const socialLinks = [
   { href: "https://www.linkedin.com/company/surrah-comm", label: "لينكدإن", icon: "in" },
 ];
 
-const fontBase = "'ThmanyahSerifText', sans-serif";
+const fontBase = "'ManchetteFine', sans-serif";
 
 export default function Footer() {
   return (

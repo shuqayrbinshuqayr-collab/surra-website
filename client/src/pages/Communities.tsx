@@ -108,7 +108,7 @@ export default function Communities() {
               className="text-sm mb-4 tracking-widest"
               style={{
                 color: "#C4622D",
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 letterSpacing: "0.2em",
               }}
             >
@@ -116,7 +116,7 @@ export default function Communities() {
             </p>
             <h1
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
                 color: "#ffffff",
@@ -130,7 +130,7 @@ export default function Communities() {
             </h1>
             <p
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 color: "#7A8A9A",
                 fontSize: "1.05rem",
                 lineHeight: 1.8,
@@ -172,7 +172,7 @@ export default function Communities() {
                 >
                   <h2
                     style={{
-                      fontFamily: "'ThmanyahSerifText', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "clamp(2rem, 4vw, 3rem)",
                       fontWeight: 700,
                       color: community.color,
@@ -183,7 +183,7 @@ export default function Communities() {
                   </h2>
                   <p
                     style={{
-                      fontFamily: "'ThmanyahSerifText', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       color: "rgba(255,255,255,0.5)",
                       fontSize: "0.8rem",
                       letterSpacing: "0.1em",
@@ -201,7 +201,7 @@ export default function Communities() {
                   <p
                     className="mb-3 font-medium"
                     style={{
-                      fontFamily: "'ThmanyahSerifText', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       color: community.color,
                       fontSize: "0.95rem",
                       fontStyle: "italic",
@@ -211,7 +211,7 @@ export default function Communities() {
                   </p>
                   <p
                     style={{
-                      fontFamily: "'ThmanyahSerifText', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       color: "rgba(255,255,255,0.75)",
                       fontSize: "0.9rem",
                       lineHeight: 1.8,
@@ -228,7 +228,7 @@ export default function Communities() {
                       className="text-xs mb-1"
                       style={{
                         color: "rgba(255,255,255,0.5)",
-                        fontFamily: "'ThmanyahSerifText', sans-serif",
+                        fontFamily: "'ManchetteFine', sans-serif",
                       }}
                     >
                       نوع المجتمع
@@ -237,7 +237,7 @@ export default function Communities() {
                       className="text-sm font-medium"
                       style={{
                         color: "#3D4F60",
-                        fontFamily: "'ThmanyahSerifText', sans-serif",
+                        fontFamily: "'ManchetteFine', sans-serif",
                       }}
                     >
                       {community.type}
@@ -248,7 +248,7 @@ export default function Communities() {
                       className="text-xs mb-1"
                       style={{
                         color: "rgba(255,255,255,0.5)",
-                        fontFamily: "'ThmanyahSerifText', sans-serif",
+                        fontFamily: "'ManchetteFine', sans-serif",
                       }}
                     >
                       الفئة المستهدفة
@@ -257,7 +257,7 @@ export default function Communities() {
                       className="text-sm"
                       style={{
                         color: "rgba(255,255,255,0.75)",
-                        fontFamily: "'ThmanyahSerifText', sans-serif",
+                        fontFamily: "'ManchetteFine', sans-serif",
                       }}
                     >
                       {community.audience}
@@ -268,7 +268,7 @@ export default function Communities() {
                       className="text-xs mb-1"
                       style={{
                         color: "rgba(255,255,255,0.5)",
-                        fontFamily: "'ThmanyahSerifText', sans-serif",
+                        fontFamily: "'ManchetteFine', sans-serif",
                       }}
                     >
                       دورية اللقاءات
@@ -277,7 +277,7 @@ export default function Communities() {
                       className="text-sm"
                       style={{
                         color: "rgba(255,255,255,0.75)",
-                        fontFamily: "'ThmanyahSerifText', sans-serif",
+                        fontFamily: "'ManchetteFine', sans-serif",
                       }}
                     >
                       {community.meetings}
@@ -296,7 +296,7 @@ export default function Communities() {
           <div className="reveal max-w-xl mx-auto">
             <h2
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
                 fontWeight: 700,
                 color: "#ffffff",
@@ -308,7 +308,7 @@ export default function Communities() {
             <p
               className="mb-8"
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 color: "#7A8A9A",
                 lineHeight: 1.8,
               }}

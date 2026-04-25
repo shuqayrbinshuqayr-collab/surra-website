@@ -115,7 +115,7 @@ export default function Home() {
 
             <h1
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
                 color: "#ffffff",
@@ -129,7 +129,7 @@ export default function Home() {
             </h1>
             <p
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
                 fontSize: "1.05rem",
                 color: "rgba(255,255,255,0.85)",
@@ -170,7 +170,7 @@ export default function Home() {
               <div className="surrah-divider" />
               <h2
                 style={{
-                  fontFamily: "'ThmanyahSerifText', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.8rem, 4vw, 3rem)",
                   color: "#ffffff",
@@ -184,7 +184,7 @@ export default function Home() {
               </h2>
               <p
                 style={{
-                  fontFamily: "'ThmanyahSerifText', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 400,
                   fontSize: "1rem",
                   color: "#ffffff",
@@ -213,7 +213,7 @@ export default function Home() {
                 >
                   <span
                     style={{
-                      fontFamily: "'ThmanyahSerifText', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 800,
                       fontSize: "2.5rem",
                       color: "#ffffff",
@@ -226,7 +226,7 @@ export default function Home() {
                   </span>
                   <p
                     style={{
-                      fontFamily: "'ThmanyahSerifText', sans-serif",
+                      fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 600,
                       fontSize: "1.1rem",
                       color: "#ffffff",
@@ -250,7 +250,7 @@ export default function Home() {
             <div className="surrah-divider" />
             <h2
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
                 color: "#ffffff",
@@ -261,7 +261,7 @@ export default function Home() {
             </h2>
             <p
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
                 color: "#ffffff",
                 fontSize: "1rem",
@@ -291,7 +291,7 @@ export default function Home() {
               >
                 <span
                   style={{
-                    fontFamily: "'ThmanyahSerifText', sans-serif",
+                    fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 700,
                     fontSize: "0.75rem",
                     color: "#ffffff",
@@ -304,7 +304,7 @@ export default function Home() {
                 </span>
                 <h3
                   style={{
-                    fontFamily: "'ThmanyahSerifText', sans-serif",
+                    fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 700,
                     fontSize: "1.2rem",
                     color: "#ffffff",
@@ -315,7 +315,7 @@ export default function Home() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "'ThmanyahSerifText', sans-serif",
+                    fontFamily: "'ManchetteFine', sans-serif",
                     fontWeight: 400,
                     fontSize: "0.9rem",
                     color: "#ffffff",
@@ -374,7 +374,7 @@ export default function Home() {
             >
               <span
                 style={{
-                  fontFamily: "'ThmanyahSerifText', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 700,
                   fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
                   color: c.color,
@@ -385,7 +385,7 @@ export default function Home() {
               </span>
               <span
                 style={{
-                  fontFamily: "'ThmanyahSerifText', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   fontSize: "0.75rem",
                   color: "rgba(255,255,255,0.3)",
                   letterSpacing: "0.15em",
@@ -413,10 +413,10 @@ export default function Home() {
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.4)" }} />
             <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#ffffff" }}>
-              <p style={{ fontFamily: "'ThmanyahSerifText', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
+              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 فعاليات حية
               </p>
-              <p style={{ fontFamily: "'ThmanyahSerifText', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
+              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
                 تجارب ثقافية أصيلة
               </p>
             </div>
@@ -431,10 +431,10 @@ export default function Home() {
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.35)" }} />
             <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#ffffff" }}>
-              <p style={{ fontFamily: "'ThmanyahSerifText', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
+              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 مؤتمرات وملتقيات
               </p>
-              <p style={{ fontFamily: "'ThmanyahSerifText', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
+              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
                 الأثر الثقافي والاستثمار
               </p>
             </div>
@@ -471,7 +471,7 @@ export default function Home() {
           <div className="reveal max-w-2xl mx-auto">
             <h2
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.8rem, 4vw, 3rem)",
                 color: "#ffffff",
@@ -485,7 +485,7 @@ export default function Home() {
             </h2>
             <p
               style={{
-                fontFamily: "'ThmanyahSerifText', sans-serif",
+                fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
                 fontSize: "1rem",
                 color: "rgba(250, 248, 244, 0.85)",
@@ -503,7 +503,7 @@ export default function Home() {
                   alignItems: "center",
                   background: "#000000",
                   color: "#ffffff",
-                  fontFamily: "'ThmanyahSerifText', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",
@@ -529,7 +529,7 @@ export default function Home() {
                   alignItems: "center",
                   background: "transparent",
                   color: "#ffffff",
-                  fontFamily: "'ThmanyahSerifText', sans-serif",
+                  fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 600,
                   fontSize: "0.95rem",
                   padding: "0.85rem 2.5rem",
