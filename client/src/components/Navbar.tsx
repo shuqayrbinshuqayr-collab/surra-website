@@ -15,6 +15,8 @@ const navLinks = [
   { href: "/services", label: "خدماتنا" },
   { href: "/media", label: "المركز الاعلامي", placeholder: true },
   { href: "/membership", label: "عضويات", placeholder: true },
+  { href: "/guide", label: "دليل سُرّة", placeholder: true },
+  { href: "/store", label: "المتجر", placeholder: true },
 ];
 
 const F = "'ManchetteFine', sans-serif";
