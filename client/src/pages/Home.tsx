@@ -150,6 +150,8 @@ export default function Home() {
                 lineHeight: 2,
                 maxWidth: "520px",
                 marginBottom: "2.5rem",
+                margin: "0 auto 2.5rem auto",
+                textAlign: "center",
               }}
             >
               نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستدامًا
