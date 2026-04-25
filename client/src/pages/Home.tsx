@@ -125,7 +125,7 @@ export default function Home() {
             >
               نصنع المجتمعات
               <br />
-              <span style={{ color: "#ffffff", fontWeight: 700 }}>ونمنح الأفكار حياة</span>
+              <span style={{ color: "#ffffff", fontWeight: 200 }}>ونمنح الأفكار حياة</span>
             </h1>
             <p
               style={{
