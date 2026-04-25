@@ -34,11 +34,16 @@ const memberships = [
   { href: "/join?type=initiative", label: "مبادرة", desc: "شاركنا مبادرتك" },
 ];
 
+const mediaItems = [
+  { href: "/media/news", label: "أحدث الأخبار" },
+  { href: "/media/identity", label: "هوية سُرّة" },
+];
+
 const navLinks = [
-  { href: "/about", label: "من نحن" },
+  { href: "/about", label: "عن سُرّة" },
   { href: "/communities", label: "مجتمعاتنا", dropdown: "communities" },
   { href: "/services", label: "خدماتنا", dropdown: "services" },
-  { href: "/media", label: "المركز الاعلامي", placeholder: true },
+  { href: "/media", label: "المركز الإعلامي", dropdown: "media" },
   { href: "/join", label: "عضويات", dropdown: "memberships" },
   { href: "/guide", label: "دليل سُرّة", placeholder: true },
   { href: "/store", label: "المتجر", placeholder: true },
@@ -95,9 +100,9 @@ export default function Navbar() {
     <header
       className="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(10, 10, 10, 0.98)" : "rgba(10, 10, 10, 0.92)",
-        backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0.04)",
+        background: scrolled ? "rgba(10, 10, 10, 0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.4)" : "none",
       }}
     >
@@ -117,7 +122,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-5 flex-1 justify-start" style={{ paddingRight: "2rem" }}>
             {navLinks.map((link) => {
               if (link.dropdown) {
-                const items = link.dropdown === "communities" ? communities : link.dropdown === "services" ? services : memberships;
+                const items = link.dropdown === "communities" ? communities : link.dropdown === "services" ? services : link.dropdown === "media" ? mediaItems : memberships;
                 return (
                   <div
                     key={link.href}
@@ -162,6 +167,19 @@ export default function Navbar() {
                                 <span>{item.label}</span>
                                 <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", marginRight: "auto" }}>{item.labelEn}</span>
                               </Link>
+                            ))}
+                          </>
+                        ) : link.dropdown === "media" ? (
+                          <>
+                            {(items as typeof mediaItems).map((item) => (
+                              <a key={item.href} href={item.href}
+                                onClick={(e) => { e.preventDefault(); toast.info(`${item.label} — قريباً`); }}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", cursor: "pointer" }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
+                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
+                              >
+                                {item.label}
+                              </a>
                             ))}
                           </>
                         ) : link.dropdown === "services" ? (
