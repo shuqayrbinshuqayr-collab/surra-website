@@ -34,6 +34,7 @@ interface Entity {
   partnership: string;
   year: number;
   isNew: boolean;
+  logo?: string;
 }
 
 const initialEntities: Entity[] = [
@@ -114,7 +115,7 @@ export default function Directory() {
     name: "", type: "", city: "", year: "", desc: "", focus: "",
     activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "",
     contactName: "", contactRole: "", contactPhone: "", contactEmail: "",
-    tagInput: "", tags: [] as string[],
+    tagInput: "", tags: [] as string[], logo: "",
   });
 
   const filtered = useMemo(() => {
@@ -129,7 +130,7 @@ export default function Directory() {
   function handleSubmit() {
     if (!form.name || !form.type || !form.city || !form.desc) return;
     setSubmitSuccess(true);
-    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [] });
+    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
     setTimeout(() => setSubmitSuccess(false), 5000);
   }
 
@@ -314,7 +315,7 @@ export default function Directory() {
                   style={{
                     background: CARD,
                     border: `1px solid ${BORDER}`,
-                    borderRadius: "0",
+                    borderRadius: "12px",
                     padding: "1.5rem",
                     cursor: "pointer",
                     transition: "border-color 0.2s, transform 0.2s",
@@ -323,6 +324,12 @@ export default function Directory() {
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = GOLD; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = BORDER; (e.currentTarget as HTMLElement).style.transform = "none"; }}
                 >
+                  {/* Logo */}
+                  {e.logo && (
+                    <div style={{ width: "52px", height: "52px", borderRadius: "10px", overflow: "hidden", marginBottom: "1rem", background: "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${BORDER}` }}>
+                      <img src={e.logo} alt={e.name} style={{ width: "100%", height: "100%", objectFit: "contain", padding: "4px" }} />
+                    </div>
+                  )}
                   {/* Category badge */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
                     <span style={{ background: "rgba(196,98,45,0.12)", color: GOLD, fontSize: "0.68rem", fontWeight: 700, padding: "0.2rem 0.6rem", border: `1px solid rgba(196,98,45,0.3)` }}>
@@ -389,6 +396,46 @@ export default function Directory() {
               {/* معلومات الجهة الأساسية */}
               <div style={{ gridColumn: "span 2", paddingBottom: "0.5rem", borderBottom: `1px solid ${BORDER}`, marginBottom: "0.25rem" }}>
                 <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: GOLD, textTransform: "uppercase" }}>معلومات الجهة الأساسية</span>
+              </div>
+              {/* Logo Upload */}
+              <div style={{ gridColumn: "span 2" }}>
+                <label style={labelStyle}>شعار الجهة</label>
+                <div
+                  style={{ border: `2px dashed ${BORDER}`, borderRadius: "10px", padding: "1.5rem", textAlign: "center", cursor: "pointer", transition: "border-color 0.2s", position: "relative", background: "rgba(255,255,255,0.02)" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = GOLD; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = BORDER; }}
+                  onClick={() => document.getElementById('logo-upload')?.click()}
+                >
+                  {form.logo ? (
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
+                      <img src={form.logo} alt="شعار" style={{ width: "60px", height: "60px", objectFit: "contain", borderRadius: "8px", background: "rgba(255,255,255,0.08)", padding: "4px" }} />
+                      <div>
+                        <p style={{ color: "#ffffff", fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.25rem" }}>تم رفع الشعار</p>
+                        <button onClick={(ev) => { ev.stopPropagation(); setForm(p => ({ ...p, logo: "" })); }} style={{ background: "transparent", border: "none", color: MUTED, fontSize: "0.75rem", cursor: "pointer", textDecoration: "underline" }}>إزالة</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div style={{ fontSize: "2rem", marginBottom: "0.5rem", opacity: 0.4 }}>⊕</div>
+                      <p style={{ color: MUTED, fontSize: "0.85rem", marginBottom: "0.25rem" }}>اضغط لرفع شعار الجهة</p>
+                      <p style={{ color: MUTED_DARK, fontSize: "0.72rem" }}>PNG, JPG, SVG — حجم أقصى 2MB</p>
+                    </div>
+                  )}
+                  <input
+                    id="logo-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (ev) => setForm(p => ({ ...p, logo: ev.target?.result as string }));
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                  />
+                </div>
               </div>
               {[
                 { label: "اسم الجهة", key: "name", placeholder: "مثال: مجتمع سرة" },
