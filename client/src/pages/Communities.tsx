@@ -27,6 +27,15 @@ function useReveal() {
   return ref;
 }
 
+const communityLogos: Record<string, { white: string; invert?: boolean }> = {
+  basar: { white: "/manus-storage/Basar-White_7d406934.png" },
+  sifr: { white: "/manus-storage/Sifr-Black_c3ab7e46.webp", invert: true },
+  sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
+  mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
+  maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
+  umlah: { white: "/manus-storage/Umlah-Black_f8a8fa99.webp", invert: true },
+};
+
 const communities = [
   {
     id: "basar",
@@ -165,32 +174,35 @@ export default function Communities() {
                   (e.currentTarget as HTMLElement).style.background = "#111111";
                 }}
               >
-                {/* Name */}
+                {/* Logo */}
                 <div
-                  className="p-8 md:p-10 lg:border-l flex flex-col justify-center"
+                  className="p-8 md:p-10 lg:border-l flex flex-col justify-center items-start"
                   style={{ borderColor: "rgba(28, 43, 58, 0.08)" }}
                 >
-                  <h2
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      fontSize: "clamp(2rem, 4vw, 3rem)",
-                      fontWeight: 700,
-                      color: community.color,
-                      marginBottom: "0.25rem",
-                    }}
-                  >
-                    {community.name}
-                  </h2>
-                  <p
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      color: "rgba(255,255,255,0.5)",
-                      fontSize: "0.8rem",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {community.nameEn}
-                  </p>
+                  {communityLogos[community.id] ? (
+                    <img
+                      src={communityLogos[community.id].white}
+                      alt={community.name}
+                      style={{
+                        height: "clamp(36px, 4.5vw, 56px)",
+                        width: "auto",
+                        maxWidth: "160px",
+                        objectFit: "contain",
+                        filter: communityLogos[community.id].invert ? "invert(1) brightness(2)" : "none",
+                      }}
+                    />
+                  ) : (
+                    <h2
+                      style={{
+                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontSize: "clamp(2rem, 4vw, 3rem)",
+                        fontWeight: 700,
+                        color: community.color,
+                      }}
+                    >
+                      {community.name}
+                    </h2>
+                  )}
                 </div>
 
                 {/* Description */}

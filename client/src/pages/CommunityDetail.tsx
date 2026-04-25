@@ -11,6 +11,15 @@ import Footer from "@/components/Footer";
 
 const F = "'ManchetteFine', sans-serif";
 
+const communityLogos: Record<string, { white: string; invert?: boolean }> = {
+  basar: { white: "/manus-storage/Basar-White_7d406934.png" },
+  sifr: { white: "/manus-storage/Sifr-Black_c3ab7e46.webp", invert: true },
+  sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
+  mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
+  maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
+  umlah: { white: "/manus-storage/Umlah-Black_f8a8fa99.webp", invert: true },
+};
+
 const communities: Record<string, {
   id: string;
   name: string;
@@ -155,12 +164,25 @@ export default function CommunityDetail() {
           </Link>
           <div style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: "280px" }}>
-              <p style={{ fontFamily: F, fontSize: "0.8rem", color: community.color, letterSpacing: "0.25em", marginBottom: "1rem", fontWeight: 500 }}>
-                {community.nameEn}
-              </p>
-              <h1 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(3.5rem, 10vw, 7rem)", color: "#ffffff", lineHeight: 1.05, marginBottom: "1.5rem" }}>
-                {community.name}
-              </h1>
+              {communityLogos[community.id] ? (
+                <img
+                  src={communityLogos[community.id].white}
+                  alt={community.name}
+                  style={{
+                    height: "clamp(48px, 8vw, 96px)",
+                    width: "auto",
+                    maxWidth: "280px",
+                    objectFit: "contain",
+                    filter: communityLogos[community.id].invert ? "invert(1) brightness(2)" : "none",
+                    marginBottom: "1.5rem",
+                    display: "block",
+                  }}
+                />
+              ) : (
+                <h1 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(3.5rem, 10vw, 7rem)", color: "#ffffff", lineHeight: 1.05, marginBottom: "1.5rem" }}>
+                  {community.name}
+                </h1>
+              )}
               <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.15rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.9, maxWidth: "560px" }}>
                 {community.tagline}
               </p>
@@ -236,7 +258,12 @@ export default function CommunityDetail() {
       <section style={{ padding: "100px 0" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <h2 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#ffffff", marginBottom: "1.5rem" }}>
-            انضم إلى مجتمع <span style={{ color: community.color }}>{community.name}</span>
+            انضم إلى{" "}
+            {communityLogos[community.id] ? (
+              <img src={communityLogos[community.id].white} alt={community.name} style={{ height: "1.2em", width: "auto", objectFit: "contain", filter: communityLogos[community.id].invert ? "invert(1) brightness(2)" : "none", display: "inline", verticalAlign: "middle", margin: "0 0.3em" }} />
+            ) : (
+              <span style={{ color: community.color }}>{community.name}</span>
+            )}
           </h2>
           <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1rem", color: "rgba(255,255,255,0.65)", marginBottom: "2.5rem", maxWidth: "480px", margin: "0 auto 2.5rem" }}>
             {community.tagline}

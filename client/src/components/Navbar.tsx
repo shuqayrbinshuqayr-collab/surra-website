@@ -12,12 +12,12 @@ import { toast } from "sonner";
 const F = "'ManchetteFine', sans-serif";
 
 const communities = [
-  { href: "/communities/basar", label: "بصر", labelEn: "Basar", color: "#C4622D", logoWhite: "/manus-storage/Basar-White_7d406934.png", logoBlack: "/manus-storage/Basar-Black_b4fc3a42.png" },
-  { href: "/communities/sifr", label: "صفر", labelEn: "Sifr", color: "#c8c4bc", logoWhite: "/manus-storage/Sifr-Black_c3ab7e46.webp", logoBlack: "/manus-storage/Sifr-Black_c3ab7e46.webp" },
-  { href: "/communities/sada", label: "سدى", labelEn: "Sada", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png" },
-  { href: "/communities/mada", label: "مدى", labelEn: "Mada", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png" },
-  { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png" },
-  { href: "/communities/umlah", label: "عُملة", labelEn: "Umlah", color: "#c8c4bc", logoWhite: "/manus-storage/Umlah-Black_f8a8fa99.webp", logoBlack: "/manus-storage/Umlah-Black_f8a8fa99.webp" },
+  { href: "/communities/basar", label: "بصر", labelEn: "Basar", color: "#C4622D", logoWhite: "/manus-storage/Basar-White_7d406934.png", logoBlack: "/manus-storage/Basar-Black_b4fc3a42.png", invertOnDark: false },
+  { href: "/communities/sifr", label: "صفر", labelEn: "Sifr", color: "#c8c4bc", logoWhite: "/manus-storage/Sifr-Black_c3ab7e46.webp", logoBlack: "/manus-storage/Sifr-Black_c3ab7e46.webp", invertOnDark: true },
+  { href: "/communities/sada", label: "سدى", labelEn: "Sada", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png", invertOnDark: false },
+  { href: "/communities/mada", label: "مدى", labelEn: "Mada", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png", invertOnDark: false },
+  { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png", invertOnDark: false },
+  { href: "/communities/umlah", label: "عُملة", labelEn: "Umlah", color: "#c8c4bc", logoWhite: "/manus-storage/Umlah-Black_f8a8fa99.webp", logoBlack: "/manus-storage/Umlah-Black_f8a8fa99.webp", invertOnDark: true },
 ];
 
 const services = [
@@ -161,7 +161,7 @@ export default function Navbar() {
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "transparent"; }}
                               >
-                                <img src={item.logoWhite} alt={item.label} style={{ height: "36px", width: "auto", objectFit: "contain", filter: item.labelEn === "Sifr" || item.labelEn === "Umlah" ? "invert(1)" : "none" }} />
+                                <img src={item.invertOnDark ? item.logoBlack : item.logoWhite} alt={item.label} style={{ height: "36px", width: "auto", objectFit: "contain", filter: item.invertOnDark ? "invert(1) brightness(2)" : "none" }} />
                               </Link>
                             ))}
                           </div>
@@ -335,7 +335,7 @@ export default function Navbar() {
                               href={item.href}
                               style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0.6rem 0.75rem", textDecoration: "none" }}
                             >
-                              <img src={item.logoWhite} alt={item.label} style={{ height: "28px", width: "auto", objectFit: "contain", filter: item.labelEn === "Sifr" || item.labelEn === "Umlah" ? "invert(1)" : "none" }} />
+                              <img src={item.invertOnDark ? item.logoBlack : item.logoWhite} alt={item.label} style={{ height: "28px", width: "auto", objectFit: "contain", filter: item.invertOnDark ? "invert(1) brightness(2)" : "none" }} />
                             </Link>
                           ))
                           : (items as typeof services).map((item) => (
