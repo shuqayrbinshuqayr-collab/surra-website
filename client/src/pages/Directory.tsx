@@ -181,41 +181,6 @@ export default function Directory() {
           </p>
         </div>
 
-        {/* ── CATEGORY TABS (floating on hero) ── */}
-        <div style={{ position: "relative", zIndex: 2, display: "flex", gap: "0", marginBottom: "0" }}>
-          {CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat.key;
-            return (
-              <button
-                key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.4rem",
-                  padding: "0.6rem 1.4rem",
-                  fontFamily: fontBase,
-                  fontSize: "0.9rem",
-                  fontWeight: isActive ? 700 : 400,
-                  background: isActive ? GOLD : "rgba(0,0,0,0.55)",
-                  color: isActive ? "#ffffff" : "rgba(255,255,255,0.75)",
-                  border: "1px solid",
-                  borderColor: isActive ? GOLD : "rgba(255,255,255,0.15)",
-                  borderRadius: "0",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                  backdropFilter: "blur(8px)",
-                }}
-                onMouseEnter={(e) => { if (!isActive) { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.2)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(196,98,45,0.5)"; } }}
-                onMouseLeave={(e) => { if (!isActive) { (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.55)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)"; } }}
-              >
-                <span style={{ fontSize: "0.75rem", opacity: 0.8 }}>{cat.icon}</span>
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-
         {/* ── SEARCH BAR ── */}
         <div
           style={{
