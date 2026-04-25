@@ -291,7 +291,7 @@ export default function About() {
                 className="reveal"
                 style={{
                   padding: "2.5rem 2rem",
-                  background: i % 2 === 0 ? "#FFFFFF" : "#F8F4EE",
+                  background: i % 2 === 0 ? "#111111" : "#1a1a1a",
                   borderTop: "3px solid #C4622D",
                   transitionDelay: `${i * 0.1}s`,
                 }}

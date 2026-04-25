@@ -162,7 +162,7 @@ export default function Communities() {
                   (e.currentTarget as HTMLElement).style.background = "#1a1a1a";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#FFFFFF";
+                  (e.currentTarget as HTMLElement).style.background = "#111111";
                 }}
               >
                 {/* Name */}

@@ -501,7 +501,7 @@ export default function Home() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  background: "#ffffff",
+                  background: "#111111",
                   color: "#000000",
                   fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontWeight: 700,
@@ -516,7 +516,7 @@ export default function Home() {
                   (e.currentTarget as HTMLElement).style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#ffffff";
+                  (e.currentTarget as HTMLElement).style.background = "#111111";
                   (e.currentTarget as HTMLElement).style.color = "#000000";
                 }}
               >

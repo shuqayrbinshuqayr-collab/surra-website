@@ -186,7 +186,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               style={{
                 background: "#1a1a1a",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
-                color: "#ffffff",
+                color: "#111111",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 outline: "none",
               }}
@@ -209,7 +209,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               style={{
                 background: "#1a1a1a",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
-                color: "#ffffff",
+                color: "#111111",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 outline: "none",
               }}
@@ -260,7 +260,7 @@ export default function Join() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "#111111",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -298,7 +298,7 @@ export default function Join() {
                   background:
                     activeOption === option.id
                       ? "#1C2B3A"
-                      : "#FFFFFF",
+                      : "#111111",
                   border:
                     activeOption === option.id
                       ? "1px solid rgba(181, 69, 58, 0.6)"
@@ -314,7 +314,7 @@ export default function Join() {
                     color:
                       activeOption === option.id
                         ? "#B5453A"
-                        : "#1C2B3A",
+                        : "#111111",
                     fontSize: "1rem",
                   }}
                 >
@@ -343,7 +343,7 @@ export default function Join() {
                 className="reveal visible max-w-2xl mx-auto"
                 style={{
                   background: "#111111",
-                  border: "1px solid rgba(28, 43, 58, 0.12)",
+                  border: "1px solid rgba(255,255,255,0.12)",
                   padding: "2.5rem",
                 }}
               >
@@ -354,7 +354,7 @@ export default function Join() {
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
-                      color: "#ffffff",
+                      color: "#111111",
                       marginBottom: "0.25rem",
                     }}
                   >

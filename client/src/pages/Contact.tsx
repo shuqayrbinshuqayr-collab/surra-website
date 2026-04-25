@@ -52,7 +52,7 @@ export default function Contact() {
   const inputStyle = {
     background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
-    color: "#ffffff",
+    color: "#111111",
     fontFamily: "'ThmanyahSerifText', sans-serif",
     outline: "none",
     width: "100%",
@@ -87,7 +87,7 @@ export default function Contact() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "#111111",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -112,7 +112,7 @@ export default function Contact() {
                   fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "#111111",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -152,7 +152,7 @@ export default function Contact() {
                     href={social.href}
                     className="flex items-center justify-between py-3 px-4 transition-all duration-200"
                     style={{
-                      border: "1px solid rgba(28, 43, 58, 0.12)",
+                      border: "1px solid rgba(255,255,255,0.12)",
                       color: "rgba(255,255,255,0.75)",
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "0.9rem",
@@ -204,7 +204,7 @@ export default function Contact() {
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
-                      color: "#ffffff",
+                      color: "#111111",
                       marginBottom: "0.75rem",
                     }}
                   >
@@ -226,7 +226,7 @@ export default function Contact() {
                   className="space-y-5"
                   style={{
                     background: "#111111",
-                    border: "1px solid rgba(28, 43, 58, 0.12)",
+                    border: "1px solid rgba(255,255,255,0.12)",
                     padding: "2.5rem",
                   }}
                 >
