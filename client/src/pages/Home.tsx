@@ -7,7 +7,7 @@
      - Logo: official calligraphic image
    ============================================================ */
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,97 +27,153 @@ function useReveal() {
   return ref;
 }
 
-const teamMembers = [
-  {
-    name: "منصور باخلعة",
-    role: "مؤسس ومنتج مجتمعات",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D9%85%D9%86%D8%B5%D9%88%D8%B1-%D8%A8%D8%A7%D8%AE%D9%84%D8%B9%D8%A9-2-768x768.webp",
-  },
-  {
-    name: "م.معتز العبدالقادر",
-    role: "الرئيس التنفيذي",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D9%85.%D9%85%D8%B9%D8%AA%D8%B2-%D8%A7%D9%84%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%82%D8%A7%D8%AF%D8%B1-1-768x768.webp",
-  },
-  {
-    name: "محمد المصري",
-    role: "نائب الرئيس للمنتجات والتسويق",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-1-768x768.webp",
-  },
-  {
-    name: "م. شقير بن شقير",
-    role: "رئيس أنظمة المجتمعات",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D8%B4%D9%82%D9%8A%D8%B1-%D8%B1%D8%B4%D9%8A%D8%AF-%D8%A8%D9%86-%D8%B4%D9%82%D9%8A%D8%B1-1-768x768.webp",
-  },
-  {
-    name: "عبدالرحمن النهدي",
-    role: "مدير تقنية المعلومات",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%A7%D9%84%D9%86%D9%87%D8%AF%D9%8A-2-768x768.webp",
-  },
-  {
-    name: "أحمد فضل",
-    role: "مدير إبداعي",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%AD%D9%85%D8%AF-%D9%81%D8%B6%D9%84-1-768x768.webp",
-  },
-  {
-    name: "د.الهنوف الزنيتان",
-    role: "مستشارة ومديرة تطوير الأعمال",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D8%AF.%D8%A7%D9%84%D9%87%D9%86%D9%88%D9%81-%D8%A7%D9%84%D8%B2%D9%86%D9%8A%D8%AA%D8%A7%D9%86-768x768.webp",
-  },
-  {
-    name: "أحمد خليل",
-    role: "مسؤول الانتاج الإعلامي",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%AD%D9%85%D8%AF-%D8%AE%D9%84%D9%8A%D9%84-1-768x768.webp",
-  },
-  {
-    name: "أسماء الظافري",
-    role: "منسقة فعاليات ومحتوى",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%B3%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%B8%D8%A7%D9%81%D8%B1%D9%8A-768x768.webp",
-  },
-  {
-    name: "قتيبة تركستاني",
-    role: "العلاقات العامة",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D9%82%D8%AA%D9%8A%D8%A8%D8%A9-%D8%AA%D8%B1%D9%83%D8%B3%D8%AA%D8%A7%D9%86%D9%8A-2-768x768.webp",
-  },
-  {
-    name: "محمد بن محمد",
-    role: "قائد تشغيل الفعاليات",
-    org: "سُرّة",
-    photo: "https://surrah.net/wp-content/uploads/%D9%85%D8%AD%D9%85%D8%AF-%D8%A8%D9%86-%D9%85%D8%AD%D9%85%D8%AF-1-768x768.webp",
-  },
-  {
-    name: "معاذ الحازمي",
-    role: "قائد الحوار - ثلوثية بصر",
-    org: "بصر",
-    photo: "https://surrah.net/wp-content/uploads/%D9%85%D8%B9%D8%A7%D8%B0-%D8%A7%D9%84%D8%AD%D8%A7%D8%B2%D9%85%D9%8A-1-768x768.webp",
-  },
-  {
-    name: "أسامة فقيه",
-    role: "قائد المجتمع",
-    org: "مقام",
-    photo: "https://surrah.net/wp-content/uploads/%D8%A7%D8%B3%D8%A7%D9%85%D8%A9-%D9%81%D9%82%D9%8A%D9%87-768x768.webp",
-  },
-  {
-    name: "دلال العتيبي",
-    role: "مدير العلاقات والشراكات",
-    org: "سدى",
-    photo: "https://surrah.net/wp-content/uploads/%D8%AF%D9%84%D8%A7%D9%84-%D8%A7%D9%84%D8%B9%D8%AA%D9%8A%D8%A8%D9%8A-1-768x768.webp",
-  },
-  {
-    name: "عبدللطيف الثويني",
-    role: "قائد منتج ثلوثية بصر",
-    org: "بصر",
-    photo: "https://surrah.net/wp-content/uploads/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D8%B7%D9%8A%D9%81-%D8%A7%D9%84%D8%AB%D9%88%D9%8A%D9%86%D9%8A-768x768.webp",
-  },
+function TeamStrip() {
+  const stripRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const animPaused = useRef(false);
+
+  // Pause CSS animation and enable manual drag
+  const onPointerDown = (e: React.PointerEvent) => {
+    isDragging.current = true;
+    startX.current = e.clientX;
+    scrollLeft.current = stripRef.current?.scrollLeft || 0;
+    if (stripRef.current) stripRef.current.style.cursor = "grabbing";
+    // pause the CSS animation by switching to manual scroll
+    animPaused.current = true;
+    if (stripRef.current) stripRef.current.style.animationPlayState = "paused";
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!isDragging.current) return;
+    const dx = e.clientX - startX.current;
+    if (stripRef.current) stripRef.current.scrollLeft = scrollLeft.current - dx;
+  };
+  const onPointerUp = () => {
+    isDragging.current = false;
+    if (stripRef.current) stripRef.current.style.cursor = "grab";
+  };
+
+  return (
+    <section style={{ background: "#111111", padding: "5rem 0 0 0", overflow: "hidden" }}>
+      <style>{`
+        @keyframes team-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .team-outer {
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          cursor: grab;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .team-outer::-webkit-scrollbar { display: none; }
+        .team-strip-inner {
+          display: flex;
+          width: max-content;
+          animation: team-scroll 60s linear infinite;
+          will-change: transform;
+        }
+        .team-outer:hover .team-strip-inner,
+        .team-outer:active .team-strip-inner {
+          animation-play-state: paused;
+        }
+        .team-card-strip {
+          position: relative;
+          flex-shrink: 0;
+          width: clamp(160px, 40vw, 240px);
+          height: clamp(210px, 52vw, 320px);
+          overflow: hidden;
+          margin-right: 4px;
+        }
+        .team-card-strip img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          filter: grayscale(1) contrast(1.05);
+          transition: filter 0.45s ease;
+        }
+        .team-card-strip:hover img {
+          filter: grayscale(0) contrast(1);
+        }
+        .team-card-strip .team-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 2.5rem 0.75rem 0.85rem 0.75rem;
+          background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, transparent 100%);
+          z-index: 2;
+          text-align: right;
+        }
+        .team-card-strip .team-name {
+          font-family: 'ManchetteFine', sans-serif;
+          font-weight: 700;
+          font-size: clamp(0.72rem, 2.2vw, 0.92rem);
+          color: #ffffff;
+          margin-bottom: 0.2rem;
+          line-height: 1.3;
+        }
+        .team-card-strip .team-role {
+          font-family: 'ManchetteFine', sans-serif;
+          font-weight: 400;
+          font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+          color: #C4622D;
+          line-height: 1.4;
+          opacity: 1;
+        }
+      `}</style>
+      <div className="container" style={{ marginBottom: "2rem" }}>
+        <div className="reveal">
+          <div className="surrah-divider" />
+          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 900, fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "#ffffff", marginBottom: "0.5rem" }}>قادتنا</h2>
+          <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 400, color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}>
+            تعرف على الرواد الذين يقودون الابتكار الإبداعي في مجتمعات سُرّة
+          </p>
+        </div>
+      </div>
+      <div
+        className="team-outer"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+      >
+        <div className="team-strip-inner">
+          {[...teamMembersData, ...teamMembersData].map((member, i) => (
+            <div key={`${member.name}-${i}`} className="team-card-strip">
+              <img src={member.photo} alt={member.name} loading="lazy" />
+              <div className="team-info">
+                <p className="team-name">{member.name}</p>
+                <p className="team-role">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const teamMembersData = [
+  { name: "منصور باخلعة", role: "مؤسس ومنتج مجتمعات", org: "سُرّة", photo: "/manus-storage/mansour_5b9a1523.webp" },
+  { name: "م.معتز العبدالقادر", role: "الرئيس التنفيذي", org: "سُرّة", photo: "/manus-storage/muataz_cfd76867.webp" },
+  { name: "محمد المصري", role: "نائب الرئيس للمنتجات والتسويق", org: "سُرّة", photo: "/manus-storage/mohammed_masri_de3cae4f.webp" },
+  { name: "م. شقير بن شقير", role: "رئيس أنظمة المجتمعات", org: "سُرّة", photo: "/manus-storage/shaqeer_325758dd.webp" },
+  { name: "عبدالرحمن النهدي", role: "مدير تقنية المعلومات", org: "سُرّة", photo: "/manus-storage/abdulrahman_9d7e8050.webp" },
+  { name: "أحمد فضل", role: "مدير إبداعي", org: "سُرّة", photo: "/manus-storage/ahmed_fadl_c95ffaf5.webp" },
+  { name: "د.الهنوف الزنيتان", role: "مستشارة ومديرة تطوير الأعمال", org: "سُرّة", photo: "/manus-storage/hanoof_3d1e14e1.webp" },
+  { name: "أحمد خليل", role: "مسؤول الانتاج الإعلامي", org: "سُرّة", photo: "/manus-storage/ahmed_khalil_6425d3c1.webp" },
+  { name: "أسماء الظافري", role: "منسقة فعاليات ومحتوى", org: "سُرّة", photo: "/manus-storage/asmaa_57852354.webp" },
+  { name: "قتيبة تركستاني", role: "العلاقات العامة", org: "سُرّة", photo: "/manus-storage/qatiba_13a158ce.webp" },
+  { name: "محمد بن محمد", role: "قائد تشغيل الفعاليات", org: "سُرّة", photo: "/manus-storage/mohammed_bin_5ce8c1d3.webp" },
+  { name: "معاذ الحازمي", role: "قائد الحوار - ثلوثية بصر", org: "بصر", photo: "/manus-storage/muadh_69c744aa.webp" },
+  { name: "أسامة فقيه", role: "قائد المجتمع", org: "مقام", photo: "/manus-storage/osama_3d86dc7a.webp" },
+  { name: "دلال العتيبي", role: "مدير العلاقات والشراكات", org: "سدى", photo: "/manus-storage/dalal_61bffb01.webp" },
+  { name: "عبدللطيف الثويني", role: "قائد منتج ثلوثية بصر", org: "بصر", photo: "/manus-storage/abdullatif_9b8ca2b9.webp" },
 ];
 
 const communities = [
@@ -328,122 +384,7 @@ export default function Home() {
       </section>
 
       {/* ── TEAM SECTION (قادتنا) ── */}
-      <section style={{ background: "#111111", padding: "5rem 0 0 0", overflow: "hidden" }}>
-        <style>{`
-          @keyframes team-scroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .team-strip {
-            display: flex;
-            width: max-content;
-            animation: team-scroll 45s linear infinite;
-            will-change: transform;
-          }
-          .team-strip:hover {
-            animation-play-state: paused;
-          }
-          .team-card-strip {
-            position: relative;
-            flex-shrink: 0;
-            width: 260px;
-            height: 340px;
-            overflow: hidden;
-          }
-          .team-card-strip img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: grayscale(1) contrast(1.05);
-            transition: filter 0.45s ease;
-          }
-          .team-card-strip:hover img {
-            filter: grayscale(0) contrast(1);
-          }
-          .team-card-strip .team-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.2rem 1rem 1rem 1rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-            z-index: 2;
-            text-align: right;
-          }
-          .team-card-strip .team-role {
-            opacity: 0;
-            transform: translateY(4px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-          }
-          .team-card-strip:hover .team-role {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        `}</style>
-        <div className="container" style={{ marginBottom: "2.5rem" }}>
-          <div className="reveal">
-            <div className="surrah-divider" />
-            <h2
-              style={{
-                fontFamily: "'ManchetteFine', sans-serif",
-                fontWeight: 900,
-                fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
-                color: "#ffffff",
-                marginBottom: "0.75rem",
-              }}
-            >
-              قادتنا
-            </h2>
-            <p
-              style={{
-                fontFamily: "'ManchetteFine', sans-serif",
-                fontWeight: 400,
-                color: "rgba(255,255,255,0.6)",
-                fontSize: "1rem",
-              }}
-            >
-              تعرف على الرواد الذين يقودون الابتكار الإبداعي في مجتمعات سُرّة
-            </p>
-          </div>
-        </div>
-        {/* Full-width scrolling strip — bleeds edge-to-edge */}
-        <div style={{ width: "100%", overflow: "hidden" }}>
-          <div className="team-strip">
-            {[...teamMembers, ...teamMembers].map((member, i) => (
-              <div key={`${member.name}-${i}`} className="team-card-strip">
-                <img src={member.photo} alt={member.name} />
-                <div className="team-info">
-                  <p
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      fontWeight: 700,
-                      fontSize: "0.95rem",
-                      color: "#ffffff",
-                      marginBottom: "0.25rem",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {member.name}
-                  </p>
-                  <p
-                    className="team-role"
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      fontWeight: 400,
-                      fontSize: "0.78rem",
-                      color: "#C4622D",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {member.role}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TeamStrip />
 
             {/* ── COMMUNITIES MARQUEE TICKER ── */}
       <section
