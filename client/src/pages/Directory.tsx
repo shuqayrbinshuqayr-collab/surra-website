@@ -66,7 +66,7 @@ function partnershipColor(p: string) {
 const chartColors = ["#C4622D", "#8a7560", "#b8522a", "#5a7a5c", "#3a5a8c"];
 
 export default function Directory() {
-  const [tab, setTab] = useState<"dashboard" | "directory" | "submit">("dashboard");
+  const [tab, setTab] = useState<"dashboard" | "directory" | "submit">("directory");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [entities, setEntities] = useState<Entity[]>(initialEntities);
   const [search, setSearch] = useState("");
@@ -163,7 +163,6 @@ export default function Directory() {
       <div style={{ background: "#111111", borderBottom: `1px solid ${C.border}`, position: "sticky", top: "64px", zIndex: 40 }}>
         <div className="container" style={{ display: "flex", gap: "0" }}>
           {[
-            { key: "dashboard", label: "لوحة المؤشرات" },
             { key: "directory", label: "الدليل" },
             { key: "submit", label: "سجّل جهتك" },
           ].map((t) => (
