@@ -219,7 +219,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div
-          className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
+          className="mt-12 pt-6 flex items-center justify-between"
           style={{ borderTop: "1px solid rgba(240, 235, 225, 0.1)" }}
         >
           <p
@@ -230,17 +230,7 @@ export default function Footer() {
               fontWeight: 400,
             }}
           >
-            © 2026 سُرّة. جميع الحقوق محفوظة.
-          </p>
-          <p
-            className="text-xs"
-            style={{
-              color: "rgba(255,255,255,0.45)",
-              fontFamily: fontBase,
-              fontWeight: 400,
-            }}
-          >
-            صُنع بحب في الدرعية — SIGN 2025 ©
+            © 2026 سُرّة. جميع الحقوق محفوظة. &nbsp;|&nbsp; صُنع بحب في الدرعية — SIGN 2025 ©
           </p>
         </div>
       </div>
