@@ -116,7 +116,7 @@ export default function Home() {
             <h1
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
-                fontWeight: 900,
+                fontWeight: 300,
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
                 color: "#ffffff",
                 lineHeight: 1.15,
@@ -138,7 +138,7 @@ export default function Home() {
                 marginBottom: "2.5rem",
               }}
             >
-              تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام
+              نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستدامًا
             </p>
 
           </div>
