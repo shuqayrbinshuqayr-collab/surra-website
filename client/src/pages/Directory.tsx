@@ -8,10 +8,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const fontBase = "'ManchetteFine', 'Tajawal', sans-serif";
-const GOLD = "#C4622D";
+// Surra brand identity
+const GOLD = "#C4622D";       // Surra orange-brown accent
 const GOLD_HOVER = "#a84f25";
-const BG = "#0a0a0a";
-const CARD = "#111111";
+const BG = "#0a0a0a";          // Deep black background
+const CARD = "#111111";        // Card background
+const CARD_BORDER = "rgba(196,98,45,0.12)"; // Subtle orange border
 const BORDER = "rgba(255,255,255,0.08)";
 const MUTED = "rgba(255,255,255,0.5)";
 const MUTED_DARK = "rgba(255,255,255,0.25)";
@@ -38,17 +40,17 @@ interface Entity {
 }
 
 const initialEntities: Entity[] = [
-  { id: 1, name: "حي جميل", category: "المساحات الإبداعية", type: "مساحة إبداعية", city: "جدة", focus: "فنون بصرية وسينما", desc: "مجمع إبداعي متكامل بمساحة 17,000م² يضم 12 منظمة شريكة، استوديوهات، مسرح، وأول دار سينما مستقلة في المملكة.", tags: ["#فنون", "#سينما", "#ريادة", "#جدة"], activity: "نشط جداً", instagram: "@artjameel", partnership: "عالية", year: 2021, isNew: false },
-  { id: 2, name: "الجمعية العربية السعودية للثقافة والفنون", category: "المجتمعات الثقافية", type: "جمعية", city: "الرياض", focus: "مسرح وموسيقى وفنون بصرية", desc: "الكيان الرائد في خدمة الحراك الثقافي منذ 1973، تمتد عبر 16 فرعاً في المملكة مع أكثر من 11,000 عضو.", tags: ["#مسرح", "#موسيقى", "#فنون_بصرية", "#وطني"], activity: "نشط جداً", instagram: "@sasca_sa", partnership: "عالية", year: 1973, isNew: false },
-  { id: 3, name: "جاكس — منطقة الدرعية الثقافية", category: "المساحات الإبداعية", type: "مساحة إبداعية", city: "الرياض", focus: "تصوير وتصميم وفنون معاصرة", desc: "حي ثقافي في قلب الدرعية يستضيف معارض وورشات في التصوير الفوتوغرافي، النحت، والتصميم الغرافيكي.", tags: ["#درعية", "#تصميم", "#تراث", "#معاصر"], activity: "نشط جداً", instagram: "@diriyahgate", partnership: "عالية", year: 2022, isNew: false },
-  { id: 4, name: "بلد الفن", category: "المبادرات المستقلة", type: "مبادرة", city: "جدة", focus: "فنون بصرية وتراث محلي", desc: "مبادرة وزارة الثقافة التي تحوّل جدة التاريخية إلى مركز إبداعي ثقافي بمعارض تعكس التراث بأساليب عصرية.", tags: ["#جدة_التاريخية", "#تراث", "#فنون", "#وزارة_الثقافة"], activity: "نشط", instagram: "@ministryofculture", partnership: "عالية", year: 2024, isNew: false },
-  { id: 5, name: "مركز إثراء", category: "الجهات الداعمة", type: "مساحة إبداعية", city: "الدمام", focus: "ثقافة وفنون ومعرفة", desc: "مركز إثراء للمعرفة والفنون والثقافة في الظهران، يضم متحفاً ومسرحاً وحاضنة أعمال إبداعية.", tags: ["#إثراء", "#أرامكو", "#معرفة", "#شرقية"], activity: "نشط جداً", instagram: "@ithra", partnership: "عالية", year: 2018, isNew: false },
-  { id: 6, name: "فنون العلا", category: "الفعاليات المتكررة", type: "مبادرة", city: "العلا", focus: "فنون معاصرة وتراث صحراوي", desc: "مهرجان فنون عالمي في العلا يجمع الفنانين المحليين والدوليين وسط التضاريس الصحراوية الساحرة.", tags: ["#العلا", "#فنون_عالمية", "#صحراء", "#سياحة"], activity: "نشط", instagram: "@experiencealula", partnership: "متوسطة", year: 2020, isNew: false },
-  { id: 7, name: "النادي الأدبي الثقافي جدة", category: "النوادي الأدبية", type: "جمعية", city: "جدة", focus: "أدب وشعر وخط عربي", desc: "نادٍ أدبي ثقافي يقدم ورشات في الخط العربي والشعر، ويحتضن منتدى الفنون البصرية.", tags: ["#أدب", "#خط_عربي", "#شعر", "#جدة"], activity: "نشط", instagram: "@jeddahliterary", partnership: "متوسطة", year: 1975, isNew: false },
-  { id: 8, name: "مبادرة الشريك الأدبي", category: "المبادرات المستقلة", type: "مبادرة", city: "الرياض", focus: "أدب ومقاهٍ ثقافية", desc: "مبادرة وزارة الثقافة لتحويل 80 مقهى في 12 منطقة إدارية إلى مساحات إبداعية وأدبية.", tags: ["#مقاهي", "#أدب", "#وزارة_الثقافة", "#وطني"], activity: "نشط جداً", instagram: "@ministryofculture", partnership: "عالية", year: 2023, isNew: false },
-  { id: 9, name: "مجتمع سرة", category: "المجتمعات الثقافية", type: "مجتمع", city: "الرياض", focus: "اقتصاد إبداعي وحراك ثقافي", desc: "منظومة متكاملة تغير مفاهيم الحراك الثقافي وتستثمر في الاقتصاد الإبداعي السعودي عبر بناء مجتمعات فنية حية.", tags: ["#سرة", "#اقتصاد_إبداعي", "#مجتمع", "#ريادة"], activity: "نشط جداً", instagram: "@surrah_community", partnership: "عالية", year: 2022, isNew: true },
-  { id: 10, name: "ستوديو بيان", category: "استوديوهات الفن", type: "استوديو", city: "الرياض", focus: "تصميم جرافيك وهوية بصرية", desc: "استوديو تصميم متخصص في الهوية البصرية والتصميم الجرافيكي للعلامات التجارية الإبداعية.", tags: ["#تصميم", "#هوية_بصرية", "#جرافيك"], activity: "نشط", instagram: "@bayan_studio", partnership: "متوسطة", year: 2020, isNew: false },
-  { id: 11, name: "متجر الفنون السعودية", category: "المعارض الصغيرة", type: "متجر", city: "جدة", focus: "بيع الأعمال الفنية المحلية", desc: "منصة تجارية لبيع الأعمال الفنية السعودية الأصيلة من لوحات وتماثيل ومنتجات إبداعية.", tags: ["#فنون", "#تجارة_إبداعية", "#جدة"], activity: "نشط", instagram: "@saudiartstore", partnership: "متوسطة", year: 2021, isNew: true },
+  { id: 1, name: "حي جميل", category: "المساحات الإبداعية", type: "مساحة إبداعية", city: "جدة", focus: "فنون بصرية وسينما", desc: "مجمع إبداعي متكامل بمساحة 17,000م² يضم 12 منظمة شريكة، استوديوهات، مسرح، وأول دار سينما مستقلة في المملكة.", tags: ["#فنون", "#سينما", "#ريادة", "#جدة"], activity: "نشط جداً", instagram: "@artjameel", partnership: "عالية", year: 2021, isNew: false, logo: "/manus-storage/art_jameel_9a51f5c0.svg" },
+  { id: 2, name: "الجمعية العربية السعودية للثقافة والفنون", category: "المجتمعات الثقافية", type: "جمعية", city: "الرياض", focus: "مسرح وموسيقى وفنون بصرية", desc: "الكيان الرائد في خدمة الحراك الثقافي منذ 1973، تمتد عبر 16 فرعاً في المملكة مع أكثر من 11,000 عضو.", tags: ["#مسرح", "#موسيقى", "#فنون_بصرية", "#وطني"], activity: "نشط جداً", instagram: "@sasca_sa", partnership: "عالية", year: 1973, isNew: false, logo: "/manus-storage/sasca_465a651d.png" },
+  { id: 3, name: "جاكس — منطقة الدرعية الثقافية", category: "المساحات الإبداعية", type: "مساحة إبداعية", city: "الرياض", focus: "تصوير وتصميم وفنون معاصرة", desc: "حي ثقافي في قلب الدرعية يستضيف معارض وورشات في التصوير الفوتوغرافي، النحت، والتصميم الغرافيكي.", tags: ["#درعية", "#تصميم", "#تراث", "#معاصر"], activity: "نشط جداً", instagram: "@diriyahgate", partnership: "عالية", year: 2022, isNew: false, logo: "/manus-storage/jaxs_6397f8f0.svg" },
+  { id: 4, name: "بلد الفن", category: "المبادرات المستقلة", type: "مبادرة", city: "جدة", focus: "فنون بصرية وتراث محلي", desc: "مبادرة وزارة الثقافة التي تحوّل جدة التاريخية إلى مركز إبداعي ثقافي بمعارض تعكس التراث بأساليب عصرية.", tags: ["#جدة_التاريخية", "#تراث", "#فنون", "#وزارة_الثقافة"], activity: "نشط", instagram: "@ministryofculture", partnership: "عالية", year: 2024, isNew: false, logo: "" },
+  { id: 5, name: "مركز إثراء", category: "الجهات الداعمة", type: "مساحة إبداعية", city: "الدمام", focus: "ثقافة وفنون ومعرفة", desc: "مركز إثراء للمعرفة والفنون والثقافة في الظهران، يضم متحفاً ومسرحاً وحاضنة أعمال إبداعية.", tags: ["#إثراء", "#أرامكو", "#معرفة", "#شرقية"], activity: "نشط جداً", instagram: "@ithra", partnership: "عالية", year: 2018, isNew: false, logo: "/manus-storage/ithra_aed80674.png" },
+  { id: 6, name: "فنون العلا", category: "الفعاليات المتكررة", type: "مبادرة", city: "العلا", focus: "فنون معاصرة وتراث صحراوي", desc: "مهرجان فنون عالمي في العلا يجمع الفنانين المحليين والدوليين وسط التضاريس الصحراوية الساحرة.", tags: ["#العلا", "#فنون_عالمية", "#صحراء", "#سياحة"], activity: "نشط", instagram: "@experiencealula", partnership: "متوسطة", year: 2020, isNew: false, logo: "/manus-storage/alula_e4847c23.svg" },
+  { id: 7, name: "النادي الأدبي الثقافي جدة", category: "النوادي الأدبية", type: "جمعية", city: "جدة", focus: "أدب وشعر وخط عربي", desc: "نادٍ أدبي ثقافي يقدم ورشات في الخط العربي والشعر، ويحتضن منتدى الفنون البصرية.", tags: ["#أدب", "#خط_عربي", "#شعر", "#جدة"], activity: "نشط", instagram: "@jeddahliterary", partnership: "متوسطة", year: 1975, isNew: false, logo: "/manus-storage/jeddah_literary_8f5aea33.jpg" },
+  { id: 8, name: "مبادرة الشريك الأدبي", category: "المبادرات المستقلة", type: "مبادرة", city: "الرياض", focus: "أدب ومقاهٍ ثقافية", desc: "مبادرة وزارة الثقافة لتحويل 80 مقهى في 12 منطقة إدارية إلى مساحات إبداعية وأدبية.", tags: ["#مقاهي", "#أدب", "#وزارة_الثقافة", "#وطني"], activity: "نشط جداً", instagram: "@ministryofculture", partnership: "عالية", year: 2023, isNew: false, logo: "" },
+  { id: 9, name: "مجتمع سرة", category: "المجتمعات الثقافية", type: "مجتمع", city: "الرياض", focus: "اقتصاد إبداعي وحراك ثقافي", desc: "منظومة متكاملة تغير مفاهيم الحراك الثقافي وتستثمر في الاقتصاد الإبداعي السعودي عبر بناء مجتمعات فنية حية.", tags: ["#سرة", "#اقتصاد_إبداعي", "#مجتمع", "#ريادة"], activity: "نشط جداً", instagram: "@surrah_community", partnership: "عالية", year: 2022, isNew: true, logo: "/manus-storage/surrah_d12afd51.svg" },
+  { id: 10, name: "ستوديو بيان", category: "استوديوهات الفن", type: "استوديو", city: "الرياض", focus: "تصميم جرافيك وهوية بصرية", desc: "استوديو تصميم متخصص في الهوية البصرية والتصميم الجرافيكي للعلامات التجارية الإبداعية.", tags: ["#تصميم", "#هوية_بصرية", "#جرافيك"], activity: "نشط", instagram: "@bayan_studio", partnership: "متوسطة", year: 2020, isNew: false, logo: "" },
+  { id: 11, name: "متجر الفنون السعودية", category: "المعارض الصغيرة", type: "متجر", city: "جدة", focus: "بيع الأعمال الفنية المحلية", desc: "منصة تجارية لبيع الأعمال الفنية السعودية الأصيلة من لوحات وتماثيل ومنتجات إبداعية.", tags: ["#فنون", "#تجارة_إبداعية", "#جدة"], activity: "نشط", instagram: "@saudiartstore", partnership: "متوسطة", year: 2021, isNew: true, logo: "/manus-storage/saudi_art_store_62f9bfa9.png" },
 ];
 
 const CATEGORIES = [
@@ -273,7 +275,7 @@ export default function Directory() {
       </section>
 
       {/* ── PAGE TABS (directory / submit) ── */}
-      <div style={{ background: "#111111", borderBottom: `1px solid ${BORDER}`, position: "sticky", top: "0", zIndex: 40 }}>
+      <div style={{ background: "#0d0d0d", borderBottom: `1px solid rgba(196,98,45,0.15)`, position: "sticky", top: "0", zIndex: 40 }}>
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex" }}>
             {[
@@ -320,26 +322,29 @@ export default function Directory() {
                   key={e.id}
                   onClick={() => setSelectedEntity(e)}
                   style={{
-                    background: CARD,
-                    border: `1px solid ${BORDER}`,
-                    borderRadius: "12px",
+                    background: "linear-gradient(145deg, #141414 0%, #0f0f0f 100%)",
+                    border: `1px solid ${CARD_BORDER}`,
+                    borderRadius: "14px",
                     padding: "1.5rem",
                     cursor: "pointer",
-                    transition: "border-color 0.2s, transform 0.2s",
+                    transition: "border-color 0.25s, transform 0.25s, box-shadow 0.25s",
                     position: "relative",
+                    boxShadow: "0 2px 12px rgba(0,0,0,0.4)",
                   }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = GOLD; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = BORDER; (e.currentTarget as HTMLElement).style.transform = "none"; }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = GOLD; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px rgba(196,98,45,0.18)`; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = CARD_BORDER; (e.currentTarget as HTMLElement).style.transform = "none"; (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.4)"; }}
                 >
-                  {/* Logo */}
-                  {e.logo && (
-                    <div style={{ width: "52px", height: "52px", borderRadius: "10px", overflow: "hidden", marginBottom: "1rem", background: "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${BORDER}` }}>
-                      <img src={e.logo} alt={e.name} style={{ width: "100%", height: "100%", objectFit: "contain", padding: "4px" }} />
-                    </div>
-                  )}
+                  {/* Logo or Initial */}
+                  <div style={{ width: "56px", height: "56px", borderRadius: "12px", overflow: "hidden", marginBottom: "1rem", background: e.logo ? "rgba(255,255,255,0.06)" : `rgba(196,98,45,0.12)`, display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${e.logo ? BORDER : "rgba(196,98,45,0.25)"}`, flexShrink: 0 }}>
+                    {e.logo ? (
+                      <img src={e.logo} alt={e.name} style={{ width: "100%", height: "100%", objectFit: "contain", padding: "6px" }} />
+                    ) : (
+                      <span style={{ fontFamily: fontBase, fontSize: "1.3rem", fontWeight: 800, color: GOLD }}>{e.name.charAt(0)}</span>
+                    )}
+                  </div>
                   {/* Category badge */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
-                    <span style={{ background: "rgba(196,98,45,0.12)", color: GOLD, fontSize: "0.68rem", fontWeight: 700, padding: "0.2rem 0.6rem", border: `1px solid rgba(196,98,45,0.3)` }}>
+                    <span style={{ background: "rgba(196,98,45,0.1)", color: GOLD, fontSize: "0.68rem", fontWeight: 700, padding: "0.22rem 0.7rem", border: `1px solid rgba(196,98,45,0.3)`, borderRadius: "4px" }}>
                       {e.category}
                     </span>
                     {e.isNew && (
