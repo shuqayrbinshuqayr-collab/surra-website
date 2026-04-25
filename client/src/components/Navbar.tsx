@@ -29,8 +29,8 @@ const services = [
 const memberships = [
   { href: "/join?type=member", label: "عضو في المجتمع", desc: "انضم إلى مجتمع سُرّة" },
   { href: "/join?type=partner", label: "شريك", desc: "كن شريكاً في الأثر" },
-  { href: "/join?type=volunteer", label: "متطوع أو متعاون", desc: "تطوّع معنا" },
-  { href: "/join?type=team", label: "عضو فريق سُرّة", desc: "انضم إلى فريق العمل" },
+  { href: "/join?type=volunteer", label: "متطوع", desc: "تطوّع معنا" },
+  { href: "/join?type=team", label: "فريق سُرّة", desc: "انضم إلى فريق العمل" },
   { href: "/join?type=initiative", label: "مبادرة", desc: "شاركنا مبادرتك" },
 ];
 
