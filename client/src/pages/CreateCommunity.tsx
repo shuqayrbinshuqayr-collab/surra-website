@@ -2,6 +2,11 @@
 // Flow: Form 1 (6-axis discovery) → qualification scoring → Form 2 (8-section builder) OR thank-you
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE = "service_mjtlyei";
+const EMAILJS_TEMPLATE = "template_notyk55";
+const EMAILJS_PUBLIC_KEY = "ass6qtTEX9ResB4to";
 
 const FONT = "'ManchetteFine', sans-serif";
 const ORANGE = "#C4622D";
@@ -211,10 +216,22 @@ const emptyF2: Form2Data = {
   impactInd: "", impactWide: "", impactMeasure: "", legacy: "",
 };
 
-// ─── EMAIL SENDER (mailto fallback) ──────────────────────────────────────────
-function sendEmail(subject: string, body: string) {
-  const mailto = `mailto:info@surrah.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.open(mailto, "_blank");
+// ─── EMAIL SENDER via EmailJS ──────────────────────────────────────────
+function sendEmail(subject: string, body: string, fromName = "موقع سُرّة", replyEmail = "noreply@surrah.net") {
+  emailjs.send(
+    EMAILJS_SERVICE,
+    EMAILJS_TEMPLATE,
+    {
+      title: subject,
+      name: fromName,
+      email: replyEmail,
+      message: body,
+      time: new Date().toLocaleString("ar-SA"),
+    },
+    EMAILJS_PUBLIC_KEY
+  ).catch((err) => {
+    console.error("EmailJS send error:", err);
+  });
 }
 
 function buildF1Email(d: Form1Data): string {
@@ -326,7 +343,7 @@ function Form1({ onQualified, onRejected }: {
 
   const handleSubmit = () => {
     // Send email notification
-    sendEmail("نموذج استكشاف مجتمع جديد — سُرّة", buildF1Email(d));
+    sendEmail("نموذج استكشاف مجتمع جديد — سُرّة", buildF1Email(d), d.fullname || "موقع سُرّة", d.email || "noreply@surrah.net");
     // Evaluate qualification
     if (isQualified(d)) {
       onQualified(d);
@@ -590,7 +607,7 @@ function Form2({ prefill }: { prefill: Form1Data }) {
   const TOTAL = 8;
 
   const handleGenerate = () => {
-    sendEmail("وثيقة بناء المجتمع — سُرّة", buildF2Email(d));
+    sendEmail("وثيقة بناء المجتمع — سُرّة", buildF2Email(d), d.client || "موقع سُرّة", "noreply@surrah.net");
     setSubmitted(true);
   };
 
