@@ -212,13 +212,14 @@ export default function Home() {
               style={{
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 400,
-                fontSize: "1.05rem",
+                fontSize: "clamp(0.65rem, 2.8vw, 1.05rem)",
                 color: "rgba(255,255,255,0.85)",
                 lineHeight: 2,
                 maxWidth: "520px",
                 marginBottom: "2.5rem",
                 margin: "0 auto 2.5rem auto",
                 textAlign: "center",
+                whiteSpace: "nowrap",
               }}
             >
               نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستدامًا
