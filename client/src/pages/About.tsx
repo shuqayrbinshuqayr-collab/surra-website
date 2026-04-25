@@ -81,7 +81,7 @@ export default function About() {
               fontFamily: "'ThmanyahSerifText', sans-serif",
               fontWeight: 600,
               fontSize: "0.7rem",
-              color: "#B5453A",
+              color: "#C4622D",
               letterSpacing: "0.25em",
               textTransform: "uppercase",
               marginBottom: "0.75rem",
@@ -94,7 +94,7 @@ export default function About() {
               fontFamily: F,
               fontWeight: 900,
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
-              color: "#0a0a0a",
+              color: "#ffffff",
               lineHeight: 1.2,
             }}
           >
@@ -114,7 +114,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 900,
                   fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
-                  color: "#F0EBE1",
+                  color: "#ffffff",
                   lineHeight: 1.3,
                   marginBottom: "1.5rem",
                 }}
@@ -126,7 +126,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 400,
                   fontSize: "1rem",
-                  color: "#5A6A7A",
+                  color: "rgba(255,255,255,0.75)",
                   lineHeight: 2.1,
                   marginBottom: "1.5rem",
                 }}
@@ -139,7 +139,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 400,
                   fontSize: "1rem",
-                  color: "#5A6A7A",
+                  color: "rgba(255,255,255,0.75)",
                   lineHeight: 2.1,
                 }}
               >
@@ -187,7 +187,7 @@ export default function About() {
                   fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.7rem",
-                  color: "#B5453A",
+                  color: "#C4622D",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   marginBottom: "1rem",
@@ -200,7 +200,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 700,
                   fontSize: "1.1rem",
-                  color: "#F0EBE1",
+                  color: "#ffffff",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -211,7 +211,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 400,
                   fontSize: "0.95rem",
-                  color: "rgba(240, 235, 225, 0.75)",
+                  color: "rgba(255,255,255,0.8)",
                   lineHeight: 2,
                 }}
               >
@@ -223,8 +223,8 @@ export default function About() {
               className="reveal"
               style={{
                 padding: "3rem",
-                background: "#FFFFFF",
-                borderLeft: "4px solid #27486A",
+                background: "#111111",
+                borderLeft: "4px solid #C4622D",
                 transitionDelay: "0.1s",
               }}
             >
@@ -233,7 +233,7 @@ export default function About() {
                   fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.7rem",
-                  color: "#c8c4bc",
+                  color: "#C4622D",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   marginBottom: "1rem",
@@ -246,7 +246,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 700,
                   fontSize: "1.1rem",
-                  color: "#F0EBE1",
+                  color: "#ffffff",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -257,7 +257,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 400,
                   fontSize: "0.95rem",
-                  color: "#5A6A7A",
+                  color: "rgba(255,255,255,0.75)",
                   lineHeight: 2,
                 }}
               >
@@ -278,7 +278,7 @@ export default function About() {
                 fontFamily: F,
                 fontWeight: 900,
                 fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
-                color: "#F0EBE1",
+                color: "#ffffff",
               }}
             >
               قيمنا
@@ -292,7 +292,7 @@ export default function About() {
                 style={{
                   padding: "2.5rem 2rem",
                   background: i % 2 === 0 ? "#FFFFFF" : "#F8F4EE",
-                  borderTop: `3px solid ${i < 3 ? "#B5453A" : "#27486A"}`,
+                  borderTop: "3px solid #C4622D",
                   transitionDelay: `${i * 0.1}s`,
                 }}
               >
@@ -301,7 +301,7 @@ export default function About() {
                     fontFamily: F,
                     fontWeight: 900,
                     fontSize: "1.3rem",
-                    color: "#F0EBE1",
+                    color: "#ffffff",
                     marginBottom: "0.75rem",
                   }}
                 >
@@ -312,7 +312,7 @@ export default function About() {
                     fontFamily: F,
                     fontWeight: 400,
                     fontSize: "0.85rem",
-                    color: "#5A6A7A",
+                    color: "rgba(255,255,255,0.75)",
                     lineHeight: 1.9,
                   }}
                 >
@@ -329,10 +329,10 @@ export default function About() {
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3rem" }}>
             <div className="surrah-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "#F0EBE1" }}>
+            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "#ffffff" }}>
               كيف نعمل؟
             </h2>
-            <p style={{ fontFamily: F, fontWeight: 400, color: "#5A6A7A", fontSize: "1rem", marginTop: "0.5rem" }}>
+            <p style={{ fontFamily: F, fontWeight: 400, color: "rgba(255,255,255,0.75)", fontSize: "1rem", marginTop: "0.5rem" }}>
               نبدأ بالفكرة، نصمم التجربة، نبني المجتمع القادر على الاستمرار.
             </p>
           </div>
@@ -343,9 +343,9 @@ export default function About() {
                 className="reveal"
                 style={{
                   padding: "2.5rem 2rem",
-                  background: "#FFFFFF",
-                  borderLeft: i > 0 ? "1px solid rgba(28, 43, 58, 0.08)" : "none",
-                  borderTop: "3px solid #B5453A",
+                  background: "#111111",
+                  borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                  borderTop: "3px solid #C4622D",
                   transitionDelay: `${i * 0.1}s`,
                 }}
               >
@@ -355,7 +355,7 @@ export default function About() {
                     fontFamily: "'ThmanyahSerifText', sans-serif",
                     fontWeight: 800,
                     fontSize: "2.5rem",
-                    color: "#B5453A",
+                    color: "#C4622D",
                     opacity: 0.35,
                     lineHeight: 1,
                     marginBottom: "1rem",
@@ -367,14 +367,14 @@ export default function About() {
                   style={{
                     fontFamily: F,
                     fontWeight: 700,
-                    color: "#F0EBE1",
+                    color: "#ffffff",
                     fontSize: "1.05rem",
                     marginBottom: "0.5rem",
                   }}
                 >
                   {step.title}
                 </h4>
-                <p style={{ fontFamily: F, fontWeight: 400, color: "#5A6A7A", fontSize: "0.88rem", lineHeight: 1.8 }}>
+                <p style={{ fontFamily: F, fontWeight: 400, color: "rgba(255,255,255,0.75)", fontSize: "0.88rem", lineHeight: 1.8 }}>
                   {step.desc}
                 </p>
               </div>
@@ -402,7 +402,7 @@ export default function About() {
                 fontFamily: F,
                 fontWeight: 400,
                 fontSize: "1rem",
-                color: "rgba(240, 235, 225, 0.75)",
+                color: "rgba(255,255,255,0.8)",
                 lineHeight: 2,
                 marginBottom: "2rem",
               }}
@@ -419,7 +419,7 @@ export default function About() {
                   display: "inline-flex",
                   alignItems: "center",
                   background: "transparent",
-                  color: "#F0EBE1",
+                  color: "#ffffff",
                   fontFamily: F,
                   fontWeight: 600,
                   fontSize: "0.95rem",

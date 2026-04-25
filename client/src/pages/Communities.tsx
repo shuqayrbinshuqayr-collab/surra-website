@@ -32,7 +32,7 @@ const communities = [
     id: "basar",
     name: "بصر",
     nameEn: "Basar",
-    color: "#B5453A",
+    color: "#C4622D",
     tagline: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.",
     description:
       "بصر مجتمع للذين يرون العالم بعيون مختلفة. يُعنى بالوعي البصري والفنون والقراءة الجمالية للصورة والمعنى. مساحة للتأمل والنقد والإبداع البصري.",
@@ -80,7 +80,7 @@ const communities = [
     id: "maqam",
     name: "مقام",
     nameEn: "Maqam",
-    color: "#B5453A",
+    color: "#C4622D",
     tagline: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته على الوصول.",
     description:
       "مقام مجتمع يُعيد للصوت قيمته. يُعنى بالموسيقى والصوت والإلقاء والتعبير الصوتي. مساحة لمن يؤمن أن الصوت لغة تتجاوز الكلمات.",
@@ -107,7 +107,7 @@ export default function Communities() {
             <p
               className="text-sm mb-4 tracking-widest"
               style={{
-                color: "#B5453A",
+                color: "#C4622D",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 letterSpacing: "0.2em",
               }}
@@ -119,14 +119,14 @@ export default function Communities() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#F0EBE1",
+                color: "#ffffff",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
             >
               مجتمعات مستقلة
               <br />
-              <span style={{ color: "#B5453A" }}>تجمعها فلسفة واحدة: العمق</span>
+              <span style={{ color: "#C4622D" }}>تجمعها فلسفة واحدة: العمق</span>
             </h1>
             <p
               style={{
@@ -153,7 +153,7 @@ export default function Communities() {
                 id={community.id}
                 className="reveal grid grid-cols-1 lg:grid-cols-4 gap-0 transition-all duration-300"
                 style={{
-                  background: "#FFFFFF",
+                  background: "#111111",
                   border: "1px solid rgba(28, 43, 58, 0.12)",
                   borderRight: `3px solid ${community.color}`,
                   transitionDelay: `${i * 0.1}s`,
@@ -184,7 +184,7 @@ export default function Communities() {
                   <p
                     style={{
                       fontFamily: "'ThmanyahSerifText', sans-serif",
-                      color: "#AABBCC",
+                      color: "rgba(255,255,255,0.5)",
                       fontSize: "0.8rem",
                       letterSpacing: "0.1em",
                     }}
@@ -212,7 +212,7 @@ export default function Communities() {
                   <p
                     style={{
                       fontFamily: "'ThmanyahSerifText', sans-serif",
-                      color: "#6B7A8A",
+                      color: "rgba(255,255,255,0.75)",
                       fontSize: "0.9rem",
                       lineHeight: 1.8,
                     }}
@@ -227,7 +227,7 @@ export default function Communities() {
                     <p
                       className="text-xs mb-1"
                       style={{
-                        color: "#9AAABB",
+                        color: "rgba(255,255,255,0.5)",
                         fontFamily: "'ThmanyahSerifText', sans-serif",
                       }}
                     >
@@ -247,7 +247,7 @@ export default function Communities() {
                     <p
                       className="text-xs mb-1"
                       style={{
-                        color: "#9AAABB",
+                        color: "rgba(255,255,255,0.5)",
                         fontFamily: "'ThmanyahSerifText', sans-serif",
                       }}
                     >
@@ -256,7 +256,7 @@ export default function Communities() {
                     <p
                       className="text-sm"
                       style={{
-                        color: "#5A6A7A",
+                        color: "rgba(255,255,255,0.75)",
                         fontFamily: "'ThmanyahSerifText', sans-serif",
                       }}
                     >
@@ -267,7 +267,7 @@ export default function Communities() {
                     <p
                       className="text-xs mb-1"
                       style={{
-                        color: "#9AAABB",
+                        color: "rgba(255,255,255,0.5)",
                         fontFamily: "'ThmanyahSerifText', sans-serif",
                       }}
                     >
@@ -276,7 +276,7 @@ export default function Communities() {
                     <p
                       className="text-sm"
                       style={{
-                        color: "#5A6A7A",
+                        color: "rgba(255,255,255,0.75)",
                         fontFamily: "'ThmanyahSerifText', sans-serif",
                       }}
                     >
@@ -299,7 +299,7 @@ export default function Communities() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
                 fontWeight: 700,
-                color: "#F0EBE1",
+                color: "#ffffff",
                 marginBottom: "1rem",
               }}
             >

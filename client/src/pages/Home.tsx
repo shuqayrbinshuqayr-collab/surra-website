@@ -55,7 +55,7 @@ const services = [
 ];
 
 const communities = [
-  { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "#B5453A" },
+  { name: "بصر", nameEn: "Basar", desc: "مجتمع يُعنى بالوعي البصري والفنون وقراءة الصورة والمعنى.", color: "#C4622D" },
   { name: "صفر", nameEn: "Sifr", desc: "مساحة للبدايات والتجربة والأسئلة الأولى التي تصنع التحول.", color: "#c8c4bc" },
   { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "#7B4F8E" },
   { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "#1C6B4A" },
@@ -118,21 +118,21 @@ export default function Home() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
-                color: "#0a0a0a",
+                color: "#ffffff",
                 lineHeight: 1.15,
                 marginBottom: "1.5rem",
               }}
             >
               نصنع المجتمعات
               <br />
-              <span style={{ color: "#F0EBE1", fontWeight: 700 }}>ونمنح الأفكار حياة</span>
+              <span style={{ color: "#ffffff", fontWeight: 700 }}>ونمنح الأفكار حياة</span>
             </h1>
             <p
               style={{
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontWeight: 400,
                 fontSize: "1.05rem",
-                color: "rgba(240, 235, 225, 0.8)",
+                color: "rgba(255,255,255,0.85)",
                 lineHeight: 2,
                 maxWidth: "520px",
                 marginBottom: "2.5rem",
@@ -180,7 +180,7 @@ export default function Home() {
               >
                 لماذا نصمم
                 <br />
-                <span style={{ color: "#B5453A" }}>المجتمعات؟</span>
+                <span style={{ color: "#C4622D" }}>المجتمعات؟</span>
               </h2>
               <p
                 style={{
@@ -229,7 +229,7 @@ export default function Home() {
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontWeight: 600,
                       fontSize: "1.1rem",
-                      color: "#F0EBE1",
+                      color: "#ffffff",
                       lineHeight: 1.6,
                       paddingTop: "0.5rem",
                     }}
@@ -253,7 +253,7 @@ export default function Home() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
-                color: "#F0EBE1",
+                color: "#ffffff",
                 marginBottom: "0.75rem",
               }}
             >
@@ -307,7 +307,7 @@ export default function Home() {
                     fontFamily: "'ThmanyahSerifText', sans-serif",
                     fontWeight: 700,
                     fontSize: "1.2rem",
-                    color: "#F0EBE1",
+                    color: "#ffffff",
                     marginBottom: "0.75rem",
                   }}
                 >
@@ -412,7 +412,7 @@ export default function Home() {
             }}
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.4)" }} />
-            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#0a0a0a" }}>
+            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#ffffff" }}>
               <p style={{ fontFamily: "'ThmanyahSerifText', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 فعاليات حية
               </p>
@@ -430,7 +430,7 @@ export default function Home() {
             }}
           >
             <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.35)" }} />
-            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#0a0a0a" }}>
+            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#ffffff" }}>
               <p style={{ fontFamily: "'ThmanyahSerifText', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
                 مؤتمرات وملتقيات
               </p>

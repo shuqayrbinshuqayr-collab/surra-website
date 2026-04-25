@@ -135,13 +135,13 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
       <div
         className="p-8 text-center"
         style={{
-          background: "#FFFFFF",
-          border: "1px solid rgba(181, 69, 58, 0.3)",
+          background: "#111111",
+          border: "1px solid rgba(196, 98, 45, 0.4)",
         }}
       >
         <div
           className="text-4xl mb-4"
-          style={{ color: "#B5453A" }}
+          style={{ color: "#C4622D" }}
         >
           ✓
         </div>
@@ -166,12 +166,12 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
             className="block text-sm mb-1.5"
             style={{
               fontFamily: "'ThmanyahSerifText', sans-serif",
-              color: "#6B7A8A",
+              color: "rgba(255,255,255,0.75)",
             }}
           >
             {field.label}
             {field.required && (
-              <span style={{ color: "#B5453A" }}> *</span>
+              <span style={{ color: "#C4622D" }}> *</span>
             )}
           </label>
           {field.type === "textarea" ? (
@@ -186,7 +186,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               style={{
                 background: "#1a1a1a",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
-                color: "#F0EBE1",
+                color: "#ffffff",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 outline: "none",
               }}
@@ -209,7 +209,7 @@ function JoinForm({ option }: { option: typeof joinOptions[0] }) {
               style={{
                 background: "#1a1a1a",
                 border: "1px solid rgba(28, 43, 58, 0.15)",
-                color: "#F0EBE1",
+                color: "#ffffff",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 outline: "none",
               }}
@@ -248,7 +248,7 @@ export default function Join() {
             <p
               className="text-sm mb-4 tracking-widest"
               style={{
-                color: "#B5453A",
+                color: "#C4622D",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 letterSpacing: "0.2em",
               }}
@@ -260,7 +260,7 @@ export default function Join() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#F0EBE1",
+                color: "#ffffff",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -324,7 +324,7 @@ export default function Join() {
                   className="text-xs"
                   style={{
                     fontFamily: "'ThmanyahSerifText', sans-serif",
-                    color: "#6B7A8A",
+                    color: "rgba(255,255,255,0.75)",
                     lineHeight: 1.6,
                   }}
                 >
@@ -342,7 +342,7 @@ export default function Join() {
               <div
                 className="reveal visible max-w-2xl mx-auto"
                 style={{
-                  background: "#FFFFFF",
+                  background: "#111111",
                   border: "1px solid rgba(28, 43, 58, 0.12)",
                   padding: "2.5rem",
                 }}
@@ -354,7 +354,7 @@ export default function Join() {
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
-                      color: "#F0EBE1",
+                      color: "#ffffff",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -388,7 +388,7 @@ export default function Join() {
               <p
                 style={{
                   fontFamily: "'ThmanyahSerifText', sans-serif",
-                  color: "#9AAABB",
+                  color: "rgba(255,255,255,0.5)",
                   fontSize: "0.95rem",
                 }}
               >
@@ -407,7 +407,7 @@ export default function Join() {
               style={{
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "1.1rem",
-                color: "#6B7A8A",
+                color: "rgba(255,255,255,0.75)",
                 lineHeight: 1.8,
                 fontStyle: "italic",
               }}

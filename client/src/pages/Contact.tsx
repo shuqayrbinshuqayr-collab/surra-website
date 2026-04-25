@@ -52,7 +52,7 @@ export default function Contact() {
   const inputStyle = {
     background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
-    color: "#F0EBE1",
+    color: "#ffffff",
     fontFamily: "'ThmanyahSerifText', sans-serif",
     outline: "none",
     width: "100%",
@@ -75,7 +75,7 @@ export default function Contact() {
             <p
               className="text-sm mb-4 tracking-widest"
               style={{
-                color: "#B5453A",
+                color: "#C4622D",
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 letterSpacing: "0.2em",
               }}
@@ -87,14 +87,14 @@ export default function Contact() {
                 fontFamily: "'ThmanyahSerifText', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#F0EBE1",
+                color: "#ffffff",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
             >
               نؤمن أن كل حوار
               <br />
-              <span style={{ color: "#B5453A" }}>جاد هو بداية…</span>
+              <span style={{ color: "#C4622D" }}>جاد هو بداية…</span>
             </h1>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function Contact() {
                   fontFamily: "'ThmanyahSerifText', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
-                  color: "#F0EBE1",
+                  color: "#ffffff",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -122,7 +122,7 @@ export default function Contact() {
                 className="mb-8"
                 style={{
                   fontFamily: "'ThmanyahSerifText', sans-serif",
-                  color: "#6B7A8A",
+                  color: "rgba(255,255,255,0.75)",
                   lineHeight: 1.9,
                   fontSize: "0.95rem",
                 }}
@@ -135,7 +135,7 @@ export default function Contact() {
                 <p
                   className="text-xs tracking-widest"
                   style={{
-                    color: "#B5453A",
+                    color: "#C4622D",
                     fontFamily: "'ThmanyahSerifText', sans-serif",
                     letterSpacing: "0.2em",
                   }}
@@ -153,7 +153,7 @@ export default function Contact() {
                     className="flex items-center justify-between py-3 px-4 transition-all duration-200"
                     style={{
                       border: "1px solid rgba(28, 43, 58, 0.12)",
-                      color: "#5A6A7A",
+                      color: "rgba(255,255,255,0.75)",
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "0.9rem",
                       textDecoration: "none",
@@ -161,7 +161,7 @@ export default function Contact() {
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.borderColor = "rgba(181, 69, 58, 0.4)";
-                      el.style.color = "#B5453A";
+                      el.style.color = "#C4622D";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
@@ -172,7 +172,7 @@ export default function Contact() {
                     <span>{social.label}</span>
                     <span
                       style={{
-                        color: "#8A9AAA",
+                        color: "rgba(255,255,255,0.65)",
                         fontSize: "0.8rem",
                       }}
                     >
@@ -189,13 +189,13 @@ export default function Contact() {
                 <div
                   className="p-10 text-center"
                   style={{
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(181, 69, 58, 0.3)",
+                    background: "#111111",
+                    border: "1px solid rgba(196, 98, 45, 0.4)",
                   }}
                 >
                   <div
                     className="text-5xl mb-4"
-                    style={{ color: "#B5453A" }}
+                    style={{ color: "#C4622D" }}
                   >
                     ✓
                   </div>
@@ -204,7 +204,7 @@ export default function Contact() {
                       fontFamily: "'ThmanyahSerifText', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
-                      color: "#F0EBE1",
+                      color: "#ffffff",
                       marginBottom: "0.75rem",
                     }}
                   >
@@ -213,7 +213,7 @@ export default function Contact() {
                   <p
                     style={{
                       fontFamily: "'ThmanyahSerifText', sans-serif",
-                      color: "#6B7A8A",
+                      color: "rgba(255,255,255,0.75)",
                       lineHeight: 1.8,
                     }}
                   >
@@ -225,7 +225,7 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                   className="space-y-5"
                   style={{
-                    background: "#FFFFFF",
+                    background: "#111111",
                     border: "1px solid rgba(28, 43, 58, 0.12)",
                     padding: "2.5rem",
                   }}
@@ -235,10 +235,10 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'ThmanyahSerifText', sans-serif",
-                        color: "#6B7A8A",
+                        color: "rgba(255,255,255,0.75)",
                       }}
                     >
-                      الاسم <span style={{ color: "#B5453A" }}>*</span>
+                      الاسم <span style={{ color: "#C4622D" }}>*</span>
                     </label>
                     <input
                       type="text"
@@ -262,10 +262,10 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'ThmanyahSerifText', sans-serif",
-                        color: "#6B7A8A",
+                        color: "rgba(255,255,255,0.75)",
                       }}
                     >
-                      البريد الإلكتروني <span style={{ color: "#B5453A" }}>*</span>
+                      البريد الإلكتروني <span style={{ color: "#C4622D" }}>*</span>
                     </label>
                     <input
                       type="email"
@@ -289,7 +289,7 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'ThmanyahSerifText', sans-serif",
-                        color: "#6B7A8A",
+                        color: "rgba(255,255,255,0.75)",
                       }}
                     >
                       سبب التواصل
@@ -327,10 +327,10 @@ export default function Contact() {
                       className="block text-sm mb-1.5"
                       style={{
                         fontFamily: "'ThmanyahSerifText', sans-serif",
-                        color: "#6B7A8A",
+                        color: "rgba(255,255,255,0.75)",
                       }}
                     >
-                      رسالتك <span style={{ color: "#B5453A" }}>*</span>
+                      رسالتك <span style={{ color: "#C4622D" }}>*</span>
                     </label>
                     <textarea
                       rows={5}
@@ -353,7 +353,7 @@ export default function Contact() {
                     className="text-xs"
                     style={{
                       fontFamily: "'ThmanyahSerifText', sans-serif",
-                      color: "#9AAABB",
+                      color: "rgba(255,255,255,0.5)",
                     }}
                   >
                     نقرأ كل رسالة باهتمام.

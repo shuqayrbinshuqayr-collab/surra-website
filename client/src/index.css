@@ -217,7 +217,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #B5453A;
+    background-color: #C4622D;
     color: #FAF8F4;
     font-family: 'ThmanyahSerifText', sans-serif;
     font-weight: 600;
@@ -230,8 +230,8 @@
     letter-spacing: 0.02em;
   }
   .btn-surrah-red:hover {
-    background-color: #9a3a30;
-    border-color: #9a3a30;
+    background-color: #a8521f;
+    border-color: #a8521f;
   }
 
   /* ── Reveal animation ── */
@@ -249,7 +249,7 @@
   .surrah-divider {
     width: 48px;
     height: 3px;
-    background-color: #B5453A;
+    background-color: #C4622D;
     margin-bottom: 1.5rem;
   }
 }

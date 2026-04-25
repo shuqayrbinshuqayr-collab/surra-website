@@ -61,7 +61,7 @@ export default function Footer() {
             <p
               className="text-sm leading-relaxed mb-6 max-w-xs"
               style={{
-                color: "rgba(240, 235, 225, 0.6)",
+                color: "rgba(255,255,255,0.65)",
                 fontFamily: fontBase,
                 fontWeight: 400,
                 lineHeight: "1.8",
@@ -80,17 +80,17 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center text-sm transition-all duration-200"
                   style={{
-                    border: "1px solid rgba(240, 235, 225, 0.25)",
-                    color: "rgba(240, 235, 225, 0.6)",
+                    border: "1px solid rgba(255,255,255,0.25)",
+                    color: "rgba(255,255,255,0.65)",
                     fontFamily: fontBase,
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "#B5453A";
-                    (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#C4622D";
+                    (e.currentTarget as HTMLElement).style.color = "#C4622D";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(240, 235, 225, 0.25)";
-                    (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.25)";
+                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
                   }}
                 >
                   {s.icon}
@@ -104,7 +104,7 @@ export default function Footer() {
             <h4
               className="mb-5"
               style={{
-                color: "#B5453A",
+                color: "#C4622D",
                 fontFamily: fontBase,
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -120,15 +120,15 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm transition-colors duration-200"
                     style={{
-                      color: "rgba(240, 235, 225, 0.6)",
+                      color: "rgba(255,255,255,0.65)",
                       fontFamily: fontBase,
                       fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
+                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
                     }}
                   >
                     {link.label}
@@ -143,7 +143,7 @@ export default function Footer() {
             <h4
               className="mb-5"
               style={{
-                color: "#B5453A",
+                color: "#C4622D",
                 fontFamily: fontBase,
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -159,15 +159,15 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm transition-colors duration-200"
                     style={{
-                      color: "rgba(240, 235, 225, 0.6)",
+                      color: "rgba(255,255,255,0.65)",
                       fontFamily: fontBase,
                       fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
+                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
                     }}
                   >
                     {link.label}
@@ -182,7 +182,7 @@ export default function Footer() {
             <h4
               className="mb-5"
               style={{
-                color: "#B5453A",
+                color: "#C4622D",
                 fontFamily: fontBase,
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -198,15 +198,15 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm transition-colors duration-200"
                     style={{
-                      color: "rgba(240, 235, 225, 0.6)",
+                      color: "rgba(255,255,255,0.65)",
                       fontFamily: fontBase,
                       fontWeight: 400,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#B5453A";
+                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(240, 235, 225, 0.6)";
+                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
                     }}
                   >
                     {link.label}
@@ -225,7 +225,7 @@ export default function Footer() {
           <p
             className="text-xs"
             style={{
-              color: "rgba(240, 235, 225, 0.4)",
+              color: "rgba(255,255,255,0.45)",
               fontFamily: fontBase,
               fontWeight: 400,
             }}
@@ -235,7 +235,7 @@ export default function Footer() {
           <p
             className="text-xs"
             style={{
-              color: "rgba(240, 235, 225, 0.4)",
+              color: "rgba(255,255,255,0.45)",
               fontFamily: fontBase,
               fontWeight: 400,
             }}
