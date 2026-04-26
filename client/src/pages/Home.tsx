@@ -364,9 +364,7 @@ function UpcomingEvents() {
                     </div>
                   ) : (
                     <a
-                      href={event.registerUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/register"
                       style={{
                         background: "#C4622D",
                         color: "#ffffff",

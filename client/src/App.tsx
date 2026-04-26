@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import CommunityDetail from "./pages/CommunityDetail";
 import CreateCommunity from "./pages/CreateCommunity";
 import Directory from "./pages/Directory";
+import Register from "./pages/Register";
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/create-community"} component={CreateCommunity} />
       <Route path={"/directory"} component={Directory} />
+      <Route path={"/register"} component={Register} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
