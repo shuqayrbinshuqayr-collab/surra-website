@@ -28,39 +28,31 @@ function useReveal() {
 }
 
 function TeamStrip() {
-  const stripRef = useRef<HTMLDivElement>(null);
+  const outerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
-  const animPaused = useRef(false);
 
-  // Pause CSS animation and enable manual drag
   const onPointerDown = (e: React.PointerEvent) => {
     isDragging.current = true;
     startX.current = e.clientX;
-    scrollLeft.current = stripRef.current?.scrollLeft || 0;
-    if (stripRef.current) stripRef.current.style.cursor = "grabbing";
-    // pause the CSS animation by switching to manual scroll
-    animPaused.current = true;
-    if (stripRef.current) stripRef.current.style.animationPlayState = "paused";
+    scrollLeft.current = outerRef.current?.scrollLeft || 0;
+    if (outerRef.current) outerRef.current.style.cursor = "grabbing";
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!isDragging.current) return;
     const dx = e.clientX - startX.current;
-    if (stripRef.current) stripRef.current.scrollLeft = scrollLeft.current - dx;
+    if (outerRef.current) outerRef.current.scrollLeft = scrollLeft.current - dx;
   };
   const onPointerUp = () => {
     isDragging.current = false;
-    if (stripRef.current) stripRef.current.style.cursor = "grab";
+    if (outerRef.current) outerRef.current.style.cursor = "grab";
   };
 
   return (
-    <section style={{ background: "#111111", padding: "5rem 0 0 0", overflow: "hidden" }}>
+    <section style={{ background: "#111111", padding: "5rem 0 0 0" }}>
       <style>{`
-        @keyframes team-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
         .team-outer {
           width: 100%;
           overflow-x: auto;
@@ -68,33 +60,31 @@ function TeamStrip() {
           cursor: grab;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
+          user-select: none;
         }
         .team-outer::-webkit-scrollbar { display: none; }
         .team-strip-inner {
           display: flex;
+          flex-direction: row;
           width: max-content;
-          animation: team-scroll 60s linear infinite;
-          will-change: transform;
-        }
-        .team-outer:hover .team-strip-inner,
-        .team-outer:active .team-strip-inner {
-          animation-play-state: paused;
+          gap: 4px;
         }
         .team-card-strip {
           position: relative;
           flex-shrink: 0;
-          width: clamp(160px, 40vw, 240px);
-          height: clamp(210px, 52vw, 320px);
+          width: clamp(160px, 38vw, 230px);
+          height: clamp(210px, 50vw, 310px);
           overflow: hidden;
-          margin-right: 4px;
         }
         .team-card-strip img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: top center;
           display: block;
           filter: grayscale(1) contrast(1.05);
           transition: filter 0.45s ease;
+          pointer-events: none;
         }
         .team-card-strip:hover img {
           filter: grayscale(0) contrast(1);
@@ -105,14 +95,14 @@ function TeamStrip() {
           left: 0;
           right: 0;
           padding: 2.5rem 0.75rem 0.85rem 0.75rem;
-          background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, transparent 100%);
+          background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
           z-index: 2;
           text-align: right;
         }
         .team-card-strip .team-name {
           font-family: 'ManchetteFine', sans-serif;
           font-weight: 700;
-          font-size: clamp(0.72rem, 2.2vw, 0.92rem);
+          font-size: clamp(0.7rem, 2vw, 0.9rem);
           color: #ffffff;
           margin-bottom: 0.2rem;
           line-height: 1.3;
@@ -120,10 +110,9 @@ function TeamStrip() {
         .team-card-strip .team-role {
           font-family: 'ManchetteFine', sans-serif;
           font-weight: 400;
-          font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+          font-size: clamp(0.58rem, 1.6vw, 0.72rem);
           color: #C4622D;
           line-height: 1.4;
-          opacity: 1;
         }
       `}</style>
       <div className="container" style={{ marginBottom: "2rem" }}>
@@ -136,6 +125,7 @@ function TeamStrip() {
         </div>
       </div>
       <div
+        ref={outerRef}
         className="team-outer"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -143,8 +133,8 @@ function TeamStrip() {
         onPointerLeave={onPointerUp}
       >
         <div className="team-strip-inner">
-          {[...teamMembersData, ...teamMembersData].map((member, i) => (
-            <div key={`${member.name}-${i}`} className="team-card-strip">
+          {teamMembersData.map((member, i) => (
+            <div key={member.name} className="team-card-strip">
               <img src={member.photo} alt={member.name} loading="lazy" />
               <div className="team-info">
                 <p className="team-name">{member.name}</p>
