@@ -181,6 +181,217 @@ const whyPoints = [
   { num: "٣", text: "لأن الاستدامة تُبنى من الداخل" },
 ];
 
+// ── UPCOMING EVENTS DATA ──
+const communityLogos: Record<string, string> = {
+  "بصر": "/manus-storage/Basar-White_7d406934.png",
+  "صفر": "/manus-storage/Sifr-White_c3ab7e46.webp",
+  "سدى": "/manus-storage/Sudaa-White_d1defc89.png",
+  "مدى": "/manus-storage/Mada-White_c8cc9bc8.png",
+  "مقام": "/manus-storage/Maqam-White_10f58ea8.png",
+  "عُملة": "/manus-storage/Umlah-White_f8a8fa99.webp",
+  "سُرّة": "/manus-storage/Surrah-White_308323ba.png",
+};
+
+type SurrahEvent = {
+  id: number;
+  title: string;
+  description: string;
+  date: string; // ISO string e.g. "2026-04-28"
+  community: string;
+  registerUrl: string;
+  coverImage?: string;
+};
+
+const eventsData: SurrahEvent[] = [
+  {
+    id: 1,
+    title: "ثلوثية بَصَر",
+    description: "لقاء ثلوثية بصر يسرّ مجتمع بَصَر دعوتكم لحضور لقاء ثلوثية بَصَر، في أمسية تجمع المهتمين بالفنون البصرية وصناعة المحتوى الإبداعي.",
+    date: "2026-04-28",
+    community: "بصر",
+    registerUrl: "#",
+  },
+  {
+    id: 2,
+    title: "لقاء الكرييتفز 2 – مجتمع بصر",
+    description: "يسرّ بَصَر مجتمع دعوتكم لحضور لقاء الكرييتيفز اللقاء الشهري الذي يجمع المبدعين وصُنّاع الفنون البصرية في أمسية ثريّة بالحوار والإلهام.",
+    date: "2025-12-27",
+    community: "بصر",
+    registerUrl: "#",
+  },
+  {
+    id: 3,
+    title: "ملتقى مدى الثقافي",
+    description: "ملتقى شهري يجمع المهتمين بالأدب والثقافة في جلسة حوارية تتناول أبرز الإصدارات والأفكار الثقافية المعاصرة.",
+    date: "2026-05-15",
+    community: "مدى",
+    registerUrl: "#",
+  },
+];
+
+function isExpired(dateStr: string): boolean {
+  return new Date(dateStr) < new Date(new Date().toDateString());
+}
+
+function formatArabicDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  const months = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+  return `${d.getDate()} ${months[d.getMonth()]}، ${d.getFullYear()}`;
+}
+
+function UpcomingEvents() {
+  return (
+    <section
+      style={{
+        background: "#0a0a0a",
+        padding: "5rem 0",
+        direction: "rtl",
+      }}
+    >
+      <div className="container" style={{ maxWidth: "900px", margin: "0 auto", padding: "0 1.5rem" }}>
+        {/* Section Header */}
+        <div style={{ textAlign: "right", marginBottom: "3rem" }}>
+          <div style={{ width: "3rem", height: "2px", background: "#C4622D", marginBottom: "1rem", marginRight: "0" }} />
+          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", color: "#ffffff", fontWeight: 700, marginBottom: "0.5rem" }}>
+            الفعاليات القادمة
+          </h2>
+          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem", fontFamily: "'ManchetteFine', sans-serif" }}>
+            تابع آخر فعاليات مجتمعات سُرّة وسجّل حضورك
+          </p>
+        </div>
+
+        {/* Event Cards */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          {eventsData.map((event) => {
+            const expired = isExpired(event.date);
+            const logo = communityLogos[event.community];
+            return (
+              <div
+                key={event.id}
+                style={{
+                  background: "#ffffff",
+                  borderRadius: "16px",
+                  padding: "1.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.75rem",
+                  boxShadow: "0 2px 20px rgba(0,0,0,0.3)",
+                  opacity: expired ? 0.75 : 1,
+                }}
+              >
+                {/* Top row: community tag + logo */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <div
+                    style={{
+                      background: "#C4622D",
+                      color: "#ffffff",
+                      borderRadius: "8px",
+                      padding: "0.25rem 0.75rem",
+                      fontSize: "0.8rem",
+                      fontFamily: "'ManchetteFine', sans-serif",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {event.community}
+                  </div>
+                  {logo && (
+                    <div
+                      style={{
+                        background: "#111111",
+                        borderRadius: "10px",
+                        padding: "0.4rem 0.75rem",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <img
+                        src={logo}
+                        alt={event.community}
+                        style={{ height: "28px", width: "auto", objectFit: "contain" }}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Title */}
+                <h3
+                  style={{
+                    fontFamily: "'ManchetteFine', sans-serif",
+                    fontSize: "1.2rem",
+                    fontWeight: 700,
+                    color: "#111111",
+                    margin: 0,
+                    textAlign: "right",
+                  }}
+                >
+                  {event.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  style={{
+                    fontFamily: "'ManchetteFine', sans-serif",
+                    fontSize: "0.88rem",
+                    color: "#555555",
+                    lineHeight: 1.7,
+                    margin: 0,
+                    textAlign: "right",
+                  }}
+                >
+                  {event.description}
+                </p>
+
+                {/* Bottom row: date + button */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.25rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#777777", fontSize: "0.85rem", fontFamily: "'ManchetteFine', sans-serif" }}>
+                    <span>📅</span>
+                    <span>{formatArabicDate(event.date)}</span>
+                  </div>
+                  {expired ? (
+                    <div
+                      style={{
+                        border: "1.5px solid #C4622D",
+                        color: "#C4622D",
+                        borderRadius: "8px",
+                        padding: "0.35rem 1rem",
+                        fontSize: "0.82rem",
+                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontWeight: 600,
+                        cursor: "default",
+                      }}
+                    >
+                      EXPIRED!
+                    </div>
+                  ) : (
+                    <a
+                      href={event.registerUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        background: "#C4622D",
+                        color: "#ffffff",
+                        borderRadius: "8px",
+                        padding: "0.45rem 1.25rem",
+                        fontSize: "0.88rem",
+                        fontFamily: "'ManchetteFine', sans-serif",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        transition: "background 0.2s",
+                      }}
+                    >
+                      حضور
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const pageRef = useReveal();
 
@@ -429,47 +640,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── EVENTS GALLERY STRIP ── */}
-      <section style={{ background: "#111111", padding: "0", overflow: "hidden" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", height: "420px" }}>
-          <div
-            style={{
-              backgroundImage: "url('/manus-storage/Artboard2copy@2x_cbab6746.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.4)" }} />
-            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#ffffff" }}>
-              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
-                فعاليات حية
-              </p>
-              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
-                تجارب ثقافية أصيلة
-              </p>
-            </div>
-          </div>
-          <div
-            style={{
-              backgroundImage: "url('/manus-storage/Artboard1copy@2x_2c9b6cef.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", inset: 0, background: "rgba(28, 43, 58, 0.35)" }} />
-            <div style={{ position: "absolute", bottom: "2rem", right: "2rem", color: "#ffffff" }}>
-              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 700, fontSize: "1rem" }}>
-                مؤتمرات وملتقيات
-              </p>
-              <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 400, fontSize: "0.85rem", opacity: 0.7 }}>
-                الأثر الثقافي والاستثمار
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── UPCOMING EVENTS SECTION ── */}
+      <UpcomingEvents />
 
       {/* ── CTA SECTION ── */}
       <section
