@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -105,6 +106,10 @@ export default function Communities() {
   return (
     <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
+      <Breadcrumb items={[
+        { label: "الرئيسية", href: "/" },
+        { label: "مجتمعاتنا" },
+      ]} />
 
       {/* ── Page Hero ── */}
       <section

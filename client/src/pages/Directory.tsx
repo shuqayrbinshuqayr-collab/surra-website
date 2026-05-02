@@ -6,6 +6,7 @@
 import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const fontBase = "'ManchetteFine', 'Tajawal', sans-serif";
 // Surra brand identity
@@ -152,6 +153,10 @@ export default function Directory() {
   return (
     <div style={{ background: BG, minHeight: "100vh", fontFamily: fontBase, direction: "rtl" }}>
       <Navbar />
+      <Breadcrumb items={[
+        { label: "الرئيسية", href: "/" },
+        { label: "دليل سُرّة" },
+      ]} />
 
       {/* ── HERO SECTION ── */}
       <section

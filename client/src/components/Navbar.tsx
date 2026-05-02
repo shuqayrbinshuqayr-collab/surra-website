@@ -28,11 +28,10 @@ const services = [
 ];
 
 const memberships = [
-  { href: "/join?type=member", label: "عضو في المجتمع", desc: "انضم إلى مجتمع سُرّة" },
-  { href: "/join?type=partner", label: "شريك", desc: "كن شريكاً في الأثر" },
-  { href: "/join?type=volunteer", label: "متطوع", desc: "تطوّع معنا" },
-  { href: "/join?type=team", label: "فريق سُرّة", desc: "انضم إلى فريق العمل" },
-  { href: "/join?type=initiative", label: "مبادرة", desc: "شاركنا مبادرتك" },
+  { href: "/join", label: "سُرّة بداية", desc: "مجانًا — ابدأ رحلتك بدون التزام" },
+  { href: "/join", label: "سُرّة وصل", desc: "79 ر.س / شهر — وسّع شبكتك" },
+  { href: "/join", label: "سُرّة نخبة", desc: "149 ر.س / شهر — الأكثر اختيارًا" },
+  { href: "/join", label: "سُرّة مجلس", desc: "399 ر.س / شهر — لفئة محدودة" },
 ];
 
 const mediaItems = [

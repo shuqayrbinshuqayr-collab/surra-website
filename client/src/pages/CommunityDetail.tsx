@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const F = "'ManchetteFine', sans-serif";
 
@@ -45,7 +46,7 @@ const communities: Record<string, {
       "بصر مجتمع للذين يرون العالم بعيون مختلفة. يُعنى بالوعي البصري والفنون والقراءة الجمالية للصورة والمعنى. مساحة للتأمل والنقد والإبداع البصري. نؤمن أن الصورة لغة، وأن تعلّم قراءتها يُغيّر طريقة رؤيتنا للعالم.",
     type: "فنون بصرية",
     audience: "المهتمون بالفنون والوعي البصري",
-    meetings: "شهري",
+    meetings: "أسبوعي / شهري",
     values: [
       { title: "الوعي البصري", desc: "تعلّم قراءة الصورة والمعنى خلفها." },
       { title: "النقد الجمالي", desc: "تطوير حس نقدي تجاه الفنون والتصميم." },
@@ -152,6 +153,11 @@ export default function CommunityDetail() {
   return (
     <div style={{ background: "#000000", minHeight: "100vh" }}>
       <Navbar />
+      <Breadcrumb items={[
+        { label: "الرئيسية", href: "/" },
+        { label: "مجتمعاتنا", href: "/communities" },
+        { label: community.name },
+      ]} />
 
       {/* Hero */}
       <section style={{ paddingTop: "140px", paddingBottom: "80px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
@@ -284,7 +290,7 @@ export default function CommunityDetail() {
               transition: "background 0.2s, color 0.2s",
             }}
           >
-            أنشئ مجتمعك
+            انضم
           </Link>
         </div>
       </section>
