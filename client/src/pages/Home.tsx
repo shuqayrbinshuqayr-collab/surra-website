@@ -205,11 +205,11 @@ type SurrahEvent = {
 const eventsData: SurrahEvent[] = [
   {
     id: 1,
-    title: "ثلوثية بَصَر",
-    description: "لقاء ثلوثية بصر يسرّ مجتمع بَصَر دعوتكم لحضور لقاء ثلوثية بَصَر، في أمسية تجمع المهتمين بالفنون البصرية وصناعة المحتوى الإبداعي.",
-    date: "2026-04-28",
+    title: "ثلوثية بَصَر | كيف نقرأ قطاع الأفلام في السعودية؟",
+    description: "لقاء يجمع صنّاع ومهتمين لفهم أعمق لقطاع الأفلام في المملكة. أمسية ثريّة بالحوار والإلهام لكل من يهتم بالفنون البصرية وصناعة المحتوى الإبداعي.",
+    date: "2026-05-16",
     community: "بصر",
-    registerUrl: "#",
+    registerUrl: "/register?event=thluthyat-basar",
   },
   {
     id: 2,
@@ -217,14 +217,6 @@ const eventsData: SurrahEvent[] = [
     description: "يسرّ بَصَر مجتمع دعوتكم لحضور لقاء الكرييتيفز اللقاء الشهري الذي يجمع المبدعين وصُنّاع الفنون البصرية في أمسية ثريّة بالحوار والإلهام.",
     date: "2025-12-27",
     community: "بصر",
-    registerUrl: "#",
-  },
-  {
-    id: 3,
-    title: "ملتقى مدى الثقافي",
-    description: "ملتقى شهري يجمع المهتمين بالأدب والثقافة في جلسة حوارية تتناول أبرز الإصدارات والأفكار الثقافية المعاصرة.",
-    date: "2026-05-15",
-    community: "مدى",
     registerUrl: "#",
   },
 ];
@@ -582,8 +574,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TEAM SECTION (قادتنا) ── */}
-      <TeamStrip />
+
 
             {/* ── COMMUNITIES MARQUEE TICKER ── */}
       <section
@@ -640,6 +631,100 @@ export default function Home() {
 
       {/* ── UPCOMING EVENTS SECTION ── */}
       <UpcomingEvents />
+
+      {/* ── PARTNERS SECTION ── */}
+      <section
+        style={{
+          background: "#0a0a0a",
+          borderTop: "1px solid rgba(255,255,255,0.07)",
+          borderBottom: "1px solid rgba(255,255,255,0.07)",
+          padding: "4rem 0",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
+          {/* Section Header */}
+          <div style={{ textAlign: "right", marginBottom: "3rem" }}>
+            <div style={{ width: "3rem", height: "3px", background: "#C4622D", marginLeft: "auto", marginBottom: "1rem" }} />
+            <h2
+              style={{
+                fontFamily: "'ManchetteFine', sans-serif",
+                fontWeight: 900,
+                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                color: "#ffffff",
+                margin: 0,
+                letterSpacing: 0,
+              }}
+            >
+              شركاؤنا
+            </h2>
+            <p
+              style={{
+                color: "rgba(255,255,255,0.5)",
+                fontSize: "0.95rem",
+                marginTop: "0.5rem",
+                fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+              }}
+            >
+              الجهات الداعمة لمجتمعات سُرّة
+            </p>
+          </div>
+
+          {/* Partners Grid - placeholders */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1.5rem",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {[
+              { name: "شريك 1" },
+              { name: "شريك 2" },
+              { name: "شريك 3" },
+              { name: "شريك 4" },
+              { name: "شريك 5" },
+              { name: "شريك 6" },
+            ].map((partner, i) => (
+              <div
+                key={i}
+                style={{
+                  width: "160px",
+                  height: "80px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "border-color 0.3s, background 0.3s",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(196,98,45,0.5)";
+                  (e.currentTarget as HTMLDivElement).style.background = "rgba(196,98,45,0.06)";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.1)";
+                  (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.04)";
+                }}
+              >
+                <span
+                  style={{
+                    color: "rgba(255,255,255,0.25)",
+                    fontSize: "0.8rem",
+                    fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                    letterSpacing: 0,
+                  }}
+                >
+                  {partner.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── CTA SECTION ── */}
       <section
