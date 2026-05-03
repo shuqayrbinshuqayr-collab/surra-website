@@ -95,7 +95,7 @@ const tiers = [
     features: [
       "كل مزايا نخبة",
       "دعوات خاصة مغلقة",
-      "عشاءات نخبوية",
+      "ولائم نخبوية",
       "جلسات مع مؤسسين وقادة",
       "فرص استثمار وشراكات خاصة",
       "مدير عضوية مخصص",
@@ -136,7 +136,7 @@ export default function Join() {
       ]} />
 
       {/* ── HERO ── */}
-      <section style={{ paddingTop: "130px", paddingBottom: "60px", textAlign: "center", borderBottom: `1px solid ${GOLD_DIM}` }}>
+      <section style={{ paddingTop: "60px", paddingBottom: "60px", textAlign: "center", borderBottom: `1px solid ${GOLD_DIM}` }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 1.5rem" }}>
           <p style={{ color: GOLD, letterSpacing: "0.2em", fontSize: "0.85rem", marginBottom: "1rem" }}>
             عضويات سُرّة
@@ -173,9 +173,6 @@ export default function Join() {
               }}
             >
               سنوي
-              <span style={{ marginRight: "0.4rem", fontSize: "0.75rem", color: yearly ? "#fff" : "rgba(196,98,45,0.8)" }}>
-                وفر شهرين
-              </span>
             </button>
           </div>
         </div>
@@ -226,7 +223,7 @@ export default function Join() {
                   )}
 
                   {/* Tier name */}
-                  <h3 style={{ color: isFeatured ? GOLD : "#fff", fontSize: "1.3rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                  <h3 style={{ color: isFeatured ? GOLD : "#fff", fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.5rem" }}>
                     {tier.name}
                   </h3>
                   <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "1.5rem", lineHeight: 1.6 }}>
@@ -358,14 +355,13 @@ export default function Join() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1.5rem" }}>
             {[
-              { icon: "⏳", text: "لأن العلاقات الصحيحة تختصر سنوات" },
-              { icon: "🤝", text: "لأن الفرص تأتي من الناس، لا من الإعلانات" },
-              { icon: "📈", text: "لأن المجتمع الجيد يرفع مستواك تلقائيًا" },
-              { icon: "🌟", text: "لأنك تستحق أن تكون وسط أشخاص يشبهون طموحك" },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#111", border: `1px solid ${GOLD_DIM}`, borderRadius: "12px", padding: "1.5rem 1rem" }}>
-                <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>{item.icon}</div>
-                <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.9rem", lineHeight: 1.7 }}>{item.text}</p>
+              "لأن العلاقات الصحيحة تختصر سنوات",
+              "لأن الفرص تأتي من الناس، لا من الإعلانات",
+              "لأن المجتمع الجيد يرفع مستواك تلقائيًا",
+              "لأنك تستحق أن تكون وسط أشخاص يشبهون طموحك",
+            ].map((text, i) => (
+              <div key={i} style={{ background: "#111", border: `1px solid ${GOLD_DIM}`, borderRadius: "12px", padding: "1.8rem 1.4rem" }}>
+                <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1rem", lineHeight: 1.8, margin: 0 }}>{text}</p>
               </div>
             ))}
           </div>

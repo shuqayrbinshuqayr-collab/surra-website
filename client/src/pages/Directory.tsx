@@ -168,7 +168,7 @@ export default function Directory() {
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
-          paddingTop: "96px",
+          paddingTop: "60px",
         }}
       >
         {/* Background image */}

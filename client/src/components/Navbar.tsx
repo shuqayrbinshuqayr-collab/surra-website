@@ -28,10 +28,10 @@ const services = [
 ];
 
 const memberships = [
-  { href: "/join", label: "سُرّة بداية", desc: "مجانًا — ابدأ رحلتك بدون التزام" },
-  { href: "/join", label: "سُرّة وصل", desc: "79 ر.س / شهر — وسّع شبكتك" },
-  { href: "/join", label: "سُرّة نخبة", desc: "149 ر.س / شهر — الأكثر اختيارًا" },
-  { href: "/join", label: "سُرّة مجلس", desc: "399 ر.س / شهر — لفئة محدودة" },
+  { href: "/join#bidaya", label: "سُرّة بداية", desc: "ابدأ رحلتك بدون التزام" },
+  { href: "/join#wasl", label: "سُرّة وصل", desc: "وسّع شبكتك وادخل بعمق أكبر" },
+  { href: "/join#nukhba", label: "سُرّة نخبة", desc: "الأكثر اختيارًا" },
+  { href: "/join#majlis", label: "سُرّة مجلس", desc: "لفئة محدودة تصنع أثرًا أكبر" },
 ];
 
 const mediaItems = [
@@ -197,8 +197,7 @@ export default function Navbar() {
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
-                                <span style={{ display: "block" }}>{item.label}</span>
-                                <span style={{ display: "block", fontSize: "0.75rem", color: "rgba(255,255,255,0.4)", fontWeight: 300, marginTop: "1px" }}>{item.desc}</span>
+                                {item.label}
                               </Link>
                             ))}
                           </>

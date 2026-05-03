@@ -113,7 +113,7 @@ export default function Communities() {
 
       {/* ── Page Hero ── */}
       <section
-        className="relative pt-32 pb-24"
+        className="relative pb-24"
         style={{ background: "#111111" }}
       >
         <div className="container">

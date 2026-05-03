@@ -351,6 +351,23 @@ function validate(step: number, data: Record<string, string | boolean>): Record<
   return errors;
 }
 
+// ─── FIELD COMPONENT (outside Register to prevent re-mount on re-render) ────
+function Field({ label, name, required, optional, children, errors }: {
+  label: string; name: string; required?: boolean; optional?: boolean;
+  children: React.ReactNode; errors: Record<string, string>;
+}) {
+  return (
+    <div style={S.fieldGroup}>
+      <label style={S.label}>
+        {required && <span style={S.required}>*</span>}
+        {optional && <span style={S.optional}>(اختياري)</span>}
+        {label}
+      </label>
+      {children}
+      {errors[name] && <div style={S.errorMsg}>⚠ {errors[name]}</div>}
+    </div>
+  );
+}
 // ─── MAIN COMPONENT ──────────────────────────────────────────────
 export default function Register() {
   const [step, setStep] = useState(0);
@@ -407,19 +424,7 @@ export default function Register() {
   const score = calculateScore(data);
   const priority = getPriority(score);
 
-  const Field = ({ label, name, required, optional, children }: {
-    label: string; name: string; required?: boolean; optional?: boolean; children: React.ReactNode;
-  }) => (
-    <div style={S.fieldGroup}>
-      <label style={S.label}>
-        {required && <span style={S.required}>*</span>}
-        {optional && <span style={S.optional}>(اختياري)</span>}
-        {label}
-      </label>
-      {children}
-      {errors[name] && <div style={S.errorMsg}>⚠ {errors[name]}</div>}
-    </div>
-  );
+
 
   return (
     <div style={S.wrap}>
@@ -467,45 +472,45 @@ export default function Register() {
               <div>
                 <div style={S.sectionTitle}>📋 البيانات الأساسية</div>
 
-                <Field label="الاسم الثلاثي" name="fullName" required>
+                <Field errors={errors} label="الاسم الثلاثي" name="fullName" required>
                   <input style={inputStyle(errors.fullName)} value={data.fullName as string}
                     onChange={e => set("fullName", e.target.value)}
                     placeholder="مثال: محمد عبدالله السعيد" />
                 </Field>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <Field label="رقم الجوال" name="phone" required>
+                  <Field errors={errors} label="رقم الجوال" name="phone" required>
                     <input style={inputStyle(errors.phone)} value={data.phone as string}
                       onChange={e => set("phone", e.target.value.replace(/\D/g, "").slice(0, 10))}
                       placeholder="05XXXXXXXX" dir="ltr" />
                   </Field>
-                  <Field label="المدينة" name="city" required>
+                  <Field errors={errors} label="المدينة" name="city" required>
                     <input style={inputStyle(errors.city)} value={data.city as string}
                       onChange={e => set("city", e.target.value)}
                       placeholder="الرياض، جدة…" />
                   </Field>
                 </div>
 
-                <Field label="البريد الإلكتروني" name="email" required>
+                <Field errors={errors} label="البريد الإلكتروني" name="email" required>
                   <input style={inputStyle(errors.email)} value={data.email as string}
                     onChange={e => set("email", e.target.value)}
                     placeholder="you@example.com" dir="ltr" type="email" />
                 </Field>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <Field label="المسمى الوظيفي" name="title" optional>
+                  <Field errors={errors} label="المسمى الوظيفي" name="title" optional>
                     <input style={inputStyle()} value={data.title as string}
                       onChange={e => set("title", e.target.value)}
                       placeholder="مؤسس، مدير…" />
                   </Field>
-                  <Field label="جهة العمل / المشروع" name="organization" optional>
+                  <Field errors={errors} label="جهة العمل / المشروع" name="organization" optional>
                     <input style={inputStyle()} value={data.organization as string}
                       onChange={e => set("organization", e.target.value)}
                       placeholder="اسم الشركة أو المشروع" />
                   </Field>
                 </div>
 
-                <Field label="رابط LinkedIn / بورتفوليو" name="linkedin" optional>
+                <Field errors={errors} label="رابط LinkedIn / بورتفوليو" name="linkedin" optional>
                   <input style={inputStyle()} value={data.linkedin as string}
                     onChange={e => set("linkedin", e.target.value)}
                     placeholder="linkedin.com/in/..." dir="ltr" />
@@ -522,7 +527,7 @@ export default function Register() {
                 </div>
 
                 {data.isFirstTime && (
-                  <Field label="كيف سمعت عنا؟" name="heardFrom" required>
+                  <Field errors={errors} label="كيف سمعت عنا؟" name="heardFrom" required>
                     <select style={selectStyle(errors.heardFrom)} value={data.heardFrom as string}
                       onChange={e => set("heardFrom", e.target.value)}>
                       <option value="">اختر...</option>
@@ -541,7 +546,7 @@ export default function Register() {
                 <div style={S.sectionTitle}>🎯 الاهتمامات والأهداف</div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <Field label="نوع العضوية / التصنيف" name="memberType" required>
+                  <Field errors={errors} label="نوع العضوية / التصنيف" name="memberType" required>
                     <select style={selectStyle(errors.memberType)} value={data.memberType as string}
                       onChange={e => set("memberType", e.target.value)}>
                       <option value="">اختر...</option>
@@ -551,7 +556,7 @@ export default function Register() {
                     </select>
                   </Field>
 
-                  <Field label="المجال الرئيسي" name="field" required>
+                  <Field errors={errors} label="المجال الرئيسي" name="field" required>
                     <select style={selectStyle(errors.field)} value={data.field as string}
                       onChange={e => set("field", e.target.value)}>
                       <option value="">اختر...</option>
@@ -562,7 +567,7 @@ export default function Register() {
                   </Field>
                 </div>
 
-                <Field label="الهدف الرئيسي من الانضمام" name="goal" required>
+                <Field errors={errors} label="الهدف الرئيسي من الانضمام" name="goal" required>
                   <select style={selectStyle(errors.goal)} value={data.goal as string}
                     onChange={e => set("goal", e.target.value)}>
                     <option value="">اختر...</option>
@@ -572,7 +577,7 @@ export default function Register() {
                   </select>
                 </Field>
 
-                <Field label="ما القيمة التي تتوقع إضافتها أو اكتسابها؟" name="valueAdded" required>
+                <Field errors={errors} label="ما القيمة التي تتوقع إضافتها أو اكتسابها؟" name="valueAdded" required>
                   <textarea style={textareaStyle(errors.valueAdded)}
                     value={data.valueAdded as string}
                     onChange={e => set("valueAdded", e.target.value)}
@@ -593,7 +598,7 @@ export default function Register() {
                   <div style={{ fontSize: "12px", color: THEME.gold, marginBottom: "12px", fontWeight: "600", letterSpacing: "0.05em" }}>
                     ✦ سؤال التحقق المهني
                   </div>
-                  <Field label="ما الفرق بين الاقتصاد الإبداعي والاقتصاد الترفيهي؟ أو كيف ترى دور الثقافة في التنمية الاقتصادية؟" name="challengeAnswer" required>
+                  <Field errors={errors} label="ما الفرق بين الاقتصاد الإبداعي والاقتصاد الترفيهي؟ أو كيف ترى دور الثقافة في التنمية الاقتصادية؟" name="challengeAnswer" required>
                     <textarea style={textareaStyle(errors.challengeAnswer)}
                       value={data.challengeAnswer as string}
                       onChange={e => set("challengeAnswer", e.target.value)}
@@ -609,7 +614,7 @@ export default function Register() {
                 <div style={S.sectionTitle}>✅ الجدية والتأكيد</div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <Field label="هل لديك مشروع قائم حاليًا؟" name="hasProject" required>
+                  <Field errors={errors} label="هل لديك مشروع قائم حاليًا؟" name="hasProject" required>
                     <select style={selectStyle(errors.hasProject)} value={data.hasProject as string}
                       onChange={e => set("hasProject", e.target.value)}>
                       <option value="">اختر...</option>
@@ -619,7 +624,7 @@ export default function Register() {
                     </select>
                   </Field>
 
-                  <Field label="متى ترغب في اللقاء؟" name="timing" required>
+                  <Field errors={errors} label="متى ترغب في اللقاء؟" name="timing" required>
                     <select style={selectStyle(errors.timing)} value={data.timing as string}
                       onChange={e => set("timing", e.target.value)}>
                       <option value="">اختر...</option>
@@ -631,7 +636,7 @@ export default function Register() {
                 </div>
 
                 {data.hasProject === "نعم" && (
-                  <Field label="نبذة مختصرة عن مشروعك" name="projectDesc" optional>
+                  <Field errors={errors} label="نبذة مختصرة عن مشروعك" name="projectDesc" optional>
                     <textarea style={textareaStyle()} value={data.projectDesc as string}
                       onChange={e => set("projectDesc", e.target.value)}
                       placeholder="اسم المشروع، ما يفعله، مرحلته الحالية…" />
@@ -639,7 +644,7 @@ export default function Register() {
                 )}
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <Field label="مدى جاهزيتك الحالية" name="readiness" required>
+                  <Field errors={errors} label="مدى جاهزيتك الحالية" name="readiness" required>
                     <select style={selectStyle(errors.readiness)} value={data.readiness as string}
                       onChange={e => set("readiness", e.target.value)}>
                       <option value="">اختر...</option>
@@ -649,7 +654,7 @@ export default function Register() {
                     </select>
                   </Field>
 
-                  <Field label="حجم الفرصة المتوقعة" name="opportunitySize" required>
+                  <Field errors={errors} label="حجم الفرصة المتوقعة" name="opportunitySize" required>
                     <select style={selectStyle(errors.opportunitySize)} value={data.opportunitySize as string}
                       onChange={e => set("opportunitySize", e.target.value)}>
                       <option value="">اختر...</option>

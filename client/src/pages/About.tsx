@@ -57,6 +57,7 @@ export default function About() {
           display: "flex",
           alignItems: "flex-end",
           overflow: "hidden",
+          paddingTop: "96px",
         }}
       >
         <div
@@ -147,24 +148,18 @@ export default function About() {
                 نعمل عند نقطة التقاء الفكرة بالإنسان، والمحتوى بالتجربة، واللقاء بالأثر المستدام.
               </p>
             </div>
-            <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-              <div
+            <div className="reveal" style={{ transitionDelay: "0.15s", display: "flex", justifyContent: "center" }}>
+              <img
+                src="/manus-storage/surrah-logo-full_a95afe59.png"
+                alt="سُرّة | SURRAH — الشعار الكامل"
                 style={{
-                  background: "#B5453A",
-                  padding: "3rem",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  aspectRatio: "1",
-                  maxWidth: "380px",
+                  width: "100%",
+                  maxWidth: "420px",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "4px",
                 }}
-              >
-                <img
-                  src="/manus-storage/Story2_c2180c01.png"
-                  alt="سُرّة — هوية بصرية"
-                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                />
-              </div>
+              />
             </div>
           </div>
         </div>

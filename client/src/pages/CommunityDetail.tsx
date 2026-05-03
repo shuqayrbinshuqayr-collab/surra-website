@@ -34,6 +34,7 @@ const communities: Record<string, {
   meetings: string;
   values: { title: string; desc: string }[];
   activities: string[];
+  products?: { name: string; logo: string; logoBg?: string }[];
 }> = {
   basar: {
     id: "basar",
@@ -53,6 +54,10 @@ const communities: Record<string, {
       { title: "الإبداع المشترك", desc: "خلق تجارب بصرية جماعية ملهمة." },
     ],
     activities: ["جلسات نقد بصري", "زيارات معارض", "ورش تصوير وتصميم", "محاضرات فنية", "مشاريع إبداعية مشتركة"],
+    products: [
+      { name: "ثلوثية بصر", logo: "/manus-storage/thluthyat-basar-final_732356d9.png", logoBg: "#1a1a1a" },
+      { name: "الكريتيفتيز", logo: "/manus-storage/creativities-final_787ca9ad.png", logoBg: "#fff" },
+    ],
   },
   sifr: {
     id: "sifr",
@@ -151,7 +156,7 @@ export default function CommunityDetail() {
   }
 
   return (
-    <div style={{ background: "#000000", minHeight: "100vh" }}>
+    <div style={{ background: "#000000", minHeight: "100vh", wordSpacing: "normal", wordBreak: "normal" }}>
       <Navbar />
       <Breadcrumb items={[
         { label: "الرئيسية", href: "/" },
@@ -160,7 +165,7 @@ export default function CommunityDetail() {
       ]} />
 
       {/* Hero */}
-      <section style={{ paddingTop: "140px", paddingBottom: "80px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <section style={{ paddingTop: "60px", paddingBottom: "80px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <div className="container">
           <Link
             href="/communities"
@@ -189,7 +194,7 @@ export default function CommunityDetail() {
                   {community.name}
                 </h1>
               )}
-              <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.15rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.9, maxWidth: "560px" }}>
+              <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.3rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.85, maxWidth: "560px", wordSpacing: "normal" }}>
                 {community.tagline}
               </p>
             </div>
@@ -200,8 +205,8 @@ export default function CommunityDetail() {
                 { label: "تكرار اللقاءات", value: community.meetings },
               ].map((item) => (
                 <div key={item.label} style={{ borderRight: `2px solid ${community.color}`, paddingRight: "1rem" }}>
-                  <p style={{ fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.15em", marginBottom: "0.2rem" }}>{item.label}</p>
-                  <p style={{ fontFamily: F, fontSize: "0.95rem", color: "#ffffff", fontWeight: 500 }}>{item.value}</p>
+                  <p style={{ fontFamily: F, fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", marginBottom: "0.2rem" }}>{item.label}</p>
+                  <p style={{ fontFamily: F, fontSize: "1.1rem", color: "#ffffff", fontWeight: 500 }}>{item.value}</p>
                 </div>
               ))}
             </div>
@@ -213,23 +218,54 @@ export default function CommunityDetail() {
       <section style={{ padding: "80px 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container">
           <div style={{ maxWidth: "720px" }}>
-            <p style={{ fontFamily: F, fontSize: "0.75rem", color: community.color, letterSpacing: "0.25em", marginBottom: "1.5rem", fontWeight: 500 }}>عن المجتمع</p>
-            <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.1rem", color: "rgba(255,255,255,0.85)", lineHeight: 2.1 }}>
+            <p style={{ fontFamily: F, fontSize: "1rem", color: community.color, letterSpacing: "0.15em", marginBottom: "1.5rem", fontWeight: 600 }}>عن المجتمع</p>
+            <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.4rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.85, wordSpacing: "normal", letterSpacing: "normal", wordBreak: "normal" }}>
               {community.longDescription}
             </p>
           </div>
         </div>
       </section>
 
+      {/* Products */}
+      {community.products && community.products.length > 0 && (
+        <section style={{ padding: "80px 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="container">
+            <p style={{ fontFamily: F, fontSize: "1rem", color: community.color, letterSpacing: "0.15em", marginBottom: "3rem", fontWeight: 600 }}>منتجاتنا</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "3rem", alignItems: "center" }}>
+              {community.products.map((product, i) => (
+                <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+                  <div style={{
+                    background: product.logoBg || "#000",
+                    padding: "2rem 2.5rem",
+                    borderRadius: "4px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: "240px",
+                    minHeight: "160px",
+                  }}>
+                    <img
+                      src={product.logo}
+                      alt={product.name}
+                      style={{ maxHeight: "130px", maxWidth: "260px", objectFit: "contain" }}
+                    />
+                  </div>
+                  <p style={{ fontFamily: F, fontSize: "1.05rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>{product.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
       {/* Values */}
       <section style={{ padding: "80px 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container">
-          <p style={{ fontFamily: F, fontSize: "0.75rem", color: community.color, letterSpacing: "0.25em", marginBottom: "3rem", fontWeight: 500 }}>قيمنا</p>
+          <p style={{ fontFamily: F, fontSize: "1rem", color: community.color, letterSpacing: "0.15em", marginBottom: "3rem", fontWeight: 600 }}>قيمنا</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "2rem" }}>
             {community.values.map((v, i) => (
               <div key={i} style={{ background: "#111111", border: "1px solid rgba(255,255,255,0.08)", borderTop: `2px solid ${community.color}`, padding: "2rem" }}>
-                <h3 style={{ fontFamily: F, fontWeight: 600, fontSize: "1.1rem", color: "#ffffff", marginBottom: "0.75rem" }}>{v.title}</h3>
-                <p style={{ fontFamily: F, fontWeight: 300, fontSize: "0.9rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.8 }}>{v.desc}</p>
+                <h3 style={{ fontFamily: F, fontWeight: 600, fontSize: "1.3rem", color: "#ffffff", marginBottom: "0.75rem" }}>{v.title}</h3>
+                <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.05rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.8 }}>{v.desc}</p>
               </div>
             ))}
           </div>
@@ -239,18 +275,18 @@ export default function CommunityDetail() {
       {/* Activities */}
       <section style={{ padding: "80px 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container">
-          <p style={{ fontFamily: F, fontSize: "0.75rem", color: community.color, letterSpacing: "0.25em", marginBottom: "3rem", fontWeight: 500 }}>أنشطتنا</p>
+          <p style={{ fontFamily: F, fontSize: "1rem", color: community.color, letterSpacing: "0.15em", marginBottom: "3rem", fontWeight: 600 }}>أنشطتنا</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             {community.activities.map((act, i) => (
               <span
                 key={i}
                 style={{
                   fontFamily: F,
-                  fontSize: "0.9rem",
+                  fontSize: "1.05rem",
                   color: "#ffffff",
                   border: "1px solid rgba(255,255,255,0.2)",
-                  padding: "0.6rem 1.4rem",
-                  letterSpacing: "0.05em",
+                  padding: "0.7rem 1.6rem",
+                  letterSpacing: "0.03em",
                 }}
               >
                 {act}
@@ -271,7 +307,7 @@ export default function CommunityDetail() {
               <span style={{ color: community.color }}>{community.name}</span>
             )}
           </h2>
-          <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1rem", color: "rgba(255,255,255,0.65)", marginBottom: "2.5rem", maxWidth: "480px", margin: "0 auto 2.5rem" }}>
+          <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.2rem", color: "rgba(255,255,255,0.65)", marginBottom: "2.5rem", maxWidth: "480px", margin: "0 auto 2.5rem" }}>
             {community.tagline}
           </p>
           <Link

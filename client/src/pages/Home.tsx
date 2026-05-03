@@ -336,7 +336,7 @@ function UpcomingEvents() {
                 {/* Bottom row: date + button */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.25rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#777777", fontSize: "0.85rem", fontFamily: "'ManchetteFine', sans-serif" }}>
-                    <span>📅</span>
+                    
                     <span>{formatArabicDate(event.date)}</span>
                   </div>
                   {expired ? (
@@ -425,7 +425,7 @@ export default function Home() {
             pointerEvents: "none",
           }}
         >
-          <source src="/manus-storage/hero-bg_6887ae74.mp4" type="video/mp4" />
+          <source src="/manus-storage/hero-video-new_e28e66cf.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay to keep text readable */}
         <div
@@ -453,7 +453,7 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              نصنع المجتمعات ونمنح الأفكار حياة
+              نصنع المجتمعات ... ونمنح الافكار حياة ...
             </h1>
             <p
               style={{
@@ -576,58 +576,7 @@ export default function Home() {
 
 
 
-            {/* ── COMMUNITIES MARQUEE TICKER ── */}
-      <section
-        style={{
-          background: "#000000",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-          overflow: "hidden",
-          padding: "1.5rem 0",
-        }}
-      >
-        <style>{`
-          @keyframes ticker-scroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .ticker-inner {
-            display: flex;
-            width: max-content;
-            animation: ticker-scroll 30s linear infinite;
-            will-change: transform;
-          }
-        `}</style>
-        <div className="ticker-inner">
-          {[...communities, ...communities, ...communities, ...communities, ...communities, ...communities].map((c, i) => (
-            <Link
-              key={i}
-              href="/communities"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "0 2.5rem",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-                flexShrink: 0,
-              }}
-            >
-              <img
-                src={c.logoWhite}
-                alt={c.name}
-                style={{
-                  height: "clamp(28px, 3.5vw, 44px)",
-                  width: "auto",
-                  objectFit: "contain",
-                  filter: (c as any).invertLogo ? "invert(1)" : "none",
-                  opacity: 0.9,
-                }}
-              />
-              <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "1.2rem", marginLeft: "2rem" }}>·</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+
 
       {/* ── UPCOMING EVENTS SECTION ── */}
       <UpcomingEvents />

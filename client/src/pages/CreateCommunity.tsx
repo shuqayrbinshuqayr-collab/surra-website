@@ -358,7 +358,7 @@ function Form1({ onQualified, onRejected }: {
   };
 
   const containerStyle: React.CSSProperties = {
-    maxWidth: "680px", margin: "0 auto", padding: "2rem 1.5rem 4rem",
+    maxWidth: "680px", margin: "0 auto", padding: "calc(96px + 2rem) 1.5rem 4rem",
   };
 
   return (
@@ -617,7 +617,7 @@ function Form2({ prefill }: { prefill: Form1Data }) {
   };
 
   const containerStyle: React.CSSProperties = {
-    maxWidth: "720px", margin: "0 auto", padding: "2rem 1.5rem 4rem",
+    maxWidth: "720px", margin: "0 auto", padding: "calc(96px + 2rem) 1.5rem 4rem",
   };
 
   if (submitted) {
