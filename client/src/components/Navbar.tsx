@@ -46,7 +46,7 @@ const navLinks = [
   { href: "/media", label: "المركز الإعلامي", dropdown: "media" },
   { href: "/join", label: "عضويات", dropdown: "memberships" },
   { href: "/directory", label: "دليل سُرّة" },
-  { href: "/store", label: "المتجر", placeholder: true },
+  { href: '/store', label: 'المتجر' },
 ];
 
 export default function Navbar() {
@@ -208,27 +208,6 @@ export default function Navbar() {
                 );
               }
 
-              if (link.placeholder) {
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handlePlaceholderClick(e, link.label)}
-                    style={{
-                      fontFamily: F,
-                      fontWeight: 700,
-                      fontSize: "17px",
-                      color: "rgba(255,255,255,0.85)",
-                      textDecoration: "none",
-                      letterSpacing: "0.02em",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {link.label}
-                  </a>
-                );
-              }
-
               return (
                 <Link
                   key={link.href}
@@ -349,31 +328,6 @@ export default function Navbar() {
                       </div>
                     )}
                   </div>
-                );
-              }
-
-              if (link.placeholder) {
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handlePlaceholderClick(e, link.label)}
-                    style={{
-                      display: "block",
-                      fontFamily: F,
-                      fontWeight: 500,
-                      fontSize: "1rem",
-                      color: "rgba(255,255,255,0.75)",
-                      textDecoration: "none",
-                      padding: "0.75rem 0",
-                      borderBottom: "1px solid rgba(255,255,255,0.08)",
-                      borderRight: "3px solid transparent",
-                      paddingRight: "0.75rem",
-                      opacity: 0.75,
-                    }}
-                  >
-                    {link.label}
-                  </a>
                 );
               }
 

@@ -169,6 +169,55 @@ video::-webkit-media-controls-enclosure {
   --ring: oklch(0.35 0.06 25);
 }
 
+/* ── Light Mode (default: dark, overridden when .dark is NOT on html) ── */
+.light {
+  --background: oklch(0.97 0.005 80);
+  --foreground: oklch(0.12 0.01 250);
+  --card: oklch(0.93 0.005 80);
+  --card-foreground: oklch(0.12 0.01 250);
+  --popover: oklch(0.97 0.005 80);
+  --popover-foreground: oklch(0.12 0.01 250);
+  --primary: oklch(0.45 0.10 25);
+  --primary-foreground: oklch(0.98 0.005 80);
+  --secondary: oklch(0.88 0.005 80);
+  --secondary-foreground: oklch(0.15 0.01 250);
+  --muted: oklch(0.88 0.005 80);
+  --muted-foreground: oklch(0.45 0.005 80);
+  --accent: oklch(0.88 0.005 80);
+  --accent-foreground: oklch(0.12 0.01 250);
+  --border: oklch(0.80 0.005 80);
+  --input: oklch(0.80 0.005 80);
+  --ring: oklch(0.45 0.10 25);
+
+  /* Surrah brand overrides for light mode */
+  --surrah-page-bg: #FAF8F4;
+  --surrah-section-bg: #F0EBE1;
+  --surrah-section-alt: #E8E0D4;
+  --surrah-text-primary: #1C2B3A;
+  --surrah-text-secondary: rgba(28,43,58,0.75);
+  --surrah-text-muted: rgba(28,43,58,0.55);
+  --surrah-card-bg: #FFFFFF;
+  --surrah-card-border: rgba(28,43,58,0.12);
+  --surrah-nav-bg: rgba(250,248,244,0.95);
+  --surrah-nav-text: #1C2B3A;
+  --surrah-divider: #B5453A;
+}
+
+/* ── Dark Mode ── */
+:root, .dark {
+  --surrah-page-bg: #000000;
+  --surrah-section-bg: #0a0a0a;
+  --surrah-section-alt: #111111;
+  --surrah-text-primary: #ffffff;
+  --surrah-text-secondary: rgba(255,255,255,0.75);
+  --surrah-text-muted: rgba(255,255,255,0.55);
+  --surrah-card-bg: #111111;
+  --surrah-card-border: rgba(255,255,255,0.08);
+  --surrah-nav-bg: rgba(10,10,10,0.92);
+  --surrah-nav-text: #ffffff;
+  --surrah-divider: #B5453A;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -176,14 +225,14 @@ video::-webkit-media-controls-enclosure {
   html {
     direction: rtl;
     scroll-behavior: smooth;
-    background-color: #000000;
+    background-color: var(--surrah-page-bg);
   }
   body {
     @apply bg-background text-foreground;
     font-family: 'ManchetteFine', sans-serif !important;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    background-color: #000000;
+    background-color: var(--surrah-page-bg);
   }
   * {
     font-family: 'ManchetteFine', sans-serif !important;
