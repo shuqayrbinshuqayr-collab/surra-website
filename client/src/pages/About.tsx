@@ -60,15 +60,22 @@ export default function About() {
           paddingTop: "96px",
         }}
       >
-        <div
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/manus-storage/Artboard1@2x_931b8f26.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
           }}
-        />
+        >
+          <source src="/manus-storage/about_hero_video_8fac241c.mp4" type="video/mp4" />
+        </video>
         <div
           style={{
             position: "absolute",
