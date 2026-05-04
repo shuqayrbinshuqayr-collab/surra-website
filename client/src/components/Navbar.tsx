@@ -253,7 +253,7 @@ export default function Navbar() {
             <Link
               href="/create-community"
               className="btn-surrah-primary"
-              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: "#ffffff", backgroundColor: "#212121", border: "1px solid #ffffff" }}
+              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: "#ffffff", backgroundColor: "transparent", border: "1px solid #ffffff" }}
             >
               أنشئ مجتمعك
             </Link>

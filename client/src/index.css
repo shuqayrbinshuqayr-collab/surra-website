@@ -227,7 +227,7 @@ video::-webkit-media-controls-enclosure {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #000000;
+    background-color: transparent;
     color: #ffffff;
     font-family: 'ManchetteFine', sans-serif;
     font-weight: 600;
