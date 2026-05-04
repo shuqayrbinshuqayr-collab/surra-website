@@ -373,7 +373,7 @@ function Form1({ onQualified, onRejected }: {
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: ORANGE }} />
             <div>
-              <div style={{ fontSize: "15px", fontWeight: 500, color: WHITE, fontFamily: FONT }}>سُرّة الثقافية</div>
+              <div style={{ fontSize: "15px", fontWeight: 500, color: WHITE, fontFamily: FONT, whiteSpace: "nowrap" }}>سُرّة الثقافية</div>
               <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", fontFamily: FONT }}>نموذج الاستكشاف — Community Discovery Form</div>
             </div>
           </div>

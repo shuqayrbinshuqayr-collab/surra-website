@@ -138,7 +138,7 @@ export default function Join() {
       {/* ── HERO ── */}
       <section style={{ paddingTop: "60px", paddingBottom: "60px", textAlign: "center", borderBottom: `1px solid ${GOLD_DIM}` }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 1.5rem" }}>
-          <p style={{ color: GOLD, letterSpacing: "0.2em", fontSize: "0.85rem", marginBottom: "1rem" }}>
+          <p style={{ color: GOLD, letterSpacing: "0.2em", fontSize: "0.85rem", marginBottom: "1rem", whiteSpace: "nowrap" }}>
             عضويات سُرّة
           </p>
           <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.25, marginBottom: "1.2rem" }}>
@@ -223,7 +223,7 @@ export default function Join() {
                   )}
 
                   {/* Tier name */}
-                  <h3 style={{ color: isFeatured ? GOLD : "#fff", fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                  <h3 style={{ color: isFeatured ? GOLD : "#fff", fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.5rem", whiteSpace: "nowrap" }}>
                     {tier.name}
                   </h3>
                   <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "1.5rem", lineHeight: 1.6 }}>

@@ -95,6 +95,7 @@ const S: Record<string, React.CSSProperties> = {
     textTransform: "uppercase" as const,
     marginBottom: "12px",
     display: "block",
+    whiteSpace: "nowrap" as const,
   },
   title: {
     fontSize: "clamp(24px,5vw,38px)",

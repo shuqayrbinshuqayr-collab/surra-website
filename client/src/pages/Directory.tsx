@@ -396,7 +396,7 @@ export default function Directory() {
             <div style={{ marginBottom: "2.5rem", paddingBottom: "2rem", borderBottom: `1px solid ${BORDER}` }}>
               <p style={{ color: GOLD, fontSize: "0.75rem", marginBottom: "0.75rem", textTransform: "uppercase" }}>الانضمام للدليل</p>
               <h1 style={{ fontFamily: fontBase, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "0.75rem" }}>
-                سجّل جهتك في <span style={{ color: GOLD }}>دليل سُرّة</span>
+                سجّل جهتك في <span style={{ color: GOLD, whiteSpace: "nowrap" }}>دليل سُرّة</span>
               </h1>
               <p style={{ color: MUTED, fontSize: "0.9rem", lineHeight: 1.7 }}>
                 انضم إلى أكبر دليل للمشهد الإبداعي السعودي وكن جزءاً من شبكة الحراك الثقافي الوطني
