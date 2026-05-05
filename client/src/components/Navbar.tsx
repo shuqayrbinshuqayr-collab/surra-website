@@ -8,6 +8,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const F = "'ManchetteFine', sans-serif";
 
@@ -56,6 +57,7 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [location] = useLocation();
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -227,8 +229,38 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center flex-shrink-0" style={{ marginLeft: "-0.5rem" }}>
+          {/* Theme Toggle + CTA */}
+          <div className="hidden md:flex items-center flex-shrink-0 gap-3" style={{ marginLeft: "-0.5rem" }}>
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن'}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '38px',
+                height: '38px',
+                border: '1px solid rgba(255,255,255,0.25)',
+                borderRadius: '50%',
+                background: 'transparent',
+                cursor: 'pointer',
+                color: 'rgba(255,255,255,0.85)',
+                fontSize: '16px',
+                transition: 'all 0.2s ease',
+                flexShrink: 0,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.1)';
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = 'transparent';
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)';
+              }}
+            >
+              {theme === 'dark' ? '☀' : '🌙'}
+            </button>
             <Link
               href="/create-community"
               className="btn-surrah-primary"
@@ -238,9 +270,23 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن'}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '34px', height: '34px',
+                border: '1px solid rgba(255,255,255,0.25)',
+                borderRadius: '50%', background: 'transparent',
+                cursor: 'pointer', color: 'rgba(255,255,255,0.85)', fontSize: '14px',
+              }}
+            >
+              {theme === 'dark' ? '☀' : '🌙'}
+            </button>
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="القائمة"
           >
@@ -258,6 +304,7 @@ export default function Navbar() {
               />
             ))}
           </button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}
