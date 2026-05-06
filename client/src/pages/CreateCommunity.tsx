@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import Navbar from "@/components/Navbar";
 
 const EMAILJS_SERVICE = "service_mjtlyei";
 const EMAILJS_TEMPLATE = "template_notyk55";
@@ -363,6 +364,7 @@ function Form1({ onQualified, onRejected }: {
 
   return (
     <div style={pageStyle}>
+      <Navbar />
       <div style={containerStyle}>
         {/* Header */}
         <div style={{
@@ -623,6 +625,7 @@ function Form2({ prefill }: { prefill: Form1Data }) {
   if (submitted) {
     return (
       <div style={pageStyle}>
+        <Navbar />
         <div style={{ ...containerStyle, textAlign: "center", paddingTop: "6rem" }}>
           <div style={{
             width: "64px", height: "64px", borderRadius: "50%",
@@ -652,6 +655,7 @@ function Form2({ prefill }: { prefill: Form1Data }) {
 
   return (
     <div style={pageStyle}>
+      <Navbar />
       <div style={containerStyle}>
         {/* Header */}
         <div style={{
@@ -864,8 +868,12 @@ function ThankYou() {
     <div style={{
       minHeight: "100vh", background: BLACK, color: WHITE,
       fontFamily: FONT, direction: "rtl",
-      display: "flex", alignItems: "center", justifyContent: "center",
     }}>
+      <Navbar />
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "center",
+        minHeight: "calc(100vh - 96px)",
+      }}>
       <div style={{ maxWidth: "480px", padding: "2rem", textAlign: "center" }}>
         <div style={{
           width: "64px", height: "64px", borderRadius: "50%",
@@ -899,6 +907,7 @@ function ThankYou() {
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = ORANGE; (e.currentTarget as HTMLElement).style.color = ORANGE; }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = BORDER; (e.currentTarget as HTMLElement).style.color = WHITE; }}
         >العودة للرئيسية ←</a>
+      </div>
       </div>
     </div>
   );
