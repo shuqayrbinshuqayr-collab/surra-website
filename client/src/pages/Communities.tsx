@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -104,17 +103,13 @@ export default function Communities() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }}>
       <Navbar />
-      <Breadcrumb items={[
-        { label: "الرئيسية", href: "/" },
-        { label: "مجتمعاتنا" },
-      ]} />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pb-24"
-        style={{ background: "#111111" }}
+        style={{ background: "var(--surrah-section-alt)" }}
       >
         <div className="container">
           <div className="max-w-3xl">
@@ -133,7 +128,7 @@ export default function Communities() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -158,7 +153,7 @@ export default function Communities() {
       </section>
 
       {/* ── Communities Grid ── */}
-      <section className="py-16" style={{ background: "#0a0a0a" }}>
+      <section className="py-16" style={{ background: "var(--surrah-section-bg)" }}>
         <div className="container">
           <div className="space-y-6">
             {communities.map((community, i) => (
@@ -167,7 +162,7 @@ export default function Communities() {
                 id={community.id}
                 className="reveal grid grid-cols-1 lg:grid-cols-4 gap-0 transition-all duration-300"
                 style={{
-                  background: "#111111",
+                  background: "var(--surrah-section-alt)",
                   border: "1px solid rgba(28, 43, 58, 0.12)",
                   borderRight: `3px solid ${community.color}`,
                   transitionDelay: `${i * 0.1}s`,
@@ -308,7 +303,7 @@ export default function Communities() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24" style={{ background: "#111111" }}>
+      <section className="py-24" style={{ background: "var(--surrah-section-alt)" }}>
         <div className="container text-center">
           <div className="reveal max-w-xl mx-auto">
             <h2
@@ -316,7 +311,7 @@ export default function Communities() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
                 marginBottom: "1rem",
               }}
             >

@@ -23,11 +23,17 @@ const footerLinks = {
     { href: "/services#audience", label: "توفير الجمهور" },
   ],
   communities: [
-    { href: "/communities#basar", label: "بصر" },
-    { href: "/communities#sifr", label: "صفر" },
-    { href: "/communities#sada", label: "سدى" },
-    { href: "/communities#mada", label: "مدى" },
-    { href: "/communities#maqam", label: "مقام" },
+    { href: "/communities/basar", label: "بصر" },
+    { href: "/communities/sifr", label: "صفر" },
+    { href: "/communities/sada", label: "سدى" },
+    { href: "/communities/mada", label: "مدى" },
+    { href: "/communities/maqam", label: "مقام" },
+  ],
+  quickLinks: [
+    { href: "/join", label: "انضم إلينا" },
+    { href: "/directory", label: "دليل سُرّة" },
+    { href: "/store", label: "المتجر" },
+    { href: "/contact", label: "تواصل معنا" },
   ],
 };
 
@@ -43,7 +49,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "#000000",
+        background: "var(--surrah-page-bg)",
         borderTop: "1px solid rgba(240, 235, 225, 0.1)",
       }}
     >
@@ -215,11 +221,48 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+          {/* Quick Links */}
+          <div>
+            <h4
+              className="mb-5"
+              style={{
+                color: "#C4622D",
+                fontFamily: fontBase,
+                fontWeight: 700,
+                fontSize: "0.9rem",
+                letterSpacing: "0.05em",
+              }}
+            >
+              روابط سريعة
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition-colors duration-200"
+                    style={{
+                      color: "rgba(255,255,255,0.65)",
+                      fontFamily: fontBase,
+                      fontWeight: 400,
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-
         {/* Bottom Bar */}
         <div
-          className="mt-12 pt-6 flex items-center justify-center"
+          className="mt-12 pt-6 flex items-center justify-between flex-wrap gap-4"
           style={{ borderTop: "1px solid rgba(240, 235, 225, 0.1)" }}
         >
           <p

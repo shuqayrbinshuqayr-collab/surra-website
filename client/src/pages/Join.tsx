@@ -9,7 +9,6 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
 
 const F = "'ManchetteFine', sans-serif";
 const GOLD = "#C4622D";
@@ -130,10 +129,6 @@ export default function Join() {
   return (
     <div dir="rtl" style={{ background: "#000", minHeight: "100vh", fontFamily: F }}>
       <Navbar />
-      <Breadcrumb items={[
-        { label: "الرئيسية", href: "/" },
-        { label: "عضويات" },
-      ]} />
 
       {/* ── HERO ── */}
       <section style={{ paddingTop: "60px", paddingBottom: "60px", textAlign: "center", borderBottom: `1px solid ${GOLD_DIM}` }}>
@@ -179,7 +174,7 @@ export default function Join() {
       </section>
 
       {/* ── PRICING CARDS ── */}
-      <section style={{ padding: "5rem 0", background: "#0a0a0a" }}>
+      <section style={{ padding: "5rem 0", background: "var(--surrah-section-bg)" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
           <div style={{
             display: "grid",
@@ -348,7 +343,7 @@ export default function Join() {
       </section>
 
       {/* ── WHY SURRA ── */}
-      <section style={{ padding: "5rem 0", background: "#0a0a0a", borderTop: `1px solid ${GOLD_DIM}` }}>
+      <section style={{ padding: "5rem 0", background: "var(--surrah-section-bg)", borderTop: `1px solid ${GOLD_DIM}` }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1.5rem", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 700, color: "#fff", marginBottom: "3rem" }}>
             لماذا يختار الناس سُرّة؟
@@ -391,7 +386,7 @@ export default function Join() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "5rem 0", background: "#0a0a0a", borderTop: `1px solid ${GOLD_DIM}` }}>
+      <section style={{ padding: "5rem 0", background: "var(--surrah-section-bg)", borderTop: `1px solid ${GOLD_DIM}` }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 1.5rem" }}>
           <h2 style={{ textAlign: "center", fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 700, color: "#fff", marginBottom: "2.5rem" }}>
             الأسئلة الشائعة

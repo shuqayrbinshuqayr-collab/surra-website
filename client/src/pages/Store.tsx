@@ -270,7 +270,7 @@ function ProductCard({ product }: { product: Product }) {
       style={{
         display: "block",
         textDecoration: "none",
-        background: "#0a0a0a",
+        background: "var(--surrah-section-bg)",
         border: `1px solid ${hovered ? "rgba(196,98,45,0.4)" : "rgba(255,255,255,0.06)"}`,
         transition: "all 0.3s ease",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
@@ -305,7 +305,7 @@ function ProductCard({ product }: { product: Product }) {
           fontSize: "0.65rem",
           fontFamily: F,
           fontWeight: 600,
-          color: "#ffffff",
+          color: "var(--surrah-text-primary)",
           letterSpacing: "0.05em",
         }}>
           {product.tag}
@@ -341,7 +341,7 @@ function ProductCard({ product }: { product: Product }) {
           fontFamily: F,
           fontWeight: 700,
           fontSize: "1rem",
-          color: "#ffffff",
+          color: "var(--surrah-text-primary)",
           marginBottom: "0.4rem",
           whiteSpace: "nowrap",
           overflow: "hidden",
@@ -397,7 +397,7 @@ export default function Store() {
   const filtered = activeFilter === "all" ? products : products.filter(p => p.category === activeFilter);
 
   return (
-    <div style={{ background: "#000000", minHeight: "100vh", direction: "rtl" }}>
+    <div style={{ background: "var(--surrah-page-bg)", minHeight: "100vh", direction: "rtl" }}>
       <Navbar />
 
       {/* Hero */}
@@ -440,7 +440,7 @@ export default function Store() {
             fontFamily: F,
             fontWeight: 900,
             fontSize: "clamp(2.5rem, 6vw, 5rem)",
-            color: "#ffffff",
+            color: "var(--surrah-text-primary)",
             lineHeight: 1.1,
             marginBottom: "1.5rem",
           }}>
@@ -521,7 +521,7 @@ export default function Store() {
       </section>
 
       {/* Products Section */}
-      <section style={{ background: "#000000", padding: "4rem 0 7rem" }}>
+      <section style={{ background: "var(--surrah-page-bg)", padding: "4rem 0 7rem" }}>
         <div className="container">
           {/* Filter Tabs */}
           <div style={{
@@ -589,7 +589,7 @@ export default function Store() {
             marginTop: "4rem",
             padding: "2rem",
             border: "1px solid rgba(255,255,255,0.06)",
-            background: "#0a0a0a",
+            background: "var(--surrah-section-bg)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -597,7 +597,7 @@ export default function Store() {
             gap: "1rem",
           }}>
             <div>
-              <p style={{ fontFamily: F, fontSize: "0.9rem", fontWeight: 600, color: "#ffffff", marginBottom: "0.25rem" }}>
+              <p style={{ fontFamily: F, fontSize: "0.9rem", fontWeight: 600, color: "var(--surrah-text-primary)", marginBottom: "0.25rem" }}>
                 هُوبَال — Hobal
               </p>
               <p style={{ fontFamily: F, fontSize: "0.8rem", color: "rgba(255,255,255,0.45)", fontWeight: 400 }}>

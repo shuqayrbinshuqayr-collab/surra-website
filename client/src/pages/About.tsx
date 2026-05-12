@@ -45,7 +45,7 @@ export default function About() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Hero ── */}
@@ -102,7 +102,7 @@ export default function About() {
               fontFamily: F,
               fontWeight: 900,
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
-              color: "#ffffff",
+              color: "var(--surrah-text-primary)",
               lineHeight: 1.2,
             }}
           >
@@ -112,7 +112,7 @@ export default function About() {
       </section>
 
       {/* ── Who is Surra ── */}
-      <section style={{ background: "#0a0a0a", padding: "5rem 0" }}>
+      <section style={{ background: "var(--surrah-section-bg)", padding: "5rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="reveal">
@@ -122,7 +122,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 900,
                   fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   lineHeight: 1.3,
                   marginBottom: "1.5rem",
                 }}
@@ -155,16 +155,17 @@ export default function About() {
                 نعمل عند نقطة التقاء الفكرة بالإنسان، والمحتوى بالتجربة، واللقاء بالأثر المستدام.
               </p>
             </div>
-            <div className="reveal" style={{ transitionDelay: "0.15s", display: "flex", justifyContent: "center" }}>
+            <div className="reveal" style={{ transitionDelay: "0.15s", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <img
-                src="/manus-storage/surrah-logo-full_a95afe59.png"
+                src="/manus-storage/Surrah-White_c79141b5.png"
                 alt="سُرّة | SURRAH — الشعار الكامل"
                 style={{
                   width: "100%",
-                  maxWidth: "420px",
+                  maxWidth: "360px",
                   height: "auto",
                   objectFit: "contain",
-                  borderRadius: "4px",
+                  filter: "brightness(0) invert(1)",
+                  opacity: 0.9,
                 }}
               />
             </div>
@@ -173,14 +174,14 @@ export default function About() {
       </section>
 
       {/* ── Vision & Mission ── */}
-      <section id="vision" style={{ background: "#111111", padding: "5rem 0" }}>
+      <section id="vision" style={{ background: "var(--surrah-section-alt)", padding: "5rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             <div
               className="reveal"
               style={{
                 padding: "3rem",
-                background: "#111111",
+                background: "var(--surrah-section-alt)",
                 borderLeft: "4px solid #B5453A",
               }}
             >
@@ -202,7 +203,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 700,
                   fontSize: "1.1rem",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -225,7 +226,7 @@ export default function About() {
               className="reveal"
               style={{
                 padding: "3rem",
-                background: "#111111",
+                background: "var(--surrah-section-alt)",
                 borderLeft: "4px solid #C4622D",
                 transitionDelay: "0.1s",
               }}
@@ -248,7 +249,7 @@ export default function About() {
                   fontFamily: F,
                   fontWeight: 700,
                   fontSize: "1.1rem",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -271,7 +272,7 @@ export default function About() {
       </section>
 
       {/* ── Values ── */}
-      <section id="values" style={{ background: "#0a0a0a", padding: "5rem 0" }}>
+      <section id="values" style={{ background: "var(--surrah-section-bg)", padding: "5rem 0" }}>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3rem" }}>
             <div className="surrah-divider" />
@@ -280,7 +281,7 @@ export default function About() {
                 fontFamily: F,
                 fontWeight: 900,
                 fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
               }}
             >
               قيمنا
@@ -303,7 +304,7 @@ export default function About() {
                     fontFamily: F,
                     fontWeight: 900,
                     fontSize: "1.3rem",
-                    color: "#ffffff",
+                    color: "var(--surrah-text-primary)",
                     marginBottom: "0.75rem",
                   }}
                 >
@@ -327,11 +328,11 @@ export default function About() {
       </section>
 
       {/* ── How We Work ── */}
-      <section style={{ background: "#111111", padding: "5rem 0" }}>
+      <section style={{ background: "var(--surrah-section-alt)", padding: "5rem 0" }}>
         <div className="container">
           <div className="reveal" style={{ marginBottom: "3rem" }}>
             <div className="surrah-divider" />
-            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "#ffffff" }}>
+            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "var(--surrah-text-primary)" }}>
               كيف نعمل؟
             </h2>
             <p style={{ fontFamily: F, fontWeight: 400, color: "rgba(255,255,255,0.75)", fontSize: "1rem", marginTop: "0.5rem" }}>
@@ -345,7 +346,7 @@ export default function About() {
                 className="reveal"
                 style={{
                   padding: "2.5rem 2rem",
-                  background: "#111111",
+                  background: "var(--surrah-section-alt)",
                   borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.08)" : "none",
                   borderTop: "3px solid #C4622D",
                   transitionDelay: `${i * 0.1}s`,
@@ -369,7 +370,7 @@ export default function About() {
                   style={{
                     fontFamily: F,
                     fontWeight: 700,
-                    color: "#ffffff",
+                    color: "var(--surrah-text-primary)",
                     fontSize: "1.05rem",
                     marginBottom: "0.5rem",
                   }}
@@ -391,7 +392,7 @@ export default function About() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ background: "#111111", padding: "5rem 0" }}>
+      <section style={{ background: "var(--surrah-section-alt)", padding: "5rem 0" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <div className="reveal max-w-xl mx-auto">
             <img
@@ -421,7 +422,7 @@ export default function About() {
                   display: "inline-flex",
                   alignItems: "center",
                   background: "transparent",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   fontFamily: F,
                   fontWeight: 600,
                   fontSize: "0.95rem",

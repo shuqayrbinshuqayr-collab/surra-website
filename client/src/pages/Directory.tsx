@@ -6,7 +6,6 @@
 import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
 
 const fontBase = "'ManchetteFine', 'Tajawal', sans-serif";
 // Surra brand identity
@@ -108,7 +107,7 @@ const formInputStyle: React.CSSProperties = {
   fontFamily: fontBase,
   fontSize: "0.875rem",
   background: "rgba(255,255,255,0.04)",
-  color: "#ffffff",
+  color: "var(--surrah-text-primary)",
   outline: "none",
   width: "100%",
 };
@@ -153,10 +152,6 @@ export default function Directory() {
   return (
     <div style={{ background: BG, minHeight: "100vh", fontFamily: fontBase, direction: "rtl" }}>
       <Navbar />
-      <Breadcrumb items={[
-        { label: "الرئيسية", href: "/" },
-        { label: "دليل سُرّة" },
-      ]} />
 
       {/* ── HERO SECTION ── */}
       <section
@@ -188,7 +183,7 @@ export default function Directory() {
 
         {/* Hero content */}
         <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "3rem 1rem 2rem" }}>
-          <h1 style={{ fontFamily: fontBase, fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, color: "#ffffff", marginBottom: "0.75rem", lineHeight: 1.2 }}>
+          <h1 style={{ fontFamily: fontBase, fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "0.75rem", lineHeight: 1.2 }}>
             دليل الجهات الثقافية السعودية
           </h1>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.02em" }}>
@@ -218,7 +213,7 @@ export default function Directory() {
               flexShrink: 0,
               width: "180px",
               background: GOLD,
-              color: "#ffffff",
+              color: "var(--surrah-text-primary)",
               border: "none",
               fontFamily: fontBase,
               fontSize: "1rem",
@@ -360,7 +355,7 @@ export default function Directory() {
                   </div>
 
                   {/* Name */}
-                  <h3 style={{ fontFamily: fontBase, fontSize: "1.05rem", fontWeight: 800, color: "#ffffff", marginBottom: "0.35rem", lineHeight: 1.4 }}>
+                  <h3 style={{ fontFamily: fontBase, fontSize: "1.05rem", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "0.35rem", lineHeight: 1.4 }}>
                     {e.name}
                   </h3>
 
@@ -395,7 +390,7 @@ export default function Directory() {
           <div style={{ maxWidth: "680px", margin: "0 auto" }}>
             <div style={{ marginBottom: "2.5rem", paddingBottom: "2rem", borderBottom: `1px solid ${BORDER}` }}>
               <p style={{ color: GOLD, fontSize: "0.75rem", marginBottom: "0.75rem", textTransform: "uppercase" }}>الانضمام للدليل</p>
-              <h1 style={{ fontFamily: fontBase, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "0.75rem" }}>
+              <h1 style={{ fontFamily: fontBase, fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>
                 سجّل جهتك في <span style={{ color: GOLD, whiteSpace: "nowrap" }}>دليل سُرّة</span>
               </h1>
               <p style={{ color: MUTED, fontSize: "0.9rem", lineHeight: 1.7 }}>
@@ -427,7 +422,7 @@ export default function Directory() {
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
                       <img src={form.logo} alt="شعار" style={{ width: "60px", height: "60px", objectFit: "contain", borderRadius: "8px", background: "rgba(255,255,255,0.08)", padding: "4px" }} />
                       <div>
-                        <p style={{ color: "#ffffff", fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.25rem" }}>تم رفع الشعار</p>
+                        <p style={{ color: "var(--surrah-text-primary)", fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.25rem" }}>تم رفع الشعار</p>
                         <button onClick={(ev) => { ev.stopPropagation(); setForm(p => ({ ...p, logo: "" })); }} style={{ background: "transparent", border: "none", color: MUTED, fontSize: "0.75rem", cursor: "pointer", textDecoration: "underline" }}>إزالة</button>
                       </div>
                     </div>
@@ -570,11 +565,11 @@ export default function Directory() {
       {/* ── DETAIL MODAL ── */}
       {selectedEntity && (
         <div onClick={() => setSelectedEntity(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", zIndex: 200, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", backdropFilter: "blur(6px)" }}>
-          <div onClick={(e) => e.stopPropagation()} style={{ background: "#111111", width: "100%", maxWidth: "600px", maxHeight: "90vh", overflowY: "auto", padding: "2rem", position: "relative", border: `1px solid ${BORDER}`, borderRight: `3px solid ${GOLD}` }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: "var(--surrah-section-alt)", width: "100%", maxWidth: "600px", maxHeight: "90vh", overflowY: "auto", padding: "2rem", position: "relative", border: `1px solid ${BORDER}`, borderRight: `3px solid ${GOLD}` }}>
             <button onClick={() => setSelectedEntity(null)} style={{ position: "absolute", top: "1rem", left: "1rem", width: "30px", height: "30px", borderRadius: "50%", background: "rgba(255,255,255,0.08)", border: "none", cursor: "pointer", fontSize: "0.9rem", color: MUTED, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
             <div style={{ marginBottom: "1.5rem", paddingBottom: "1.5rem", borderBottom: `1px solid ${BORDER}` }}>
               <p style={{ color: GOLD, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.5rem" }}>{selectedEntity.category} · {selectedEntity.type}</p>
-              <h2 style={{ fontFamily: fontBase, fontSize: "1.4rem", fontWeight: 800, color: "#ffffff" }}>{selectedEntity.name}</h2>
+              <h2 style={{ fontFamily: fontBase, fontSize: "1.4rem", fontWeight: 800, color: "var(--surrah-text-primary)" }}>{selectedEntity.name}</h2>
               <p style={{ fontSize: "0.82rem", color: MUTED, marginTop: "0.25rem" }}>{selectedEntity.city}{selectedEntity.year ? ` · تأسست ${selectedEntity.year}` : ""}</p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.25rem" }}>
@@ -586,7 +581,7 @@ export default function Directory() {
               ].map((f) => (
                 <div key={f.label}>
                   <label style={{ fontSize: "0.68rem", fontWeight: 700, color: MUTED_DARK, textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "0.25rem" }}>{f.label}</label>
-                  <span style={{ fontSize: "0.87rem", color: "#ffffff", fontWeight: 500 }}>{f.value}</span>
+                  <span style={{ fontSize: "0.87rem", color: "var(--surrah-text-primary)", fontWeight: 500 }}>{f.value}</span>
                 </div>
               ))}
             </div>

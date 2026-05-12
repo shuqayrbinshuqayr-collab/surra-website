@@ -52,7 +52,7 @@ export default function Contact() {
   const inputStyle = {
     background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
-    color: "#ffffff",
+    color: "var(--surrah-text-primary)",
     fontFamily: "'ManchetteFine', sans-serif",
     outline: "none",
     width: "100%",
@@ -62,13 +62,13 @@ export default function Contact() {
   };
 
   return (
-    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── Page Hero ── */}
       <section
         className="relative pt-32 pb-16"
-        style={{ background: "#111111" }}
+        style={{ background: "var(--surrah-section-alt)" }}
       >
         <div className="container">
           <div className="max-w-3xl">
@@ -87,7 +87,7 @@ export default function Contact() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
                 lineHeight: 1.3,
                 marginBottom: "1rem",
               }}
@@ -101,7 +101,7 @@ export default function Contact() {
       </section>
 
       {/* ── Contact Form ── */}
-      <section className="py-16" style={{ background: "#0a0a0a" }}>
+      <section className="py-16" style={{ background: "var(--surrah-section-bg)" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left: Info */}
@@ -112,7 +112,7 @@ export default function Contact() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -139,7 +139,7 @@ export default function Contact() {
                 <div
                   className="p-10 text-center"
                   style={{
-                    background: "#111111",
+                    background: "var(--surrah-section-alt)",
                     border: "1px solid rgba(196, 98, 45, 0.4)",
                   }}
                 >
@@ -154,7 +154,7 @@ export default function Contact() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontSize: "1.3rem",
                       fontWeight: 700,
-                      color: "#ffffff",
+                      color: "var(--surrah-text-primary)",
                       marginBottom: "0.75rem",
                     }}
                   >
@@ -175,7 +175,7 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                   className="space-y-5"
                   style={{
-                    background: "#111111",
+                    background: "var(--surrah-section-alt)",
                     border: "1px solid rgba(255,255,255,0.12)",
                     padding: "2.5rem",
                   }}
@@ -257,7 +257,7 @@ export default function Contact() {
                         (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
                       }}
                     >
-                      <option value="" style={{ background: "#1a1a1a", color: "#ffffff" }}>
+                      <option value="" style={{ background: "#1a1a1a", color: "var(--surrah-text-primary)" }}>
                         اختر سبب التواصل
                       </option>
                       {contactReasons.map((r) => (

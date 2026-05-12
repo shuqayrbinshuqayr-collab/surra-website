@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
 
 const F = "'ManchetteFine', sans-serif";
 
@@ -156,13 +155,8 @@ export default function CommunityDetail() {
   }
 
   return (
-    <div style={{ background: "#000000", minHeight: "100vh", wordSpacing: "normal", wordBreak: "normal" }}>
+    <div style={{ background: "var(--surrah-page-bg)", minHeight: "100vh", wordSpacing: "normal", wordBreak: "normal" }}>
       <Navbar />
-      <Breadcrumb items={[
-        { label: "الرئيسية", href: "/" },
-        { label: "مجتمعاتنا", href: "/communities" },
-        { label: community.name },
-      ]} />
 
       {/* Hero */}
       <section style={{ paddingTop: "60px", paddingBottom: "80px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
@@ -190,7 +184,7 @@ export default function CommunityDetail() {
                   }}
                 />
               ) : (
-                <h1 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(3.5rem, 10vw, 7rem)", color: "#ffffff", lineHeight: 1.05, marginBottom: "1.5rem" }}>
+                <h1 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(3.5rem, 10vw, 7rem)", color: "var(--surrah-text-primary)", lineHeight: 1.05, marginBottom: "1.5rem" }}>
                   {community.name}
                 </h1>
               )}
@@ -206,7 +200,7 @@ export default function CommunityDetail() {
               ].map((item) => (
                 <div key={item.label} style={{ borderRight: `2px solid ${community.color}`, paddingRight: "1rem" }}>
                   <p style={{ fontFamily: F, fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", marginBottom: "0.2rem" }}>{item.label}</p>
-                  <p style={{ fontFamily: F, fontSize: "1.1rem", color: "#ffffff", fontWeight: 500 }}>{item.value}</p>
+                  <p style={{ fontFamily: F, fontSize: "1.1rem", color: "var(--surrah-text-primary)", fontWeight: 500 }}>{item.value}</p>
                 </div>
               ))}
             </div>
@@ -263,8 +257,8 @@ export default function CommunityDetail() {
           <p style={{ fontFamily: F, fontSize: "1rem", color: community.color, letterSpacing: "0.15em", marginBottom: "3rem", fontWeight: 600 }}>قيمنا</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "2rem" }}>
             {community.values.map((v, i) => (
-              <div key={i} style={{ background: "#111111", border: "1px solid rgba(255,255,255,0.08)", borderTop: `2px solid ${community.color}`, padding: "2rem" }}>
-                <h3 style={{ fontFamily: F, fontWeight: 600, fontSize: "1.3rem", color: "#ffffff", marginBottom: "0.75rem" }}>{v.title}</h3>
+              <div key={i} style={{ background: "var(--surrah-section-alt)", border: "1px solid rgba(255,255,255,0.08)", borderTop: `2px solid ${community.color}`, padding: "2rem" }}>
+                <h3 style={{ fontFamily: F, fontWeight: 600, fontSize: "1.3rem", color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>{v.title}</h3>
                 <p style={{ fontFamily: F, fontWeight: 300, fontSize: "1.05rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.8 }}>{v.desc}</p>
               </div>
             ))}
@@ -283,7 +277,7 @@ export default function CommunityDetail() {
                 style={{
                   fontFamily: F,
                   fontSize: "1.05rem",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   border: "1px solid rgba(255,255,255,0.2)",
                   padding: "0.7rem 1.6rem",
                   letterSpacing: "0.03em",
@@ -299,7 +293,7 @@ export default function CommunityDetail() {
       {/* CTA */}
       <section style={{ padding: "100px 0" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#ffffff", marginBottom: "1.5rem" }}>
+          <h2 style={{ fontFamily: F, fontWeight: 200, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--surrah-text-primary)", marginBottom: "1.5rem" }}>
             انضم إلى{" "}
             {communityLogos[community.id] ? (
               <img src={communityLogos[community.id].white} alt={community.name} style={{ height: "1.2em", width: "auto", objectFit: "contain", filter: communityLogos[community.id].invert ? "invert(1) brightness(2)" : "none", display: "inline", verticalAlign: "middle", margin: "0 0.3em" }} />
@@ -316,8 +310,8 @@ export default function CommunityDetail() {
               fontFamily: F,
               fontSize: "1rem",
               fontWeight: 600,
-              color: "#ffffff",
-              background: "#000000",
+              color: "var(--surrah-text-primary)",
+              background: "var(--surrah-page-bg)",
               border: "1px solid #ffffff",
               padding: "0.85rem 2.5rem",
               textDecoration: "none",

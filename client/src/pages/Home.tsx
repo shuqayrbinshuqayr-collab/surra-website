@@ -51,7 +51,7 @@ function TeamStrip() {
   };
 
   return (
-    <section style={{ background: "#111111", padding: "5rem 0 0 0" }}>
+    <section style={{ background: "var(--surrah-section-alt)", padding: "5rem 0 0 0" }}>
       <style>{`
         .team-outer {
           width: 100%;
@@ -118,7 +118,7 @@ function TeamStrip() {
       <div className="container" style={{ marginBottom: "2rem" }}>
         <div className="reveal">
           <div className="surrah-divider" />
-          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 900, fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "#ffffff", marginBottom: "0.5rem" }}>قادتنا</h2>
+          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 900, fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "var(--surrah-text-primary)", marginBottom: "0.5rem" }}>قادتنا</h2>
           <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontWeight: 400, color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}>
             تعرف على الرواد الذين يقودون الابتكار الإبداعي في مجتمعات سُرّة
           </p>
@@ -235,7 +235,7 @@ function UpcomingEvents() {
   return (
     <section
       style={{
-        background: "#0a0a0a",
+        background: "var(--surrah-section-bg)",
         padding: "5rem 0",
         direction: "rtl",
       }}
@@ -244,7 +244,7 @@ function UpcomingEvents() {
         {/* Section Header */}
         <div style={{ textAlign: "right", marginBottom: "3rem" }}>
           <div style={{ width: "3rem", height: "2px", background: "#C4622D", marginBottom: "1rem", marginRight: "0" }} />
-          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", color: "#ffffff", fontWeight: 700, marginBottom: "0.5rem" }}>
+          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", color: "var(--surrah-text-primary)", fontWeight: 700, marginBottom: "0.5rem" }}>
             الفعاليات القادمة
           </h2>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem", fontFamily: "'ManchetteFine', sans-serif" }}>
@@ -276,7 +276,7 @@ function UpcomingEvents() {
                   <div
                     style={{
                       background: "#C4622D",
-                      color: "#ffffff",
+                      color: "var(--surrah-text-primary)",
                       borderRadius: "8px",
                       padding: "0.25rem 0.75rem",
                       fontSize: "0.8rem",
@@ -289,7 +289,7 @@ function UpcomingEvents() {
                   {logo && (
                     <div
                       style={{
-                        background: "#111111",
+                        background: "var(--surrah-section-alt)",
                         borderRadius: "10px",
                         padding: "0.4rem 0.75rem",
                         display: "flex",
@@ -359,7 +359,7 @@ function UpcomingEvents() {
                       href="/register"
                       style={{
                         background: "#C4622D",
-                        color: "#ffffff",
+                        color: "var(--surrah-text-primary)",
                         borderRadius: "8px",
                         padding: "0.45rem 1.25rem",
                         fontSize: "0.88rem",
@@ -386,7 +386,7 @@ export default function Home() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} style={{ background: "#000000", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ── HERO SECTION ── */}
@@ -447,13 +447,15 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 200,
                 fontSize: "clamp(2rem, 4.5vw, 3.8rem)",
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
                 lineHeight: 1.2,
                 marginBottom: "1.5rem",
                 whiteSpace: "nowrap",
               }}
             >
-              نصنع المجتمعات ... ونمنح الافكار حياة ...
+              نبني سرداً ثقافياً ملهماً
+              <br />
+              يعكس قيمنا الأصيلة
             </h1>
             <p
               style={{
@@ -469,9 +471,38 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستدامًا
+              نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستداما
             </p>
-
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
+              <a
+                href="/contact"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "transparent",
+                  color: "#ffffff",
+                  fontFamily: "'ManchetteFine', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  padding: "0.85rem 2.5rem",
+                  border: "2px solid rgba(255,255,255,0.7)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                  letterSpacing: "0.05em",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "#ffffff";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.7)";
+                }}
+              >
+                ↗ تواصل معنا
+              </a>
+            </div>
           </div>
         </div>
 
@@ -489,12 +520,12 @@ export default function Home() {
             opacity: 0.5,
           }}
         >
-          <div style={{ width: "1px", height: "48px", background: "#111111", animation: "pulse 2s infinite" }} />
+          <div style={{ width: "1px", height: "48px", background: "var(--surrah-section-alt)", animation: "pulse 2s infinite" }} />
         </div>
       </section>
 
       {/* ── WHY SECTION ── */}
-      <section style={{ background: "#0a0a0a", padding: "6rem 0" }}>
+      <section style={{ background: "var(--surrah-section-bg)", padding: "6rem 0" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal">
@@ -504,7 +535,7 @@ export default function Home() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   lineHeight: 1.3,
                   marginBottom: "1.5rem",
                 }}
@@ -518,7 +549,7 @@ export default function Home() {
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 400,
                   fontSize: "1rem",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   lineHeight: 2,
                   maxWidth: "440px",
                 }}
@@ -526,7 +557,7 @@ export default function Home() {
                 لأن المجتمعات لا تنشأ صدفة. هي تُصمَّم بوعي، تُبنى بعمق، وتُشغَّل باستدامة.
                 سُرّة هي النقطة التي تنبثق منها الدوائر.
               </p>
-              <Link href="/about" className="btn-surrah-outline" style={{ marginTop: "2rem", color: "#ffffff", borderColor: "#ffffff" }}>
+              <Link href="/about" className="btn-surrah-outline" style={{ marginTop: "2rem", color: "var(--surrah-text-primary)", borderColor: "#ffffff" }}>
                 اعرف المزيد
               </Link>
             </div>
@@ -547,7 +578,7 @@ export default function Home() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 800,
                       fontSize: "2.5rem",
-                      color: "#ffffff",
+                      color: "var(--surrah-text-primary)",
                       lineHeight: 1,
                       minWidth: "3rem",
                       opacity: 0.4,
@@ -560,7 +591,7 @@ export default function Home() {
                       fontFamily: "'ManchetteFine', sans-serif",
                       fontWeight: 600,
                       fontSize: "1.1rem",
-                      color: "#ffffff",
+                      color: "var(--surrah-text-primary)",
                       lineHeight: 1.6,
                       paddingTop: "0.5rem",
                     }}
@@ -584,7 +615,7 @@ export default function Home() {
       {/* ── PARTNERS SECTION ── */}
       <section
         style={{
-          background: "#0a0a0a",
+          background: "var(--surrah-section-bg)",
           borderTop: "1px solid rgba(255,255,255,0.07)",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
           padding: "4rem 0",
@@ -599,7 +630,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
                 margin: 0,
                 letterSpacing: 0,
               }}
@@ -679,7 +710,7 @@ export default function Home() {
       <section
         style={{
           position: "relative",
-              background: "#000000",
+              background: "var(--surrah-page-bg)",
           padding: "6rem 0",
           overflow: "hidden",
         }}
@@ -707,7 +738,7 @@ export default function Home() {
                 fontFamily: "'ManchetteFine', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                color: "#ffffff",
+                color: "var(--surrah-text-primary)",
                 lineHeight: 1.3,
                 marginBottom: "1.25rem",
               }}
@@ -734,8 +765,8 @@ export default function Home() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  background: "#000000",
-                  color: "#ffffff",
+                  background: "var(--surrah-page-bg)",
+                  color: "var(--surrah-text-primary)",
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.95rem",
@@ -761,7 +792,7 @@ export default function Home() {
                   display: "inline-flex",
                   alignItems: "center",
                   background: "transparent",
-                  color: "#ffffff",
+                  color: "var(--surrah-text-primary)",
                   fontFamily: "'ManchetteFine', sans-serif",
                   fontWeight: 600,
                   fontSize: "0.95rem",

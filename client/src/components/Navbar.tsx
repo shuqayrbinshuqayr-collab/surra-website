@@ -171,7 +171,7 @@ export default function Navbar() {
                             {(items as typeof mediaItems).map((item) => (
                               <a key={item.href} href={item.href}
                                 onClick={(e) => { e.preventDefault(); toast.info(`${item.label} — قريباً`); }}
-                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", cursor: "pointer" }}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", cursor: "pointer" }}
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
@@ -183,7 +183,7 @@ export default function Navbar() {
                           <>
                             {(items as typeof services).map((item) => (
                               <Link key={item.href} href={item.href}
-                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
@@ -195,7 +195,7 @@ export default function Navbar() {
                           <>
                             {(items as typeof memberships).map((item) => (
                               <Link key={item.href} href={item.href}
-                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "#ffffff", padding: "0.65rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", whiteSpace: "nowrap" }}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.65rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", whiteSpace: "nowrap" }}
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
@@ -264,7 +264,7 @@ export default function Navbar() {
             <Link
               href="/create-community"
               className="btn-surrah-primary"
-              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: "#ffffff", backgroundColor: "transparent", border: "1px solid #ffffff" }}
+              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: "var(--surrah-text-primary)", backgroundColor: "transparent", border: "1px solid #ffffff" }}
             >
               أنشئ مجتمعك
             </Link>
@@ -314,7 +314,7 @@ export default function Navbar() {
         >
           <div
             className="flex flex-col pb-6 pt-2 border-t"
-            style={{ borderColor: "rgba(255,255,255,0.15)", background: "#000000" }}
+            style={{ borderColor: "rgba(255,255,255,0.15)", background: "var(--surrah-page-bg)" }}
           >
             {navLinks.map((link) => {
               if (link.dropdown) {
@@ -366,7 +366,7 @@ export default function Navbar() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              style={{ display: "block", fontFamily: F, fontSize: "0.9rem", color: "#ffffff", padding: "0.6rem 0.75rem", textDecoration: "none" }}
+                              style={{ display: "block", fontFamily: F, fontSize: "0.9rem", color: "var(--surrah-text-primary)", padding: "0.6rem 0.75rem", textDecoration: "none" }}
                             >
                               {item.label}
                             </Link>

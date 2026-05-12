@@ -226,6 +226,7 @@ video::-webkit-media-controls-enclosure {
     direction: rtl;
     scroll-behavior: smooth;
     background-color: var(--surrah-page-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   body {
     @apply bg-background text-foreground;
@@ -233,9 +234,64 @@ video::-webkit-media-controls-enclosure {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     background-color: var(--surrah-page-bg);
+    color: var(--surrah-text-primary);
   }
   * {
     font-family: 'ManchetteFine', sans-serif !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  /* ── Light mode global overrides ── */
+  /* Override all dark inline background colors in light mode */
+  html.light body,
+  html.light #root {
+    background-color: var(--surrah-page-bg) !important;
+    color: var(--surrah-text-primary) !important;
+  }
+  html.light section {
+    background-color: var(--surrah-section-bg) !important;
+  }
+  /* Override hardcoded dark colors via attribute selectors */
+  html.light [style*="background: #000000"],
+  html.light [style*="background:#000000"],
+  html.light [style*="background: rgb(0, 0, 0)"],
+  html.light [style*="backgroundColor: '#000000'"],
+  html.light [style*="background-color: #000000"] {
+    background-color: var(--surrah-page-bg) !important;
+    background: var(--surrah-page-bg) !important;
+  }
+  html.light [style*="background: #0a0a0a"],
+  html.light [style*="background:#0a0a0a"],
+  html.light [style*="background-color: #0a0a0a"] {
+    background-color: var(--surrah-section-bg) !important;
+    background: var(--surrah-section-bg) !important;
+  }
+  html.light [style*="background: #111111"],
+  html.light [style*="background:#111111"],
+  html.light [style*="background-color: #111111"],
+  html.light [style*="background: #1a1a1a"],
+  html.light [style*="background: #1c1c1c"],
+  html.light [style*="background: #0d0d0d"] {
+    background-color: var(--surrah-section-alt) !important;
+    background: var(--surrah-section-alt) !important;
+  }
+  /* Light mode text overrides */
+  html.light h1, html.light h2, html.light h3, html.light h4, html.light h5, html.light h6 {
+    color: var(--surrah-text-primary) !important;
+  }
+  html.light p, html.light span, html.light li, html.light a:not(.btn-surrah-primary):not(.btn-surrah-outline) {
+    color: var(--surrah-text-secondary) !important;
+  }
+  /* Light mode card overrides */
+  html.light .surrah-card {
+    background: var(--surrah-card-bg) !important;
+    border-color: var(--surrah-card-border) !important;
+  }
+  /* Light mode Navbar */
+  html.light nav {
+    background-color: var(--surrah-nav-bg) !important;
+  }
+  html.light nav a, html.light nav button, html.light nav span {
+    color: var(--surrah-nav-text) !important;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -357,5 +413,26 @@ video::-webkit-media-controls-enclosure {
     height: 3px;
     background-color: #C4622D;
     margin-bottom: 1.5rem;
+  }
+  /* ── Global font size improvements for inner pages ── */
+  /* Body text */
+  p {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 2;
+  }
+  /* Section headings */
+  h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem) !important;
+  }
+  h3 {
+    font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
+  }
+  h4 {
+    font-size: clamp(1rem, 1.5vw, 1.25rem) !important;
+  }
+  /* Card descriptions */
+  .surrah-card p, .surrah-card span {
+    font-size: 1rem;
+    line-height: 1.9;
   }
 }
