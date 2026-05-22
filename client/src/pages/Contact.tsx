@@ -1,12 +1,14 @@
 /* ============================================================
-   Contact Page — تواصل معنا — سُرّة
-   Sections: Hero, Contact Form, Social Links
+   Contact Page — تواصل معنا — سُرّة | Multilingual
    ============================================================ */
 
 import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const F = "'ManchetteFine', sans-serif";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -14,11 +16,7 @@ function useReveal() {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
+      (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("visible"); }); },
       { threshold: 0.12 }
     );
     el.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
@@ -27,33 +25,98 @@ function useReveal() {
   return ref;
 }
 
-const contactReasons = [
-  { value: "inquiry", label: "استفسار" },
-  { value: "community", label: "إنشاء مجتمع" },
-  { value: "partnership", label: "شراكة" },
-];
+const contactReasonsData = {
+  ar: [
+    { value: "inquiry", label: "استفسار" },
+    { value: "community", label: "إنشاء مجتمع" },
+    { value: "partnership", label: "شراكة" },
+  ],
+  en: [
+    { value: "inquiry", label: "Inquiry" },
+    { value: "community", label: "Create a Community" },
+    { value: "partnership", label: "Partnership" },
+  ],
+  zh: [
+    { value: "inquiry", label: "咨询" },
+    { value: "community", label: "创建社区" },
+    { value: "partnership", label: "合作" },
+  ],
+};
+
+const texts = {
+  ar: {
+    label: "تواصل معنا",
+    h1a: "نؤمن أن كل حوار",
+    h1b: "جاد هو بداية…",
+    infoTitle: "تواصل معنا",
+    infoDesc: "سواء كان لديك فكرة تريد مشاركتها، أو استفسار عن خدماتنا، أو رغبة في الشراكة — نحن هنا نستمع.",
+    nameLabel: "الاسم",
+    emailLabel: "البريد الإلكتروني",
+    reasonLabel: "سبب التواصل",
+    reasonPlaceholder: "اختر سبب التواصل",
+    messageLabel: "رسالتك",
+    readNote: "نقرأ كل رسالة باهتمام.",
+    sendBtn: "أرسل رسالتك",
+    successTitle: "شكراً على تواصلك",
+    successMsg: "نقرأ كل رسالة باهتمام. سنتواصل معك قريباً.",
+    toastMsg: "نقرأ كل رسالة باهتمام. سنتواصل معك قريباً.",
+  },
+  en: {
+    label: "Contact Us",
+    h1a: "We believe every serious",
+    h1b: "conversation is a beginning…",
+    infoTitle: "Get in Touch",
+    infoDesc: "Whether you have an idea to share, a question about our services, or a desire to partner — we are here to listen.",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    reasonLabel: "Reason for Contact",
+    reasonPlaceholder: "Select a reason",
+    messageLabel: "Your Message",
+    readNote: "We read every message carefully.",
+    sendBtn: "Send Your Message",
+    successTitle: "Thank You for Reaching Out",
+    successMsg: "We read every message carefully. We will be in touch soon.",
+    toastMsg: "We read every message carefully. We will be in touch soon.",
+  },
+  zh: {
+    label: "联系我们",
+    h1a: "我们相信每一次认真的",
+    h1b: "对话都是一个开始…",
+    infoTitle: "联系我们",
+    infoDesc: "无论您有想法要分享、对我们服务的疑问，还是合作意向——我们在这里聆听。",
+    nameLabel: "姓名",
+    emailLabel: "电子邮件",
+    reasonLabel: "联系原因",
+    reasonPlaceholder: "选择原因",
+    messageLabel: "您的留言",
+    readNote: "我们认真阅读每一条留言。",
+    sendBtn: "发送留言",
+    successTitle: "感谢您的联系",
+    successMsg: "我们认真阅读每一条留言。我们将尽快与您联系。",
+    toastMsg: "我们认真阅读每一条留言。我们将尽快与您联系。",
+  },
+};
 
 export default function Contact() {
   const pageRef = useReveal();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    reason: "",
-    message: "",
-  });
+  const { lang, dir } = useLanguage();
+  const tx = texts[lang] || texts.ar;
+  const reasons = contactReasonsData[lang] || contactReasonsData.ar;
+
+  const [formData, setFormData] = useState({ name: "", email: "", reason: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    toast.success("نقرأ كل رسالة باهتمام. سنتواصل معك قريباً.");
+    toast.success(tx.toastMsg);
   };
 
   const inputStyle = {
     background: "#1a1a1a",
     border: "1px solid rgba(28, 43, 58, 0.15)",
     color: "var(--surrah-text-primary)",
-    fontFamily: "'ManchetteFine', sans-serif",
+    fontFamily: F,
     outline: "none",
     width: "100%",
     padding: "0.875rem 1rem",
@@ -62,39 +125,20 @@ export default function Contact() {
   };
 
   return (
-    <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }}>
+    <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }} dir={dir}>
       <Navbar />
 
       {/* ── Page Hero ── */}
-      <section
-        className="relative pt-32 pb-16"
-        style={{ background: "var(--surrah-section-alt)" }}
-      >
+      <section className="relative pt-32 pb-16" style={{ background: "var(--surrah-section-alt)" }}>
         <div className="container">
           <div className="max-w-3xl">
-            <p
-              className="text-sm mb-4 tracking-widest"
-              style={{
-                color: "#C4622D",
-                fontFamily: "'ManchetteFine', sans-serif",
-                letterSpacing: "0.2em",
-              }}
-            >
-              تواصل معنا
+            <p className="text-sm mb-4 tracking-widest" style={{ color: "#C4622D", fontFamily: F, letterSpacing: "0.2em" }}>
+              {tx.label}
             </p>
-            <h1
-              style={{
-                fontFamily: "'ManchetteFine', sans-serif",
-                fontSize: "clamp(2rem, 5vw, 4rem)",
-                fontWeight: 700,
-                color: "var(--surrah-text-primary)",
-                lineHeight: 1.3,
-                marginBottom: "1rem",
-              }}
-            >
-              نؤمن أن كل حوار
+            <h1 style={{ fontFamily: F, fontSize: "clamp(2rem, 5vw, 4rem)", fontWeight: 700, color: "var(--surrah-text-primary)", lineHeight: 1.3, marginBottom: "1rem" }}>
+              {tx.h1a}
               <br />
-              <span style={{ color: "#C4622D" }}>جاد هو بداية…</span>
+              <span style={{ color: "#C4622D" }}>{tx.h1b}</span>
             </h1>
           </div>
         </div>
@@ -104,214 +148,75 @@ export default function Contact() {
       <section className="py-16" style={{ background: "var(--surrah-section-bg)" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Info */}
+            {/* Info */}
             <div className="reveal">
               <div className="surrah-divider" />
-              <h2
-                style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
-                  fontWeight: 700,
-                  color: "var(--surrah-text-primary)",
-                  marginBottom: "1.5rem",
-                }}
-              >
-                تواصل معنا
+              <h2 style={{ fontFamily: F, fontSize: "clamp(1.3rem, 2.5vw, 2rem)", fontWeight: 700, color: "var(--surrah-text-primary)", marginBottom: "1.5rem" }}>
+                {tx.infoTitle}
               </h2>
-              <p
-                className="mb-8"
-                style={{
-                  fontFamily: "'ManchetteFine', sans-serif",
-                  color: "rgba(255,255,255,0.75)",
-                  lineHeight: 1.9,
-                  fontSize: "0.95rem",
-                }}
-              >
-                سواء كان لديك فكرة تريد مشاركتها، أو استفسار عن خدماتنا، أو رغبة في الشراكة — نحن هنا نستمع.
+              <p className="mb-8" style={{ fontFamily: F, color: "rgba(255,255,255,0.75)", lineHeight: 1.9, fontSize: "0.95rem" }}>
+                {tx.infoDesc}
               </p>
-
-
             </div>
 
-            {/* Right: Form */}
+            {/* Form */}
             <div className="reveal" style={{ transitionDelay: "0.15s" }}>
               {submitted ? (
-                <div
-                  className="p-10 text-center"
-                  style={{
-                    background: "var(--surrah-section-alt)",
-                    border: "1px solid rgba(196, 98, 45, 0.4)",
-                  }}
-                >
-                  <div
-                    className="text-5xl mb-4"
-                    style={{ color: "#C4622D" }}
-                  >
-                    ✓
-                  </div>
-                  <h3
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      fontSize: "1.3rem",
-                      fontWeight: 700,
-                      color: "var(--surrah-text-primary)",
-                      marginBottom: "0.75rem",
-                    }}
-                  >
-                    شكراً على تواصلك
+                <div className="p-10 text-center" style={{ background: "var(--surrah-section-alt)", border: "1px solid rgba(196, 98, 45, 0.4)" }}>
+                  <div className="text-5xl mb-4" style={{ color: "#C4622D" }}>✓</div>
+                  <h3 style={{ fontFamily: F, fontSize: "1.3rem", fontWeight: 700, color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>
+                    {tx.successTitle}
                   </h3>
-                  <p
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      color: "rgba(255,255,255,0.75)",
-                      lineHeight: 1.8,
-                    }}
-                  >
-                    نقرأ كل رسالة باهتمام. سنتواصل معك قريباً.
+                  <p style={{ fontFamily: F, color: "rgba(255,255,255,0.75)", lineHeight: 1.8 }}>
+                    {tx.successMsg}
                   </p>
                 </div>
               ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-5"
-                  style={{
-                    background: "var(--surrah-section-alt)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    padding: "2.5rem",
-                  }}
-                >
+                <form onSubmit={handleSubmit} className="space-y-5" style={{ background: "var(--surrah-section-alt)", border: "1px solid rgba(255,255,255,0.12)", padding: "2.5rem" }}>
                   <div>
-                    <label
-                      className="block text-sm mb-1.5"
-                      style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
-                        color: "rgba(255,255,255,0.75)",
-                      }}
-                    >
-                      الاسم <span style={{ color: "#C4622D" }}>*</span>
+                    <label className="block text-sm mb-1.5" style={{ fontFamily: F, color: "rgba(255,255,255,0.75)" }}>
+                      {tx.nameLabel} <span style={{ color: "#C4622D" }}>*</span>
                     </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      style={inputStyle}
-                      onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
-                      }}
-                      onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
-                      }}
-                    />
+                    <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} style={inputStyle}
+                      onFocus={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)"; }}
+                      onBlur={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)"; }} />
                   </div>
 
                   <div>
-                    <label
-                      className="block text-sm mb-1.5"
-                      style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
-                        color: "rgba(255,255,255,0.75)",
-                      }}
-                    >
-                      البريد الإلكتروني <span style={{ color: "#C4622D" }}>*</span>
+                    <label className="block text-sm mb-1.5" style={{ fontFamily: F, color: "rgba(255,255,255,0.75)" }}>
+                      {tx.emailLabel} <span style={{ color: "#C4622D" }}>*</span>
                     </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      style={inputStyle}
-                      onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
-                      }}
-                      onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
-                      }}
-                    />
+                    <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} style={inputStyle}
+                      onFocus={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)"; }}
+                      onBlur={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)"; }} />
                   </div>
 
                   <div>
-                    <label
-                      className="block text-sm mb-1.5"
-                      style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
-                        color: "rgba(255,255,255,0.75)",
-                      }}
-                    >
-                      سبب التواصل
+                    <label className="block text-sm mb-1.5" style={{ fontFamily: F, color: "rgba(255,255,255,0.75)" }}>
+                      {tx.reasonLabel}
                     </label>
-                    <select
-                      value={formData.reason}
-                      onChange={(e) =>
-                        setFormData({ ...formData, reason: e.target.value })
-                      }
-                      style={{ ...inputStyle, appearance: "none" }}
-                      onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
-                      }}
-                      onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
-                      }}
-                    >
-                      <option value="" style={{ background: "#1a1a1a", color: "var(--surrah-text-primary)" }}>
-                        اختر سبب التواصل
-                      </option>
-                      {contactReasons.map((r) => (
-                        <option
-                          key={r.value}
-                          value={r.value}
-                          style={{ background: "#1a1a1a" }}
-                        >
-                          {r.label}
-                        </option>
+                    <select value={formData.reason} onChange={(e) => setFormData({ ...formData, reason: e.target.value })} style={{ ...inputStyle, appearance: "none" }}
+                      onFocus={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)"; }}
+                      onBlur={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)"; }}>
+                      <option value="" style={{ background: "#1a1a1a", color: "var(--surrah-text-primary)" }}>{tx.reasonPlaceholder}</option>
+                      {reasons.map((r) => (
+                        <option key={r.value} value={r.value} style={{ background: "#1a1a1a" }}>{r.label}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label
-                      className="block text-sm mb-1.5"
-                      style={{
-                        fontFamily: "'ManchetteFine', sans-serif",
-                        color: "rgba(255,255,255,0.75)",
-                      }}
-                    >
-                      رسالتك <span style={{ color: "#C4622D" }}>*</span>
+                    <label className="block text-sm mb-1.5" style={{ fontFamily: F, color: "rgba(255,255,255,0.75)" }}>
+                      {tx.messageLabel} <span style={{ color: "#C4622D" }}>*</span>
                     </label>
-                    <textarea
-                      rows={5}
-                      required
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      style={{ ...inputStyle, resize: "none" }}
-                      onFocus={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)";
-                      }}
-                      onBlur={(e) => {
-                        (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)";
-                      }}
-                    />
+                    <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} style={{ ...inputStyle, resize: "none" }}
+                      onFocus={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(181, 69, 58, 0.6)"; }}
+                      onBlur={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(28, 43, 58, 0.15)"; }} />
                   </div>
 
-                  <p
-                    className="text-xs"
-                    style={{
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      color: "rgba(255,255,255,0.5)",
-                    }}
-                  >
-                    نقرأ كل رسالة باهتمام.
-                  </p>
+                  <p className="text-xs" style={{ fontFamily: F, color: "rgba(255,255,255,0.5)" }}>{tx.readNote}</p>
 
-                  <button type="submit" className="btn-surrah-primary-filled w-full justify-center">
-                    أرسل رسالتك
-                  </button>
+                  <button type="submit" className="btn-surrah-primary-filled w-full justify-center">{tx.sendBtn}</button>
                 </form>
               )}
             </div>

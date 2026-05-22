@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const F = "'ManchetteFine', sans-serif";
 

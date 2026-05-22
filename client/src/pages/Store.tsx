@@ -8,6 +8,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const F = "'ManchetteFine', sans-serif";
 const GOLD = "#C4622D";

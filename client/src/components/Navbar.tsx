@@ -262,35 +262,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن'}
-              title={theme === 'dark' ? 'الوضع النهاري' : 'الوضع الليلي'}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '36px',
-                height: '36px',
-                border: `1px solid ${themeBtnBorder}`,
-                borderRadius: '50%',
-                background: 'transparent',
-                cursor: 'pointer',
-                color: themeBtnColor,
-                fontSize: '16px',
-                transition: 'all 0.2s ease',
-                flexShrink: 0,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(28,43,58,0.08)';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = 'transparent';
-              }}
-            >
-              {theme === 'dark' ? '☀️' : '🌙'}
-            </button>
+
             <Link
               href="/create-community"
               className="btn-surrah-primary"
@@ -323,19 +295,7 @@ export default function Navbar() {
                 </button>
               ))}
             </div>
-            <button
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن'}
-              style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: '32px', height: '32px',
-                border: `1px solid ${themeBtnBorder}`,
-                borderRadius: '50%', background: 'transparent',
-                cursor: 'pointer', color: themeBtnColor, fontSize: '14px',
-              }}
-            >
-              {theme === 'dark' ? '☀️' : '🌙'}
-            </button>
+
             <button
               className="flex flex-col gap-1.5 p-2"
               onClick={() => setMenuOpen(!menuOpen)}

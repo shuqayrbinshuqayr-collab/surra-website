@@ -6,6 +6,7 @@
 import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const fontBase = "'ManchetteFine', 'Tajawal', sans-serif";
 // Surra brand identity
@@ -113,6 +114,7 @@ const formInputStyle: React.CSSProperties = {
 };
 
 export default function Directory() {
+  const { dir } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("الكل");
   const [search, setSearch] = useState("");
   const [filterCity, setFilterCity] = useState("");
@@ -150,7 +152,7 @@ export default function Directory() {
   }
 
   return (
-    <div style={{ background: BG, minHeight: "100vh", fontFamily: fontBase, direction: "rtl" }}>
+    <div style={{ background: BG, minHeight: "100vh", fontFamily: fontBase, direction: dir }}>
       <Navbar />
 
       {/* ── HERO SECTION ── */}
