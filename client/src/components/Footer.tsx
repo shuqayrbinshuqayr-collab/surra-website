@@ -1,13 +1,10 @@
 /* ============================================================
    Footer Component — سُرّة
-   Font: ManchetteFine
-     - Brand name: weight 900 (Black)
-     - Section headings: weight 700 (Bold)
-     - Links & body: weight 400 (Regular)
-     - Copyright: weight 400 (Regular)
+   Theme-aware: adapts to dark/light mode via useTheme
    ============================================================ */
 
 import { Link } from "wouter";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const footerLinks = {
   about: [
@@ -46,11 +43,22 @@ const socialLinks = [
 const fontBase = "'ManchetteFine', sans-serif";
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  const linkColor = isDark ? "rgba(255,255,255,0.65)" : "rgba(28,43,58,0.65)";
+  const mutedColor = isDark ? "rgba(255,255,255,0.45)" : "rgba(28,43,58,0.45)";
+  const borderColor = isDark ? "rgba(240,235,225,0.1)" : "rgba(28,43,58,0.1)";
+  const socialBorder = isDark ? "rgba(255,255,255,0.25)" : "rgba(28,43,58,0.25)";
+  const logoSrc = isDark
+    ? "/manus-storage/Surrah-White_c79141b5.png"
+    : "/manus-storage/Surrah-Black_2341eb6c.png";
+
   return (
     <footer
       style={{
         background: "var(--surrah-page-bg)",
-        borderTop: "1px solid rgba(240, 235, 225, 0.1)",
+        borderTop: `1px solid ${borderColor}`,
       }}
     >
       <div className="container py-16">
@@ -59,7 +67,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/">
               <img
-                src="/manus-storage/Surrah-White_c79141b5.png"
+                src={logoSrc}
                 alt="سُرّة SURRAH"
                 style={{ height: "42px", width: "auto", objectFit: "contain", marginBottom: "1rem", display: "block" }}
               />
@@ -67,7 +75,7 @@ export default function Footer() {
             <p
               className="text-sm leading-relaxed mb-6 max-w-xs"
               style={{
-                color: "rgba(255,255,255,0.65)",
+                color: linkColor,
                 fontFamily: fontBase,
                 fontWeight: 400,
                 lineHeight: "1.8",
@@ -86,8 +94,8 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center text-sm transition-all duration-200"
                   style={{
-                    border: "1px solid rgba(255,255,255,0.25)",
-                    color: "rgba(255,255,255,0.65)",
+                    border: `1px solid ${socialBorder}`,
+                    color: linkColor,
                     fontFamily: fontBase,
                   }}
                   onMouseEnter={(e) => {
@@ -95,8 +103,8 @@ export default function Footer() {
                     (e.currentTarget as HTMLElement).style.color = "#C4622D";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.25)";
-                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
+                    (e.currentTarget as HTMLElement).style.borderColor = socialBorder;
+                    (e.currentTarget as HTMLElement).style.color = linkColor;
                   }}
                 >
                   {s.icon}
@@ -125,17 +133,9 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     className="text-sm transition-colors duration-200"
-                    style={{
-                      color: "rgba(255,255,255,0.65)",
-                      fontFamily: fontBase,
-                      fontWeight: 400,
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
-                    }}
+                    style={{ color: linkColor, fontFamily: fontBase, fontWeight: 400 }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C4622D"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = linkColor; }}
                   >
                     {link.label}
                   </Link>
@@ -164,17 +164,9 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     className="text-sm transition-colors duration-200"
-                    style={{
-                      color: "rgba(255,255,255,0.65)",
-                      fontFamily: fontBase,
-                      fontWeight: 400,
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
-                    }}
+                    style={{ color: linkColor, fontFamily: fontBase, fontWeight: 400 }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C4622D"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = linkColor; }}
                   >
                     {link.label}
                   </Link>
@@ -203,17 +195,9 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     className="text-sm transition-colors duration-200"
-                    style={{
-                      color: "rgba(255,255,255,0.65)",
-                      fontFamily: fontBase,
-                      fontWeight: 400,
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
-                    }}
+                    style={{ color: linkColor, fontFamily: fontBase, fontWeight: 400 }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C4622D"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = linkColor; }}
                   >
                     {link.label}
                   </Link>
@@ -221,6 +205,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
           {/* Quick Links */}
           <div>
             <h4
@@ -241,17 +226,9 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     className="text-sm transition-colors duration-200"
-                    style={{
-                      color: "rgba(255,255,255,0.65)",
-                      fontFamily: fontBase,
-                      fontWeight: 400,
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "#C4622D";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
-                    }}
+                    style={{ color: linkColor, fontFamily: fontBase, fontWeight: 400 }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C4622D"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = linkColor; }}
                   >
                     {link.label}
                   </Link>
@@ -260,18 +237,15 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
         {/* Bottom Bar */}
         <div
           className="mt-12 pt-6 flex items-center justify-between flex-wrap gap-4"
-          style={{ borderTop: "1px solid rgba(240, 235, 225, 0.1)" }}
+          style={{ borderTop: `1px solid ${borderColor}` }}
         >
           <p
             className="text-xs"
-            style={{
-              color: "rgba(255,255,255,0.45)",
-              fontFamily: fontBase,
-              fontWeight: 400,
-            }}
+            style={{ color: mutedColor, fontFamily: fontBase, fontWeight: 400 }}
           >
             جميع الحقوق محفوظة لسُرّة الثقافية © 2025 صُنع بحب في الدرعية
           </p>

@@ -139,9 +139,9 @@ export default function Navbar() {
           {/* Logo — swap white/dark based on theme */}
           <Link href="/" className="flex-shrink-0" style={{ marginRight: "-0.5rem" }}>
             <img
-              src={isDark ? "/manus-storage/Surrah-White_308323ba.png" : "/manus-storage/Surrah-Black_c79141b5.png"}
+              src={isDark ? "/manus-storage/Surrah-White_308323ba.png" : "/manus-storage/Surrah-Black_2341eb6c.png"}
               alt="سُرّة SURRAH"
-              style={{ height: '95px', width: "auto", objectFit: "contain", filter: isDark ? "none" : "brightness(0)" }}
+              style={{ height: '95px', width: "auto", objectFit: "contain" }}
             />
           </Link>
 
