@@ -90,12 +90,12 @@ export default function Navbar() {
     top: "calc(100% + 8px)",
     right: "50%",
     transform: "translateX(50%)",
-    background: "rgba(10,10,10,0.98)",
+    background: "var(--dropdown-bg, rgba(10,10,10,0.98))",
     backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255,255,255,0.1)",
+    border: "1px solid var(--dropdown-border, rgba(255,255,255,0.1))",
     minWidth: "200px",
     zIndex: 100,
-    boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
+    boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
   };
 
   // Language switcher options
@@ -105,25 +105,43 @@ export default function Navbar() {
     { code: "zh", label: "中" },
   ];
 
+  const isDark = theme === "dark";
+  const navBg = isDark
+    ? (menuOpen ? "#000000" : scrolled ? "rgba(10,10,10,0.92)" : "transparent")
+    : (menuOpen ? "var(--surrah-nav-bg)" : scrolled ? "var(--surrah-nav-bg)" : "transparent");
+  const navBorder = scrolled
+    ? (isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(28,43,58,0.12)")
+    : "none";
+  const navTextColor = isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)";
+  const navMutedColor = isDark ? "rgba(255,255,255,0.6)" : "rgba(28,43,58,0.55)";
+  const dropBg = isDark ? "rgba(10,10,10,0.98)" : "rgba(250,248,244,0.98)";
+  const dropBorder = isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.12)";
+  const dropHoverBg = isDark ? "rgba(255,255,255,0.04)" : "rgba(28,43,58,0.04)";
+  const burgerColor = isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)";
+  const langBorder = isDark ? "rgba(255,255,255,0.2)" : "rgba(28,43,58,0.2)";
+  const langInactiveColor = isDark ? "rgba(255,255,255,0.6)" : "rgba(28,43,58,0.55)";
+  const themeBtnBorder = isDark ? "rgba(255,255,255,0.25)" : "rgba(28,43,58,0.25)";
+  const themeBtnColor = isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)";
+
   return (
     <header
       className="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
       style={{
-        background: menuOpen ? "#000000" : scrolled ? "rgba(10, 10, 10, 0.92)" : "transparent",
-        backdropFilter: menuOpen ? "none" : scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
-        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.4)" : "none",
+        background: navBg,
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: navBorder,
+        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.15)" : "none",
       }}
     >
       <div className="container">
         <nav className="flex items-center justify-between" style={{ height: "96px" }}>
 
-          {/* Logo */}
+          {/* Logo — swap white/dark based on theme */}
           <Link href="/" className="flex-shrink-0" style={{ marginRight: "-0.5rem" }}>
             <img
-              src="/manus-storage/Surrah-White_308323ba.png"
+              src={isDark ? "/manus-storage/Surrah-White_308323ba.png" : "/manus-storage/Surrah-Black_c79141b5.png"}
               alt="سُرّة SURRAH"
-              style={{ height: '95px', width: "auto", objectFit: "contain" }}
+              style={{ height: '95px', width: "auto", objectFit: "contain", filter: isDark ? "none" : "brightness(0)" }}
             />
           </Link>
 
@@ -148,7 +166,7 @@ export default function Navbar() {
                         fontFamily: F,
                         fontWeight: 700,
                         fontSize: "17px",
-                        color: "rgba(255,255,255,0.85)",
+                        color: navTextColor,
                         textDecoration: "none",
                         letterSpacing: "0.02em",
                         display: "inline-flex",
@@ -170,7 +188,7 @@ export default function Navbar() {
                             {(items as typeof communities).map((item) => (
                               <Link key={item.href} href={item.href}
                                 style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0.75rem 1rem", textDecoration: "none", borderRadius: "4px", transition: "background 0.15s", border: "1px solid transparent" }}
-                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)"; }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = dropHoverBg; (e.currentTarget as HTMLElement).style.borderColor = dropBorder; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "transparent"; }}
                               >
                                 <img src={item.invertOnDark ? item.logoBlack : item.logoWhite} alt={item.label} style={{ height: "36px", width: "auto", objectFit: "contain", filter: item.invertOnDark ? "invert(1) brightness(2)" : "none" }} />
@@ -182,7 +200,7 @@ export default function Navbar() {
                             {(items as { href: string; label: string }[]).map((item) => (
                               <Link key={item.href} href={item.href}
                                 style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", whiteSpace: "nowrap" }}
-                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = dropHoverBg; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
                                 {item.label}
@@ -204,7 +222,7 @@ export default function Navbar() {
                     fontFamily: F,
                     fontWeight: 700,
                     fontSize: "17px",
-                    color: "rgba(255,255,255,0.85)",
+                    color: navTextColor,
                     textDecoration: "none",
                     letterSpacing: "0.02em",
                     whiteSpace: "nowrap",
@@ -219,7 +237,7 @@ export default function Navbar() {
           {/* Language Switcher + Theme Toggle + CTA */}
           <div className="hidden md:flex items-center flex-shrink-0 gap-2" style={{ marginLeft: "-0.5rem" }}>
             {/* Language Switcher */}
-            <div style={{ display: "flex", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "2px", overflow: "hidden" }}>
+            <div style={{ display: "flex", border: `1px solid ${langBorder}`, borderRadius: "2px", overflow: "hidden" }}>
               {langs.map((l) => (
                 <button
                   key={l.code}
@@ -230,13 +248,13 @@ export default function Navbar() {
                     fontWeight: 700,
                     padding: "0.3rem 0.55rem",
                     background: lang === l.code ? "rgba(196,98,45,0.85)" : "transparent",
-                    color: lang === l.code ? "#fff" : "rgba(255,255,255,0.6)",
+                    color: lang === l.code ? "#fff" : langInactiveColor,
                     border: "none",
                     cursor: "pointer",
                     transition: "all 0.2s",
                     letterSpacing: "0.05em",
                   }}
-                  onMouseEnter={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; }}
+                  onMouseEnter={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.08)" : "rgba(28,43,58,0.06)"; }}
                   onMouseLeave={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                 >
                   {l.label}
@@ -248,31 +266,30 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               aria-label={theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن'}
+              title={theme === 'dark' ? 'الوضع النهاري' : 'الوضع الليلي'}
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '36px',
                 height: '36px',
-                border: '1px solid rgba(255,255,255,0.25)',
+                border: `1px solid ${themeBtnBorder}`,
                 borderRadius: '50%',
                 background: 'transparent',
                 cursor: 'pointer',
-                color: 'rgba(255,255,255,0.85)',
-                fontSize: '15px',
+                color: themeBtnColor,
+                fontSize: '16px',
                 transition: 'all 0.2s ease',
                 flexShrink: 0,
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.1)';
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+                (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(28,43,58,0.08)';
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.background = 'transparent';
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)';
               }}
             >
-              {theme === 'dark' ? '☀' : '🌙'}
+              {theme === 'dark' ? '☀️' : '🌙'}
             </button>
             <Link
               href="/create-community"
@@ -286,7 +303,7 @@ export default function Navbar() {
           {/* Mobile Controls */}
           <div className="md:hidden flex items-center gap-2">
             {/* Mobile Language Switcher */}
-            <div style={{ display: "flex", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "2px", overflow: "hidden" }}>
+            <div style={{ display: "flex", border: `1px solid ${langBorder}`, borderRadius: "2px", overflow: "hidden" }}>
               {langs.map((l) => (
                 <button
                   key={l.code}
@@ -297,7 +314,7 @@ export default function Navbar() {
                     fontWeight: 700,
                     padding: "0.25rem 0.45rem",
                     background: lang === l.code ? "rgba(196,98,45,0.85)" : "transparent",
-                    color: lang === l.code ? "#fff" : "rgba(255,255,255,0.6)",
+                    color: lang === l.code ? "#fff" : langInactiveColor,
                     border: "none",
                     cursor: "pointer",
                   }}
@@ -312,12 +329,12 @@ export default function Navbar() {
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 width: '32px', height: '32px',
-                border: '1px solid rgba(255,255,255,0.25)',
+                border: `1px solid ${themeBtnBorder}`,
                 borderRadius: '50%', background: 'transparent',
-                cursor: 'pointer', color: 'rgba(255,255,255,0.85)', fontSize: '13px',
+                cursor: 'pointer', color: themeBtnColor, fontSize: '14px',
               }}
             >
-              {theme === 'dark' ? '☀' : '🌙'}
+              {theme === 'dark' ? '☀️' : '🌙'}
             </button>
             <button
               className="flex flex-col gap-1.5 p-2"
@@ -329,7 +346,7 @@ export default function Navbar() {
                   key={i}
                   className="block w-6 h-0.5 transition-all duration-300"
                   style={{
-                    background: "rgba(255,255,255,0.85)",
+                    background: burgerColor,
                     transform:
                       i === 0 && menuOpen ? "rotate(45deg) translate(4px, 4px)" :
                       i === 2 && menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
@@ -348,7 +365,7 @@ export default function Navbar() {
         >
           <div
             className="flex flex-col pb-6 pt-2 border-t"
-            style={{ borderColor: "rgba(255,255,255,0.15)", background: "var(--surrah-page-bg)" }}
+            style={{ borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(28,43,58,0.12)", background: "var(--surrah-page-bg)" }}
           >
             {navLinks.map((link) => {
               if (link.dropdown) {
@@ -369,11 +386,11 @@ export default function Navbar() {
                         fontFamily: F,
                         fontWeight: 500,
                         fontSize: "1rem",
-                        color: "rgba(255,255,255,0.85)",
+                        color: navTextColor,
                         background: "none",
                         border: "none",
                         padding: "0.75rem 0.75rem 0.75rem 0",
-                        borderBottom: "1px solid rgba(255,255,255,0.08)",
+                        borderBottom: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(28,43,58,0.1)",
                         cursor: "pointer",
                         textAlign: isAr ? "right" : "left",
                       }}

@@ -201,6 +201,8 @@ video::-webkit-media-controls-enclosure {
   --surrah-nav-bg: rgba(250,248,244,0.95);
   --surrah-nav-text: #1C2B3A;
   --surrah-divider: #B5453A;
+  --dropdown-bg: rgba(250,248,244,0.98);
+  --dropdown-border: rgba(28,43,58,0.12);
 }
 
 /* ── Dark Mode ── */
@@ -216,6 +218,8 @@ video::-webkit-media-controls-enclosure {
   --surrah-nav-bg: rgba(10,10,10,0.92);
   --surrah-nav-text: #ffffff;
   --surrah-divider: #B5453A;
+  --dropdown-bg: rgba(10,10,10,0.98);
+  --dropdown-border: rgba(255,255,255,0.1);
 }
 
 @layer base {
@@ -240,22 +244,31 @@ video::-webkit-media-controls-enclosure {
     font-family: 'ManchetteFine', sans-serif !important;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
-  /* ── Light mode global overrides ── */
-  /* Override all dark inline background colors in light mode */
+  /* ═══════════════════════════════════════════════════════════
+     LIGHT MODE — Comprehensive Overrides
+     Strategy: override hardcoded dark values via CSS attribute
+     selectors + element selectors so all pages respond to theme
+  ═══════════════════════════════════════════════════════════ */
+
+  /* Root & body */
   html.light body,
   html.light #root {
     background-color: var(--surrah-page-bg) !important;
     color: var(--surrah-text-primary) !important;
   }
+
+  /* Sections — override inline background-color styles */
   html.light section {
     background-color: var(--surrah-section-bg) !important;
   }
-  /* Override hardcoded dark colors via attribute selectors */
+
+  /* ── Background overrides (hardcoded dark hex values) ── */
   html.light [style*="background: #000000"],
   html.light [style*="background:#000000"],
+  html.light [style*="background: rgb(0,0,0)"],
   html.light [style*="background: rgb(0, 0, 0)"],
-  html.light [style*="backgroundColor: '#000000'"],
-  html.light [style*="background-color: #000000"] {
+  html.light [style*="background-color: #000000"],
+  html.light [style*="background-color:#000000"] {
     background-color: var(--surrah-page-bg) !important;
     background: var(--surrah-page-bg) !important;
   }
@@ -270,28 +283,113 @@ video::-webkit-media-controls-enclosure {
   html.light [style*="background-color: #111111"],
   html.light [style*="background: #1a1a1a"],
   html.light [style*="background: #1c1c1c"],
-  html.light [style*="background: #0d0d0d"] {
+  html.light [style*="background: #0d0d0d"],
+  html.light [style*="background: #0f0f0f"],
+  html.light [style*="background: #141414"],
+  html.light [style*="background: #161616"],
+  html.light [style*="background: #181818"],
+  html.light [style*="background: #1e1e1e"] {
     background-color: var(--surrah-section-alt) !important;
     background: var(--surrah-section-alt) !important;
   }
-  /* Light mode text overrides */
-  html.light h1, html.light h2, html.light h3, html.light h4, html.light h5, html.light h6 {
+
+  /* ── Text overrides ── */
+  html.light h1, html.light h2, html.light h3,
+  html.light h4, html.light h5, html.light h6 {
     color: var(--surrah-text-primary) !important;
   }
-  html.light p, html.light span, html.light li, html.light a:not(.btn-surrah-primary):not(.btn-surrah-outline) {
+  html.light p {
     color: var(--surrah-text-secondary) !important;
   }
-  /* Light mode card overrides */
+  /* Inline white/light text → dark in light mode */
+  html.light [style*="color: #ffffff"],
+  html.light [style*="color:#ffffff"],
+  html.light [style*="color: white"],
+  html.light [style*="color: rgb(255, 255, 255)"] {
+    color: var(--surrah-text-primary) !important;
+  }
+  html.light [style*="color: rgba(255,255,255,0.85)"],
+  html.light [style*="color: rgba(255,255,255, 0.85)"],
+  html.light [style*="color: rgba(255,255,255,0.75)"],
+  html.light [style*="color: rgba(255,255,255, 0.75)"],
+  html.light [style*="color: rgba(255,255,255,0.7)"],
+  html.light [style*="color: rgba(255,255,255,0.65)"],
+  html.light [style*="color: rgba(255,255,255,0.6)"],
+  html.light [style*="color: rgba(255,255,255,0.55)"],
+  html.light [style*="color: rgba(255,255,255,0.5)"],
+  html.light [style*="color: rgba(255,255,255,0.45)"],
+  html.light [style*="color: rgba(255,255,255,0.4)"],
+  html.light [style*="color: rgba(255,255,255,0.35)"] {
+    color: var(--surrah-text-secondary) !important;
+  }
+  html.light [style*="color: rgba(255,255,255,0.3)"],
+  html.light [style*="color: rgba(255,255,255,0.25)"],
+  html.light [style*="color: rgba(255,255,255,0.2)"],
+  html.light [style*="color: rgba(255,255,255,0.15)"] {
+    color: var(--surrah-text-muted) !important;
+  }
+
+  /* ── Border overrides ── */
+  html.light [style*="border: 1px solid rgba(255,255,255,0.08)"],
+  html.light [style*="border: 1px solid rgba(255,255,255, 0.08)"],
+  html.light [style*="border-bottom: 1px solid rgba(255,255,255,0.08)"],
+  html.light [style*="border-top: 1px solid rgba(255,255,255,0.06)"],
+  html.light [style*="border-bottom: 1px solid rgba(255,255,255,0.06)"] {
+    border-color: var(--surrah-card-border) !important;
+  }
+
+  /* ── Navbar header ── */
+  html.light header {
+    background: var(--surrah-nav-bg) !important;
+    border-bottom-color: var(--surrah-card-border) !important;
+  }
+  html.light nav a,
+  html.light nav button:not([style*="background: rgba(196"]) {
+    color: var(--surrah-nav-text) !important;
+  }
+  /* Navbar dropdown panels */
+  html.light [style*="background: rgba(10,10,10"],
+  html.light [style*="background: rgba(10, 10, 10"] {
+    background: var(--surrah-nav-bg) !important;
+    border-color: var(--surrah-card-border) !important;
+  }
+  /* Hamburger lines */
+  html.light nav span[style*="background: rgba(255,255,255"] {
+    background: var(--surrah-nav-text) !important;
+  }
+
+  /* ── Footer ── */
+  html.light footer {
+    background-color: var(--surrah-section-alt) !important;
+    border-top-color: var(--surrah-card-border) !important;
+  }
+
+  /* ── Cards & panels ── */
   html.light .surrah-card {
     background: var(--surrah-card-bg) !important;
     border-color: var(--surrah-card-border) !important;
   }
-  /* Light mode Navbar */
-  html.light nav {
-    background-color: var(--surrah-nav-bg) !important;
+  /* Semi-transparent dark card backgrounds */
+  html.light [style*="background: rgba(255,255,255,0.03)"],
+  html.light [style*="background: rgba(255,255,255,0.04)"],
+  html.light [style*="background: rgba(255,255,255,0.02)"] {
+    background: rgba(28,43,58,0.04) !important;
   }
-  html.light nav a, html.light nav button, html.light nav span {
-    color: var(--surrah-nav-text) !important;
+
+  /* ── Input fields ── */
+  html.light input, html.light textarea, html.light select {
+    background-color: #ffffff !important;
+    color: var(--surrah-text-primary) !important;
+    border-color: var(--surrah-card-border) !important;
+  }
+  html.light [style*="background: #0d0d0d"] input,
+  html.light select[style*="background: #0d0d0d"] {
+    background-color: #ffffff !important;
+  }
+
+  /* ── Surra logo: swap white logo for dark logo in light mode ── */
+  html.light .surrah-logo-white {
+    filter: invert(1) brightness(0) !important;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
