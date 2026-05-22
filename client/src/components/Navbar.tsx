@@ -1,53 +1,26 @@
 /* ============================================================
    Navbar — سُرّة | SURRAH
    Layout (LTR visual order): Logo (left) | Nav Links (center) | CTA Button (right)
-   Nav order: من نحن | مجتمعاتنا▼ | خدماتنا▼ | المركز الاعلامي | عضويات | دليل سُرّة | المتجر
-   Dropdowns: مجتمعاتنا (5 communities), خدماتنا (4 services)
+   Nav order: عن سُرّة | مجتمعاتنا▼ | خدماتنا▼ | المركز الاعلامي▼ | عضويات▼ | دليل سُرّة | المتجر
+   Dropdowns: مجتمعاتنا (6 communities), خدماتنا (4 services), المركز الإعلامي (2), عضويات (4)
+   Right side: Language switcher (AR/EN/中) + Theme toggle + CTA
    ============================================================ */
 
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage, type Language } from "@/contexts/LanguageContext";
 
 const F = "'ManchetteFine', sans-serif";
 
 const communities = [
-  { href: "/communities/basar", label: "بصر", labelEn: "Basar", color: "#C4622D", logoWhite: "/manus-storage/Basar-White_7d406934.png", logoBlack: "/manus-storage/Basar-Black_b4fc3a42.png", invertOnDark: false },
-  { href: "/communities/sifr", label: "صفر", labelEn: "Sifr", color: "#c8c4bc", logoWhite: "/manus-storage/Sifr-Black_c3ab7e46.webp", logoBlack: "/manus-storage/Sifr-Black_c3ab7e46.webp", invertOnDark: true },
-  { href: "/communities/sada", label: "سدى", labelEn: "Sada", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png", invertOnDark: false },
-  { href: "/communities/mada", label: "مدى", labelEn: "Mada", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png", invertOnDark: false },
-  { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png", invertOnDark: false },
-  { href: "/communities/umlah", label: "عُملة", labelEn: "Umlah", color: "#c8c4bc", logoWhite: "/manus-storage/Umlah-Black_f8a8fa99.webp", logoBlack: "/manus-storage/Umlah-Black_f8a8fa99.webp", invertOnDark: true },
-];
-
-const services = [
-  { href: "/services#communities", label: "صناعة المجتمعات" },
-  { href: "/services#programs", label: "إنشاء البرامج الثقافية" },
-  { href: "/services#events", label: "تنظيم الفعاليات الحية" },
-  { href: "/services#audience", label: "توفير الجمهور المستهدف" },
-];
-
-const memberships = [
-  { href: "/join#bidaya", label: "سُرّة بداية", desc: "ابدأ رحلتك بدون التزام" },
-  { href: "/join#wasl", label: "سُرّة وصل", desc: "وسّع شبكتك وادخل بعمق أكبر" },
-  { href: "/join#nukhba", label: "سُرّة نخبة", desc: "الأكثر اختيارًا" },
-  { href: "/join#majlis", label: "سُرّة مجلس", desc: "لفئة محدودة تصنع أثرًا أكبر" },
-];
-
-const mediaItems = [
-  { href: "/media/news", label: "أحدث الأخبار" },
-  { href: "/media/identity", label: "هوية سُرّة" },
-];
-
-const navLinks = [
-  { href: "/about", label: "عن سُرّة" },
-  { href: "/communities", label: "مجتمعاتنا", dropdown: "communities" },
-  { href: "/services", label: "خدماتنا", dropdown: "services" },
-  { href: "/media", label: "المركز الإعلامي", dropdown: "media" },
-  { href: "/join", label: "عضويات", dropdown: "memberships" },
-  { href: "/directory", label: "دليل سُرّة" },
-  { href: '/store', label: 'المتجر' },
+  { href: "/communities/basar", label: "بصر", labelEn: "Basar", labelZh: "巴萨尔", color: "#C4622D", logoWhite: "/manus-storage/Basar-White_7d406934.png", logoBlack: "/manus-storage/Basar-Black_b4fc3a42.png", invertOnDark: false },
+  { href: "/communities/sifr", label: "صفر", labelEn: "Sifr", labelZh: "西弗尔", color: "#c8c4bc", logoWhite: "/manus-storage/Sifr-Black_c3ab7e46.webp", logoBlack: "/manus-storage/Sifr-Black_c3ab7e46.webp", invertOnDark: true },
+  { href: "/communities/sada", label: "سدى", labelEn: "Sada", labelZh: "萨达", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png", invertOnDark: false },
+  { href: "/communities/mada", label: "مدى", labelEn: "Mada", labelZh: "马达", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png", invertOnDark: false },
+  { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", labelZh: "马卡姆", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png", invertOnDark: false },
+  { href: "/communities/umlah", label: "عُملة", labelEn: "Umlah", labelZh: "乌姆拉", color: "#c8c4bc", logoWhite: "/manus-storage/Umlah-Black_f8a8fa99.webp", logoBlack: "/manus-storage/Umlah-Black_f8a8fa99.webp", invertOnDark: true },
 ];
 
 export default function Navbar() {
@@ -58,6 +31,8 @@ export default function Navbar() {
   const [location] = useLocation();
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme, toggleTheme } = useTheme();
+  const { lang, setLang, t } = useLanguage();
+  const isAr = lang === "ar";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -66,11 +41,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => { setMenuOpen(false); setActiveDropdown(null); }, [location]);
-
-  const handlePlaceholderClick = (e: React.MouseEvent, label: string) => {
-    e.preventDefault();
-    toast.info(`${label} — قريباً`);
-  };
 
   const openDropdown = (key: string) => {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
@@ -85,6 +55,36 @@ export default function Navbar() {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
   };
 
+  // Nav links — translated
+  const navLinks = [
+    { href: "/about", label: t("nav.about") },
+    { href: "/communities", label: t("nav.communities"), dropdown: "communities" },
+    { href: "/services", label: t("nav.services"), dropdown: "services" },
+    { href: "/media", label: t("nav.media"), dropdown: "media" },
+    { href: "/join", label: t("nav.memberships"), dropdown: "memberships" },
+    { href: "/directory", label: t("nav.directory") },
+    { href: "/store", label: t("nav.store") },
+  ];
+
+  const services = [
+    { href: "/services#communities", label: t("service.communities") },
+    { href: "/services#programs", label: t("service.programs") },
+    { href: "/services#events", label: t("service.events") },
+    { href: "/services#audience", label: t("service.audience") },
+  ];
+
+  const memberships = [
+    { href: "/join#bidaya", label: t("membership.bidaya") },
+    { href: "/join#wasl", label: t("membership.wasl") },
+    { href: "/join#nukhba", label: t("membership.nukhba") },
+    { href: "/join#majlis", label: t("membership.majlis") },
+  ];
+
+  const mediaItems = [
+    { href: "/media", label: t("nav.news") },
+    { href: "/media#identity", label: t("nav.identity") },
+  ];
+
   const dropdownStyle: React.CSSProperties = {
     position: "absolute",
     top: "calc(100% + 8px)",
@@ -97,6 +97,13 @@ export default function Navbar() {
     zIndex: 100,
     boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
   };
+
+  // Language switcher options
+  const langs: { code: Language; label: string }[] = [
+    { code: "ar", label: "ع" },
+    { code: "en", label: "EN" },
+    { code: "zh", label: "中" },
+  ];
 
   return (
     <header
@@ -124,7 +131,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-5 flex-1 justify-start" style={{ paddingRight: "2rem" }}>
             {navLinks.map((link) => {
               if (link.dropdown) {
-                const items = link.dropdown === "communities" ? communities : link.dropdown === "services" ? services : link.dropdown === "media" ? mediaItems : memberships;
+                const items = link.dropdown === "communities" ? communities
+                  : link.dropdown === "services" ? services
+                  : link.dropdown === "media" ? mediaItems
+                  : memberships;
                 return (
                   <div
                     key={link.href}
@@ -145,6 +155,7 @@ export default function Navbar() {
                         alignItems: "center",
                         gap: "4px",
                         cursor: "pointer",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {link.label}
@@ -166,36 +177,11 @@ export default function Navbar() {
                               </Link>
                             ))}
                           </div>
-                        ) : link.dropdown === "media" ? (
-                          <>
-                            {(items as typeof mediaItems).map((item) => (
-                              <a key={item.href} href={item.href}
-                                onClick={(e) => { e.preventDefault(); toast.info(`${item.label} — قريباً`); }}
-                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", cursor: "pointer" }}
-                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
-                              >
-                                {item.label}
-                              </a>
-                            ))}
-                          </>
-                        ) : link.dropdown === "services" ? (
-                          <>
-                            {(items as typeof services).map((item) => (
-                              <Link key={item.href} href={item.href}
-                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s" }}
-                                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
-                              >
-                                {item.label}
-                              </Link>
-                            ))}
-                          </>
                         ) : (
                           <>
-                            {(items as typeof memberships).map((item) => (
+                            {(items as { href: string; label: string }[]).map((item) => (
                               <Link key={item.href} href={item.href}
-                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.65rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", whiteSpace: "nowrap" }}
+                                style={{ display: "block", fontFamily: F, fontSize: "0.95rem", fontWeight: 500, color: "var(--surrah-text-primary)", padding: "0.75rem 1.25rem", textDecoration: "none", borderRight: "2px solid transparent", transition: "background 0.15s, border-color 0.15s", whiteSpace: "nowrap" }}
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; (e.currentTarget as HTMLElement).style.borderRightColor = "#C4622D"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderRightColor = "transparent"; }}
                               >
@@ -221,6 +207,7 @@ export default function Navbar() {
                     color: "rgba(255,255,255,0.85)",
                     textDecoration: "none",
                     letterSpacing: "0.02em",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {link.label}
@@ -229,8 +216,34 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Theme Toggle + CTA */}
-          <div className="hidden md:flex items-center flex-shrink-0 gap-3" style={{ marginLeft: "-0.5rem" }}>
+          {/* Language Switcher + Theme Toggle + CTA */}
+          <div className="hidden md:flex items-center flex-shrink-0 gap-2" style={{ marginLeft: "-0.5rem" }}>
+            {/* Language Switcher */}
+            <div style={{ display: "flex", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "2px", overflow: "hidden" }}>
+              {langs.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  style={{
+                    fontFamily: F,
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    padding: "0.3rem 0.55rem",
+                    background: lang === l.code ? "rgba(196,98,45,0.85)" : "transparent",
+                    color: lang === l.code ? "#fff" : "rgba(255,255,255,0.6)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    letterSpacing: "0.05em",
+                  }}
+                  onMouseEnter={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; }}
+                  onMouseLeave={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -239,14 +252,14 @@ export default function Navbar() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '38px',
-                height: '38px',
+                width: '36px',
+                height: '36px',
                 border: '1px solid rgba(255,255,255,0.25)',
                 borderRadius: '50%',
                 background: 'transparent',
                 cursor: 'pointer',
                 color: 'rgba(255,255,255,0.85)',
-                fontSize: '16px',
+                fontSize: '15px',
                 transition: 'all 0.2s ease',
                 flexShrink: 0,
               }}
@@ -264,53 +277,74 @@ export default function Navbar() {
             <Link
               href="/create-community"
               className="btn-surrah-primary"
-              style={{ fontSize: "1rem", padding: "0.7rem 1.8rem", color: "var(--surrah-text-primary)", backgroundColor: "transparent", border: "1px solid #ffffff" }}
+              style={{ fontSize: "0.95rem", padding: "0.65rem 1.5rem", color: "var(--surrah-text-primary)", backgroundColor: "transparent", border: "1px solid #ffffff", whiteSpace: "nowrap" }}
             >
-              أنشئ مجتمعك
+              {t("nav.create_community")}
             </Link>
           </div>
 
           {/* Mobile Controls */}
           <div className="md:hidden flex items-center gap-2">
+            {/* Mobile Language Switcher */}
+            <div style={{ display: "flex", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "2px", overflow: "hidden" }}>
+              {langs.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  style={{
+                    fontFamily: F,
+                    fontSize: "11px",
+                    fontWeight: 700,
+                    padding: "0.25rem 0.45rem",
+                    background: lang === l.code ? "rgba(196,98,45,0.85)" : "transparent",
+                    color: lang === l.code ? "#fff" : "rgba(255,255,255,0.6)",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
             <button
               onClick={toggleTheme}
               aria-label={theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن'}
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: '34px', height: '34px',
+                width: '32px', height: '32px',
                 border: '1px solid rgba(255,255,255,0.25)',
                 borderRadius: '50%', background: 'transparent',
-                cursor: 'pointer', color: 'rgba(255,255,255,0.85)', fontSize: '14px',
+                cursor: 'pointer', color: 'rgba(255,255,255,0.85)', fontSize: '13px',
               }}
             >
               {theme === 'dark' ? '☀' : '🌙'}
             </button>
-          <button
-            className="flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="القائمة"
-          >
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                className="block w-6 h-0.5 transition-all duration-300"
-                style={{
-                  background: "rgba(255,255,255,0.85)",
-                  transform:
-                    i === 0 && menuOpen ? "rotate(45deg) translate(4px, 4px)" :
-                    i === 2 && menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
-                  opacity: i === 1 && menuOpen ? 0 : 1,
-                }}
-              />
-            ))}
-          </button>
+            <button
+              className="flex flex-col gap-1.5 p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="القائمة"
+            >
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className="block w-6 h-0.5 transition-all duration-300"
+                  style={{
+                    background: "rgba(255,255,255,0.85)",
+                    transform:
+                      i === 0 && menuOpen ? "rotate(45deg) translate(4px, 4px)" :
+                      i === 2 && menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
+                    opacity: i === 1 && menuOpen ? 0 : 1,
+                  }}
+                />
+              ))}
+            </button>
           </div>
         </nav>
 
         {/* Mobile Menu */}
         <div
           className="md:hidden overflow-hidden transition-all duration-300"
-          style={{ maxHeight: menuOpen ? "700px" : "0", opacity: menuOpen ? 1 : 0 }}
+          style={{ maxHeight: menuOpen ? "800px" : "0", opacity: menuOpen ? 1 : 0 }}
         >
           <div
             className="flex flex-col pb-6 pt-2 border-t"
@@ -318,7 +352,10 @@ export default function Navbar() {
           >
             {navLinks.map((link) => {
               if (link.dropdown) {
-                const items = link.dropdown === "communities" ? communities : services;
+                const items = link.dropdown === "communities" ? communities
+                  : link.dropdown === "services" ? services
+                  : link.dropdown === "media" ? mediaItems
+                  : memberships;
                 const isExpanded = mobileExpanded === link.dropdown;
                 return (
                   <div key={link.href}>
@@ -338,20 +375,14 @@ export default function Navbar() {
                         padding: "0.75rem 0.75rem 0.75rem 0",
                         borderBottom: "1px solid rgba(255,255,255,0.08)",
                         cursor: "pointer",
-                        textAlign: "right",
+                        textAlign: isAr ? "right" : "left",
                       }}
                     >
                       {link.label}
                       <span style={{ fontSize: "10px", opacity: 0.5, transform: isExpanded ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>▾</span>
                     </button>
                     {isExpanded && (
-                      <div style={{ background: "rgba(255,255,255,0.02)", paddingRight: "1rem" }}>
-                        <Link
-                          href={link.href}
-                          style={{ display: "block", fontFamily: F, fontSize: "0.8rem", color: "rgba(255,255,255,0.4)", padding: "0.5rem 0.75rem", textDecoration: "none", letterSpacing: "0.1em" }}
-                        >
-                          {link.dropdown === "communities" ? "جميع المجتمعات" : "جميع الخدمات"}
-                        </Link>
+                      <div style={{ background: "rgba(255,255,255,0.02)", paddingRight: isAr ? "1rem" : "0", paddingLeft: isAr ? "0" : "1rem" }}>
                         {link.dropdown === "communities"
                           ? (items as typeof communities).map((item) => (
                             <Link
@@ -362,7 +393,7 @@ export default function Navbar() {
                               <img src={item.invertOnDark ? item.logoBlack : item.logoWhite} alt={item.label} style={{ height: "28px", width: "auto", objectFit: "contain", filter: item.invertOnDark ? "invert(1) brightness(2)" : "none" }} />
                             </Link>
                           ))
-                          : (items as typeof services).map((item) => (
+                          : (items as { href: string; label: string }[]).map((item) => (
                             <Link
                               key={item.href}
                               href={item.href}
@@ -391,8 +422,10 @@ export default function Navbar() {
                     textDecoration: "none",
                     padding: "0.75rem 0",
                     borderBottom: "1px solid rgba(255,255,255,0.08)",
-                    borderRight: location === link.href ? "3px solid #C4622D" : "3px solid transparent",
-                    paddingRight: "0.75rem",
+                    borderRight: isAr && location === link.href ? "3px solid #C4622D" : isAr ? "3px solid transparent" : "none",
+                    borderLeft: !isAr && location === link.href ? "3px solid #C4622D" : !isAr ? "3px solid transparent" : "none",
+                    paddingRight: isAr ? "0.75rem" : "0",
+                    paddingLeft: isAr ? "0" : "0.75rem",
                   }}
                 >
                   {link.label}
@@ -401,7 +434,7 @@ export default function Navbar() {
             })}
             <div style={{ marginTop: "1rem" }}>
               <Link href="/create-community" className="btn-surrah-primary" style={{ width: "100%", justifyContent: "center" }}>
-                أنشئ مجتمعك
+                {t("nav.create_community")}
               </Link>
             </div>
           </div>

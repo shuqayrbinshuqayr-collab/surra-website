@@ -11,6 +11,7 @@ import { useEffect, useRef, useCallback, useState } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -384,6 +385,8 @@ function UpcomingEvents() {
 
 export default function Home() {
   const pageRef = useReveal();
+  const { lang, t } = useLanguage();
+  const isAr = lang === "ar";
 
   return (
     <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }}>
@@ -453,9 +456,7 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              نبني سرداً ثقافياً ملهماً
-              <br />
-              يعكس قيمنا الأصيلة
+              {lang === "ar" ? <>نصنع المجتمعات<br />ونمنح الأفكار حياة</> : lang === "en" ? <>We Build Communities<br />and Give Ideas Life</> : <>我们建设社区<br />赋予想法生命</>}
             </h1>
             <p
               style={{
@@ -471,7 +472,7 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستداما
+              {lang === "ar" ? "نصمم ونبني ونشغّل المجتمعات الثقافية والإبداعية التي تُحدث أثرًا مستداما" : lang === "en" ? "We design, build and operate cultural and creative communities that create lasting impact" : "我们设计、建设并运营创造持久影响的文化创意社区"}
             </p>
             <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
               <a
@@ -500,7 +501,7 @@ export default function Home() {
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.7)";
                 }}
               >
-                ↗ تواصل معنا
+                {lang === "ar" ? "↗ تواصل معنا" : lang === "en" ? "Contact Us ↗" : "联系我们 ↗"}
               </a>
             </div>
           </div>
@@ -554,11 +555,10 @@ export default function Home() {
                   maxWidth: "440px",
                 }}
               >
-                لأن المجتمعات لا تنشأ صدفة. هي تُصمَّم بوعي، تُبنى بعمق، وتُشغَّل باستدامة.
-                سُرّة هي النقطة التي تنبثق منها الدوائر.
+                {lang === "ar" ? "لأن المجتمعات لا تنشأ صدفة. هي تُصمَّم بوعي، تُبنى بعمق، وتُشغَّل باستدامة. سُرّة هي النقطة التي تنبثق منها الدوائر." : lang === "en" ? "Because communities don't arise by chance. They are designed with awareness, built with depth, and operated with sustainability. Surra is the point from which the circles emerge." : "因为社区不是偶然产生的。它们被有意识地设计、深入建设并可持续运营。苏拉是圆圈涌现的起点。"}
               </p>
               <Link href="/about" className="btn-surrah-outline" style={{ marginTop: "2rem", color: "var(--surrah-text-primary)", borderColor: "#ffffff" }}>
-                اعرف المزيد
+                {lang === "ar" ? "اعرف المزيد" : lang === "en" ? "Learn More" : "了解更多"}
               </Link>
             </div>
             <div className="reveal" style={{ transitionDelay: "0.15s" }}>
@@ -635,7 +635,7 @@ export default function Home() {
                 letterSpacing: 0,
               }}
             >
-              شركاؤنا
+              {lang === "ar" ? "شركاؤنا" : lang === "en" ? "Our Partners" : "我们的合作伙伴"}
             </h2>
             <p
               style={{
@@ -645,7 +645,7 @@ export default function Home() {
                 fontFamily: "'IBM Plex Sans Arabic', sans-serif",
               }}
             >
-              الجهات الداعمة لمجتمعات سُرّة
+              {lang === "ar" ? "الجهات الداعمة لمجتمعات سُرّة" : lang === "en" ? "Supporting organizations for Surra communities" : "支持苏拉社区的机构"}
             </p>
           </div>
 
@@ -743,9 +743,7 @@ export default function Home() {
                 marginBottom: "1.25rem",
               }}
             >
-              نصوغ سردًا ثقافيًا مُلهمًا
-              <br />
-              يستمد أصالته من الدرعية ويجسد قيمنا في حضورٍ حيّ ومعاصر
+              {lang === "ar" ? <>نصوغ سردًا ثقافيًا مُلهمًا<br />يستمد أصالته من الدرعية ويجسد قيمنا في حضورٍ حيّ ومعاصر</> : lang === "en" ? <>We craft an inspiring cultural narrative<br />rooted in Diriyah, embodying our values in a vibrant and contemporary presence</> : <>我们打造鼓舞人心的文化叙事<br />植根于德里耶，在充满活力的当代存在中体现我们的价值观</>}
             </h2>
             <p
               style={{
@@ -757,7 +755,7 @@ export default function Home() {
                 marginBottom: "2.5rem",
               }}
             >
-              هل لديك فكرة تستحق أن تصبح مجتمعاً؟
+              {lang === "ar" ? "هل لديك فكرة تستحق أن تصبح مجتمعاً؟" : lang === "en" ? "Do you have an idea that deserves to become a community?" : "您有一个值得成为社区的想法吗？"}
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
               <Link
@@ -784,7 +782,7 @@ export default function Home() {
                   (e.currentTarget as HTMLElement).style.color = "#ffffff";
                 }}
               >
-                ابدأ الحديث معنا
+                {lang === "ar" ? "ابدأ الحديث معنا" : lang === "en" ? "Start the Conversation" : "开始对话"}
               </Link>
               <Link
                 href="/join"
@@ -810,7 +808,7 @@ export default function Home() {
                   (e.currentTarget as HTMLElement).style.background = "transparent";
                 }}
               >
-                أنشئ مجتمعك
+                {lang === "ar" ? "أنشئ مجتمعك" : lang === "en" ? "Create Your Community" : "创建您的社区"}
               </Link>
             </div>
           </div>

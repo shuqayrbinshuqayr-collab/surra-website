@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -13,8 +14,10 @@ import Contact from "./pages/Contact";
 import CommunityDetail from "./pages/CommunityDetail";
 import CreateCommunity from "./pages/CreateCommunity";
 import Directory from "./pages/Directory";
-import Register from './pages/Register';
-import Store from './pages/Store';
+import Register from "./pages/Register";
+import Store from "./pages/Store";
+import Media from "./pages/Media";
+import Basar from "./pages/Basar";
 
 function Router() {
   return (
@@ -23,6 +26,7 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path={"/services"} component={Services} />
       <Route path={"/communities"} component={Communities} />
+      <Route path={"/communities/basar"} component={Basar} />
       <Route path={"/communities/:id"} component={CommunityDetail} />
       <Route path={"/join"} component={Join} />
       <Route path={"/contact"} component={Contact} />
@@ -30,6 +34,7 @@ function Router() {
       <Route path={"/directory"} component={Directory} />
       <Route path={"/register"} component={Register} />
       <Route path={"/store"} component={Store} />
+      <Route path={"/media"} component={Media} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -40,10 +45,12 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <LanguageProvider defaultLang="ar">
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
