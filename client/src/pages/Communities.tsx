@@ -30,7 +30,7 @@ const communityLogos: Record<string, { white: string; invert?: boolean }> = {
   sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
   mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
   maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
-  umlah: { white: "/manus-storage/Umlah-White_96823e55.png", invert: false },
+  umlah: { white: "/manus-storage/Umlah-White_96823e55.png" },
 };
 
 const communitiesData = {
@@ -102,7 +102,7 @@ export default function Communities() {
         <div className="container">
           <div className="space-y-6">
             {communities.map((community, i) => {
-              const communityRoutes: Record<string, string> = { basar: "/communities/basar", umla: "/communities/umla", umlah: "/communities/umla" };
+              const communityRoutes: Record<string, string> = { basar: "/communities/basar", sada: "/communities/sada", umlah: "/communities/umla" };
               const communityHref = communityRoutes[community.id] || `/communities/${community.id}`;
               return (
               <Link key={community.id} href={communityHref} style={{ textDecoration: "none", display: "block" }}>
