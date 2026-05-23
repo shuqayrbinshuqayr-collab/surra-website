@@ -102,7 +102,7 @@ const identityDocs = [
     color: "#c8c4bc",
     pages: "٢٤ صفحة",
     pagesEn: "24 pages",
-    pdfUrl: null as string | null,
+    pdfUrl: "/manus-storage/surra-profile_231bee6f.pdf",
     previewColor: "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #3a3a3a 100%)",
   },
 ];
