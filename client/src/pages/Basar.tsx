@@ -183,7 +183,7 @@ export default function Basar() {
         }}
       >
         {/* Video Background */}
-        <VideoBackground src="/manus-storage/about_hero_video_346e3443.mp4" opacity={0.35} />
+        <VideoBackground src="/manus-storage/about_hero_video_346e3443.mp4" opacity={0.75} />
         {/* Dark overlay */}
         <div style={{
           position: "absolute",

@@ -78,7 +78,7 @@ export default function Umla() {
         justifyContent: "flex-end",
       }}>
         {/* Video Background */}
-        <VideoBackground src="/manus-storage/wide-shot-of-traditional-najdi-houses-with-mud-arc(1)_6fdbe11d.mp4" opacity={0.25} />
+        <VideoBackground src="/manus-storage/wide-shot-of-traditional-najdi-houses-with-mud-arc(1)_6fdbe11d.mp4" opacity={0.65} />
         {/* Dark overlay */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,8,2,0.85) 0%, rgba(10,8,2,0.7) 100%)" }} />
         {/* خلفية هندسية خفيفة */}
@@ -97,7 +97,7 @@ export default function Umla() {
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               <img
-                src="/manus-storage/Umlah-White_96823e55.png"
+                src="/manus-storage/Umlah-White-Final_92329db8.png"
                 alt="عُملة"
                 style={{ width: "110px", objectFit: "contain", filter: `brightness(0) saturate(100%) invert(75%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(95%)` }}
               />
@@ -276,7 +276,7 @@ export default function Umla() {
             textAlign: "center",
           }}>
             <img
-              src="/manus-storage/Umlah-White_96823e55.png"
+              src="/manus-storage/Umlah-White-Final_92329db8.png"
               alt="عُملة"
               style={{ height: "60px", objectFit: "contain", marginBottom: "2rem", filter: `brightness(0) saturate(100%) invert(75%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(95%)` }}
             />

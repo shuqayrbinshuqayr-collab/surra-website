@@ -174,7 +174,7 @@ const communities = [
   { name: "سدى", nameEn: "Sada", desc: "مجتمع إبداعي نسائي يُبرز الصوت الأنثوي في الثقافة والفن والقيادة.", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", slug: "sada" },
   { name: "مدى", nameEn: "Mada", desc: "مجتمع للتفكير العميق والحوارات الهادئة وبناء الرؤية.", color: "#1C6B4A", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", slug: "mada" },
   { name: "مقام", nameEn: "Maqam", desc: "مجتمع يُعيد للسمع مكانته وللغته إحساسها وللصوت قدرته.", color: "#8B6914", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", slug: "maqam" },
-  { name: "عُملة", nameEn: "Umlah", desc: "مجتمع لريادة الأعمال والاقتصاد الإبداعي.", color: "#C9A84C", logoWhite: "/manus-storage/Umlah-Gold_385939e2.png", slug: "umla" },
+  { name: "عُملة", nameEn: "Umlah", desc: "مجتمع لريادة الأعمال والاقتصاد الإبداعي.", color: "#C9A84C", logoWhite: "/manus-storage/Umlah-Gold-Final_67cfd897.png", slug: "umla" },
 ];
 
 const whyPoints = [
@@ -190,7 +190,7 @@ const communityLogos: Record<string, string> = {
   "سدى": "/manus-storage/Sudaa-White_d1defc89.png",
   "مدى": "/manus-storage/Mada-White_c8cc9bc8.png",
   "مقام": "/manus-storage/Maqam-White_10f58ea8.png",
-  "عُملة": "/manus-storage/Umlah-Gold_385939e2.png",
+  "عُملة": "/manus-storage/Umlah-Gold-Final_67cfd897.png",
   "سُرّة": "/manus-storage/Surrah-White_308323ba.png",
 };
 

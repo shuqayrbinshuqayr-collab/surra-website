@@ -30,7 +30,7 @@ const communityLogos: Record<string, { white: string; invert?: boolean }> = {
   sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
   mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
   maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
-  umlah: { white: "/manus-storage/Umlah-Gold_385939e2.png" },
+  umlah: { white: "/manus-storage/Umlah-Gold-Final_67cfd897.png" },
 };
 
 const communitiesData = {

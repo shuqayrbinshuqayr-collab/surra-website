@@ -18,8 +18,8 @@ const communityLogos: Record<string, { white: string; invert?: boolean }> = {
   sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
   mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
   maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
-  umlah: { white: "/manus-storage/Umlah-White_96823e55.png" },
-  umla: { white: "/manus-storage/Umlah-White_96823e55.png" },
+  umlah: { white: "/manus-storage/Umlah-White-Final_92329db8.png" },
+  umla: { white: "/manus-storage/Umlah-White-Final_92329db8.png" },
 };
 
 const communities: Record<string, {

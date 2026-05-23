@@ -131,7 +131,7 @@ export default function Media() {
         }}
       >
         {/* Video Background */}
-        <VideoBackground src="/manus-storage/magnific_site-begins-with-a-night-_2908528196_ec5c37cc.mp4" opacity={0.2} />
+        <VideoBackground src="/manus-storage/magnific_site-begins-with-a-night-_2908528196_ec5c37cc.mp4" opacity={0.6} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 100%)" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ maxWidth: "700px" }}>

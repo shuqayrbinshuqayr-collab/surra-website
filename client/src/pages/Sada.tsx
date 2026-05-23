@@ -247,7 +247,7 @@ export default function Sada() {
       {/* ── Hero ── */}
       <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
         {/* Video Background */}
-        <VideoBackground src="/manus-storage/magnific_keep-the-same-image-and-m_2908526314_215afa14.mp4" opacity={0.3} />
+        <VideoBackground src="/manus-storage/magnific_keep-the-same-image-and-m_2908526314_215afa14.mp4" opacity={0.7} />
         {/* Background image fallback */}
         <div style={{
           position: "absolute", inset: 0,

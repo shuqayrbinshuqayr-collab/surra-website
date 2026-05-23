@@ -170,7 +170,7 @@ export default function Directory() {
         }}
       >
         {/* Video Background */}
-        <VideoBackground src="/manus-storage/transform-to-night-sky-over-diriyah-thunder-clouds_987c713a.mp4" opacity={0.3} />
+        <VideoBackground src="/manus-storage/transform-to-night-sky-over-diriyah-thunder-clouds_987c713a.mp4" opacity={0.7} />
         {/* Background image */}
         <div
           style={{

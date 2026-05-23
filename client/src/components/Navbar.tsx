@@ -20,7 +20,7 @@ const communities = [
   { href: "/communities/sada", label: "سدى", labelEn: "Sada", labelZh: "萨达", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png", invertOnDark: false },
   { href: "/communities/mada", label: "مدى", labelEn: "Mada", labelZh: "马达", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png", invertOnDark: false },
   { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", labelZh: "马卡姆", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png", invertOnDark: false },
-  { href: "/communities/umla", label: "عُملة", labelEn: "Umlah", labelZh: "乌姆拉", color: "#C9A84C", logoWhite: "/manus-storage/Umlah-White_96823e55.png", logoBlack: "/manus-storage/Umlah-Black_f8a8fa99.webp", invertOnDark: false },
+  { href: "/communities/umla", label: "عُملة", labelEn: "Umlah", labelZh: "乌姆拉", color: "#C9A84C", logoWhite: "/manus-storage/Umlah-White-Final_92329db8.png", logoBlack: "/manus-storage/Umlah-White-Final_92329db8.png", invertOnDark: false },
 ];
 
 export default function Navbar() {
