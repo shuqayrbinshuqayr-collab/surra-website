@@ -80,8 +80,8 @@ const identityDocs = [
   },
   {
     id: "profile",
-    titleAr: "البروفايل",
-    titleEn: "Company Profile",
+    titleAr: "الملف التعريفي | سُرّة",
+    titleEn: "Company Profile | Surra",
     descAr: "الملف التعريفي الكامل لسُرّة — رؤيتنا، مجتمعاتنا، خدماتنا، وإنجازاتنا",
     descEn: "Surra's complete company profile — our vision, communities, services, and achievements",
     icon: "◇",
@@ -417,29 +417,59 @@ export default function Media() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {/* BASAR */}
-            <div style={{ background: "#111", border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden", transition: "transform 0.2s" }}
+            <div style={{ background: "#111", border: "1px solid rgba(212,175,55,0.3)", overflow: "hidden", transition: "transform 0.2s" }}
               onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-4px)")}
               onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}>
-              <div style={{ height: "120px", background: "linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 50%, #2a5a2a 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                <span style={{ fontSize: "3rem", opacity: 0.9 }}>◉</span>
-                <div style={{ position: "absolute", bottom: "0.75rem", right: isAr ? "0.75rem" : "auto", left: isAr ? "auto" : "0.75rem", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.5)", background: "rgba(0,0,0,0.4)", padding: "0.15rem 0.5rem", borderRadius: "2px" }}>
-                  PDF · {isAr ? "بروفايل" : "Profile"}
+              <div style={{ height: "120px", background: "linear-gradient(135deg, #1a1200 0%, #3d2e00 50%, #D4AF37 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+                <span style={{ fontSize: "3rem", opacity: 0.9, color: "#000" }}>◉</span>
+                <div style={{ position: "absolute", bottom: "0.75rem", right: isAr ? "0.75rem" : "auto", left: isAr ? "auto" : "0.75rem", fontFamily: F, fontSize: "0.7rem", color: "rgba(0,0,0,0.75)", background: "rgba(212,175,55,0.55)", padding: "0.15rem 0.5rem", borderRadius: "2px" }}>
+                  PDF · {isAr ? "الملف التعريفي" : "Profile"}
                 </div>
               </div>
               <div style={{ padding: "1.25rem" }}>
-                <h3 style={{ fontFamily: F, fontSize: "1.05rem", fontWeight: 800, color: "#4CAF50", marginBottom: "0.4rem" }}>
-                  {isAr ? "مجتمع بَصَر" : "Basar Community"}
+                <h3 style={{ fontFamily: F, fontSize: "1.05rem", fontWeight: 800, color: "#D4AF37", marginBottom: "0.4rem" }}>
+                  {isAr ? "الملف التعريفي | بَصَر" : "Community Profile | Basar"}
                 </h3>
                 <p style={{ fontFamily: F, fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "1rem" }}>
                   {isAr ? "الملف التعريفي لمجتمع بَصَر — رؤيته، فعالياته، وأثره في المشهد الإبداعي" : "Basar community profile — its vision, events, and creative impact"}
                 </p>
                 <div style={{ display: "flex", gap: "0.6rem" }}>
                   <a href="/manus-storage/basar-profile_7782383e.pdf" target="_blank" rel="noopener noreferrer"
-                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 700, color: "#fff", background: "#4CAF50", border: "none", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem", transition: "opacity 0.2s" }}>
+                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 700, color: "#000", background: "#D4AF37", border: "none", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem", transition: "opacity 0.2s" }}>
                     {isAr ? "عرض" : "View"} ↗
                   </a>
                   <a href="/manus-storage/basar-profile_7782383e.pdf" download
-                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 600, color: "#4CAF50", background: "transparent", border: "1px solid #4CAF50", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 600, color: "#D4AF37", background: "transparent", border: "1px solid #D4AF37", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                    {isAr ? "تحميل" : "Download"} ↓
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* SUDDA */}
+            <div style={{ background: "#111", border: "1px solid rgba(236,0,140,0.3)", overflow: "hidden", transition: "transform 0.2s" }}
+              onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-4px)")}
+              onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}>
+              <div style={{ height: "120px", background: "linear-gradient(135deg, #0d0020 0%, #2d0060 45%, #EC008C 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+                <span style={{ fontSize: "3rem", opacity: 0.9, color: "#fff" }}>▲</span>
+                <div style={{ position: "absolute", bottom: "0.75rem", right: isAr ? "0.75rem" : "auto", left: isAr ? "auto" : "0.75rem", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.9)", background: "rgba(236,0,140,0.45)", padding: "0.15rem 0.5rem", borderRadius: "2px" }}>
+                  PDF · {isAr ? "الملف التعريفي" : "Profile"}
+                </div>
+              </div>
+              <div style={{ padding: "1.25rem" }}>
+                <h3 style={{ fontFamily: F, fontSize: "1.05rem", fontWeight: 800, color: "#EC008C", marginBottom: "0.4rem" }}>
+                  {isAr ? "الملف التعريفي | سُدى" : "Community Profile | Sudda"}
+                </h3>
+                <p style={{ fontFamily: F, fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "1rem" }}>
+                  {isAr ? "الملف التعريفي لمجتمع سُدى — رؤيته، فعالياته، وأثره في المشهد الإبداعي" : "Sudda community profile — its vision, events, and creative impact"}
+                </p>
+                <div style={{ display: "flex", gap: "0.6rem" }}>
+                  <a href="/manus-storage/sada-profile_63afeba6.pdf" target="_blank" rel="noopener noreferrer"
+                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 700, color: "#fff", background: "#EC008C", border: "none", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem", transition: "opacity 0.2s" }}>
+                    {isAr ? "عرض" : "View"} ↗
+                  </a>
+                  <a href="/manus-storage/sada-profile_63afeba6.pdf" download
+                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 600, color: "#EC008C", background: "transparent", border: "1px solid #EC008C", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
                     {isAr ? "تحميل" : "Download"} ↓
                   </a>
                 </div>
