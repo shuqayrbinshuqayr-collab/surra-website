@@ -196,29 +196,123 @@ const communityLogos: Record<string, string> = {
 type SurrahEvent = {
   id: number;
   title: string;
+  titleEn: string;
   description: string;
-  date: string; // ISO string e.g. "2026-04-28"
+  descriptionEn: string;
+  date: string;
+  location: string;
+  locationEn: string;
   community: string;
+  communityEn: string;
+  communitySlug: string;
+  communityColor: string;
+  type: string;
+  typeEn: string;
   registerUrl: string;
-  coverImage?: string;
 };
 
 const eventsData: SurrahEvent[] = [
   {
     id: 1,
     title: "ثلوثية بَصَر | كيف نقرأ قطاع الأفلام في السعودية؟",
-    description: "لقاء يجمع صنّاع ومهتمين لفهم أعمق لقطاع الأفلام في المملكة. أمسية ثريّة بالحوار والإلهام لكل من يهتم بالفنون البصرية وصناعة المحتوى الإبداعي.",
-    date: "2026-05-16",
+    titleEn: "Basar Thursday | How Do We Read the Film Sector in Saudi Arabia?",
+    description: "لقاء يجمع صنّاع ومهتمين لفهم أعمق لقطاع الأفلام في المملكة. أمسية ثريّة بالحوار والإلهام لكل من يهتم بالفنون البصرية.",
+    descriptionEn: "A gathering of filmmakers and enthusiasts for a deeper understanding of the film sector in the Kingdom. An evening rich with dialogue and inspiration.",
+    date: "2026-06-12",
+    location: "الرياض — الدرعية",
+    locationEn: "Riyadh — Diriyah",
     community: "بصر",
+    communityEn: "Basar",
+    communitySlug: "basar",
+    communityColor: "#C4622D",
+    type: "جلسة نقدية",
+    typeEn: "Critique Session",
     registerUrl: "/register?event=thluthyat-basar",
   },
   {
     id: 2,
-    title: "لقاء الكرييتفز 2 – مجتمع بصر",
-    description: "يسرّ بَصَر مجتمع دعوتكم لحضور لقاء الكرييتيفز اللقاء الشهري الذي يجمع المبدعين وصُنّاع الفنون البصرية في أمسية ثريّة بالحوار والإلهام.",
-    date: "2025-12-27",
-    community: "بصر",
-    registerUrl: "#",
+    title: "سُدى القياديات — الجلسة الثالثة",
+    titleEn: "Sada Leaders — Third Session",
+    description: "جلسة حوارية مع قياديات بارزات حول موضوع 'القيادة الهادئة وصناعة التأثير'. مساحة آمنة للنقاش والإلهام المتبادل.",
+    descriptionEn: "A dialogue session with prominent leaders on 'Quiet Leadership and Creating Impact'. A safe space for discussion and mutual inspiration.",
+    date: "2026-06-20",
+    location: "الرياض",
+    locationEn: "Riyadh",
+    community: "سدى",
+    communityEn: "Sada",
+    communitySlug: "sada",
+    communityColor: "#7B4F8E",
+    type: "جلسة حوارية",
+    typeEn: "Dialogue Session",
+    registerUrl: "/register?event=sada-leaders-3",
+  },
+  {
+    id: 3,
+    title: "عُملة | الوعي المالي للمبتدئين",
+    titleEn: "Umlah | Financial Literacy for Beginners",
+    description: "ورشة عملية تُعرّف بأساسيات الاستثمار وإدارة الثروة الشخصية. مناسبة لمن يريد أن يبدأ رحلته المالية بخطوات واثقة.",
+    descriptionEn: "A practical workshop introducing the basics of investment and personal wealth management. Suitable for those starting their financial journey.",
+    date: "2026-07-05",
+    location: "جدة",
+    locationEn: "Jeddah",
+    community: "عُملة",
+    communityEn: "Umlah",
+    communitySlug: "umla",
+    communityColor: "#D4AF37",
+    type: "ورشة عمل",
+    typeEn: "Workshop",
+    registerUrl: "/register?event=umlah-financial-1",
+  },
+  {
+    id: 4,
+    title: "مقام | ليلة الصوت السعودي",
+    titleEn: "Maqam | Saudi Sound Night",
+    description: "أمسية موسيقية تجمع أصوات سعودية مميزة في تجربة سمعية فريدة. احتفاء بالموسيقى السعودية المعاصرة وتراثها الغني.",
+    descriptionEn: "A musical evening bringing together distinctive Saudi voices in a unique auditory experience. A celebration of contemporary Saudi music and its rich heritage.",
+    date: "2026-07-18",
+    location: "الرياض — مسرح المدينة",
+    locationEn: "Riyadh — City Theater",
+    community: "مقام",
+    communityEn: "Maqam",
+    communitySlug: "maqam",
+    communityColor: "#8B6914",
+    type: "أمسية موسيقية",
+    typeEn: "Musical Evening",
+    registerUrl: "/register?event=maqam-sound-night",
+  },
+  {
+    id: 5,
+    title: "صفر | لقاء المبتدئين في التقنية",
+    titleEn: "Sifr | Tech Beginners Meetup",
+    description: "لقاء شهري يجمع المبتدئين في مجالات البرمجة والتصميم والتقنية. بيئة داعمة لتبادل التجارب والأسئلة الأولى.",
+    descriptionEn: "A monthly meetup bringing together beginners in programming, design, and technology. A supportive environment for sharing experiences and first questions.",
+    date: "2026-07-25",
+    location: "أونلاين",
+    locationEn: "Online",
+    community: "صفر",
+    communityEn: "Sifr",
+    communitySlug: "sifr",
+    communityColor: "#9CA3AF",
+    type: "لقاء شهري",
+    typeEn: "Monthly Meetup",
+    registerUrl: "/register?event=sifr-beginners-meetup",
+  },
+  {
+    id: 6,
+    title: "مدى | جلسة التفكير العميق",
+    titleEn: "Mada | Deep Thinking Session",
+    description: "جلسة تأملية هادئة تستكشف أسئلة الوجود والمعنى والرؤية. لمن يؤمن أن التغيير يبدأ من الداخل.",
+    descriptionEn: "A quiet contemplative session exploring questions of existence, meaning, and vision. For those who believe change starts from within.",
+    date: "2026-08-10",
+    location: "الرياض",
+    locationEn: "Riyadh",
+    community: "مدى",
+    communityEn: "Mada",
+    communitySlug: "mada",
+    communityColor: "#1C6B4A",
+    type: "جلسة تأملية",
+    typeEn: "Contemplative Session",
+    registerUrl: "/register?event=mada-deep-thinking",
   },
 ];
 
@@ -233,150 +327,248 @@ function formatArabicDate(dateStr: string): string {
 }
 
 function UpcomingEvents() {
+  const { lang } = useLanguage();
+  const isAr = lang !== "en";
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+
+  const filters = [
+    { id: "all", label: isAr ? "الكل" : "All", color: "#C4622D" },
+    { id: "basar", label: isAr ? "بصر" : "Basar", color: "#C4622D" },
+    { id: "sada", label: isAr ? "سدى" : "Sada", color: "#7B4F8E" },
+    { id: "umla", label: isAr ? "عُملة" : "Umlah", color: "#D4AF37" },
+    { id: "maqam", label: isAr ? "مقام" : "Maqam", color: "#8B6914" },
+    { id: "sifr", label: isAr ? "صفر" : "Sifr", color: "#9CA3AF" },
+    { id: "mada", label: isAr ? "مدى" : "Mada", color: "#1C6B4A" },
+  ];
+
+  const filtered = activeFilter === "all"
+    ? eventsData
+    : eventsData.filter((e) => e.communitySlug === activeFilter);
+
+  const upcoming = filtered.filter((e) => !isExpired(e.date));
+  const past = filtered.filter((e) => isExpired(e.date));
+  const sorted = [...upcoming, ...past];
+
   return (
-    <section
-      style={{
-        background: "var(--surrah-section-bg)",
-        padding: "5rem 0",
-        direction: "rtl",
-      }}
-    >
-      <div className="container" style={{ maxWidth: "900px", margin: "0 auto", padding: "0 1.5rem" }}>
-        {/* Section Header */}
-        <div style={{ textAlign: "right", marginBottom: "3rem" }}>
-          <div style={{ width: "3rem", height: "2px", background: "#C4622D", marginBottom: "1rem", marginRight: "0" }} />
-          <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", color: "var(--surrah-text-primary)", fontWeight: 700, marginBottom: "0.5rem" }}>
-            الفعاليات القادمة
-          </h2>
-          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem", fontFamily: "'ManchetteFine', sans-serif" }}>
-            تابع آخر فعاليات مجتمعات سُرّة وسجّل حضورك
-          </p>
+    <section style={{ background: "var(--surrah-section-alt)", padding: "6rem 0", direction: isAr ? "rtl" : "ltr" }}>
+      <style>{`
+        .event-card {
+          background: #0d0d0d;
+          border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 0;
+          transition: border-color 0.3s, transform 0.3s;
+          cursor: default;
+          position: relative;
+          overflow: hidden;
+        }
+        .event-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 3px;
+          height: 0;
+          transition: height 0.4s ease;
+        }
+        .event-card:hover::before {
+          height: 100%;
+        }
+        .event-card:hover {
+          border-color: rgba(255,255,255,0.15);
+          transform: translateY(-2px);
+        }
+        .filter-pill {
+          border: 1px solid rgba(255,255,255,0.15);
+          background: transparent;
+          color: rgba(255,255,255,0.55);
+          padding: 0.4rem 1.1rem;
+          font-family: 'ManchetteFine', sans-serif;
+          font-size: 0.82rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          border-radius: 0;
+          letter-spacing: 0.03em;
+        }
+        .filter-pill:hover {
+          color: #fff;
+          border-color: rgba(255,255,255,0.4);
+        }
+        .filter-pill.active {
+          color: #fff;
+          font-weight: 700;
+        }
+        .register-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          padding: 0.55rem 1.4rem;
+          font-family: 'ManchetteFine', sans-serif;
+          font-size: 0.85rem;
+          font-weight: 700;
+          text-decoration: none;
+          transition: opacity 0.2s, transform 0.2s;
+          letter-spacing: 0.04em;
+        }
+        .register-btn:hover {
+          opacity: 0.85;
+          transform: translateY(-1px);
+        }
+        .events-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1px;
+          background: rgba(255,255,255,0.06);
+        }
+        @media (min-width: 768px) {
+          .events-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (min-width: 1100px) {
+          .events-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2rem" }}>
+
+        {/* ── Section Header ── */}
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "2.5rem", flexWrap: "wrap", gap: "1rem" }}>
+          <div>
+            <div style={{ width: "2.5rem", height: "2px", background: "#C4622D", marginBottom: "1rem" }} />
+            <h2 style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "var(--surrah-text-primary)", fontWeight: 900, margin: 0, lineHeight: 1.15 }}>
+              {isAr ? "الفعاليات القادمة" : "Upcoming Events"}
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.9rem", fontFamily: "'ManchetteFine', sans-serif", marginTop: "0.5rem" }}>
+              {isAr ? `${upcoming.length} فعالية قادمة من مجتمعات سُرّة` : `${upcoming.length} upcoming events from Surra communities`}
+            </p>
+          </div>
+          <a href="/communities" style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", textDecoration: "none", borderBottom: "1px solid rgba(255,255,255,0.2)", paddingBottom: "2px", transition: "color 0.2s" }}>
+            {isAr ? "استكشف المجتمعات ←" : "Explore Communities →"}
+          </a>
         </div>
 
-        {/* Event Cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-          {eventsData.map((event) => {
-            const expired = isExpired(event.date);
-            const logo = communityLogos[event.community];
-            return (
-              <div
-                key={event.id}
-                style={{
-                  background: "#ffffff",
-                  borderRadius: "16px",
-                  padding: "1.5rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.75rem",
-                  boxShadow: "0 2px 20px rgba(0,0,0,0.3)",
-                  opacity: expired ? 0.75 : 1,
-                }}
-              >
-                {/* Top row: community tag + logo */}
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div
-                    style={{
-                      background: "#C4622D",
-                      color: "var(--surrah-text-primary)",
-                      borderRadius: "8px",
-                      padding: "0.25rem 0.75rem",
-                      fontSize: "0.8rem",
-                      fontFamily: "'ManchetteFine', sans-serif",
-                      fontWeight: 600,
-                    }}
-                  >
-                    {event.community}
-                  </div>
-                  {logo && (
-                    <div
-                      style={{
-                        background: "var(--surrah-section-alt)",
-                        borderRadius: "10px",
-                        padding: "0.4rem 0.75rem",
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      <img
-                        src={logo}
-                        alt={event.community}
-                        style={{ height: "28px", width: "auto", objectFit: "contain" }}
-                      />
-                    </div>
-                  )}
-                </div>
+        {/* ── Filter Pills ── */}
+        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "2.5rem" }}>
+          {filters.map((f) => (
+            <button
+              key={f.id}
+              className={`filter-pill${activeFilter === f.id ? " active" : ""}`}
+              style={activeFilter === f.id ? { borderColor: f.color, color: f.color, background: f.color + "18" } : {}}
+              onClick={() => setActiveFilter(f.id)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
 
-                {/* Title */}
-                <h3
-                  style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontSize: "1.2rem",
-                    fontWeight: 700,
-                    color: "#111111",
-                    margin: 0,
-                    textAlign: "right",
-                  }}
+        {/* ── Events Grid ── */}
+        {sorted.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "4rem 0", color: "rgba(255,255,255,0.3)", fontFamily: "'ManchetteFine', sans-serif" }}>
+            {isAr ? "لا توجد فعاليات لهذا المجتمع حالياً" : "No events for this community yet"}
+          </div>
+        ) : (
+          <div className="events-grid">
+            {sorted.map((event) => {
+              const expired = isExpired(event.date);
+              const logo = communityLogos[event.community];
+              const accentColor = event.communityColor;
+              return (
+                <div
+                  key={event.id}
+                  className="event-card"
+                  style={{ opacity: expired ? 0.55 : 1 }}
                 >
-                  {event.title}
-                </h3>
+                  <style>{`.event-card-${event.id}::before { background: ${accentColor}; }`}</style>
+                  <div className={`event-card event-card-${event.id}`} style={{ padding: "1.75rem", height: "100%", display: "flex", flexDirection: "column", gap: "1rem", background: "transparent", border: "none", borderRadius: 0 }}>
 
-                {/* Description */}
-                <p
-                  style={{
-                    fontFamily: "'ManchetteFine', sans-serif",
-                    fontSize: "0.88rem",
-                    color: "#555555",
-                    lineHeight: 1.7,
-                    margin: 0,
-                    textAlign: "right",
-                  }}
-                >
-                  {event.description}
-                </p>
-
-                {/* Bottom row: date + button */}
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.25rem" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#777777", fontSize: "0.85rem", fontFamily: "'ManchetteFine', sans-serif" }}>
-                    
-                    <span>{formatArabicDate(event.date)}</span>
-                  </div>
-                  {expired ? (
-                    <div
-                      style={{
-                        border: "1.5px solid #C4622D",
-                        color: "#C4622D",
-                        borderRadius: "8px",
-                        padding: "0.35rem 1rem",
-                        fontSize: "0.82rem",
-                        fontFamily: "'ManchetteFine', sans-serif",
-                        fontWeight: 600,
-                        cursor: "default",
-                      }}
-                    >
-                      EXPIRED!
+                    {/* Top: community badge + type */}
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                        {logo && (
+                          <div style={{ background: accentColor + "22", border: `1px solid ${accentColor}44`, padding: "0.3rem 0.6rem", display: "flex", alignItems: "center" }}>
+                            <img src={logo} alt={event.community} style={{ height: "22px", width: "auto", objectFit: "contain" }} />
+                          </div>
+                        )}
+                        <span style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.75rem", color: accentColor, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                          {isAr ? event.community : event.communityEn}
+                        </span>
+                      </div>
+                      <span style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.35)", border: "1px solid rgba(255,255,255,0.12)", padding: "0.2rem 0.6rem" }}>
+                        {isAr ? event.type : event.typeEn}
+                      </span>
                     </div>
-                  ) : (
-                    <a
-                      href="/register"
-                      style={{
-                        background: "#C4622D",
-                        color: "var(--surrah-text-primary)",
-                        borderRadius: "8px",
-                        padding: "0.45rem 1.25rem",
-                        fontSize: "0.88rem",
-                        fontFamily: "'ManchetteFine', sans-serif",
-                        fontWeight: 600,
-                        textDecoration: "none",
-                        transition: "background 0.2s",
-                      }}
-                    >
-                      حضور
-                    </a>
-                  )}
+
+                    {/* Title */}
+                    <h3 style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "1.05rem", fontWeight: 800, color: "var(--surrah-text-primary)", margin: 0, lineHeight: 1.4, textAlign: isAr ? "right" : "left" }}>
+                      {isAr ? event.title : event.titleEn}
+                    </h3>
+
+                    {/* Description */}
+                    <p style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.83rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.75, margin: 0, flexGrow: 1, textAlign: isAr ? "right" : "left" }}>
+                      {isAr ? event.description : event.descriptionEn}
+                    </p>
+
+                    {/* Divider */}
+                    <div style={{ height: "1px", background: "rgba(255,255,255,0.07)" }} />
+
+                    {/* Bottom: date + location + CTA */}
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
+                        <span style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.82rem", color: "var(--surrah-text-primary)", fontWeight: 700 }}>
+                          {formatArabicDate(event.date)}
+                        </span>
+                        <span style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}>
+                          📍 {isAr ? event.location : event.locationEn}
+                        </span>
+                      </div>
+                      {expired ? (
+                        <span style={{ fontFamily: "'ManchetteFine', sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.25)", border: "1px solid rgba(255,255,255,0.1)", padding: "0.3rem 0.8rem", letterSpacing: "0.06em" }}>
+                          {isAr ? "انتهت" : "ENDED"}
+                        </span>
+                      ) : (
+                        <a
+                          href={event.registerUrl}
+                          className="register-btn"
+                          style={{ background: accentColor, color: "#fff" }}
+                        >
+                          {isAr ? "سجّل حضورك" : "Register"}
+                          <span style={{ fontSize: "0.9rem" }}>{isAr ? "←" : "→"}</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+        )}
+
+        {/* ── View All CTA ── */}
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <a
+            href="/register"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.6rem",
+              fontFamily: "'ManchetteFine', sans-serif",
+              fontSize: "0.9rem",
+              fontWeight: 700,
+              color: "rgba(255,255,255,0.7)",
+              textDecoration: "none",
+              border: "1px solid rgba(255,255,255,0.15)",
+              padding: "0.75rem 2rem",
+              transition: "all 0.2s",
+              letterSpacing: "0.05em",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.4)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)"; }}
+          >
+            {isAr ? "تسجيل في فعالية" : "Register for an Event"}
+            <span>{isAr ? "←" : "→"}</span>
+          </a>
         </div>
       </div>
     </section>
