@@ -129,30 +129,61 @@ export default function About() {
                   marginBottom: "1.5rem",
                 }}
               >
-                {lang === "ar" ? "لأنها النقطة التي تنبثق منها الدوائر" : lang === "en" ? "The Point from Which Circles Emerge" : "圆圈涌现的起点"}
+                {lang === "ar" ? "لأنها النقطة التي تنبثق منها الدوائر..." : lang === "en" ? "The Point from Which Circles Emerge..." : "圆圈涌现的起点..."}
               </h2>
-              <p
-                style={{
-                  fontFamily: F,
-                  fontWeight: 400,
-                  fontSize: "1rem",
-                  color: "rgba(255,255,255,0.75)",
-                  lineHeight: 2.1,
-                  marginBottom: "1.5rem",
-                }}
-              >
-                {lang === "ar" ? "سُرّة كيان سعودي ثقافي متخصص في تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام. اسمها مستوحى من نقطة الوسط التي تنبثق منها الدوائر — لأنها مركز تنشأ منه كل الحلقات." : lang === "en" ? "Surra is a Saudi cultural entity specializing in designing, building, and operating cultural and creative communities with lasting impact. Its name is inspired by the central point from which circles emerge — because it is the center from which all rings arise." : "苏拉是一个沙特阿拉伯文化实体，专注于设计、建设和运营具有持久影响的文化创意社区。其名称灵感来自圆心点——所有圆圈涌现的中心。"}
+
+              {/* Paragraph 1 */}
+              <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1, marginBottom: "1.5rem" }}>
+                {lang === "ar"
+                  ? "سُرّة كيان ثقافي سعودي متخصص في تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام."
+                  : lang === "en"
+                  ? "Surra is a Saudi cultural entity specializing in designing, building, and operating cultural and creative communities with lasting impact."
+                  : "苏拉是一个沙特阿拉伯文化实体，专注于设计、建设和运营具有持久影响的文化创意社区。"}
               </p>
-              <p
-                style={{
-                  fontFamily: F,
-                  fontWeight: 400,
-                  fontSize: "1rem",
-                  color: "rgba(255,255,255,0.75)",
-                  lineHeight: 2.1,
-                }}
-              >
-                {lang === "ar" ? "سُرّة ليست منصة، ولا جهة تنظيم فعاليات، بل منظومة متكاملة لصناعة المجتمعات. نعمل عند نقطة التقاء الفكرة بالإنسان، والمحتوى بالتجربة، واللقاء بالأثر المستدام." : lang === "en" ? "Surra is not a platform, nor an events organizer, but an integrated system for community creation. We work at the intersection of idea and person, content and experience, encounter and lasting impact." : "苏拉不是一个平台，也不是活动组织者，而是一个建设社区的综合体系。我们工作在想法与人、内容与体验、相遇与持久影响的交汇处。"}
+
+              {/* Paragraph 2 */}
+              <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1, marginBottom: "1.5rem" }}>
+                {lang === "ar"
+                  ? 'استُلهم اسمها من "السُرّة" بوصفها نقطة الوسط التي تبدأ منها الدوائر وتتسع، تمامًا كما تبدأ الأفكار الصغيرة لتصنع مجتمعات وحراكًا يمتد أثره.'
+                  : lang === "en"
+                  ? 'Its name is inspired by "Surra" — the navel, the central point from which circles begin and expand, just as small ideas grow to create communities and movements whose impact endures.'
+                  : '其名称灵感来自"苏拉"——肚脐，圆圈开始并扩展的中心点，就像小想法成长为社区和运动，其影响持久延续。'}
+              </p>
+
+              {/* Paragraph 3 */}
+              <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1, marginBottom: "1.5rem" }}>
+                {lang === "ar"
+                  ? "في سُرّة، لا ننظر إلى المجتمع كجمهور، بل كمنظومة حيّة تُبنى حول الاهتمامات والقيم والتجارب المشتركة... لذلك نحن لا نعمل كمنصة رقمية، ولا كجهة لتنظيم الفعاليات فقط، بل كمنظومة متكاملة لصناعة المجتمعات الثقافية والإبداعية."
+                  : lang === "en"
+                  ? "At Surra, we do not view community as an audience, but as a living system built around shared interests, values, and experiences. That is why we do not work as a digital platform, nor merely as an events organizer, but as an integrated system for creating cultural and creative communities."
+                  : "在苏拉，我们不将社区视为受众，而是围绕共同兴趣、价值观和体验建立的生命系统。因此，我们不作为数字平台运作，也不仅仅作为活动组织者，而是作为创建文化创意社区的综合体系。"}
+              </p>
+
+              {/* Intersection list */}
+              <p style={{ fontFamily: F, fontWeight: 600, fontSize: "0.95rem", color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>
+                {lang === "ar" ? "نعمل عند نقطة التقاء:" : lang === "en" ? "We work at the intersection of:" : "我们工作在交汇点："}
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, marginBottom: "1.5rem" }}>
+                {(lang === "ar"
+                  ? ["الفكرة بالإنسان،", "والمحتوى بالتجربة،", "واللقاء بالأثر المستدام."]
+                  : lang === "en"
+                  ? ["Idea and person,", "Content and experience,", "Encounter and lasting impact."]
+                  : ["想法与人，", "内容与体验，", "相遇与持久影响。"]
+                ).map((item, i) => (
+                  <li key={i} style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2, display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                    <span style={{ color: "#C4622D", fontSize: "0.7rem" }}>◈</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Paragraph 4 */}
+              <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1 }}>
+                {lang === "ar"
+                  ? "ومن خلال هذا التقاطع، نصنع مساحات تُحفّز الحوار، وتبني العلاقات، وتُحوّل الاهتمامات المشتركة إلى مجتمعات نابضة بالحياة والاستمرارية."
+                  : lang === "en"
+                  ? "Through this intersection, we create spaces that stimulate dialogue, build relationships, and transform shared interests into communities pulsing with life and continuity."
+                  : "通过这个交汇点，我们创造刺激对话、建立关系的空间，将共同兴趣转化为充满生机和持续性的社区。"}
               </p>
             </div>
             <div className="reveal" style={{ transitionDelay: "0.15s", display: "flex", justifyContent: "center", alignItems: "center" }}>
