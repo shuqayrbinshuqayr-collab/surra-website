@@ -32,24 +32,25 @@ interface TeamMember {
   role: string;
   photo?: string;
   bio?: string;
+  linkedin?: string;
 }
 
 const teamMembers: TeamMember[] = [
-  { name: "منصور باخلعة", role: "مؤسس ومنتج مجتمعات", photo: "/manus-storage/mansour_5b9a1523.webp" },
-  { name: "م..معتز العبدالقادر", role: "الرئيس التنفيذي", photo: "/manus-storage/muataz_cfd76867.webp" },
-  { name: "محمد المصري", role: "نائب الرئيس للمنتجات والتسويق", photo: "/manus-storage/mohammed_masri_de3cae4f.webp" },
-  { name: "م. شقير بن شقير", role: "رئيس أنظمة المجتمعات", photo: "/manus-storage/shaqeer_325758dd.webp" },
-  { name: "عبدالرحمن النهدي", role: "مدير تقنية المعلومات", photo: "/manus-storage/abdulrahman_9d7e8050.webp" },
-  { name: "أحمد فضل", role: "مدير إبداعي", photo: "/manus-storage/ahmed_fadl_c95ffaf5.webp" },
-  { name: "د.الهنوف الزنيتان", role: "مستشارة ومديرة تطوير الأعمال", photo: "/manus-storage/hanoof_3d1e14e1.webp" },
-  { name: "أحمد خليل", role: "مسؤول الإنتاج الإعلامي", photo: "/manus-storage/ahmed_khalil_6425d3c1.webp" },
-  { name: "أسماء الظافري", role: "منسقة فعاليات ومحتوى", photo: "/manus-storage/asmaa_57852354.webp" },
-  { name: "قتيبة تركستاني", role: "العلاقات العامة", photo: "/manus-storage/qatiba_13a158ce.webp" },
-  { name: "محمد بن محمد", role: "قائد تشغيل الفعاليات", photo: "/manus-storage/mohammed_bin_5ce8c1d3.webp" },
-  { name: "معاذ الحازمي", role: "قائد الحوار — ثلوثية بصر", photo: "/manus-storage/muadh_69c744aa.webp" },
-  { name: "أسامة فقيه", role: "قائد المجتمع — مقام", photo: "/manus-storage/osama_3d86dc7a.webp" },
-  { name: "دلال العتيبي", role: "مدير العلاقات والشراكات — سدى", photo: "/manus-storage/dalal_61bffb01.webp" },
-  { name: "عبدللطيف الثويني", role: "قائد منتج ثلوثية بصر", photo: "/manus-storage/abdullatif_9b8ca2b9.webp" },
+  { name: "منصور باخلعة", role: "مؤسس ومنتج مجتمعات", photo: "/manus-storage/mansour_5b9a1523.webp", linkedin: "" },
+  { name: "م.معتز العبدالقادر", role: "الرئيس التنفيذي", photo: "/manus-storage/muataz_cfd76867.webp", linkedin: "" },
+  { name: "محمد المصري", role: "نائب الرئيس للمنتجات والتسويق", photo: "/manus-storage/mohammed_masri_de3cae4f.webp", linkedin: "" },
+  { name: "م. شقير بن شقير", role: "رئيس أنظمة المجتمعات", photo: "/manus-storage/shaqeer_325758dd.webp", linkedin: "" },
+  { name: "عبدالرحمن النهدي", role: "مدير تقنية المعلومات", photo: "/manus-storage/abdulrahman_9d7e8050.webp", linkedin: "" },
+  { name: "أحمد فضل", role: "مدير إبداعي", photo: "/manus-storage/ahmed_fadl_c95ffaf5.webp", linkedin: "" },
+  { name: "د.الهنوف الزنيتان", role: "مستشارة ومديرة تطوير الأعمال", photo: "/manus-storage/hanoof_3d1e14e1.webp", linkedin: "" },
+  { name: "أحمد خليل", role: "مسؤول الإنتاج الإعلامي", photo: "/manus-storage/ahmed_khalil_6425d3c1.webp", linkedin: "" },
+  { name: "أسماء الظافري", role: "منسقة فعاليات ومحتوى", photo: "/manus-storage/asmaa_57852354.webp", linkedin: "" },
+  { name: "قتيبة تركستاني", role: "العلاقات العامة", photo: "/manus-storage/qatiba_13a158ce.webp", linkedin: "" },
+  { name: "محمد بن محمد", role: "قائد تشغيل الفعاليات", photo: "/manus-storage/mohammed_bin_5ce8c1d3.webp", linkedin: "" },
+  { name: "معاذ الحازمي", role: "قائد الحوار — ثلوثية بصر", photo: "/manus-storage/muadh_69c744aa.webp", linkedin: "" },
+  { name: "أسامة فقيه", role: "قائد المجتمع — مقام", photo: "/manus-storage/osama_3d86dc7a.webp", linkedin: "" },
+  { name: "دلال العتيبي", role: "مدير العلاقات والشراكات — سدى", photo: "/manus-storage/dalal_61bffb01.webp", linkedin: "" },
+  { name: "عبدللطيف الثويني", role: "قائد منتج ثلوثية بصر", photo: "/manus-storage/abdullatif_9b8ca2b9.webp", linkedin: "" },
 ];
 
 function useReveal() {
@@ -513,9 +514,41 @@ export default function About() {
                   {member.role}
                 </p>
                 {member.bio && (
-                  <p style={{ fontFamily: F, fontWeight: 400, fontSize: "0.78rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>
+                  <p style={{ fontFamily: F, fontWeight: 400, fontSize: "0.78rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.7, marginBottom: "0.5rem" }}>
                     {member.bio}
                   </p>
+                )}
+
+                {/* LinkedIn icon */}
+                {member.linkedin !== undefined && (
+                  <a
+                    href={member.linkedin || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="LinkedIn"
+                    onClick={member.linkedin ? undefined : (e) => e.preventDefault()}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "28px",
+                      height: "28px",
+                      marginTop: "0.4rem",
+                      border: "1px solid rgba(196,98,45,0.35)",
+                      borderRadius: "4px",
+                      color: member.linkedin ? "#C4622D" : "rgba(255,255,255,0.25)",
+                      transition: "all 0.2s ease",
+                      cursor: member.linkedin ? "pointer" : "default",
+                      textDecoration: "none",
+                    }}
+                    onMouseEnter={(e) => { if (member.linkedin) { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "#C4622D"; } }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(196,98,45,0.35)"; }}
+                  >
+                    {/* LinkedIn SVG icon */}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
                 )}
               </div>
             ))}
