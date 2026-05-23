@@ -81,15 +81,15 @@ const identityDocs = [
   },
   {
     id: "guidelines",
-    titleAr: "القايد لاين",
+    titleAr: "قايدلاين الهوية",
     titleEn: "Brand Guidelines",
-    descAr: "إرشادات الاستخدام الكامل للعلامة التجارية — كيفية التطبيق الصحيح في جميع المواد",
+    descAr: "دليل استخدام الهوية البصرية الكامل — كيفية تطبيق العلامة بشكل صحيح على جميع المواد",
     descEn: "Complete brand usage guidelines — how to correctly apply the brand across all materials",
     icon: "◉",
     color: "#7B4F8E",
     pages: "٣٢ صفحة",
     pagesEn: "32 pages",
-    pdfUrl: null as string | null,
+    pdfUrl: "/manus-storage/surrah-guidelines_4d27ab06.pdf",
     previewColor: "linear-gradient(135deg, #0d0014 0%, #2a0040 50%, #7B4F8E 100%)",
   },
   {
