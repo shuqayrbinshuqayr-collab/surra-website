@@ -12,13 +12,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const F = "'ManchetteFine', sans-serif";
 
-// ترتيب القيم: صف 3 (الإنسان أولاً، التمكين، التجريب) + صف 2 (الشراكة، الاستدامة)
-const valuesRow1 = [
+const values = [
   { title: "الإنسان أولاً", titleEn: "People First", titleZh: "以人为本", desc: "نبدأ من الفكرة وننتهي عند الإنسان.", descEn: "We start from the idea and end at the human.", descZh: "我们从想法出发，以人为终点。" },
   { title: "التمكين", titleEn: "Empowerment", titleZh: "赋权", desc: "نفتح الأبواب ونمنح الأدوات.", descEn: "We open doors and provide the tools.", descZh: "我们打开门并提供工具。" },
   { title: "التجريب", titleEn: "Experimentation", titleZh: "实验精神", desc: "نجرب لنكتشف، ونفشل لنتقدم.", descEn: "We experiment to discover, and fail to advance.", descZh: "我们实验以发现，失败以前进。" },
-];
-const valuesRow2 = [
   { title: "الشراكة", titleEn: "Partnership", titleZh: "合作关系", desc: "نؤمن أن العمل الثقافي لا يُبنى وحيدًا.", descEn: "We believe cultural work cannot be built alone.", descZh: "我们相信文化工作不能独自建立。" },
   { title: "الاستدامة", titleEn: "Sustainability", titleZh: "可持续性", desc: "نؤمن بالأثر الطويل لا الوهج العابر.", descEn: "We believe in long-term impact, not fleeting brilliance.", descZh: "我们相信长期影响，而非短暂光辉。" },
 ];
@@ -355,43 +352,30 @@ export default function About() {
       </section>
 
       {/* ── Values ── */}
-      <section id="values" style={{ background: "#FAF8F4", padding: "5rem 0" }}>
+      <section id="values" style={{ background: "var(--surrah-section-bg)", padding: "5rem 0" }}>
         <div className="container">
-          {/* Title */}
-          <div className="reveal text-center" style={{ marginBottom: "4rem" }}>
-            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(3rem, 8vw, 6rem)", color: "#1C2B3A", lineHeight: 1 }}>
+          <div className="reveal" style={{ marginBottom: "3rem" }}>
+            <div className="surrah-divider" />
+            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "var(--surrah-text-primary)" }}>
               {lang === "ar" ? "قيمنا" : lang === "en" ? "Our Values" : "我们的价値观"}
             </h2>
           </div>
-
-          {/* Row 1: 3 values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            {valuesRow1.map((v, i) => (
-              <div key={v.title} className="reveal text-center" style={{ transitionDelay: `${i * 0.1}s` }}>
-                {/* Brown badge label */}
-                <div style={{ display: "inline-block", background: "#9B7355", padding: "0.5rem 2rem", marginBottom: "1.25rem" }}>
-                  <span style={{ fontFamily: F, fontWeight: 700, fontSize: "1.3rem", color: "#F0EBE1" }}>
-                    {lang === "ar" ? v.title : lang === "en" ? v.titleEn : v.titleZh}
-                  </span>
-                </div>
-                <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "#3D4F60", lineHeight: 1.9 }}>
-                  {lang === "ar" ? v.desc : lang === "en" ? v.descEn : v.descZh}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2: 2 values centered */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-2xl mx-auto">
-            {valuesRow2.map((v, i) => (
-              <div key={v.title} className="reveal text-center" style={{ transitionDelay: `${(i + 3) * 0.1}s` }}>
-                {/* Brown badge label */}
-                <div style={{ display: "inline-block", background: "#9B7355", padding: "0.5rem 2rem", marginBottom: "1.25rem" }}>
-                  <span style={{ fontFamily: F, fontWeight: 700, fontSize: "1.3rem", color: "#F0EBE1" }}>
-                    {lang === "ar" ? v.title : lang === "en" ? v.titleEn : v.titleZh}
-                  </span>
-                </div>
-                <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "#3D4F60", lineHeight: 1.9 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+            {values.map((v, i) => (
+              <div
+                key={v.title}
+                className="reveal"
+                style={{
+                  padding: "2.5rem 2rem",
+                  background: i % 2 === 0 ? "#111111" : "#1a1a1a",
+                  borderTop: "3px solid #C4622D",
+                  transitionDelay: `${i * 0.1}s`,
+                }}
+              >
+                <h3 style={{ fontFamily: F, fontWeight: 900, fontSize: "1.3rem", color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>
+                  {lang === "ar" ? v.title : lang === "en" ? v.titleEn : v.titleZh}
+                </h3>
+                <p style={{ fontFamily: F, fontWeight: 400, fontSize: "0.85rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.9 }}>
                   {lang === "ar" ? v.desc : lang === "en" ? v.descEn : v.descZh}
                 </p>
               </div>
