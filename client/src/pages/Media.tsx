@@ -139,12 +139,12 @@ export default function Media() {
               {isAr ? "المركز الإعلامي" : "MEDIA CENTER"}
             </p>
             <h1 style={{ fontFamily: F, fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 900, lineHeight: 1.15, marginBottom: "1.5rem" }}>
-              {isAr ? "أخبار وهوية سُرّة" : "Surra News & Identity"}
+              {isAr ? "أخبار سُرّة ومجتمعاتها" : "Surra News & Communities"}
             </h1>
             <p style={{ fontFamily: F, fontSize: "1.1rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.8 }}>
               {isAr
-                ? "تابع آخر أخبار سُرّة ومجتمعاتها، واطّلع على هويتنا البصرية ومواد علامتنا التجارية"
-                : "Follow the latest news from Surra and its communities, and explore our visual identity and brand materials"}
+                ? "تابع آخر أخبار سُرّة ومبادراتها ومجتمعاتها الثقافية والإبداعية، واستكشف اللقاءات والفعاليات والقصص التي تصنع أثرها في المشهد الثقافي."
+                : "Follow the latest news from Surra, its initiatives, and cultural and creative communities, and explore the gatherings, events, and stories shaping the cultural scene."}
             </p>
           </div>
         </div>
@@ -287,12 +287,12 @@ export default function Media() {
               {isAr ? "هوية سُرّة" : "SURRA IDENTITY"}
             </p>
             <h2 style={{ fontFamily: F, fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 800, marginBottom: "1rem" }}>
-              {isAr ? "مواد العلامة التجارية" : "Brand Materials"}
+              {isAr ? "الهوية البصرية والمواد الإعلامية" : "Visual Identity & Media Materials"}
             </h2>
             <p style={{ fontFamily: F, fontSize: "1rem", color: "rgba(255,255,255,0.55)", maxWidth: "500px", margin: "0 auto", lineHeight: 1.7 }}>
               {isAr
-                ? "اطّلع على هويتنا البصرية الكاملة وإرشادات استخدام العلامة التجارية"
-                : "Explore our complete visual identity and brand usage guidelines"}
+                ? "اطّلع على هوية سُرّة البصرية، وحمّل ملفات العلامة التجارية والمواد الإعلامية المعتمدة للاستخدام الصحفي والإعلامي."
+                : "Explore Surra's visual identity and download official brand files and media materials approved for press and media use."}
             </p>
           </div>
 
