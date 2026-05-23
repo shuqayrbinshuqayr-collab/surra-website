@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -130,12 +131,7 @@ export default function Media() {
         }}
       >
         {/* Video Background */}
-        <video
-          autoPlay muted loop playsInline
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.2 }}
-        >
-          <source src="/manus-storage/magnific_site-begins-with-a-night-_2908528196_ec5c37cc.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/magnific_site-begins-with-a-night-_2908528196_ec5c37cc.mp4" opacity={0.2} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 100%)" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ maxWidth: "700px" }}>

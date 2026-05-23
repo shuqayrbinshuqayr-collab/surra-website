@@ -5,6 +5,7 @@
  */
 import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -169,12 +170,7 @@ export default function Directory() {
         }}
       >
         {/* Video Background */}
-        <video
-          autoPlay muted loop playsInline
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3, zIndex: 0 }}
-        >
-          <source src="/manus-storage/transform-to-night-sky-over-diriyah-thunder-clouds_987c713a.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/transform-to-night-sky-over-diriyah-thunder-clouds_987c713a.mp4" opacity={0.3} />
         {/* Background image */}
         <div
           style={{

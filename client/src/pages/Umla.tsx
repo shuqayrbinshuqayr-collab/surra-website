@@ -7,6 +7,7 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -77,12 +78,7 @@ export default function Umla() {
         justifyContent: "flex-end",
       }}>
         {/* Video Background */}
-        <video
-          autoPlay muted loop playsInline
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.25 }}
-        >
-          <source src="/manus-storage/wide-shot-of-traditional-najdi-houses-with-mud-arc(1)_6fdbe11d.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/wide-shot-of-traditional-najdi-houses-with-mud-arc(1)_6fdbe11d.mp4" opacity={0.25} />
         {/* Dark overlay */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,8,2,0.85) 0%, rgba(10,8,2,0.7) 100%)" }} />
         {/* خلفية هندسية خفيفة */}

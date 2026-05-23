@@ -10,6 +10,7 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -595,33 +596,7 @@ export default function Home() {
         }}
       >
         {/* Video background */}
-        <video
-          ref={(el) => {
-            if (el) {
-              el.muted = true;
-              el.defaultMuted = true;
-              el.play().catch(() => {});
-            }
-          }}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-          disableRemotePlayback
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
-        >
-          <source src="/manus-storage/hero-video-new_e28e66cf.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/hero-video-new_e28e66cf.mp4" opacity={1} style={{ zIndex: 0, pointerEvents: "none" }} />
         {/* Dark overlay to keep text readable */}
         <div
           style={{

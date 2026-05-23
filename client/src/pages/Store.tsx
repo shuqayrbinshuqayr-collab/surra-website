@@ -7,6 +7,7 @@
    ============================================================ */
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -412,26 +413,7 @@ export default function Store() {
         paddingTop: "96px",
       }}>
         {/* Video Background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
-          ref={(el) => { if (el) { el.muted = true; el.play().catch(() => {}); } }}
-        >
-          <source src="/manus-storage/close-up-a-hand-touching-an-old-wooden-najdi-door-_2f0d60a3.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/close-up-a-hand-touching-an-old-wooden-najdi-door-_2f0d60a3.mp4" opacity={1} style={{ zIndex: 0, pointerEvents: "none" }} />
         {/* Dark overlay */}
         <div style={{
           position: "absolute",

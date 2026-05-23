@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -105,12 +106,7 @@ export default function Join() {
       {/* ── HERO ── */}
       <section style={{ paddingTop: "60px", paddingBottom: "60px", textAlign: "center", borderBottom: `1px solid ${GOLD_DIM}`, position: "relative", overflow: "hidden", minHeight: "55vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
         {/* Video Background */}
-        <video
-          autoPlay muted loop playsInline
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.18 }}
-        >
-          <source src="/manus-storage/eeffaa39-2f02-4fb7-adc8-70336b80ca41_9b99a2b9.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/eeffaa39-2f02-4fb7-adc8-70336b80ca41_9b99a2b9.mp4" opacity={0.18} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.8) 100%)" }} />
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 1.5rem", position: "relative", zIndex: 1 }}>
           <p style={{ color: GOLD, letterSpacing: "0.2em", fontSize: "0.85rem", marginBottom: "1rem", whiteSpace: "nowrap" }}>{tx.label}</p>

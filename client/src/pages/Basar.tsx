@@ -7,6 +7,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -182,15 +183,7 @@ export default function Basar() {
         }}
       >
         {/* Video Background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.35 }}
-        >
-          <source src="/manus-storage/about_hero_video_346e3443.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/about_hero_video_346e3443.mp4" opacity={0.35} />
         {/* Dark overlay */}
         <div style={{
           position: "absolute",

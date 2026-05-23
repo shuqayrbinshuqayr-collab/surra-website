@@ -7,6 +7,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -246,12 +247,7 @@ export default function Sada() {
       {/* ── Hero ── */}
       <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
         {/* Video Background */}
-        <video
-          autoPlay muted loop playsInline
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }}
-        >
-          <source src="/manus-storage/magnific_keep-the-same-image-and-m_2908526314_215afa14.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground src="/manus-storage/magnific_keep-the-same-image-and-m_2908526314_215afa14.mp4" opacity={0.3} />
         {/* Background image fallback */}
         <div style={{
           position: "absolute", inset: 0,
