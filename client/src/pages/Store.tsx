@@ -404,25 +404,40 @@ export default function Store() {
       {/* Hero */}
       <section style={{
         position: "relative",
-        minHeight: "55vh",
+        minHeight: "70vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
         paddingTop: "96px",
       }}>
-        {/* Background gradient */}
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+          ref={(el) => { if (el) { el.muted = true; el.play().catch(() => {}); } }}
+        >
+          <source src="/manus-storage/close-up-a-hand-touching-an-old-wooden-najdi-door-_2f0d60a3.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay */}
         <div style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.12) 0%, transparent 70%), #000000",
-        }} />
-        {/* Subtle grid lines */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.72) 60%, rgba(0,0,0,0.92) 100%)",
+          zIndex: 1,
         }} />
 
         <div className="container" style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "4rem 1rem" }}>
