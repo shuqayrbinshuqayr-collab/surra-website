@@ -460,7 +460,7 @@ export default function Store() {
             lineHeight: 1.1,
             marginBottom: "1.5rem",
           }}>
-            بيت سُرّة
+            المنجرة
           </h1>
           <p style={{
             fontFamily: F,
@@ -471,7 +471,7 @@ export default function Store() {
             margin: "0 auto 2rem",
             lineHeight: 1.9,
           }}>
-            منتجات مختارة بعناية من شركائنا في هُوبَال — تجمع بين الأصالة السعودية والتصميم المعاصر.
+            المنجرة ليست متجرًا… بل مساحة تُصنع فيها القطع والأفكار والاقتناءات بعناية..
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <a
