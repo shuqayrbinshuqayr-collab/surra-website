@@ -153,19 +153,68 @@ export default function Services() {
     <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }} dir={dir}>
       <Navbar />
 
-      {/* ── Page Hero ── */}
-      <section className="relative pt-32 pb-24" style={{ background: "var(--surrah-section-alt)" }}>
-        <div className="container">
-          <div className="max-w-3xl">
-            <p className="text-sm mb-4" style={{ color: "#C4622D", fontFamily: F, fontWeight: 400, letterSpacing: "0.2em" }}>{t("services.hero.title")}</p>
-            <h1 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(2rem, 5vw, 4rem)", color: "var(--surrah-text-primary)", lineHeight: 1.3, marginBottom: "1rem" }}>
-              {ht.h1a}
-              <br /><span style={{ color: "#C4622D" }}>{ht.h1b}</span>
-            </h1>
-            <p style={{ fontFamily: F, fontWeight: 500, color: "#7A8A9A", fontSize: "1.05rem", lineHeight: 1.8, maxWidth: "500px" }}>
-              {ht.sub}
-            </p>
-          </div>
+      {/* ── Page Hero (Video) ── */}
+      <section
+        style={{
+          position: "relative",
+          height: "65vh",
+          minHeight: "420px",
+          display: "flex",
+          alignItems: "flex-end",
+          overflow: "hidden",
+          paddingTop: "96px",
+        }}
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        >
+          <source src="/manus-storage/close-up-a-hand-touching-an-old-wooden-najdi-door-_7fc69e8c.mp4" type="video/mp4" />
+        </video>
+        {/* Gradient overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.5) 50%, rgba(13,13,13,0.15) 100%)",
+          }}
+        />
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "3.5rem" }}>
+          <p
+            style={{
+              fontFamily: F,
+              fontWeight: 600,
+              fontSize: "0.7rem",
+              color: "#C4622D",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              marginBottom: "0.75rem",
+            }}
+          >
+            {t("services.hero.title")}
+          </p>
+          <h1
+            style={{
+              fontFamily: F,
+              fontWeight: 900,
+              fontSize: "clamp(2.2rem, 5vw, 4rem)",
+              color: "#F0EAD6",
+              lineHeight: 1.2,
+            }}
+          >
+            {ht.h1a}
+            <br /><span style={{ color: "#C4622D" }}>{ht.h1b}</span>
+          </h1>
         </div>
       </section>
 
