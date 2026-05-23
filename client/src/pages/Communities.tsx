@@ -24,13 +24,13 @@ function useReveal() {
   return ref;
 }
 
-const communityLogos: Record<string, { white: string; invert?: boolean }> = {
+const communityLogos: Record<string, { white: string; invert?: boolean; scale?: number }> = {
   basar: { white: "/manus-storage/Basar-White_7d406934.png" },
   sifr: { white: "/manus-storage/Sifr-Black_c3ab7e46.webp", invert: true },
   sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
   mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
   maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
-  umlah: { white: "/manus-storage/Umlah-Gold-Final_67cfd897.png" },
+  umlah: { white: "/manus-storage/Umlah-Gold-Tight_8e856879.png" },
 };
 
 const communitiesData = {
