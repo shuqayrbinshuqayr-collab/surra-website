@@ -97,17 +97,7 @@ export default function Communities() {
         </div>
       </section>
 
-      <section className="relative pb-24" style={{ background: "var(--surrah-section-alt)" }}>
-        <div className="container">
-          <div className="max-w-3xl">
-            <p className="text-sm mb-4 tracking-widest" style={{ color: "#C4622D", fontFamily: F, letterSpacing: "0.2em" }}>{tx.label}</p>
-            <h1 style={{ fontFamily: F, fontSize: "clamp(2rem, 5vw, 4rem)", fontWeight: 700, color: "var(--surrah-text-primary)", lineHeight: 1.3, marginBottom: "1rem" }}>
-              {tx.h1a}<br /><span style={{ color: "#C4622D" }}>{tx.h1b}</span>
-            </h1>
-            <p style={{ fontFamily: F, color: "#7A8A9A", fontSize: "1.05rem", lineHeight: 1.8, maxWidth: "550px" }}>{tx.sub}</p>
-          </div>
-        </div>
-      </section>
+
       <section className="py-16" style={{ background: "var(--surrah-section-bg)" }}>
         <div className="container">
           <div className="space-y-6">
