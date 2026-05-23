@@ -112,10 +112,10 @@ export default function Navbar() {
   };
 
   // Language switcher options
-  const langs: { code: Language; label: string; full: string }[] = [
-    { code: "ar", label: "ع", full: "العربية" },
-    { code: "en", label: "EN", full: "English" },
-    { code: "zh", label: "中", full: "中文" },
+  const langs: { code: Language; label: string; full: string; flag: string }[] = [
+    { code: "ar", label: "ع", full: "العربية", flag: "🇸🇦" },
+    { code: "en", label: "EN", full: "English", flag: "🇬🇧" },
+    { code: "zh", label: "中", full: "中文", flag: "🇨🇳" },
   ];
 
   const currentLang = langs.find((l) => l.code === lang) || langs[0];
@@ -258,8 +258,8 @@ export default function Navbar() {
                 style={{
                   fontFamily: F,
                   fontSize: "13px",
-                  fontWeight: 700,
-                  padding: "0.35rem 0.75rem",
+                  fontWeight: 600,
+                  padding: "0.3rem 0.65rem",
                   background: langOpen ? (isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.08)") : "transparent",
                   color: isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)",
                   border: `1px solid ${langBorder}`,
@@ -267,18 +267,19 @@ export default function Navbar() {
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
-                  gap: "6px",
+                  gap: "5px",
                   transition: "all 0.2s",
-                  letterSpacing: "0.04em",
+                  letterSpacing: "0.03em",
                   whiteSpace: "nowrap",
                 }}
               >
-                <span style={{ fontSize: "15px", lineHeight: 1 }}>{currentLang.label}</span>
+                <span style={{ fontSize: "18px", lineHeight: 1 }}>{currentLang.flag}</span>
+                <span style={{ fontSize: "12px", opacity: 0.85 }}>{currentLang.label}</span>
                 <svg
-                  width="9" height="6" viewBox="0 0 9 6" fill="none"
-                  style={{ transition: "transform 0.2s", transform: langOpen ? "rotate(180deg)" : "none", opacity: 0.6 }}
+                  width="8" height="5" viewBox="0 0 8 5" fill="none"
+                  style={{ transition: "transform 0.2s", transform: langOpen ? "rotate(180deg)" : "none", opacity: 0.5 }}
                 >
-                  <path d="M1 1L4.5 5L8 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
 
@@ -325,7 +326,7 @@ export default function Navbar() {
                       onMouseEnter={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(28,43,58,0.05)"; }}
                       onMouseLeave={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                     >
-                      <span style={{ fontSize: "16px", width: "20px", textAlign: "center", flexShrink: 0 }}>{l.label}</span>
+                      <span style={{ fontSize: "20px", lineHeight: 1, flexShrink: 0 }}>{l.flag}</span>
                       <span>{l.full}</span>
                       {lang === l.code && (
                         <svg style={{ marginLeft: "auto", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -412,7 +413,7 @@ export default function Navbar() {
                         textAlign: "left",
                       }}
                     >
-                      <span style={{ fontSize: "14px", width: "18px", textAlign: "center" }}>{l.label}</span>
+                      <span style={{ fontSize: "17px", lineHeight: 1 }}>{l.flag}</span>
                       <span>{l.full}</span>
                     </button>
                   ))}
