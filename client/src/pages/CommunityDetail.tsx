@@ -18,7 +18,8 @@ const communityLogos: Record<string, { white: string; invert?: boolean }> = {
   sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
   mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
   maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
-  umlah: { white: "/manus-storage/Umlah-Black_f8a8fa99.webp", invert: true },
+  umlah: { white: "/manus-storage/Umlah-White_96823e55.png" },
+  umla: { white: "/manus-storage/Umlah-White_96823e55.png" },
 };
 
 const communities: Record<string, {
@@ -134,6 +135,25 @@ const communities: Record<string, {
       { title: "الموسيقى والانتماء", desc: "الموسيقى جسر بين الثقافات والأجيال." },
     ],
     activities: ["جلسات استماع موسيقية", "ورش إلقاء وتعبير صوتي", "حفلات موسيقية صغيرة", "نقاشات حول تاريخ الموسيقى", "مشاريع تسجيل صوتي"],
+  },
+  umla: {
+    id: "umla",
+    name: "عُملة",
+    nameEn: "UMLA",
+    color: "#C9A84C",
+    tagline: "مجتمع يُعيد للمال معناه، وللاستثمار وعيه، وللقرار أثره.",
+    description: "عُملة مجتمع للوعي المالي وريادة الأعمال والاقتصاد الإبداعي.",
+    longDescription:
+      "عُملة مجتمع يهتم بالوعي المالي والاستثمار والاقتصاد الجديد. مساحة تجمع المهتمين بفهم المال كأداة للنمو وصناعة الفرص، لا كأرقام ومعاملات فقط. نؤمن أن الوعي المالي أساس الحرية والاستقلالية.",
+    type: "وعي مالي واستثمار",
+    audience: "رواد الأعمال، المستثمرون، والمهتمون بالاقتصاد",
+    meetings: "شهري / أسبوعي",
+    values: [
+      { title: "الوعي المالي", desc: "فهم المال كأداة للحرية لا كغاية." },
+      { title: "ريادة الأعمال", desc: "دعم الأفكار وتحويلها إلى مشاريع حقيقية." },
+      { title: "الاقتصاد الإبداعي", desc: "استثمار في الإبداع والثقافة كمحرك للنمو." },
+    ],
+    activities: ["جلسات وعي مالي", "ورش ريادة أعمال", "لقاءات مع مستثمرين", "نقاشات اقتصادية", "مشاريع ريادية مشتركة"],
   },
 };
 

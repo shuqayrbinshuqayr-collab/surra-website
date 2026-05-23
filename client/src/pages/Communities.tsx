@@ -30,7 +30,7 @@ const communityLogos: Record<string, { white: string; invert?: boolean }> = {
   sada: { white: "/manus-storage/Sudaa-White_d1defc89.png" },
   mada: { white: "/manus-storage/Mada-White_c8cc9bc8.png" },
   maqam: { white: "/manus-storage/Maqam-White_10f58ea8.png" },
-  umlah: { white: "/manus-storage/Umlah-Black_f8a8fa99.webp", invert: true },
+  umlah: { white: "/manus-storage/Umlah-White_96823e55.png", invert: false },
 };
 
 const communitiesData = {
@@ -101,9 +101,13 @@ export default function Communities() {
       <section className="py-16" style={{ background: "var(--surrah-section-bg)" }}>
         <div className="container">
           <div className="space-y-6">
-            {communities.map((community, i) => (
-              <div key={community.id} id={community.id} className="reveal grid grid-cols-1 lg:grid-cols-4 gap-0 transition-all duration-300"
-                style={{ background: "var(--surrah-section-alt)", border: "1px solid rgba(28, 43, 58, 0.12)", borderRight: dir === "rtl" ? "3px solid " + community.color : "none", borderLeft: dir === "ltr" ? "3px solid " + community.color : "none", transitionDelay: i * 0.1 + "s" }}
+            {communities.map((community, i) => {
+              const communityRoutes: Record<string, string> = { basar: "/communities/basar", umla: "/communities/umla", umlah: "/communities/umla" };
+              const communityHref = communityRoutes[community.id] || `/communities/${community.id}`;
+              return (
+              <Link key={community.id} href={communityHref} style={{ textDecoration: "none", display: "block" }}>
+              <div id={community.id} className="reveal grid grid-cols-1 lg:grid-cols-4 gap-0 transition-all duration-300"
+                style={{ background: "var(--surrah-section-alt)", border: "1px solid rgba(28, 43, 58, 0.12)", borderRight: dir === "rtl" ? "3px solid " + community.color : "none", borderLeft: dir === "ltr" ? "3px solid " + community.color : "none", transitionDelay: i * 0.1 + "s", cursor: "pointer" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#1a1a1a"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#111111"; }}>
                 <div className="p-8 md:p-10 lg:border-l flex flex-col justify-center items-start" style={{ borderColor: "rgba(28, 43, 58, 0.08)" }}>
@@ -132,7 +136,9 @@ export default function Communities() {
                   </div>
                 </div>
               </div>
-            ))}
+              </Link>
+              );
+            })}
           </div>
         </div>
       </section>

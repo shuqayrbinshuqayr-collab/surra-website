@@ -67,8 +67,8 @@ const newsItems = [
 const identityDocs = [
   {
     id: "identity",
-    titleAr: "هوية سُرّة",
-    titleEn: "Surra Identity",
+    titleAr: "ملف الهوية البصرية | سُرّة",
+    titleEn: "Visual Identity | Surra",
     descAr: "الدليل الكامل لهوية سُرّة البصرية — الشعار، الألوان، الخطوط، وقواعد الاستخدام",
     descEn: "The complete guide to Surra's visual identity — logo, colors, fonts, and usage rules",
     icon: "◈",
@@ -308,7 +308,7 @@ export default function Media() {
               >
                 {/* Preview */}
                 <div style={{ height: "180px", background: doc.previewColor, display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                  <span style={{ fontSize: "4rem", color: doc.color, opacity: 0.8 }}>{doc.icon}</span>
+                  <img src="/manus-storage/Surrah-White_5e3f1c9b.png" alt="سُرّة" style={{ height: "60px", objectFit: "contain", opacity: 0.9, filter: "brightness(0) invert(1)" }} />
                   <div style={{
                     position: "absolute",
                     bottom: "1rem",
@@ -421,7 +421,7 @@ export default function Media() {
               onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-4px)")}
               onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}>
               <div style={{ height: "120px", background: "linear-gradient(135deg, #1a1200 0%, #3d2e00 50%, #D4AF37 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                <span style={{ fontSize: "3rem", opacity: 0.9, color: "#000" }}>◉</span>
+                <img src="/manus-storage/Basar-White_693344e6.png" alt="بَصَر" style={{ height: "52px", objectFit: "contain", filter: "brightness(0)" }} />
                 <div style={{ position: "absolute", bottom: "0.75rem", right: isAr ? "0.75rem" : "auto", left: isAr ? "auto" : "0.75rem", fontFamily: F, fontSize: "0.7rem", color: "rgba(0,0,0,0.75)", background: "rgba(212,175,55,0.55)", padding: "0.15rem 0.5rem", borderRadius: "2px" }}>
                   PDF · {isAr ? "الملف التعريفي" : "Profile"}
                 </div>
@@ -451,7 +451,7 @@ export default function Media() {
               onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-4px)")}
               onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}>
               <div style={{ height: "120px", background: "linear-gradient(135deg, #0d0020 0%, #2d0060 45%, #EC008C 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                <span style={{ fontSize: "3rem", opacity: 0.9, color: "#fff" }}>▲</span>
+                <img src="/manus-storage/Sudaa-White_7c9626f2.png" alt="سُدى" style={{ height: "52px", objectFit: "contain", filter: "brightness(0) invert(1)" }} />
                 <div style={{ position: "absolute", bottom: "0.75rem", right: isAr ? "0.75rem" : "auto", left: isAr ? "auto" : "0.75rem", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.9)", background: "rgba(236,0,140,0.45)", padding: "0.15rem 0.5rem", borderRadius: "2px" }}>
                   PDF · {isAr ? "الملف التعريفي" : "Profile"}
                 </div>

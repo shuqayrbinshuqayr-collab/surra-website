@@ -18,6 +18,7 @@ import Register from "./pages/Register";
 import Store from "./pages/Store";
 import Media from "./pages/Media";
 import Basar from "./pages/Basar";
+import Umla from "./pages/Umla";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
       <Route path={"/services"} component={Services} />
       <Route path={"/communities"} component={Communities} />
       <Route path={"/communities/basar"} component={Basar} />
+      <Route path={"/communities/umla"} component={Umla} />
       <Route path={"/communities/:id"} component={CommunityDetail} />
       <Route path={"/join"} component={Join} />
       <Route path={"/contact"} component={Contact} />
