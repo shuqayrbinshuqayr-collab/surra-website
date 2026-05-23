@@ -378,7 +378,7 @@ function ProductCard({ product }: { product: Product }) {
             transition: "color 0.2s",
             letterSpacing: "0.05em",
           }}>
-            {product.outOfStock ? "—" : "اطلب الآن ↗"}
+            {product.outOfStock ? "—" : "اقتناء ↗"}
           </span>
         </div>
       </div>
@@ -460,7 +460,7 @@ export default function Store() {
             lineHeight: 1.1,
             marginBottom: "1.5rem",
           }}>
-            متجر سُرّة
+            بيت سُرّة
           </h1>
           <p style={{
             fontFamily: F,
