@@ -27,6 +27,31 @@ const steps = [
   { num: "٤", title: "نُشغّل ونُطوّر", titleEn: "Operate & Develop", titleZh: "运营与发展", desc: "نُشغّل، نقيس، ونطوّر باستمرار.", descEn: "We operate, measure, and continuously develop.", descZh: "我们运营、衡量并持续发展。" },
 ];
 
+interface TeamMember {
+  name: string;
+  role: string;
+  photo?: string;
+  bio?: string;
+}
+
+const teamMembers: TeamMember[] = [
+  { name: "منصور باخلعة", role: "مؤسس ومنتج مجتمعات", photo: "/manus-storage/mansour_5b9a1523.webp" },
+  { name: "م..معتز العبدالقادر", role: "الرئيس التنفيذي", photo: "/manus-storage/muataz_cfd76867.webp" },
+  { name: "محمد المصري", role: "نائب الرئيس للمنتجات والتسويق", photo: "/manus-storage/mohammed_masri_de3cae4f.webp" },
+  { name: "م. شقير بن شقير", role: "رئيس أنظمة المجتمعات", photo: "/manus-storage/shaqeer_325758dd.webp" },
+  { name: "عبدالرحمن النهدي", role: "مدير تقنية المعلومات", photo: "/manus-storage/abdulrahman_9d7e8050.webp" },
+  { name: "أحمد فضل", role: "مدير إبداعي", photo: "/manus-storage/ahmed_fadl_c95ffaf5.webp" },
+  { name: "د.الهنوف الزنيتان", role: "مستشارة ومديرة تطوير الأعمال", photo: "/manus-storage/hanoof_3d1e14e1.webp" },
+  { name: "أحمد خليل", role: "مسؤول الإنتاج الإعلامي", photo: "/manus-storage/ahmed_khalil_6425d3c1.webp" },
+  { name: "أسماء الظافري", role: "منسقة فعاليات ومحتوى", photo: "/manus-storage/asmaa_57852354.webp" },
+  { name: "قتيبة تركستاني", role: "العلاقات العامة", photo: "/manus-storage/qatiba_13a158ce.webp" },
+  { name: "محمد بن محمد", role: "قائد تشغيل الفعاليات", photo: "/manus-storage/mohammed_bin_5ce8c1d3.webp" },
+  { name: "معاذ الحازمي", role: "قائد الحوار — ثلوثية بصر", photo: "/manus-storage/muadh_69c744aa.webp" },
+  { name: "أسامة فقيه", role: "قائد المجتمع — مقام", photo: "/manus-storage/osama_3d86dc7a.webp" },
+  { name: "دلال العتيبي", role: "مدير العلاقات والشراكات — سدى", photo: "/manus-storage/dalal_61bffb01.webp" },
+  { name: "عبدللطيف الثويني", role: "قائد منتج ثلوثية بصر", photo: "/manus-storage/abdullatif_9b8ca2b9.webp" },
+];
+
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -427,6 +452,73 @@ export default function About() {
             <Link href="/services" className="btn-surrah-primary">
               {lang === "ar" ? "تعرّف على خدماتنا" : lang === "en" ? "Explore Our Services" : "探索我们的服务"}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Team ── */}
+      <section id="team" style={{ background: "var(--surrah-section-bg)", padding: "5rem 0" }}>
+        <div className="container">
+          <div className="reveal" style={{ marginBottom: "3.5rem" }}>
+            <div className="surrah-divider" />
+            <h2 style={{ fontFamily: F, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>
+              {lang === "ar" ? "فريقنا" : lang === "en" ? "Our Team" : "我们的团队"}
+            </h2>
+            <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8 }}>
+              {lang === "ar" ? "الأفراد الذين يصنعون المجتمعات ويمنحون الأفكار حياة." : lang === "en" ? "The people who build communities and give ideas life." : "建设社区、赋予想法生命的人们。"}
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "2rem" }}>
+            {teamMembers.map((member, i) => (
+              <div
+                key={i}
+                className="reveal"
+                style={{ transitionDelay: `${(i % 6) * 0.08}s` }}
+              >
+                {/* Photo */}
+                <div style={{ position: "relative", width: "100%", paddingBottom: "100%", marginBottom: "1rem", overflow: "hidden", background: "#1a1a1a" }}>
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      style={{
+                        position: "absolute", inset: 0, width: "100%", height: "100%",
+                        objectFit: "cover", objectPosition: "top center",
+                        filter: "grayscale(30%)",
+                        transition: "filter 0.3s ease, transform 0.4s ease",
+                      }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0%)"; (e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.filter = "grayscale(30%)"; (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
+                    />
+                  ) : (
+                    <div style={{
+                      position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
+                      background: "#1C2B3A",
+                    }}>
+                      <span style={{ fontFamily: F, fontWeight: 900, fontSize: "2.5rem", color: "rgba(196,98,45,0.5)" }}>
+                        {member.name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
+                  {/* Bottom gradient overlay */}
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "40%", background: "linear-gradient(to top, rgba(13,13,13,0.85), transparent)", pointerEvents: "none" }} />
+                </div>
+
+                {/* Info */}
+                <h4 style={{ fontFamily: F, fontWeight: 700, fontSize: "0.95rem", color: "var(--surrah-text-primary)", marginBottom: "0.25rem", lineHeight: 1.4 }}>
+                  {member.name}
+                </h4>
+                <p style={{ fontFamily: F, fontWeight: 400, fontSize: "0.8rem", color: "#C4622D", marginBottom: "0.35rem", lineHeight: 1.5 }}>
+                  {member.role}
+                </p>
+                {member.bio && (
+                  <p style={{ fontFamily: F, fontWeight: 400, fontSize: "0.78rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>
+                    {member.bio}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
