@@ -128,19 +128,68 @@ export default function Contact() {
     <div ref={pageRef} style={{ background: "var(--surrah-page-bg)", minHeight: "100vh" }} dir={dir}>
       <Navbar />
 
-      {/* ── Page Hero ── */}
-      <section className="relative pt-32 pb-16" style={{ background: "var(--surrah-section-alt)" }}>
-        <div className="container">
-          <div className="max-w-3xl">
-            <p className="text-sm mb-4 tracking-widest" style={{ color: "#C4622D", fontFamily: F, letterSpacing: "0.2em" }}>
-              {tx.label}
-            </p>
-            <h1 style={{ fontFamily: F, fontSize: "clamp(2rem, 5vw, 4rem)", fontWeight: 700, color: "var(--surrah-text-primary)", lineHeight: 1.3, marginBottom: "1rem" }}>
-              {tx.h1a}
-              <br />
-              <span style={{ color: "#C4622D" }}>{tx.h1b}</span>
-            </h1>
-          </div>
+      {/* ── Page Hero (Video) ── */}
+      <section
+        style={{
+          position: "relative",
+          height: "65vh",
+          minHeight: "420px",
+          display: "flex",
+          alignItems: "flex-end",
+          overflow: "hidden",
+          paddingTop: "96px",
+        }}
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        >
+          <source src="/manus-storage/saudi-man-riding-a-horse-in-desert-at-dawn-wind-bl_11f890c9.mp4" type="video/mp4" />
+        </video>
+        {/* Gradient overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.5) 50%, rgba(13,13,13,0.15) 100%)",
+          }}
+        />
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "3.5rem" }}>
+          <p
+            style={{
+              fontFamily: F,
+              fontWeight: 600,
+              fontSize: "0.7rem",
+              color: "#C4622D",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              marginBottom: "0.75rem",
+            }}
+          >
+            {tx.label}
+          </p>
+          <h1
+            style={{
+              fontFamily: F,
+              fontWeight: 900,
+              fontSize: "clamp(2.2rem, 5vw, 4rem)",
+              color: "#F0EAD6",
+              lineHeight: 1.2,
+            }}
+          >
+            {tx.h1a}
+            <br /><span style={{ color: "#C4622D" }}>{tx.h1b}</span>
+          </h1>
         </div>
       </section>
 
