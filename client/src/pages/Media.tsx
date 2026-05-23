@@ -401,6 +401,54 @@ export default function Media() {
         </div>
       </section>
 
+      {/* ── Community Profiles ── */}
+      <section style={{ padding: "60px 0", background: "rgba(255,255,255,0.02)" }}>
+        <div className="container">
+          <div style={{ marginBottom: "2.5rem" }}>
+            <p style={{ fontFamily: F, fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", color: "#C4622D", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+              {isAr ? "ملفات المجتمعات" : "COMMUNITY PROFILES"}
+            </p>
+            <h2 style={{ fontFamily: F, fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, marginBottom: "0.75rem" }}>
+              {isAr ? "تعرّف على مجتمعاتنا" : "Explore Our Communities"}
+            </h2>
+            <p style={{ fontFamily: F, fontSize: "0.95rem", color: "rgba(255,255,255,0.5)", maxWidth: "500px" }}>
+              {isAr ? "الملفات التعريفية لمجتمعات سُرّة — رؤيتها، فعالياتها، وأثرها" : "Profiles of Surra communities — their vision, events, and impact"}
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.5rem" }}>
+            {/* BASAR */}
+            <div style={{ background: "#111", border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden", transition: "transform 0.2s" }}
+              onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-4px)")}
+              onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}>
+              <div style={{ height: "120px", background: "linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 50%, #2a5a2a 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+                <span style={{ fontSize: "3rem", opacity: 0.9 }}>◉</span>
+                <div style={{ position: "absolute", bottom: "0.75rem", right: isAr ? "0.75rem" : "auto", left: isAr ? "auto" : "0.75rem", fontFamily: F, fontSize: "0.7rem", color: "rgba(255,255,255,0.5)", background: "rgba(0,0,0,0.4)", padding: "0.15rem 0.5rem", borderRadius: "2px" }}>
+                  PDF · {isAr ? "بروفايل" : "Profile"}
+                </div>
+              </div>
+              <div style={{ padding: "1.25rem" }}>
+                <h3 style={{ fontFamily: F, fontSize: "1.05rem", fontWeight: 800, color: "#4CAF50", marginBottom: "0.4rem" }}>
+                  {isAr ? "مجتمع بَصَر" : "Basar Community"}
+                </h3>
+                <p style={{ fontFamily: F, fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "1rem" }}>
+                  {isAr ? "الملف التعريفي لمجتمع بَصَر — رؤيته، فعالياته، وأثره في المشهد الإبداعي" : "Basar community profile — its vision, events, and creative impact"}
+                </p>
+                <div style={{ display: "flex", gap: "0.6rem" }}>
+                  <a href="/manus-storage/basar-profile_7782383e.pdf" target="_blank" rel="noopener noreferrer"
+                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 700, color: "#fff", background: "#4CAF50", border: "none", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem", transition: "opacity 0.2s" }}>
+                    {isAr ? "عرض" : "View"} ↗
+                  </a>
+                  <a href="/manus-storage/basar-profile_7782383e.pdf" download
+                    style={{ fontFamily: F, fontSize: "0.82rem", fontWeight: 600, color: "#4CAF50", background: "transparent", border: "1px solid #4CAF50", padding: "0.45rem 1rem", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                    {isAr ? "تحميل" : "Download"} ↓
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Press Kit CTA ── */}
       <section style={{ padding: "80px 0" }}>
         <div className="container">
