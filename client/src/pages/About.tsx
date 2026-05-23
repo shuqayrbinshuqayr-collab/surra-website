@@ -129,38 +129,47 @@ export default function About() {
                   marginBottom: "1.5rem",
                 }}
               >
-                {lang === "ar" ? "لأنها النقطة التي تنبثق منها الدوائر..." : lang === "en" ? "The Point from Which Circles Emerge..." : "圆圈涌现的起点..."}
+                {lang === "ar" ? "لأنها النقطة التي تنبثق منها الدوائر" : lang === "en" ? "The Point from Which Circles Emerge" : "圆圈涌现的起点"}
               </h2>
 
-              {/* Paragraph 1 */}
+              {/* Paragraph 1: Definition */}
               <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1, marginBottom: "1.5rem" }}>
                 {lang === "ar"
-                  ? "سُرّة كيان ثقافي سعودي متخصص في تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام."
+                  ? "سُرّة كيان ثقافي سعودي متخصص في تصميم وبناء وتشغيل المجتمعات الثقافية والإبداعية ذات الأثر المستدام.، استُلهم اسمها من “السُرّة” بوصفها نقطة الوسط التي تبدأ منها الدوائر وتتسع — تمامًا كما تبدأ الأفكار الصغيرة لتصنع مجتمعات وحراكًا يمتد أثره."
                   : lang === "en"
-                  ? "Surra is a Saudi cultural entity specializing in designing, building, and operating cultural and creative communities with lasting impact."
-                  : "苏拉是一个沙特阿拉伯文化实体，专注于设计、建设和运营具有持久影响的文化创意社区。"}
+                  ? 'Surra is a Saudi cultural entity specializing in designing, building, and operating cultural and creative communities with lasting impact. Its name is inspired by "Surra" — the navel, the central point from which circles begin and expand, just as small ideas grow to create communities and movements whose impact endures.'
+                  : '苏拉是一个沙特阿拉伯文化实体，专注于设计、建设和运营具有持久影响的文化创意社区。其名称灵感来自“苏拉”——肚脐，圆圈开始并扩展的中心点，就像小想法成长为社区和运动。'}
               </p>
 
-              {/* Paragraph 2 */}
+              {/* Paragraph 2: Belief */}
               <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1, marginBottom: "1.5rem" }}>
                 {lang === "ar"
-                  ? 'استُلهم اسمها من "السُرّة" بوصفها نقطة الوسط التي تبدأ منها الدوائر وتتسع، تمامًا كما تبدأ الأفكار الصغيرة لتصنع مجتمعات وحراكًا يمتد أثره.'
+                  ? "في سُرّة، نؤمن بأن الثقافة والإبداع ليسا ترفًا، بل محركات حقيقية لبناء الهوية الوطنية وصناعة اقتصاد إبداعي مستدام. لذلك نعمل على خلق بيئة يقودها الأفراد بأفكارهم قبل مناصبهم، وتُبنى فيها القيمة عبر الشغف والمعرفة والتجربة."
                   : lang === "en"
-                  ? 'Its name is inspired by "Surra" — the navel, the central point from which circles begin and expand, just as small ideas grow to create communities and movements whose impact endures.'
-                  : '其名称灵感来自"苏拉"——肚脐，圆圈开始并扩展的中心点，就像小想法成长为社区和运动，其影响持久延续。'}
+                  ? "At Surra, we believe that culture and creativity are not luxuries, but real drivers for building national identity and creating a sustainable creative economy. We work to create an environment led by individuals with their ideas before their titles, where value is built through passion, knowledge, and experience."
+                  : "在苏拉，我们相信文化和创意不是奔头奶，而是建设民族身份和创建可持续创意经济的真正动力。"}
               </p>
 
-              {/* Paragraph 3 */}
+              {/* Paragraph 3: Diriyah */}
               <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1, marginBottom: "1.5rem" }}>
                 {lang === "ar"
-                  ? "في سُرّة، لا ننظر إلى المجتمع كجمهور، بل كمنظومة حيّة تُبنى حول الاهتمامات والقيم والتجارب المشتركة... لذلك نحن لا نعمل كمنصة رقمية، ولا كجهة لتنظيم الفعاليات فقط، بل كمنظومة متكاملة لصناعة المجتمعات الثقافية والإبداعية."
+                  ? "ومن قلب الدرعية، حيث الجذور التي صنعت الحكاية الأولى، تنطلق سُرّة كمساحة تجمع الطاقات، وتربط المبدعين، وتحوّل الأفكار من مجرد احتمالات إلى مشاريع ومجتمعات قابلة للنمو والتأثير والاستدامة."
                   : lang === "en"
-                  ? "At Surra, we do not view community as an audience, but as a living system built around shared interests, values, and experiences. That is why we do not work as a digital platform, nor merely as an events organizer, but as an integrated system for creating cultural and creative communities."
-                  : "在苏拉，我们不将社区视为受众，而是围绕共同兴趣、价值观和体验建立的生命系统。因此，我们不作为数字平台运作，也不仅仅作为活动组织者，而是作为创建文化创意社区的综合体系。"}
+                  ? "From the heart of Diriyah, where the roots that made the first story, Surra launches as a space that gathers energies, connects creators, and transforms ideas from mere possibilities into projects and communities capable of growth, impact, and sustainability."
+                  : "从德里亚的心脏，那里有制造第一个故事的根源，苏拉作为一个聚集能量、连接创造者的空间起飞。"}
               </p>
 
-              {/* Intersection list */}
-              <p style={{ fontFamily: F, fontWeight: 600, fontSize: "0.95rem", color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>
+              {/* Paragraph 4: System */}
+              <p style={{ fontFamily: F, fontWeight: 600, fontSize: "0.95rem", color: "var(--surrah-text-primary)", lineHeight: 1.8, marginBottom: "0.75rem" }}>
+                {lang === "ar"
+                  ? "سُرّة ليست منصة رقمية، ولا جهة لتنظيم الفعاليات فحسب، بل منظومة متكاملة لصناعة المجتمعات الثقافية والإبداعية."
+                  : lang === "en"
+                  ? "Surra is not a digital platform, nor merely an events organizer, but an integrated system for creating cultural and creative communities."
+                  : "苏拉不是数字平台，也不仅仅是活动组织者，而是创建文化创意社区的综合体系。"}
+              </p>
+
+              {/* Intersection label */}
+              <p style={{ fontFamily: F, fontWeight: 400, fontSize: "0.95rem", color: "rgba(255,255,255,0.65)", marginBottom: "0.5rem" }}>
                 {lang === "ar" ? "نعمل عند نقطة التقاء:" : lang === "en" ? "We work at the intersection of:" : "我们工作在交汇点："}
               </p>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: "1.5rem" }}>
@@ -177,13 +186,13 @@ export default function About() {
                 ))}
               </ul>
 
-              {/* Paragraph 4 */}
+              {/* Paragraph 5: Closing */}
               <p style={{ fontFamily: F, fontWeight: 400, fontSize: "1rem", color: "rgba(255,255,255,0.75)", lineHeight: 2.1 }}>
                 {lang === "ar"
-                  ? "ومن خلال هذا التقاطع، نصنع مساحات تُحفّز الحوار، وتبني العلاقات، وتُحوّل الاهتمامات المشتركة إلى مجتمعات نابضة بالحياة والاستمرارية."
+                  ? "ومن خلال هذا التقاطع، نصنع مساحات تُحفّز الحوار، وتبني العلاقات، وتمنح الأفكار فرصة لتتحول إلى أثر حقيقي ومستمر."
                   : lang === "en"
-                  ? "Through this intersection, we create spaces that stimulate dialogue, build relationships, and transform shared interests into communities pulsing with life and continuity."
-                  : "通过这个交汇点，我们创造刺激对话、建立关系的空间，将共同兴趣转化为充满生机和持续性的社区。"}
+                  ? "Through this intersection, we create spaces that stimulate dialogue, build relationships, and give ideas the chance to transform into real and lasting impact."
+                  : "通过这个交汇点，我们创造刺激对话、建立关系的空间，赋予想法转化为真实持久影响的机会。"}
               </p>
             </div>
             <div className="reveal" style={{ transitionDelay: "0.15s", display: "flex", justifyContent: "center", alignItems: "center" }}>
