@@ -6,7 +6,7 @@
    Right side: Language switcher (AR/EN/中) + Theme toggle + CTA
    ============================================================ */
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -28,6 +28,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const [location] = useLocation();
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme, toggleTheme } = useTheme();
@@ -40,7 +42,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => { setMenuOpen(false); setActiveDropdown(null); }, [location]);
+  useEffect(() => { setMenuOpen(false); setActiveDropdown(null); setLangOpen(false); }, [location]);
+
+  // Close lang dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const openDropdown = (key: string) => {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
@@ -99,11 +112,13 @@ export default function Navbar() {
   };
 
   // Language switcher options
-  const langs: { code: Language; label: string }[] = [
-    { code: "ar", label: "ع" },
-    { code: "en", label: "EN" },
-    { code: "zh", label: "中" },
+  const langs: { code: Language; label: string; full: string }[] = [
+    { code: "ar", label: "ع", full: "العربية" },
+    { code: "en", label: "EN", full: "English" },
+    { code: "zh", label: "中", full: "中文" },
   ];
+
+  const currentLang = langs.find((l) => l.code === lang) || langs[0];
 
   const isDark = theme === "dark";
   const navBg = isDark
@@ -236,30 +251,91 @@ export default function Navbar() {
 
           {/* Language Switcher + Theme Toggle + CTA */}
           <div className="hidden md:flex items-center flex-shrink-0 gap-2" style={{ marginLeft: "-0.5rem" }}>
-            {/* Language Switcher */}
-            <div style={{ display: "flex", border: `1px solid ${langBorder}`, borderRadius: "2px", overflow: "hidden" }}>
-              {langs.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => setLang(l.code)}
-                  style={{
-                    fontFamily: F,
-                    fontSize: "12px",
-                    fontWeight: 700,
-                    padding: "0.3rem 0.55rem",
-                    background: lang === l.code ? "rgba(196,98,45,0.85)" : "transparent",
-                    color: lang === l.code ? "#fff" : langInactiveColor,
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
-                    letterSpacing: "0.05em",
-                  }}
-                  onMouseEnter={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.08)" : "rgba(28,43,58,0.06)"; }}
-                  onMouseLeave={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+            {/* Language Switcher — Dropdown */}
+            <div ref={langRef} style={{ position: "relative" }}>
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                style={{
+                  fontFamily: F,
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  padding: "0.35rem 0.75rem",
+                  background: langOpen ? (isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.08)") : "transparent",
+                  color: isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)",
+                  border: `1px solid ${langBorder}`,
+                  borderRadius: "3px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  transition: "all 0.2s",
+                  letterSpacing: "0.04em",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <span style={{ fontSize: "15px", lineHeight: 1 }}>{currentLang.label}</span>
+                <svg
+                  width="9" height="6" viewBox="0 0 9 6" fill="none"
+                  style={{ transition: "transform 0.2s", transform: langOpen ? "rotate(180deg)" : "none", opacity: 0.6 }}
                 >
-                  {l.label}
-                </button>
-              ))}
+                  <path d="M1 1L4.5 5L8 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              {/* Dropdown panel */}
+              {langOpen && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 8px)",
+                    right: 0,
+                    left: "auto",
+                    background: isDark ? "rgba(12,12,12,0.97)" : "rgba(250,248,244,0.98)",
+                    backdropFilter: "blur(20px)",
+                    border: `1px solid ${isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.12)"}`,
+                    borderRadius: "6px",
+                    overflow: "hidden",
+                    minWidth: "130px",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+                    zIndex: 200,
+                  }}
+                >
+                  {langs.map((l, idx) => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLang(l.code); setLangOpen(false); }}
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        fontFamily: F,
+                        fontSize: "13px",
+                        fontWeight: lang === l.code ? 700 : 500,
+                        padding: "0.6rem 1rem",
+                        background: lang === l.code ? "rgba(196,98,45,0.15)" : "transparent",
+                        color: lang === l.code ? "#C4622D" : (isDark ? "rgba(255,255,255,0.75)" : "rgba(28,43,58,0.75)"),
+                        border: "none",
+                        borderBottom: idx < langs.length - 1 ? `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(28,43,58,0.08)"}` : "none",
+                        cursor: "pointer",
+                        transition: "background 0.15s, color 0.15s",
+                        textAlign: "left",
+                        letterSpacing: "0.02em",
+                      }}
+                      onMouseEnter={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(28,43,58,0.05)"; }}
+                      onMouseLeave={(e) => { if (lang !== l.code) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                    >
+                      <span style={{ fontSize: "16px", width: "20px", textAlign: "center", flexShrink: 0 }}>{l.label}</span>
+                      <span>{l.full}</span>
+                      {lang === l.code && (
+                        <svg style={{ marginLeft: "auto", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <path d="M2 6L5 9L10 3" stroke="#C4622D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
 
@@ -275,25 +351,73 @@ export default function Navbar() {
           {/* Mobile Controls */}
           <div className="md:hidden flex items-center gap-2">
             {/* Mobile Language Switcher */}
-            <div style={{ display: "flex", border: `1px solid ${langBorder}`, borderRadius: "2px", overflow: "hidden" }}>
-              {langs.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => setLang(l.code)}
+            <div style={{ position: "relative" }} ref={langRef}>
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                style={{
+                  fontFamily: F,
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  padding: "0.3rem 0.6rem",
+                  background: "transparent",
+                  color: isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)",
+                  border: `1px solid ${langBorder}`,
+                  borderRadius: "3px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                {currentLang.label}
+                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ transition: "transform 0.2s", transform: langOpen ? "rotate(180deg)" : "none", opacity: 0.6 }}>
+                  <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {langOpen && (
+                <div
                   style={{
-                    fontFamily: F,
-                    fontSize: "11px",
-                    fontWeight: 700,
-                    padding: "0.25rem 0.45rem",
-                    background: lang === l.code ? "rgba(196,98,45,0.85)" : "transparent",
-                    color: lang === l.code ? "#fff" : langInactiveColor,
-                    border: "none",
-                    cursor: "pointer",
+                    position: "absolute",
+                    top: "calc(100% + 6px)",
+                    right: isAr ? "0" : "auto",
+                    left: isAr ? "auto" : "0",
+                    background: isDark ? "rgba(12,12,12,0.97)" : "rgba(250,248,244,0.98)",
+                    backdropFilter: "blur(20px)",
+                    border: `1px solid ${isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.12)"}`,
+                    borderRadius: "6px",
+                    overflow: "hidden",
+                    minWidth: "120px",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+                    zIndex: 200,
                   }}
                 >
-                  {l.label}
-                </button>
-              ))}
+                  {langs.map((l, idx) => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLang(l.code); setLangOpen(false); }}
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontFamily: F,
+                        fontSize: "12px",
+                        fontWeight: lang === l.code ? 700 : 500,
+                        padding: "0.55rem 0.85rem",
+                        background: lang === l.code ? "rgba(196,98,45,0.15)" : "transparent",
+                        color: lang === l.code ? "#C4622D" : (isDark ? "rgba(255,255,255,0.75)" : "rgba(28,43,58,0.75)"),
+                        border: "none",
+                        borderBottom: idx < langs.length - 1 ? `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(28,43,58,0.08)"}` : "none",
+                        cursor: "pointer",
+                        textAlign: "left",
+                      }}
+                    >
+                      <span style={{ fontSize: "14px", width: "18px", textAlign: "center" }}>{l.label}</span>
+                      <span>{l.full}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             <button
