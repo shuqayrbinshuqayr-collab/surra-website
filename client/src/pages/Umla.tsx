@@ -71,7 +71,20 @@ export default function Umla() {
         borderBottom: `1px solid rgba(201,168,76,0.15)`,
         position: "relative",
         overflow: "hidden",
+        minHeight: "70vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
       }}>
+        {/* Video Background */}
+        <video
+          autoPlay muted loop playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.25 }}
+        >
+          <source src="/manus-storage/wide-shot-of-traditional-najdi-houses-with-mud-arc(1)_6fdbe11d.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,8,2,0.85) 0%, rgba(10,8,2,0.7) 100%)" }} />
         {/* خلفية هندسية خفيفة */}
         <div style={{
           position: "absolute", inset: 0, opacity: 0.04,

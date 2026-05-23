@@ -181,11 +181,21 @@ export default function Basar() {
           overflow: "hidden",
         }}
       >
-        {/* Background */}
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.35 }}
+        >
+          <source src="/manus-storage/about_hero_video_346e3443.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay */}
         <div style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(135deg, #0d0500 0%, #1a0800 40%, #2d1000 70%, #0d0500 100%)",
+          background: "linear-gradient(135deg, #0d050099 0%, #1a080099 40%, #2d100099 70%, #0d050099 100%)",
         }} />
         {/* Orange glow */}
         <div style={{

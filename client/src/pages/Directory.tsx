@@ -168,6 +168,13 @@ export default function Directory() {
           paddingTop: "60px",
         }}
       >
+        {/* Video Background */}
+        <video
+          autoPlay muted loop playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3, zIndex: 0 }}
+        >
+          <source src="/manus-storage/transform-to-night-sky-over-diriyah-thunder-clouds_987c713a.mp4" type="video/mp4" />
+        </video>
         {/* Background image */}
         <div
           style={{
@@ -176,8 +183,9 @@ export default function Directory() {
             backgroundImage: "url(/manus-storage/riyadh-night-hero_a07c9d0a.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center 40%",
-            filter: "brightness(0.45)",
+            filter: "brightness(0.25)",
             zIndex: 0,
+            mixBlendMode: "multiply",
           }}
         />
         {/* Gradient overlay */}

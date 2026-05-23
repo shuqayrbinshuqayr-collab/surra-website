@@ -121,9 +121,23 @@ export default function Media() {
           paddingBottom: "80px",
           background: "linear-gradient(180deg, rgba(196,98,45,0.08) 0%, transparent 100%)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "55vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
         }}
       >
-        <div className="container">
+        {/* Video Background */}
+        <video
+          autoPlay muted loop playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.2 }}
+        >
+          <source src="/manus-storage/magnific_site-begins-with-a-night-_2908528196_ec5c37cc.mp4" type="video/mp4" />
+        </video>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 100%)" }} />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ maxWidth: "700px" }}>
             <p style={{ fontFamily: F, fontSize: "0.85rem", color: "#C4622D", letterSpacing: "0.15em", marginBottom: "1rem", fontWeight: 600 }}>
               {isAr ? "المركز الإعلامي" : "MEDIA CENTER"}

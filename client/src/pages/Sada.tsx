@@ -245,12 +245,20 @@ export default function Sada() {
 
       {/* ── Hero ── */}
       <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
-        {/* Background image */}
+        {/* Video Background */}
+        <video
+          autoPlay muted loop playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }}
+        >
+          <source src="/manus-storage/magnific_keep-the-same-image-and-m_2908526314_215afa14.mp4" type="video/mp4" />
+        </video>
+        {/* Background image fallback */}
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/106553263/fHr7Y4tPFdBZFRq9ZFKpfT/sada-hero-7n8RHUT55GLJu65dsBq6gP.webp)`,
           backgroundSize: "cover", backgroundPosition: "center right",
-          filter: "brightness(0.45)",
+          filter: "brightness(0.25)",
+          mixBlendMode: "multiply",
         }} />
         {/* Purple gradient overlay */}
         <div style={{
