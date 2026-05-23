@@ -75,22 +75,8 @@ const identityDocs = [
     color: "#C4622D",
     pages: "٤٨ صفحة",
     pagesEn: "48 pages",
-    // PDF placeholder — replace with actual manus-storage URL when available
-    pdfUrl: null as string | null,
-    previewColor: "linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #C4622D 100%)",
-  },
-  {
-    id: "guidelines",
-    titleAr: "قايدلاين الهوية",
-    titleEn: "Brand Guidelines",
-    descAr: "دليل استخدام الهوية البصرية الكامل — كيفية تطبيق العلامة بشكل صحيح على جميع المواد",
-    descEn: "Complete brand usage guidelines — how to correctly apply the brand across all materials",
-    icon: "◉",
-    color: "#7B4F8E",
-    pages: "٣٢ صفحة",
-    pagesEn: "32 pages",
     pdfUrl: "/manus-storage/surrah-guidelines_4d27ab06.pdf",
-    previewColor: "linear-gradient(135deg, #0d0014 0%, #2a0040 50%, #7B4F8E 100%)",
+    previewColor: "linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #C4622D 100%)",
   },
   {
     id: "profile",
