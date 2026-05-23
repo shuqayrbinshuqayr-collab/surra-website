@@ -152,13 +152,27 @@ export default function About() {
                 style={{
                   fontFamily: F,
                   fontWeight: 900,
-                  fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
-                  color: "var(--surrah-text-primary)",
-                  lineHeight: 1.3,
+                  fontSize: "clamp(2.2rem, 4vw, 3.5rem)",
+                  lineHeight: 1.25,
                   marginBottom: "1.5rem",
                 }}
               >
-                {lang === "ar" ? "لأنها النقطة التي تنبثق منها الدوائر" : lang === "en" ? "The Point from Which Circles Emerge" : "圆圈涌现的起点"}
+                {lang === "ar" ? (
+                  <>
+                    <span style={{ color: "var(--surrah-text-primary)" }}>لأنها النقطة </span>
+                    <span style={{ color: "#C4622D" }}>التي تنبثق منها الدوائر</span>
+                  </>
+                ) : lang === "en" ? (
+                  <>
+                    <span style={{ color: "var(--surrah-text-primary)" }}>The Point </span>
+                    <span style={{ color: "#C4622D" }}>from Which Circles Emerge</span>
+                  </>
+                ) : (
+                  <>
+                    <span style={{ color: "var(--surrah-text-primary)" }}>圆圈 </span>
+                    <span style={{ color: "#C4622D" }}>涌现的起点</span>
+                  </>
+                )}
               </h2>
 
               {/* Paragraph 1: Definition */}
