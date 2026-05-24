@@ -45,15 +45,24 @@ export default function Navbar() {
   useEffect(() => { setMenuOpen(false); setActiveDropdown(null); setLangOpen(false); }, [location]);
 
   // Close lang dropdown on outside click
+  // Close lang dropdown on outside click - use mousedown to detect outside clicks
+  // but use a flag to prevent closing when clicking inside the dropdown
   useEffect(() => {
+    if (!langOpen) return;
     const handler = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+    // Use setTimeout to avoid catching the same click that opened the dropdown
+    const timer = setTimeout(() => {
+      document.addEventListener("click", handler);
+    }, 0);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", handler);
+    };
+  }, [langOpen]);
 
   const openDropdown = (key: string) => {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
