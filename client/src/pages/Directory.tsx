@@ -120,7 +120,7 @@ export default function Directory() {
   const [search, setSearch] = useState("");
   const [filterCity, setFilterCity] = useState("");
   const [filterType, setFilterType] = useState("");
-  const [tab, setTab] = useState<"directory" | "submit">("directory");
+  const [tab, setTab] = useState<"directory" | "submit" | "about">("directory");
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [form, setForm] = useState({
@@ -190,10 +190,10 @@ export default function Directory() {
         {/* Hero content */}
         <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "3rem 1rem 2rem" }}>
           <h1 style={{ fontFamily: fontBase, fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "0.75rem", lineHeight: 1.2 }}>
-            دليل الجهات الثقافية السعودية
+            الدليل الثقافي السعودي
           </h1>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.02em" }}>
-            A Directory of Saudi Cultural Entities
+            The Saudi Cultural Directory
           </p>
         </div>
 
@@ -286,6 +286,7 @@ export default function Directory() {
           <div style={{ display: "flex" }}>
             {[
               { key: "directory", label: "الدليل" },
+              { key: "about", label: "عن الدليل" },
               { key: "submit", label: "سجّل جهتك" },
             ].map((t) => (
               <button
@@ -387,6 +388,66 @@ export default function Directory() {
               ))}
             </div>
           )}
+        </div>
+      )}
+
+      {/* ── ABOUT TAB ── */}
+      {tab === "about" && (
+        <div className="container" style={{ paddingTop: "3rem", paddingBottom: "5rem", maxWidth: "860px" }}>
+          {/* Header */}
+          <div style={{ marginBottom: "3rem", paddingBottom: "2rem", borderBottom: `1px solid ${BORDER}` }}>
+            <p style={{ color: GOLD, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem", fontFamily: fontBase }}>الدليل الثقافي السعودي</p>
+            <h1 style={{ fontFamily: fontBase, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: "var(--surrah-text-primary)", lineHeight: 1.2 }}>
+              المرجع الأهم للمشهد الثقافي
+            </h1>
+          </div>
+
+          {/* Three pillars */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "2rem", marginBottom: "3rem" }}>
+            {[
+              {
+                label: "الرؤية",
+                title: "المرجع الأهم",
+                body: "أن يصبح الدليل الثقافي السعودي المرجع الأهم للمشهد الثقافي والإبداعي في المملكة.",
+                icon: "◎",
+              },
+              {
+                label: "الرسالة",
+                title: "توثيق وربط وتمكين",
+                body: "توثيق وربط وتمكين القطاع الثقافي السعودي عبر منصة ذكية تجمع البيانات والفرص والمعرفة الثقافية في مكان واحد.",
+                icon: "◈",
+              },
+              {
+                label: "الفلسفة",
+                title: "شبكة من الأشخاص والأفكار",
+                body: "الثقافة ليست فعاليات فقط، بل شبكة من الأشخاص والجهات والأفكار والمساحات التي تشكل هوية المجتمع واقتصاده الإبداعي.",
+                icon: "◇",
+              },
+            ].map((pillar) => (
+              <div key={pillar.label} style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, borderTop: `3px solid ${GOLD}`, padding: "2rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1rem" }}>
+                  <span style={{ color: GOLD, fontSize: "1.2rem" }}>{pillar.icon}</span>
+                  <span style={{ color: GOLD, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: fontBase, fontWeight: 700 }}>{pillar.label}</span>
+                </div>
+                <h3 style={{ fontFamily: fontBase, fontSize: "1.15rem", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>{pillar.title}</h3>
+                <p style={{ color: MUTED, fontSize: "0.9rem", lineHeight: 1.85 }}>{pillar.body}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div style={{ background: `rgba(196,98,45,0.06)`, border: `1px solid rgba(196,98,45,0.2)`, padding: "2rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+            <div>
+              <p style={{ fontFamily: fontBase, fontWeight: 700, color: "var(--surrah-text-primary)", fontSize: "1.1rem", marginBottom: "0.3rem" }}>هل جهتك غائبة عن الدليل؟</p>
+              <p style={{ color: MUTED, fontSize: "0.85rem" }}>سجّل جهتك وكن جزءاً من المشهد الثقافي السعودي الموثّق.</p>
+            </div>
+            <button
+              onClick={() => setTab("submit")}
+              style={{ background: GOLD, color: "#fff", border: "none", padding: "0.75rem 1.75rem", fontFamily: fontBase, fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", letterSpacing: "0.05em" }}
+            >
+              سجّل جهتك ←
+            </button>
+          </div>
         </div>
       )}
 
