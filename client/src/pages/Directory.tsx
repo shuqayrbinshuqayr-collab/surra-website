@@ -42,32 +42,31 @@ interface Entity {
 }
 
 const initialEntities: Entity[] = [
-  { id: 1, name: "حي جميل", category: "المساحات الإبداعية", type: "مساحة إبداعية", city: "جدة", focus: "فنون بصرية وسينما", desc: "مجمع إبداعي متكامل بمساحة 17,000م² يضم 12 منظمة شريكة، استوديوهات، مسرح، وأول دار سينما مستقلة في المملكة.", tags: ["#فنون", "#سينما", "#ريادة", "#جدة"], activity: "نشط جداً", instagram: "@artjameel", partnership: "عالية", year: 2021, isNew: false, logo: "/manus-storage/art_jameel_9a51f5c0.svg" },
-  { id: 2, name: "الجمعية العربية السعودية للثقافة والفنون", category: "المجتمعات الثقافية", type: "جمعية", city: "الرياض", focus: "مسرح وموسيقى وفنون بصرية", desc: "الكيان الرائد في خدمة الحراك الثقافي منذ 1973، تمتد عبر 16 فرعاً في المملكة مع أكثر من 11,000 عضو.", tags: ["#مسرح", "#موسيقى", "#فنون_بصرية", "#وطني"], activity: "نشط جداً", instagram: "@sasca_sa", partnership: "عالية", year: 1973, isNew: false, logo: "/manus-storage/sasca_465a651d.png" },
+  { id: 1, name: "حي جميل", category: "الجهات الإبداعية", type: "مساحة إبداعية", city: "جدة", focus: "فنون بصرية وسينما", desc: "مجمع إبداعي متكامل بمساحة 17,000م² يضم 12 منظمة شريكة، استوديوهات، مسرح، وأول دار سينما مستقلة في المملكة.", tags: ["#فنون", "#سينما", "#ريادة", "#جدة"], activity: "نشط جداً", instagram: "@artjameel", partnership: "عالية", year: 2021, isNew: false, logo: "/manus-storage/art_jameel_9a51f5c0.svg" },
+  { id: 2, name: "الجمعية العربية السعودية للثقافة والفنون", category: "الجهات الثقافية", type: "جمعية", city: "الرياض", focus: "مسرح وموسيقى وفنون بصرية", desc: "الكيان الرائد في خدمة الحراك الثقافي منذ 1973، تمتد عبر 16 فرعاً في المملكة مع أكثر من 11,000 عضو.", tags: ["#مسرح", "#موسيقى", "#فنون_بصرية", "#وطني"], activity: "نشط جداً", instagram: "@sasca_sa", partnership: "عالية", year: 1973, isNew: false, logo: "/manus-storage/sasca_465a651d.png" },
   { id: 3, name: "جاكس — منطقة الدرعية الثقافية", category: "المساحات الإبداعية", type: "مساحة إبداعية", city: "الرياض", focus: "تصوير وتصميم وفنون معاصرة", desc: "حي ثقافي في قلب الدرعية يستضيف معارض وورشات في التصوير الفوتوغرافي، النحت، والتصميم الغرافيكي.", tags: ["#درعية", "#تصميم", "#تراث", "#معاصر"], activity: "نشط جداً", instagram: "@diriyahgate", partnership: "عالية", year: 2022, isNew: false, logo: "/manus-storage/jaxs_6397f8f0.svg" },
   { id: 4, name: "بلد الفن", category: "المبادرات المستقلة", type: "مبادرة", city: "جدة", focus: "فنون بصرية وتراث محلي", desc: "مبادرة وزارة الثقافة التي تحوّل جدة التاريخية إلى مركز إبداعي ثقافي بمعارض تعكس التراث بأساليب عصرية.", tags: ["#جدة_التاريخية", "#تراث", "#فنون", "#وزارة_الثقافة"], activity: "نشط", instagram: "@ministryofculture", partnership: "عالية", year: 2024, isNew: false, logo: "" },
   { id: 5, name: "مركز إثراء", category: "الجهات الداعمة", type: "مساحة إبداعية", city: "الدمام", focus: "ثقافة وفنون ومعرفة", desc: "مركز إثراء للمعرفة والفنون والثقافة في الظهران، يضم متحفاً ومسرحاً وحاضنة أعمال إبداعية.", tags: ["#إثراء", "#أرامكو", "#معرفة", "#شرقية"], activity: "نشط جداً", instagram: "@ithra", partnership: "عالية", year: 2018, isNew: false, logo: "/manus-storage/ithra_aed80674.png" },
   { id: 6, name: "فنون العلا", category: "الفعاليات المتكررة", type: "مبادرة", city: "العلا", focus: "فنون معاصرة وتراث صحراوي", desc: "مهرجان فنون عالمي في العلا يجمع الفنانين المحليين والدوليين وسط التضاريس الصحراوية الساحرة.", tags: ["#العلا", "#فنون_عالمية", "#صحراء", "#سياحة"], activity: "نشط", instagram: "@experiencealula", partnership: "متوسطة", year: 2020, isNew: false, logo: "/manus-storage/alula_e4847c23.svg" },
   { id: 7, name: "النادي الأدبي الثقافي جدة", category: "النوادي الأدبية", type: "جمعية", city: "جدة", focus: "أدب وشعر وخط عربي", desc: "نادٍ أدبي ثقافي يقدم ورشات في الخط العربي والشعر، ويحتضن منتدى الفنون البصرية.", tags: ["#أدب", "#خط_عربي", "#شعر", "#جدة"], activity: "نشط", instagram: "@jeddahliterary", partnership: "متوسطة", year: 1975, isNew: false, logo: "/manus-storage/jeddah_literary_8f5aea33.jpg" },
   { id: 8, name: "مبادرة الشريك الأدبي", category: "المبادرات المستقلة", type: "مبادرة", city: "الرياض", focus: "أدب ومقاهٍ ثقافية", desc: "مبادرة وزارة الثقافة لتحويل 80 مقهى في 12 منطقة إدارية إلى مساحات إبداعية وأدبية.", tags: ["#مقاهي", "#أدب", "#وزارة_الثقافة", "#وطني"], activity: "نشط جداً", instagram: "@ministryofculture", partnership: "عالية", year: 2023, isNew: false, logo: "" },
-  { id: 9, name: "مجتمع سرة", category: "المجتمعات الثقافية", type: "مجتمع", city: "الرياض", focus: "اقتصاد إبداعي وحراك ثقافي", desc: "منظومة متكاملة تغير مفاهيم الحراك الثقافي وتستثمر في الاقتصاد الإبداعي السعودي عبر بناء مجتمعات فنية حية.", tags: ["#سرة", "#اقتصاد_إبداعي", "#مجتمع", "#ريادة"], activity: "نشط جداً", instagram: "@surrah_community", partnership: "عالية", year: 2022, isNew: true, logo: "/manus-storage/surrah_d12afd51.svg" },
-  { id: 10, name: "ستوديو بيان", category: "استوديوهات الفن", type: "استوديو", city: "الرياض", focus: "تصميم جرافيك وهوية بصرية", desc: "استوديو تصميم متخصص في الهوية البصرية والتصميم الجرافيكي للعلامات التجارية الإبداعية.", tags: ["#تصميم", "#هوية_بصرية", "#جرافيك"], activity: "نشط", instagram: "@bayan_studio", partnership: "متوسطة", year: 2020, isNew: false, logo: "" },
-  { id: 11, name: "متجر الفنون السعودية", category: "المعارض الصغيرة", type: "متجر", city: "جدة", focus: "بيع الأعمال الفنية المحلية", desc: "منصة تجارية لبيع الأعمال الفنية السعودية الأصيلة من لوحات وتماثيل ومنتجات إبداعية.", tags: ["#فنون", "#تجارة_إبداعية", "#جدة"], activity: "نشط", instagram: "@saudiartstore", partnership: "متوسطة", year: 2021, isNew: true, logo: "/manus-storage/saudi_art_store_62f9bfa9.png" },
+  { id: 9, name: "مجتمع سرة", category: "المجتمعات والمبادرات", type: "مجتمع", city: "الرياض", focus: "اقتصاد إبداعي وحراك ثقافي", desc: "منظومة متكاملة تغير مفاهيم الحراك الثقافي وتستثمر في الاقتصاد الإبداعي السعودي عبر بناء مجتمعات فنية حية.", tags: ["#سرة", "#اقتصاد_إبداعي", "#مجتمع", "#ريادة"], activity: "نشط جداً", instagram: "@surrah_community", partnership: "عالية", year: 2022, isNew: true, logo: "/manus-storage/surrah_d12afd51.svg" },
+  { id: 10, name: "ستوديو بيان", category: "الجهات الإبداعية", type: "استوديو", city: "الرياض", focus: "تصميم جرافيك وهوية بصرية", desc: "استوديو تصميم متخصص في الهوية البصرية والتصميم الجرافيكي للعلامات التجارية الإبداعية.", tags: ["#تصميم", "#هوية_بصرية", "#جرافيك"], activity: "نشط", instagram: "@bayan_studio", partnership: "متوسطة", year: 2020, isNew: false, logo: "" },
+  { id: 11, name: "متجر الفنون السعودية", category: "الجهات الإبداعية", type: "متجر", city: "جدة", focus: "بيع الأعمال الفنية المحلية", desc: "منصة تجارية لبيع الأعمال الفنية السعودية الأصيلة من لوحات وتماثيل ومنتجات إبداعية.", tags: ["#فنون", "#تجارة_إبداعية", "#جدة"], activity: "نشط", instagram: "@saudiartstore", partnership: "متوسطة", year: 2021, isNew: true, logo: "/manus-storage/saudi_art_store_62f9bfa9.png" },
 ];
 
 const CATEGORIES = [
   { key: "الكل", label: "الكل" },
-  { key: "المجتمعات الثقافية", label: "المجتمعات الثقافية" },
-  { key: "المساحات الإبداعية", label: "المساحات الإبداعية" },
-  { key: "المقاهي الثقافية", label: "المقاهي الثقافية" },
-  { key: "النوادي الأدبية", label: "النوادي الأدبية" },
-  { key: "المبادرات المستقلة", label: "المبادرات المستقلة" },
-  { key: "المعارض الصغيرة", label: "المعارض الصغيرة" },
-  { key: "استوديوهات الفن", label: "استوديوهات الفن" },
-  { key: "المكتبات المجتمعية", label: "المكتبات المجتمعية" },
-  { key: "مساحات العمل الإبداعي", label: "مساحات العمل الإبداعي" },
-  { key: "الفعاليات المتكررة", label: "الفعاليات المتكررة" },
+  { key: "الجهات الثقافية", label: "الجهات الثقافية" },
+  { key: "الجهات الإبداعية", label: "الجهات الإبداعية" },
+  { key: "المجتمعات والمبادرات", label: "المجتمعات والمبادرات" },
+  { key: "الأفراد والممارسون", label: "الأفراد والممارسون" },
   { key: "الجهات الداعمة", label: "الجهات الداعمة" },
+  { key: "المساحات الإبداعية", label: "المساحات الإبداعية" },
+  { key: "المجتمعات الثقافية", label: "المجتمعات الثقافية" },
+  { key: "المبادرات المستقلة", label: "المبادرات المستقلة" },
+  { key: "الفعاليات المتكررة", label: "الفعاليات المتكررة" },
+  { key: "النوادي الأدبية", label: "النوادي الأدبية" },
 ];
 
 const CITIES = ["", "الرياض", "جدة", "الدمام", "العلا", "أبها", "المدينة المنورة", "تبوك", "الطائف", "الأحساء"];
@@ -393,60 +392,150 @@ export default function Directory() {
 
       {/* ── ABOUT TAB ── */}
       {tab === "about" && (
-        <div className="container" style={{ paddingTop: "3rem", paddingBottom: "5rem", maxWidth: "860px" }}>
-          {/* Header */}
-          <div style={{ marginBottom: "3rem", paddingBottom: "2rem", borderBottom: `1px solid ${BORDER}` }}>
-            <p style={{ color: GOLD, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem", fontFamily: fontBase }}>الدليل الثقافي السعودي</p>
-            <h1 style={{ fontFamily: fontBase, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: "var(--surrah-text-primary)", lineHeight: 1.2 }}>
-              المرجع الأهم للمشهد الثقافي
-            </h1>
+        <div style={{ background: BG, paddingBottom: "5rem" }}>
+
+          {/* ── HERO INTRO ── */}
+          <div style={{ borderBottom: `1px solid ${BORDER}`, paddingTop: "3.5rem", paddingBottom: "3rem" }}>
+            <div className="container" style={{ maxWidth: "900px" }}>
+              <p style={{ color: GOLD, fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: "1rem", fontFamily: fontBase }}>Saudi Cultural Directory · DalilCulture</p>
+              <h1 style={{ fontFamily: fontBase, fontSize: "clamp(2rem, 4.5vw, 3.5rem)", fontWeight: 900, color: "var(--surrah-text-primary)", lineHeight: 1.15, marginBottom: "1.5rem" }}>
+                الدليل الثقافي السعودي
+              </h1>
+              <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.9, maxWidth: "700px" }}>
+                منصة وطنية متخصصة في توثيق وربط واستعراض المشهد الثقافي والإبداعي في المملكة العربية السعودية، عبر جمع الجهات الثقافية والإبداعية والمبادرات والمساحات والمجتمعات والأفراد الفاعلين في مكان واحد، ضمن تجربة رقمية منظمة تعكس ثراء الثقافة السعودية وتنوعها.
+              </p>
+              <p style={{ color: MUTED, fontSize: "0.95rem", lineHeight: 1.85, maxWidth: "700px", marginTop: "1rem" }}>
+                يعمل الدليل كمرجع حيّ للمشهد الثقافي، يساعد المهتمين والممارسين والجهات والباحثين والمستثمرين والجمهور على اكتشاف القطاع الثقافي والوصول إلى مكوناته بسهولة ووضوح.
+              </p>
+            </div>
           </div>
 
-          {/* Three pillars */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "2rem", marginBottom: "3rem" }}>
-            {[
-              {
-                label: "الرؤية",
-                title: "المرجع الأهم",
-                body: "أن يصبح الدليل الثقافي السعودي المرجع الأهم للمشهد الثقافي والإبداعي في المملكة.",
-                icon: "◎",
-              },
-              {
-                label: "الرسالة",
-                title: "توثيق وربط وتمكين",
-                body: "توثيق وربط وتمكين القطاع الثقافي السعودي عبر منصة ذكية تجمع البيانات والفرص والمعرفة الثقافية في مكان واحد.",
-                icon: "◈",
-              },
-              {
-                label: "الفلسفة",
-                title: "شبكة من الأشخاص والأفكار",
-                body: "الثقافة ليست فعاليات فقط، بل شبكة من الأشخاص والجهات والأفكار والمساحات التي تشكل هوية المجتمع واقتصاده الإبداعي.",
-                icon: "◇",
-              },
-            ].map((pillar) => (
-              <div key={pillar.label} style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, borderTop: `3px solid ${GOLD}`, padding: "2rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1rem" }}>
-                  <span style={{ color: GOLD, fontSize: "1.2rem" }}>{pillar.icon}</span>
-                  <span style={{ color: GOLD, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: fontBase, fontWeight: 700 }}>{pillar.label}</span>
+          {/* ── VISION / MISSION / PHILOSOPHY ── */}
+          <div className="container" style={{ maxWidth: "900px", paddingTop: "3rem", paddingBottom: "3rem", borderBottom: `1px solid ${BORDER}` }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+              {[
+                { label: "الرؤية", icon: "◎", body: "أن يصبح الدليل الثقافي السعودي المرجع الرقمي الأهم للمشهد الثقافي والإبداعي في المملكة العربية السعودية." },
+                { label: "الرسالة", icon: "◈", body: "تمكين الوصول إلى الثقافة السعودية عبر منصة تجمع وتوثّق وتربط الجهات الثقافية والإبداعية، وتسهم في تعزيز التواصل والتكامل والنمو داخل القطاع الثقافي." },
+                { label: "الفلسفة", icon: "◇", body: "نؤمن أن الثقافة ليست مجرد فعاليات أو منتجات إبداعية، بل منظومة متكاملة من الأشخاص والجهات والمساحات والأفكار والتجارب التي تشكّل هوية المجتمع وتعبّر عن تطوره. الثقافة حين تكون مرئية تصبح أقرب، وحين تكون مترابطة تصبح أقوى." },
+              ].map((item) => (
+                <div key={item.label} style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, borderTop: `3px solid ${GOLD}`, padding: "2rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+                    <span style={{ color: GOLD, fontSize: "1.1rem" }}>{item.icon}</span>
+                    <span style={{ color: GOLD, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: fontBase, fontWeight: 700 }}>{item.label}</span>
+                  </div>
+                  <p style={{ color: MUTED, fontSize: "0.9rem", lineHeight: 1.9 }}>{item.body}</p>
                 </div>
-                <h3 style={{ fontFamily: fontBase, fontSize: "1.15rem", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "0.75rem" }}>{pillar.title}</h3>
-                <p style={{ color: MUTED, fontSize: "0.9rem", lineHeight: 1.85 }}>{pillar.body}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* ── GOALS ── */}
+          <div className="container" style={{ maxWidth: "900px", paddingTop: "3rem", paddingBottom: "3rem", borderBottom: `1px solid ${BORDER}` }}>
+            <p style={{ color: GOLD, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem", fontFamily: fontBase }}>الأهداف</p>
+            <h2 style={{ fontFamily: fontBase, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "2rem" }}>ماذا يسعى الدليل إلى تحقيقه؟</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
+              {[
+                { num: "01", title: "توثيق المشهد الثقافي", body: "بناء قاعدة بيانات حديثة وشاملة للجهات والمبادرات والمجتمعات والمساحات الثقافية والإبداعية في المملكة." },
+                { num: "02", title: "تسهيل الوصول", body: "تمكين الأفراد والمهتمين والباحثين من اكتشاف الجهات الثقافية والوصول إليها بسهولة عبر تصنيفات ذكية وتجربة استخدام واضحة." },
+                { num: "03", title: "دعم الترابط الثقافي", body: "تعزيز التواصل والتكامل بين الجهات الثقافية والمبدعين والمجتمعات وصناع القطاع." },
+                { num: "04", title: "إبراز التنوع الثقافي", body: "عكس ثراء المشهد الثقافي في مختلف مناطق المملكة وتخصصاته وممارساته." },
+                { num: "05", title: "دعم الاقتصاد الإبداعي", body: "المساهمة في تنشيط القطاع الثقافي عبر زيادة الظهور والوصول وفرص التعاون والشراكات." },
+                { num: "06", title: "بناء مرجع موثوق", body: "توفير مصدر موثوق ومحدّث للبيانات والمعلومات المتعلقة بالقطاع الثقافي السعودي." },
+              ].map((goal) => (
+                <div key={goal.num} style={{ display: "flex", gap: "1.25rem", padding: "1.5rem", background: CARD, border: `1px solid ${CARD_BORDER}` }}>
+                  <span style={{ color: GOLD, fontFamily: fontBase, fontWeight: 900, fontSize: "1.4rem", lineHeight: 1, flexShrink: 0, opacity: 0.6 }}>{goal.num}</span>
+                  <div>
+                    <p style={{ fontFamily: fontBase, fontWeight: 700, color: "var(--surrah-text-primary)", fontSize: "0.95rem", marginBottom: "0.4rem" }}>{goal.title}</p>
+                    <p style={{ color: MUTED, fontSize: "0.85rem", lineHeight: 1.8 }}>{goal.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── VALUES ── */}
+          <div className="container" style={{ maxWidth: "900px", paddingTop: "3rem", paddingBottom: "3rem", borderBottom: `1px solid ${BORDER}` }}>
+            <p style={{ color: GOLD, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem", fontFamily: fontBase }}>القيم</p>
+            <h2 style={{ fontFamily: fontBase, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "2rem" }}>ما يحكم عملنا</h2>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+              {[
+                { val: "الوضوح", desc: "تنظيم المعلومات وتقديمها بطريقة سهلة ودقيقة" },
+                { val: "الترابط", desc: "ربط عناصر المشهد الثقافي وتعزيز فرص التعاون" },
+                { val: "الأصالة", desc: "عكس الهوية الثقافية السعودية بروح معاصرة" },
+                { val: "الشمول", desc: "تمثيل مختلف التخصصات والمناطق والجهات الثقافية" },
+                { val: "التطور", desc: "بناء منصة حية تتطور مع نمو القطاع الثقافي السعودي" },
+              ].map((v) => (
+                <div key={v.val} style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, padding: "1.25rem 1.5rem", minWidth: "200px", flex: "1" }}>
+                  <p style={{ fontFamily: fontBase, fontWeight: 800, color: GOLD, fontSize: "1rem", marginBottom: "0.35rem" }}>{v.val}</p>
+                  <p style={{ color: MUTED, fontSize: "0.82rem", lineHeight: 1.7 }}>{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── WHAT DOES THE DIRECTORY INCLUDE ── */}
+          <div className="container" style={{ maxWidth: "900px", paddingTop: "3rem", paddingBottom: "3rem", borderBottom: `1px solid ${BORDER}` }}>
+            <p style={{ color: GOLD, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem", fontFamily: fontBase }}>محتوى الدليل</p>
+            <h2 style={{ fontFamily: fontBase, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "2rem" }}>ماذا يشمل الدليل؟</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
+              {[
+                { cat: "الجهات الثقافية", items: ["الهيئات والمؤسسات", "الجمعيات الثقافية", "النوادي الأدبية", "المتاحف", "المكتبات"] },
+                { cat: "الجهات الإبداعية", items: ["الاستوديوهات", "المساحات الإبداعية", "المعارض", "شركات الإنتاج", "وكالات التصميم"] },
+                { cat: "المجتمعات والمبادرات", items: ["المجتمعات الثقافية", "المبادرات المستقلة", "البرامج والمشاريع النوعية"] },
+                { cat: "الأفراد والممارسون", items: ["الفنانون", "الكتّاب", "المصممون", "الموسيقيون", "الحرفيون", "صنّاع المحتوى"] },
+                { cat: "الجهات الداعمة", items: ["الصندوق الثقافي", "الجهات التمويلية", "الحاضنات", "المسرعات", "برامج الدعم"] },
+              ].map((section) => (
+                <div key={section.cat} style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, padding: "1.5rem" }}>
+                  <p style={{ fontFamily: fontBase, fontWeight: 800, color: GOLD, fontSize: "0.85rem", marginBottom: "0.75rem", letterSpacing: "0.02em" }}>{section.cat}</p>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                    {section.items.map((item) => (
+                      <li key={item} style={{ color: MUTED, fontSize: "0.82rem", lineHeight: 1.8, display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                        <span style={{ color: GOLD, fontSize: "0.5rem" }}>&#9632;</span>{item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── SLOGAN + FUTURE ── */}
+          <div className="container" style={{ maxWidth: "900px", paddingTop: "3rem", paddingBottom: "3rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))", gap: "2rem" }}>
+              {/* Slogan */}
+              <div style={{ background: `rgba(196,98,45,0.06)`, border: `1px solid rgba(196,98,45,0.2)`, padding: "2.5rem" }}>
+                <p style={{ color: GOLD, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "1rem", fontFamily: fontBase }}>الشعار التعريفي</p>
+                <p style={{ fontFamily: fontBase, fontWeight: 900, color: "var(--surrah-text-primary)", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.4, marginBottom: "0.75rem" }}>
+                  بوابتك للمشهد الثقافي السعودي
+                </p>
+                <p style={{ color: MUTED, fontSize: "0.85rem", lineHeight: 1.8 }}>الدليل الثقافي السعودي ليس مجرد منصة بيانات، بل مشروع يسعى إلى رسم خريطة الثقافة السعودية وربط عناصرها وتقديمها بصورة حديثة تعكس حجم الحراك الثقافي الذي تعيشه المملكة اليوم.</p>
               </div>
-            ))}
+              {/* Future */}
+              <div style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, padding: "2.5rem" }}>
+                <p style={{ color: GOLD, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "1rem", fontFamily: fontBase }}>مستقبل المنصة</p>
+                <p style={{ fontFamily: fontBase, fontWeight: 800, color: "var(--surrah-text-primary)", fontSize: "1rem", marginBottom: "1rem" }}>لا يقتصر دور الدليل على كونه منصة استعراض، بل يمتد ليصبح:</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {["خريطة تفاعلية للمشهد الثقافي", "منصة بيانات وتحليلات", "توصيات ذكية", "تقويم ثقافي موحّد", "عضويات احترافية للجهات", "لوحة بيانات للقطاع الثقافي", "تطبيق جوال", "API للجهات والشركاء"].map((f) => (
+                    <li key={f} style={{ color: MUTED, fontSize: "0.82rem", lineHeight: 1.9, display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                      <span style={{ color: GOLD, fontSize: "0.5rem" }}>&#9632;</span>{f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* CTA */}
-          <div style={{ background: `rgba(196,98,45,0.06)`, border: `1px solid rgba(196,98,45,0.2)`, padding: "2rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
-            <div>
-              <p style={{ fontFamily: fontBase, fontWeight: 700, color: "var(--surrah-text-primary)", fontSize: "1.1rem", marginBottom: "0.3rem" }}>هل جهتك غائبة عن الدليل؟</p>
-              <p style={{ color: MUTED, fontSize: "0.85rem" }}>سجّل جهتك وكن جزءاً من المشهد الثقافي السعودي الموثّق.</p>
+          <div className="container" style={{ maxWidth: "900px", paddingBottom: "2rem" }}>
+            <div style={{ background: `rgba(196,98,45,0.06)`, border: `1px solid rgba(196,98,45,0.2)`, padding: "2rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+              <div>
+                <p style={{ fontFamily: fontBase, fontWeight: 700, color: "var(--surrah-text-primary)", fontSize: "1.1rem", marginBottom: "0.3rem" }}>هل جهتك غائبة عن الدليل؟</p>
+                <p style={{ color: MUTED, fontSize: "0.85rem" }}>سجّل جهتك وكن جزءاً من المشهد الثقافي السعودي الموثّق.</p>
+              </div>
+              <button onClick={() => setTab("submit")} style={{ background: GOLD, color: "#fff", border: "none", padding: "0.75rem 1.75rem", fontFamily: fontBase, fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", letterSpacing: "0.05em" }}>
+                سجّل جهتك ←
+              </button>
             </div>
-            <button
-              onClick={() => setTab("submit")}
-              style={{ background: GOLD, color: "#fff", border: "none", padding: "0.75rem 1.75rem", fontFamily: fontBase, fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", letterSpacing: "0.05em" }}
-            >
-              سجّل جهتك ←
-            </button>
           </div>
         </div>
       )}
