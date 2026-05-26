@@ -20,7 +20,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.services": "خدماتنا",
     "nav.media": "المركز الإعلامي",
     "nav.memberships": "عضويات",
-    "nav.directory": "دليل سُرّة",
+    "nav.directory": "الدليل الثقافي",
     "nav.store": "المنجرة",
     "nav.create_community": "أنشئ مجتمعك",
     "nav.all_communities": "جميع المجتمعات",
@@ -67,7 +67,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.service3": "تنظيم الفعاليات الحية",
     "footer.service4": "توفير الجمهور المستهدف",
     "footer.join": "انضم إلينا",
-    "footer.directory": "دليل سُرّة",
+    "footer.directory": "الدليل الثقافي",
     "footer.store": "المنجرة",
     "footer.contact": "تواصل معنا",
     // About
@@ -79,7 +79,7 @@ const translations: Record<Language, Record<string, string>> = {
     "communities.join": "انضم الآن",
     "communities.learn_more": "اعرف أكثر",
     // Directory
-    "directory.title": "دليل سُرّة",
+    "directory.title": "الدليل الثقافي السعودي",
     "directory.sub": "دليل الجهات الثقافية السعودية",
     "directory.add": "سجّل جهتك",
     "directory.search": "ابحث عن جهة...",
@@ -159,7 +159,7 @@ const translations: Record<Language, Record<string, string>> = {
     "directory.no_results": "لا توجد نتائج",
     "directory.website": "زيارة الموقع",
     "directory.register_title": "سجّل جهتك",
-    "directory.register_sub": "أضف جهتك الثقافية إلى دليل سُرّة",
+    "directory.register_sub": "أضف جهتك الثقافية إلى الدليل الثقافي السعودي",
     // Common
     "common.coming_soon": "قريباً",
     "common.back": "رجوع",
