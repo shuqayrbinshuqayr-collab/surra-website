@@ -2,12 +2,7 @@
 // Flow: Form 1 (6-axis discovery) → qualification scoring → Form 2 (8-section builder) OR thank-you
 
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
-
-const EMAILJS_SERVICE = "service_mjtlyei";
-const EMAILJS_TEMPLATE = "template_notyk55";
-const EMAILJS_PUBLIC_KEY = "ass6qtTEX9ResB4to";
 
 const FONT = "'ManchetteFine', sans-serif";
 const ORANGE = "#C4622D";
@@ -217,22 +212,10 @@ const emptyF2: Form2Data = {
   impactInd: "", impactWide: "", impactMeasure: "", legacy: "",
 };
 
-// ─── EMAIL SENDER via EmailJS ──────────────────────────────────────────
-function sendEmail(subject: string, body: string, fromName = "موقع سُرّة", replyEmail = "noreply@surrah.net") {
-  emailjs.send(
-    EMAILJS_SERVICE,
-    EMAILJS_TEMPLATE,
-    {
-      title: subject,
-      name: fromName,
-      email: replyEmail,
-      message: body,
-      time: new Date().toLocaleString("ar-SA"),
-    },
-    EMAILJS_PUBLIC_KEY
-  ).catch((err) => {
-    console.error("EmailJS send error:", err);
-  });
+// ─── EMAIL SENDER (console log fallback) ──────────────────────────────────────────
+function sendEmail(subject: string, body: string, _fromName = "موقع سُرّة", _replyEmail = "noreply@surrah.net") {
+  // TODO: integrate with tRPC notification system
+  console.log("[Email]", subject, body);
 }
 
 function buildF1Email(d: Form1Data): string {

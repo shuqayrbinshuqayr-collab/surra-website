@@ -20,8 +20,15 @@ import Media from "./pages/Media";
 import Basar from "./pages/Basar";
 import Umla from "./pages/Umla";
 import Sada from "./pages/Sada";
-
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDirectory from "./pages/admin/AdminDirectory";
+import AdminNews from "./pages/admin/AdminNews";
+import AdminMedia from "./pages/admin/AdminMedia";
+import AdminEvents from "./pages/admin/AdminEvents";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminSettings from "./pages/admin/AdminSettings";
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
@@ -39,6 +46,13 @@ function Router() {
       <Route path={"/register"} component={Register} />
       <Route path={"/store"} component={Store} />
       <Route path={"/media"} component={Media} />
+      <Route path={"/admin"} component={AdminDashboard} />
+      <Route path={"/admin/directory"} component={AdminDirectory} />
+      <Route path={"/admin/news"} component={AdminNews} />
+      <Route path={"/admin/media"} component={AdminMedia} />
+      <Route path={"/admin/events"} component={AdminEvents} />
+      <Route path={"/admin/users"} component={AdminUsers} />
+      <Route path={"/admin/settings"} component={AdminSettings} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

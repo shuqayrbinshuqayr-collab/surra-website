@@ -1,0 +1,81 @@
+CREATE TABLE `cultural_entities` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`nameAr` varchar(255) NOT NULL,
+	`nameEn` varchar(255),
+	`category` varchar(100) NOT NULL,
+	`categoryEn` varchar(100),
+	`descriptionAr` text,
+	`descriptionEn` text,
+	`website` varchar(500),
+	`logoUrl` varchar(500),
+	`city` varchar(100),
+	`status` enum('active','pending','archived') NOT NULL DEFAULT 'active',
+	`featured` boolean NOT NULL DEFAULT false,
+	`sortOrder` int DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	`createdBy` int,
+	CONSTRAINT `cultural_entities_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `events` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`titleAr` varchar(500) NOT NULL,
+	`titleEn` varchar(500),
+	`descriptionAr` text,
+	`descriptionEn` text,
+	`eventDate` timestamp NOT NULL,
+	`locationAr` varchar(255),
+	`locationEn` varchar(255),
+	`community` varchar(100),
+	`communityEn` varchar(100),
+	`communitySlug` varchar(50),
+	`communityColor` varchar(20),
+	`eventType` varchar(100),
+	`eventTypeEn` varchar(100),
+	`registerUrl` varchar(500),
+	`status` enum('upcoming','past','cancelled') NOT NULL DEFAULT 'upcoming',
+	`featured` boolean NOT NULL DEFAULT false,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	`createdBy` int,
+	CONSTRAINT `events_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `media_files` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`titleAr` varchar(500) NOT NULL,
+	`titleEn` varchar(500),
+	`fileUrl` varchar(500) NOT NULL,
+	`fileKey` varchar(500),
+	`fileType` enum('pdf','video','image','audio') NOT NULL,
+	`mimeType` varchar(100),
+	`fileSizeBytes` int,
+	`thumbnailUrl` varchar(500),
+	`category` varchar(100),
+	`status` enum('active','archived') NOT NULL DEFAULT 'active',
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	`createdBy` int,
+	CONSTRAINT `media_files_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `news_articles` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`titleAr` varchar(500) NOT NULL,
+	`titleEn` varchar(500),
+	`contentAr` text,
+	`contentEn` text,
+	`excerptAr` text,
+	`excerptEn` text,
+	`coverImageUrl` varchar(500),
+	`category` varchar(100),
+	`tags` text,
+	`status` enum('published','draft','archived') NOT NULL DEFAULT 'draft',
+	`featured` boolean NOT NULL DEFAULT false,
+	`publishedAt` timestamp,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	`createdBy` int,
+	CONSTRAINT `news_articles_id` PRIMARY KEY(`id`)
+);

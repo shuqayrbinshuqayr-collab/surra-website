@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1780047419421,
+      "tag": "0000_minor_millenium_guard",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1780047619752,
+      "tag": "0001_glorious_vengeance",
+      "breakpoints": true
+    }
+  ]
+}
