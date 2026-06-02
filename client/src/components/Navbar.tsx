@@ -11,6 +11,8 @@ import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage, type Language } from "@/contexts/LanguageContext";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 const F = "'ManchetteFine', sans-serif";
 
@@ -356,6 +358,9 @@ export default function Navbar() {
             >
               {t("nav.create_community")}
             </Link>
+
+            {/* Auth Button */}
+            <NavAuthButton isDark={isDark} navTextColor={navTextColor} />
           </div>
 
           {/* Mobile Controls */}
@@ -552,5 +557,150 @@ export default function Navbar() {
         </div>
       </div>
     </header>
+  );
+}
+
+// ── Auth Button Component ──────────────────────────────────────────────────
+function NavAuthButton({ isDark, navTextColor }: { isDark: boolean; navTextColor: string }) {
+  const { user, isAuthenticated, loading, logout } = useAuth();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const F = "'ManchetteFine', sans-serif";
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const t = setTimeout(() => document.addEventListener("click", handler), 0);
+    return () => { clearTimeout(t); document.removeEventListener("click", handler); };
+  }, [open]);
+
+  if (loading) return null;
+
+  if (!isAuthenticated) {
+    return (
+      <a
+        href={getLoginUrl()}
+        style={{
+          fontFamily: F,
+          fontSize: "14px",
+          fontWeight: 700,
+          padding: "0.5rem 1.1rem",
+          background: "rgba(196,98,45,0.15)",
+          color: "#C4622D",
+          border: "1px solid rgba(196,98,45,0.4)",
+          borderRadius: "4px",
+          textDecoration: "none",
+          whiteSpace: "nowrap",
+          transition: "all 0.2s",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+        }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.25)"; }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.15)"; }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" />
+        </svg>
+        تسجيل الدخول
+      </a>
+    );
+  }
+
+  const isAdmin = (user as { role?: string })?.role === "admin";
+  const initials = user?.name?.slice(0, 2) || "U";
+
+  return (
+    <div ref={ref} style={{ position: "relative" }}>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          background: "transparent",
+          border: `1px solid ${isDark ? "rgba(255,255,255,0.2)" : "rgba(28,43,58,0.2)"}`,
+          borderRadius: "4px",
+          padding: "0.35rem 0.75rem 0.35rem 0.5rem",
+          cursor: "pointer",
+          fontFamily: F,
+          color: navTextColor,
+        }}
+      >
+        <span style={{
+          width: "28px", height: "28px", borderRadius: "50%",
+          background: "#C4622D", color: "#fff",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: "12px", fontWeight: 700, flexShrink: 0,
+        }}>
+          {initials}
+        </span>
+        <span style={{ fontSize: "13px", fontWeight: 600, maxWidth: "100px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+          {user?.name?.split(" ")[0] || "حسابي"}
+        </span>
+        <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ opacity: 0.5, transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }}>
+          <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {open && (
+        <div style={{
+          position: "absolute",
+          top: "calc(100% + 8px)",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: isDark ? "rgba(10,10,10,0.98)" : "rgba(250,248,244,0.98)",
+          backdropFilter: "blur(16px)",
+          border: `1px solid ${isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.12)"}`,
+          borderRadius: "6px",
+          minWidth: "160px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
+          zIndex: 200,
+          overflow: "hidden",
+        }}>
+          {isAdmin && (
+            <a
+              href="/admin"
+              onClick={() => setOpen(false)}
+              style={{
+                display: "flex", alignItems: "center", gap: "8px",
+                padding: "0.65rem 1rem",
+                fontFamily: F, fontSize: "13px", fontWeight: 700,
+                color: "#C4622D", textDecoration: "none",
+                borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(28,43,58,0.08)"}`,
+                transition: "background 0.15s",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.1)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
+              </svg>
+              لوحة التحكم
+            </a>
+          )}
+          <button
+            onClick={() => { setOpen(false); logout(); }}
+            style={{
+              width: "100%", display: "flex", alignItems: "center", gap: "8px",
+              padding: "0.65rem 1rem",
+              fontFamily: F, fontSize: "13px", fontWeight: 600,
+              color: isDark ? "rgba(255,255,255,0.75)" : "rgba(28,43,58,0.75)",
+              background: "transparent", border: "none", cursor: "pointer",
+              textAlign: "right", transition: "background 0.15s",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(28,43,58,0.05)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            تسجيل الخروج
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
