@@ -260,38 +260,36 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Language Switcher + Theme Toggle + CTA */}
+          {/* Language Switcher + Auth + CTA */}
           <div className="hidden md:flex items-center flex-shrink-0 gap-2" style={{ marginLeft: "-0.5rem" }}>
-            {/* Language Switcher — Dropdown */}
+            {/* Language Switcher — Icon style matching Auth */}
             <div ref={langRef} style={{ position: "relative" }}>
               <button
                 onClick={() => setLangOpen((v) => !v)}
+                title={currentLang.full}
                 style={{
-                  fontFamily: F,
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  padding: "0.3rem 0.65rem",
-                  background: langOpen ? (isDark ? "rgba(255,255,255,0.1)" : "rgba(28,43,58,0.08)") : "transparent",
-                  color: isDark ? "rgba(255,255,255,0.85)" : "var(--surrah-nav-text)",
-                  border: `1px solid ${langBorder}`,
-                  borderRadius: "3px",
+                  width: "36px",
+                  height: "36px",
+                  background: langOpen ? "rgba(196,98,45,0.25)" : "rgba(196,98,45,0.15)",
+                  color: "#C4622D",
+                  border: "1px solid rgba(196,98,45,0.4)",
+                  borderRadius: "50%",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
-                  gap: "5px",
+                  justifyContent: "center",
                   transition: "all 0.2s",
+                  flexShrink: 0,
+                  padding: 0,
+                  fontFamily: F,
+                  fontSize: "11px",
+                  fontWeight: 700,
                   letterSpacing: "0.03em",
-                  whiteSpace: "nowrap",
                 }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.3)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = langOpen ? "rgba(196,98,45,0.25)" : "rgba(196,98,45,0.15)"; }}
               >
                 <span style={{ fontSize: "18px", lineHeight: 1 }}>{currentLang.flag}</span>
-                <span style={{ fontSize: "12px", opacity: 0.85 }}>{currentLang.label}</span>
-                <svg
-                  width="8" height="5" viewBox="0 0 8 5" fill="none"
-                  style={{ transition: "transform 0.2s", transform: langOpen ? "rotate(180deg)" : "none", opacity: 0.5 }}
-                >
-                  <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
               </button>
 
               {/* Dropdown panel */}
@@ -351,6 +349,9 @@ export default function Navbar() {
             </div>
 
 
+            {/* Auth Button */}
+            <NavAuthButton isDark={isDark} navTextColor={navTextColor} />
+
             <Link
               href="/create-community"
               className="btn-surrah-primary"
@@ -358,9 +359,6 @@ export default function Navbar() {
             >
               {t("nav.create_community")}
             </Link>
-
-            {/* Auth Button */}
-            <NavAuthButton isDark={isDark} navTextColor={navTextColor} />
           </div>
 
           {/* Mobile Controls */}
