@@ -22,7 +22,7 @@ const communities = [
   { href: "/communities/sada", label: "سدى", labelEn: "Sada", labelZh: "萨达", color: "#7B4F8E", logoWhite: "/manus-storage/Sudaa-White_d1defc89.png", logoBlack: "/manus-storage/Sudaa-Black_1236663e.png", invertOnDark: false },
   { href: "/communities/mada", label: "مدى", labelEn: "Mada", labelZh: "马达", color: "#c8c4bc", logoWhite: "/manus-storage/Mada-White_c8cc9bc8.png", logoBlack: "/manus-storage/Mada-Black_b72e306f.png", invertOnDark: false },
   { href: "/communities/maqam", label: "مقام", labelEn: "Maqam", labelZh: "马卡姆", color: "#C4622D", logoWhite: "/manus-storage/Maqam-White_10f58ea8.png", logoBlack: "/manus-storage/Maqam-Black_5a9b19ac.png", invertOnDark: false },
-  { href: "/communities/umla", label: "عُملة", labelEn: "Umlah", labelZh: "乌姆拉", color: "#C9A84C", logoWhite: "/manus-storage/Umlah-White-Final_92329db8.png", logoBlack: "/manus-storage/Umlah-White-Final_92329db8.png", invertOnDark: false },
+  { href: "/communities/umla", label: "عُملة", labelEn: "Umlah", labelZh: "乌姆拉", color: "#C9A84C", logoWhite: "/manus-storage/Umlah-Gold-Final_67cfd897.png", logoBlack: "/manus-storage/Umlah-Gold-Final_67cfd897.png", invertOnDark: false, maxHeight: "24px" },
 ];
 
 export default function Navbar() {
@@ -217,7 +217,7 @@ export default function Navbar() {
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = dropHoverBg; (e.currentTarget as HTMLElement).style.borderColor = dropBorder; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "transparent"; }}
                               >
-                                <img src={item.invertOnDark ? item.logoBlack : item.logoWhite} alt={item.label} style={{ height: "36px", width: "auto", objectFit: "contain", filter: item.invertOnDark ? "invert(1) brightness(2)" : "none" }} />
+                                <img src={item.invertOnDark ? item.logoBlack : item.logoWhite} alt={item.label} style={{ height: (item as typeof communities[0] & { maxHeight?: string }).maxHeight || "32px", maxWidth: "90px", width: "auto", objectFit: "contain", filter: item.invertOnDark ? "invert(1) brightness(2)" : "none" }} />
                               </Link>
                             ))}
                           </div>
@@ -582,29 +582,27 @@ function NavAuthButton({ isDark, navTextColor }: { isDark: boolean; navTextColor
     return (
       <a
         href={getLoginUrl()}
+        title="تسجيل الدخول"
         style={{
-          fontFamily: F,
-          fontSize: "14px",
-          fontWeight: 700,
-          padding: "0.5rem 1.1rem",
+          width: "36px",
+          height: "36px",
           background: "rgba(196,98,45,0.15)",
           color: "#C4622D",
           border: "1px solid rgba(196,98,45,0.4)",
-          borderRadius: "4px",
+          borderRadius: "50%",
           textDecoration: "none",
-          whiteSpace: "nowrap",
           transition: "all 0.2s",
           display: "inline-flex",
           alignItems: "center",
-          gap: "6px",
+          justifyContent: "center",
+          flexShrink: 0,
         }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.25)"; }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.3)"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(196,98,45,0.15)"; }}
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" />
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
         </svg>
-        تسجيل الدخول
       </a>
     );
   }
