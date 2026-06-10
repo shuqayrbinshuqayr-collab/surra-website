@@ -1,6 +1,7 @@
 import { trpc } from "@/lib/trpc";
 import AdminLayout from "@/components/AdminLayout";
 import { useState } from "react";
+import { ImageUpload } from "@/components/ImageUpload";
 import {
   Building2,
   Plus,
@@ -207,30 +208,29 @@ function EntityModal({
             />
           </div>
 
-          {/* Website & Logo */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs text-white/50 mb-2">الموقع الإلكتروني</label>
-              <input
-                type="url"
-                value={form.website}
-                onChange={(e) => setForm({ ...form, website: e.target.value })}
-                placeholder="https://example.com"
-                dir="ltr"
-                className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C4622D]/50 transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-white/50 mb-2">رابط الشعار</label>
-              <input
-                type="url"
-                value={form.logoUrl}
-                onChange={(e) => setForm({ ...form, logoUrl: e.target.value })}
-                placeholder="https://..."
-                dir="ltr"
-                className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C4622D]/50 transition-colors"
-              />
-            </div>
+          {/* Website */}
+          <div>
+            <label className="block text-xs text-white/50 mb-2">الموقع الإلكتروني</label>
+            <input
+              type="url"
+              value={form.website}
+              onChange={(e) => setForm({ ...form, website: e.target.value })}
+              placeholder="https://example.com"
+              dir="ltr"
+              className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C4622D]/50 transition-colors"
+            />
+          </div>
+
+          {/* Logo Upload */}
+          <div>
+            <label className="block text-xs text-white/50 mb-2">شعار الجهة</label>
+            <ImageUpload
+              value={form.logoUrl}
+              onChange={(url) => setForm({ ...form, logoUrl: url })}
+              onClear={() => setForm({ ...form, logoUrl: "" })}
+              adminMode={true}
+              placeholder="انقر لرفع الشعار أو اسحب وأفلت هنا"
+            />
           </div>
 
           {/* Status & Featured */}

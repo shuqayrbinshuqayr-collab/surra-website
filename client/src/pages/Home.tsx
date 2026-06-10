@@ -910,7 +910,7 @@ export default function Home() {
                 marginBottom: "1.25rem",
               }}
             >
-              {lang === "ar" ? <>نصوغ سردًا ثقافيًا مُلهمًا<br />يستمد أصالته من الدرعية ويجسد قيمنا في حضورٍ حيّ ومعاصر</> : lang === "en" ? <>We craft an inspiring cultural narrative<br />rooted in Diriyah, embodying our values in a vibrant and contemporary presence</> : <>我们打造鼓舞人心的文化叙事<br />植根于德里耶，在充满活力的当代存在中体现我们的价值观</>}
+              {lang === "ar" ? <>ننسج سردًا ثقافيًا مُلهمًا،<br />تنبع أصالته من الدرعية، وتتجلّى قيمه في حضورٍ حيّ ومعاصر</> : lang === "en" ? <>We craft an inspiring cultural narrative<br />rooted in Diriyah, embodying our values in a vibrant and contemporary presence</> : <>我们打造鼓舞人心的文化叙事<br />植根于德里耶，在充满活力的当代存在中体现我们的价値观</>}
             </h2>
             <p
               style={{

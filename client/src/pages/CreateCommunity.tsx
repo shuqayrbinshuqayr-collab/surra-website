@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import { ImageUpload } from "@/components/ImageUpload";
 
 const FONT = "'ManchetteFine', sans-serif";
 const ORANGE = "#C4622D";
@@ -185,7 +186,7 @@ type Form1Data = {
 
 type Form2Data = {
   client: string; sector: string; type: string; idea: string;
-  name: string; nameEn: string; nameWhy: string; def: string;
+  name: string; nameEn: string; nameWhy: string; def: string; logoUrl: string;
   vision: string; mission: string; goals: string;
   persona: string; seek: string; pain: string;
   channels: string[]; ops: string; size: string; membership: string; team: string; kpi: string;
@@ -204,7 +205,7 @@ const emptyF1: Form1Data = {
 };
 
 const emptyF2: Form2Data = {
-  client: "", sector: "", type: "", idea: "", name: "", nameEn: "", nameWhy: "", def: "",
+  client: "", sector: "", type: "", idea: "", name: "", nameEn: "", nameWhy: "", def: "", logoUrl: "",
   vision: "", mission: "", goals: "", persona: "", seek: "", pain: "",
   channels: [], ops: "", size: "", membership: "", team: "", kpi: "",
   products: [], productsOther: "",
@@ -668,6 +669,15 @@ function Form2({ prefill }: { prefill: Form1Data }) {
             </div>
             <Field label="فلسفة الاسم — لماذا هذا الاسم؟"><Textarea value={d.nameWhy} onChange={set("nameWhy")} placeholder="ما القصة أو المعنى وراء الاسم؟" /></Field>
             <Field label="تعريف المجتمع في جملة واحدة"><Textarea value={d.def} onChange={set("def")} placeholder="مثال: مجتمع يجمع المصممين السعوديين لتبادل الخبرات وبناء مشاريع مشتركة" minHeight={60} /></Field>
+            <Field label="شعار المجتمع (اختياري)">
+              <ImageUpload
+                value={d.logoUrl}
+                onChange={(url) => setD(p => ({ ...p, logoUrl: url }))}
+                onClear={() => setD(p => ({ ...p, logoUrl: "" }))}
+                adminMode={false}
+                placeholder="انقر لرفع شعار المجتمع أو اسحب وأفلت هنا"
+              />
+            </Field>
           </div>
         )}
 

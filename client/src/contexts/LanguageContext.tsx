@@ -47,7 +47,7 @@ const translations: Record<Language, Record<string, string>> = {
     "home.why.title": "لماذا سُرّة؟",
     "home.events.title": "الفعاليات القادمة",
     "home.partners.title": "شركاؤنا",
-    "home.cta.h2": "نصوغ سردًا ثقافيًا مُلهمًا، يستمد أصالته من الدرعية ويجسد قيمنا في حضورٍ حيّ ومعاصر",
+    "home.cta.h2": "ننسج سردًا ثقافيًا مُلهمًا، تنبع أصالته من الدرعية، وتتجلّى قيمه في حضورٍ حيّ ومعاصر",
     "home.cta.btn": "انضم إلينا",
     "home.team.title": "فريقنا",
     // Footer
