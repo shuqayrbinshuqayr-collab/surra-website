@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trpc } from "@/lib/trpc";
 
 const fontBase = "'ManchetteFine', 'Tajawal', sans-serif";
 // Surra brand identity
@@ -174,14 +175,50 @@ export default function Directory() {
     tagInput: "", tags: [] as string[], logo: "",
   });
 
+  // ── Fetch from DB (published + active entities added via Admin CMS) ─────────
+  const { data: dbEntities } = trpc.directory.list.useQuery({
+    limit: 200,
+  });
+
+  // ── Map DB entities to the local Entity interface ─────────────────────────
+  const dbMapped: Entity[] = useMemo(() => {
+    if (!dbEntities) return [];
+    return dbEntities.map((e) => ({
+      id: e.id + 10000, // offset to avoid ID collision with static data
+      name: e.nameAr,
+      category: e.category,
+      type: e.entityType || e.category,
+      city: e.city || "",
+      focus: e.categoryEn || e.category,
+      desc: e.descriptionAr || "",
+      tags: e.tags ? JSON.parse(e.tags) : [],
+      activity: e.activityLevel || "نشط",
+      instagram: e.instagram || "",
+      twitter: e.twitter || "",
+      website: e.website || "",
+      partnership: e.partnershipLevel || "متوسطة",
+      year: e.foundedYear || new Date(e.createdAt).getFullYear(),
+      isNew: (Date.now() - new Date(e.createdAt).getTime()) < 30 * 24 * 60 * 60 * 1000,
+      logo: e.logoUrl || "",
+    }));
+  }, [dbEntities]);
+
+  // ── Combine static + DB entities (DB entities appear first as "new") ────────
+  const allEntities = useMemo(() => {
+    // Avoid duplicates: if a DB entity has same name as static, prefer DB version
+    const dbNames = new Set(dbMapped.map((e) => e.name));
+    const filteredStatic = initialEntities.filter((e) => !dbNames.has(e.name));
+    return [...dbMapped, ...filteredStatic];
+  }, [dbMapped]);
+
   const filtered = useMemo(() => {
-    return initialEntities.filter((e) => {
+    return allEntities.filter((e) => {
       const q = search.toLowerCase();
       const matchSearch = !q || e.name.includes(q) || e.city.includes(q) || e.focus.includes(q) || e.desc.includes(q);
       const matchCat = activeCategory === "الكل" || e.category === activeCategory;
       return matchSearch && matchCat && (!filterCity || e.city === filterCity) && (!filterType || e.type === filterType);
     });
-  }, [search, activeCategory, filterCity, filterType]);
+  }, [search, activeCategory, filterCity, filterType, allEntities]);
 
   function handleSubmit() {
     if (!form.name || !form.type || !form.city || !form.desc) return;

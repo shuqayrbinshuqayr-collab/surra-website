@@ -15,6 +15,13 @@
       "when": 1780047619752,
       "tag": "0001_glorious_vengeance",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1781186094949,
+      "tag": "0002_cheerful_romulus",
+      "breakpoints": true
     }
   ]
 }
