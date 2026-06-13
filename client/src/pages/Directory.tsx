@@ -274,7 +274,7 @@ export default function Directory() {
             دليل الجهات الثقافية السعودية
           </h1>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.02em" }}>
-            The Saudi Cultural Directory
+            Saudi Cultural Organizations Directory
           </p>
         </div>
 
