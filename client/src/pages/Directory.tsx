@@ -271,7 +271,7 @@ export default function Directory() {
         {/* Hero content */}
         <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "3rem 1rem 2rem" }}>
           <h1 style={{ fontFamily: fontBase, fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, color: "var(--surrah-text-primary)", marginBottom: "0.75rem", lineHeight: 1.2 }}>
-            الدليل الثقافي السعودي
+            دليل الجهات الثقافية السعودية
           </h1>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.02em" }}>
             The Saudi Cultural Directory
