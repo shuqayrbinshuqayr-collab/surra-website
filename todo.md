@@ -28,3 +28,13 @@
 - [x] صفحة إنشاء مجتمع
 - [x] Navbar و Footer
 - [x] VideoBackground
+
+## التصنيفات الموحّدة (Unified Categories)
+
+- [x] إنشاء shared/categories.ts بـ CULTURAL_CATEGORIES الموحّدة (12 تصنيف)
+- [x] تحديث AdminDirectory.tsx لاستخدام CULTURAL_CATEGORIES وإضافة فلتر التصنيف
+- [x] تحديث Directory.tsx لاستيراد CULTURAL_CATEGORIES وإضافة شريط أزرار التصنيف (category chips)
+- [x] ربط useQuery في Directory.tsx بالتصنيف والبحث والمدينة مباشرةً للـ API
+- [x] إضافة حقل التصنيف (category) في نموذج تسجيل الجهات (submit form) يستخدم CULTURAL_CATEGORIES
+- [x] إصلاح خطأ StarOff في AdminDirectory.tsx (إضافة import)
+- [x] 0 أخطاء TypeScript حقيقية

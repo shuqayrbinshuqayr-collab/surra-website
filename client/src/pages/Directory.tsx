@@ -9,6 +9,7 @@ import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trpc } from "@/lib/trpc";
+import { CULTURAL_CATEGORIES, ALL_CATEGORY } from "@shared/categories";
 
 const fontBase = "'ManchetteFine', 'Tajawal', sans-serif";
 // Surra brand identity
@@ -101,18 +102,10 @@ const initialEntities: Entity[] = [
   { id: 43, name: "نوادي القراءة المستقلة", category: "المجتمعات والمبادرات", type: "مجتمع قراءة", city: "متعددة", focus: "قراءة وأدب", desc: "شبكة من مجتمعات القراءة والنقاش المعرفي المستقلة المنتشرة في مدن المملكة.", tags: ["#قراءة", "#أدب", "#مجتمع", "#معرفة"], activity: "نشط", instagram: "@readingclubs_sa", twitter: "@readingclubs_sa", website: "", partnership: "متوسطة", year: 2018, isNew: false, logo: "" },
 ];
 
+// Use shared categories — same list used in Admin CMS
 const CATEGORIES = [
-  { key: "الكل", label: "الكل" },
-  { key: "الجهات الثقافية", label: "الجهات الثقافية" },
-  { key: "الجهات الإبداعية", label: "الجهات الإبداعية" },
-  { key: "المجتمعات والمبادرات", label: "المجتمعات والمبادرات" },
-  { key: "الأفراد والممارسون", label: "الأفراد والممارسون" },
-  { key: "الجهات الداعمة", label: "الجهات الداعمة" },
-  { key: "المساحات الإبداعية", label: "المساحات الإبداعية" },
-  { key: "المجتمعات الثقافية", label: "المجتمعات الثقافية" },
-  { key: "المبادرات المستقلة", label: "المبادرات المستقلة" },
-  { key: "الفعاليات المتكررة", label: "الفعاليات المتكررة" },
-  { key: "النوادي الأدبية", label: "النوادي الأدبية" },
+  ALL_CATEGORY,
+  ...CULTURAL_CATEGORIES.map((c) => ({ key: c.key, label: c.labelAr, icon: c.icon })),
 ];
 
 const CITIES = ["", "الرياض", "جدة", "الدمام", "العلا", "أبها", "المدينة المنورة", "تبوك", "الطائف", "الأحساء"];
@@ -170,14 +163,18 @@ export default function Directory() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [form, setForm] = useState({
     name: "", type: "", city: "", year: "", desc: "", focus: "",
+    category: "",
     activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "",
     contactName: "", contactRole: "", contactPhone: "", contactEmail: "",
     tagInput: "", tags: [] as string[], logo: "",
   });
 
-  // ── Fetch from DB (published + active entities added via Admin CMS) ─────────
+  // ── Fetch from DB — pass category + search + city directly to API ──────────
   const { data: dbEntities } = trpc.directory.list.useQuery({
     limit: 200,
+    category: activeCategory !== "الكل" ? activeCategory : undefined,
+    search: search || undefined,
+    city: filterCity || undefined,
   });
 
   // ── Map DB entities to the local Entity interface ─────────────────────────
@@ -221,9 +218,9 @@ export default function Directory() {
   }, [search, activeCategory, filterCity, filterType, allEntities]);
 
   function handleSubmit() {
-    if (!form.name || !form.type || !form.city || !form.desc) return;
+    if (!form.name || !form.category || !form.city || !form.desc) return;
     setSubmitSuccess(true);
-    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
+    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", category: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
     setTimeout(() => setSubmitSuccess(false), 5000);
   }
 
@@ -395,6 +392,37 @@ export default function Directory() {
           </span>
         </div>
       </div>
+
+      {/* ── CATEGORY FILTER CHIPS (only visible in directory tab) ── */}
+      {tab === "directory" && (
+        <div style={{ background: "#0a0a0a", borderBottom: `1px solid rgba(255,255,255,0.05)`, overflowX: "auto", scrollbarWidth: "none" }}>
+          <div className="container" style={{ display: "flex", gap: "0.5rem", padding: "0.75rem 0", flexWrap: "nowrap", overflowX: "auto" }}>
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
+                style={{
+                  flexShrink: 0,
+                  padding: "0.4rem 1rem",
+                  borderRadius: "999px",
+                  border: activeCategory === cat.key ? `1px solid ${GOLD}` : `1px solid rgba(255,255,255,0.1)`,
+                  background: activeCategory === cat.key ? `rgba(196,98,45,0.15)` : "transparent",
+                  color: activeCategory === cat.key ? GOLD : MUTED,
+                  fontFamily: fontBase,
+                  fontSize: "0.8rem",
+                  fontWeight: activeCategory === cat.key ? 700 : 400,
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {(cat as any).icon && <span style={{ marginLeft: "0.3rem" }}>{(cat as any).icon}</span>}
+                {(cat as any).label || (cat as any).labelAr}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ── DIRECTORY TAB ── */}
       {tab === "directory" && (
@@ -696,6 +724,22 @@ export default function Directory() {
                   <input type="text" placeholder={f.placeholder} value={(form as any)[f.key]} onChange={(e) => setForm((prev) => ({ ...prev, [f.key]: e.target.value }))} style={formInputStyle} />
                 </div>
               ))}
+              {/* حقل التصنيف الموحّد */}
+              <div style={{ gridColumn: "span 2" }}>
+                <label style={labelStyle}>تصنيف الجهة <span style={{ color: "#e57373" }}>*</span></label>
+                <select
+                  value={form.category}
+                  onChange={(e) => setForm((prev) => ({ ...prev, category: e.target.value }))}
+                  style={{ ...formInputStyle, background: "#0d0d0d" }}
+                >
+                  <option value="" style={{ background: "#111" }}>اختر تصنيف الجهة...</option>
+                  {CULTURAL_CATEGORIES.map((cat) => (
+                    <option key={cat.key} value={cat.key} style={{ background: "#111" }}>
+                      {cat.icon} {cat.labelAr}
+                    </option>
+                  ))}
+                </select>
+              </div>
               {[
                 { label: "نوع الجهة", key: "type", options: ["", "مجتمع", "مساحة إبداعية", "جمعية", "مقهى ثقافي", "مبادرة", "استوديو", "مؤسسة داعمة", "متجر"] },
                 { label: "المدينة", key: "city", options: CITIES },

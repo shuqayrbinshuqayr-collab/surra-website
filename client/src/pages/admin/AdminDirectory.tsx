@@ -11,23 +11,14 @@ import {
   X,
   Check,
   Globe,
-  MapPin,
   Star,
   StarOff,
   Filter,
 } from "lucide-react";
 import { toast } from "sonner";
+import { CULTURAL_CATEGORIES, CATEGORY_KEYS } from "@shared/categories";
 
-const CATEGORIES = [
-  "جهات حكومية",
-  "مؤسسات ثقافية",
-  "مراكز فنية",
-  "مهرجانات وفعاليات",
-  "مجتمعات ثقافية",
-  "منصات رقمية",
-  "مبادرات شبابية",
-  "أخرى",
-];
+const CATEGORIES = CATEGORY_KEYS;
 
 type EntityStatus = "active" | "pending" | "archived";
 
@@ -293,6 +284,7 @@ function EntityModal({
 export default function AdminDirectory() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<"all" | "active" | "pending" | "archived">("all");
+  const [categoryFilter, setCategoryFilter] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [editId, setEditId] = useState<number | undefined>();
   const [editData, setEditData] = useState<Partial<EntityFormData> | undefined>();
@@ -303,6 +295,7 @@ export default function AdminDirectory() {
   const { data, isLoading, refetch } = trpc.directory.adminList.useQuery({
     search: search || undefined,
     status: statusFilter === "all" ? undefined : statusFilter,
+    category: categoryFilter || undefined,
     limit: 50,
     offset: 0,
   });
@@ -377,29 +370,59 @@ export default function AdminDirectory() {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="البحث في الجهات..."
-              className="w-full bg-[#111111] border border-white/10 rounded-lg pr-10 pl-4 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C4622D]/50 transition-colors"
-            />
+        <div className="flex flex-col gap-3">
+          {/* Row 1: Search + Status */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="البحث في الجهات..."
+                className="w-full bg-[#111111] border border-white/10 rounded-lg pr-10 pl-4 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C4622D]/50 transition-colors"
+              />
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {(["all", "active", "pending", "archived"] as const).map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setStatusFilter(s)}
+                  className={`px-3 py-2 text-xs rounded-lg border transition-all ${
+                    statusFilter === s
+                      ? "bg-[#C4622D]/15 border-[#C4622D]/30 text-[#C4622D]"
+                      : "bg-[#111111] border-white/10 text-white/40 hover:border-white/20 hover:text-white/60"
+                  }`}
+                >
+                  {s === "all" ? "الكل" : s === "active" ? "نشطة" : s === "pending" ? "بانتظار" : "مؤرشفة"}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="flex gap-2">
-            {(["all", "active", "pending", "archived"] as const).map((s) => (
+          {/* Row 2: Category filter chips */}
+          <div className="flex gap-2 flex-wrap items-center">
+            <Filter className="h-3.5 w-3.5 text-white/30 shrink-0" />
+            <button
+              onClick={() => setCategoryFilter("")}
+              className={`px-3 py-1.5 text-xs rounded-lg border transition-all ${
+                categoryFilter === ""
+                  ? "bg-[#C4622D]/15 border-[#C4622D]/30 text-[#C4622D]"
+                  : "bg-[#111111] border-white/10 text-white/40 hover:border-white/20 hover:text-white/60"
+              }`}
+            >
+              كل التصنيفات
+            </button>
+            {CULTURAL_CATEGORIES.map((cat) => (
               <button
-                key={s}
-                onClick={() => setStatusFilter(s)}
-                className={`px-3 py-2 text-xs rounded-lg border transition-all ${
-                  statusFilter === s
+                key={cat.key}
+                onClick={() => setCategoryFilter(cat.key)}
+                className={`px-3 py-1.5 text-xs rounded-lg border transition-all ${
+                  categoryFilter === cat.key
                     ? "bg-[#C4622D]/15 border-[#C4622D]/30 text-[#C4622D]"
                     : "bg-[#111111] border-white/10 text-white/40 hover:border-white/20 hover:text-white/60"
                 }`}
               >
-                {s === "all" ? "الكل" : s === "active" ? "نشطة" : s === "pending" ? "بانتظار" : "مؤرشفة"}
+                {cat.icon} {cat.labelAr}
               </button>
             ))}
           </div>
