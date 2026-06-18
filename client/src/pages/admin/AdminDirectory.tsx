@@ -289,6 +289,7 @@ export default function AdminDirectory() {
   const [editId, setEditId] = useState<number | undefined>();
   const [editData, setEditData] = useState<Partial<EntityFormData> | undefined>();
   const [deleteConfirm, setDeleteConfirm] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<"all" | "pending">("all");
 
   const utils = trpc.useUtils();
 
@@ -313,6 +314,23 @@ export default function AdminDirectory() {
     onSuccess: () => {
       utils.directory.adminList.invalidate();
     },
+  });
+
+  const updateStatusMutation = trpc.directory.updateStatus.useMutation({
+    onSuccess: (_data, variables) => {
+      utils.directory.adminList.invalidate();
+      utils.directory.pendingList.invalidate();
+      if (variables.status === "active") {
+        toast.success("تمت الموافقة على الجهة ونشرها");
+      } else if (variables.status === "archived") {
+        toast.success("تم رفض الجهة وأرشفتها");
+      }
+    },
+    onError: (e) => toast.error(e.message),
+  });
+
+  const { data: pendingData, isLoading: pendingLoading } = trpc.directory.pendingList.useQuery(undefined, {
+    enabled: activeTab === "pending",
   });
 
   const openEdit = (entity: NonNullable<typeof data>["rows"][0]) => {
@@ -366,6 +384,37 @@ export default function AdminDirectory() {
           >
             <Plus className="h-4 w-4" />
             <span style={{ fontFamily: "'ManchetteFine', sans-serif" }}>إضافة جهة</span>
+          </button>
+        </div>
+
+        {/* Tabs: All / Pending Review */}
+        <div className="flex gap-1 border-b border-white/[0.06] pb-0">
+          <button
+            onClick={() => setActiveTab("all")}
+            className={`px-4 py-2.5 text-sm transition-all border-b-2 -mb-px ${
+              activeTab === "all"
+                ? "border-[#C4622D] text-white"
+                : "border-transparent text-white/40 hover:text-white/60"
+            }`}
+            style={{ fontFamily: "'ManchetteFine', sans-serif" }}
+          >
+            كل الجهات
+          </button>
+          <button
+            onClick={() => setActiveTab("pending")}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-all border-b-2 -mb-px ${
+              activeTab === "pending"
+                ? "border-[#C4622D] text-white"
+                : "border-transparent text-white/40 hover:text-white/60"
+            }`}
+            style={{ fontFamily: "'ManchetteFine', sans-serif" }}
+          >
+            طلبات التسجيل
+            {pendingData && pendingData.length > 0 && (
+              <span className="bg-yellow-500/20 text-yellow-400 text-xs px-1.5 py-0.5 rounded-full">
+                {pendingData.length}
+              </span>
+            )}
           </button>
         </div>
 
@@ -428,8 +477,85 @@ export default function AdminDirectory() {
           </div>
         </div>
 
-        {/* Table */}
-        <div className="bg-[#111111] border border-white/[0.06] rounded-xl overflow-hidden">
+        {/* Pending Submissions Tab */}
+        {activeTab === "pending" && (
+          <div className="space-y-3">
+            {pendingLoading ? (
+              <div className="p-8 text-center">
+                <div className="h-8 w-8 border-2 border-[#C4622D] border-t-transparent rounded-full animate-spin mx-auto" />
+              </div>
+            ) : !pendingData || pendingData.length === 0 ? (
+              <div className="bg-[#111111] border border-white/[0.06] rounded-xl p-12 text-center">
+                <Check className="h-12 w-12 text-emerald-500/30 mx-auto mb-4" />
+                <p className="text-white/40 text-sm">لا توجد طلبات معلقة للمراجعة</p>
+              </div>
+            ) : (
+              pendingData.map((entity) => (
+                <div
+                  key={entity.id}
+                  className="bg-[#111111] border border-white/[0.06] rounded-xl p-5 hover:border-white/10 transition-colors"
+                >
+                  <div className="flex items-start gap-4">
+                    {/* Logo */}
+                    {entity.logoUrl ? (
+                      <img src={entity.logoUrl} alt={entity.nameAr} className="h-12 w-12 rounded-lg object-contain bg-white/5 shrink-0" />
+                    ) : (
+                      <div className="h-12 w-12 rounded-lg bg-[#C4622D]/10 border border-[#C4622D]/20 flex items-center justify-center shrink-0">
+                        <Building2 className="h-5 w-5 text-[#C4622D]" />
+                      </div>
+                    )}
+
+                    {/* Info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-white font-medium" style={{ fontFamily: "'ManchetteFine', sans-serif" }}>{entity.nameAr}</h3>
+                        <span className="text-xs bg-yellow-500/10 text-yellow-400 px-2 py-0.5 rounded-full">بانتظار المراجعة</span>
+                      </div>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1.5">
+                        {entity.category && <span className="text-xs text-white/50">تصنيف: {entity.category}</span>}
+                        {entity.city && <span className="text-xs text-white/50">المدينة: {entity.city}</span>}
+                        {entity.entityType && <span className="text-xs text-white/50">النوع: {entity.entityType}</span>}
+                        {entity.foundedYear && <span className="text-xs text-white/50">تأسيس: {entity.foundedYear}</span>}
+                      </div>
+                      {entity.descriptionAr && (
+                        <p className="text-xs text-white/40 mt-2 line-clamp-2">{entity.descriptionAr}</p>
+                      )}
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+                        {entity.contactEmail && <span className="text-xs text-white/30">بريد: {entity.contactEmail}</span>}
+                        {entity.phone && <span className="text-xs text-white/30">جوال: {entity.phone}</span>}
+                        {entity.instagram && <span className="text-xs text-white/30">إنستغرام: {entity.instagram}</span>}
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={() => updateStatusMutation.mutate({ id: entity.id, status: "active" })}
+                        disabled={updateStatusMutation.isPending}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs rounded-lg transition-colors disabled:opacity-50"
+                      >
+                        <Check className="h-3.5 w-3.5" />
+                        قبول ونشر
+                      </button>
+                      <button
+                        onClick={() => updateStatusMutation.mutate({ id: entity.id, status: "archived" })}
+                        disabled={updateStatusMutation.isPending}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs rounded-lg transition-colors disabled:opacity-50"
+                      >
+                        <X className="h-3.5 w-3.5" />
+                        رفض
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        )}
+
+        {/* Table — shown only in "all" tab */}
+        {activeTab === "all" && (
+          <div className="bg-[#111111] border border-white/[0.06] rounded-xl overflow-hidden">
           {isLoading ? (
             <div className="p-8 text-center">
               <div className="h-8 w-8 border-2 border-[#C4622D] border-t-transparent rounded-full animate-spin mx-auto" />
@@ -548,7 +674,8 @@ export default function AdminDirectory() {
               </table>
             </div>
           )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* Modal */}

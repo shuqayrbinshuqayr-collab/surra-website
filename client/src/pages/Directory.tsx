@@ -161,6 +161,23 @@ export default function Directory() {
   const [tab, setTab] = useState<"directory" | "submit" | "about">("directory");
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  const publicSubmitMutation = trpc.directory.publicSubmit.useMutation({
+    onSuccess: () => {
+      setSubmitSuccess(true);
+      setSubmitError("");
+      setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", category: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
+      setTimeout(() => setSubmitSuccess(false), 6000);
+    },
+    onError: (err) => {
+      setSubmitError(err.message || "حدث خطأ أثناء الإرسال، يرجى المحاولة مجدداً");
+    },
+    onSettled: () => setIsSubmitting(false),
+  });
+
   const [form, setForm] = useState({
     name: "", type: "", city: "", year: "", desc: "", focus: "",
     category: "",
@@ -218,10 +235,42 @@ export default function Directory() {
   }, [search, activeCategory, filterCity, filterType, allEntities]);
 
   function handleSubmit() {
-    if (!form.name || !form.category || !form.city || !form.desc) return;
-    setSubmitSuccess(true);
-    setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", category: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
-    setTimeout(() => setSubmitSuccess(false), 5000);
+    // Validate required fields with clear error messages
+    const errors: Record<string, string> = {};
+    if (!form.name.trim()) errors.name = "اسم الجهة مطلوب";
+    if (!form.category) errors.category = "يرجى اختيار تصنيف الجهة";
+    if (!form.city.trim()) errors.city = "المدينة مطلوبة";
+    if (!form.desc.trim()) errors.desc = "وصف الجهة مطلوب";
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      // Scroll to first error
+      const firstErrorEl = document.getElementById("form-error-name") || document.getElementById("form-error-category");
+      firstErrorEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    setFormErrors({});
+    setIsSubmitting(true);
+    setSubmitError("");
+    publicSubmitMutation.mutate({
+      nameAr: form.name,
+      category: form.category,
+      entityType: form.type || undefined,
+      city: form.city || undefined,
+      descriptionAr: form.desc || undefined,
+      focus: form.focus || undefined,
+      logoUrl: form.logo || undefined,
+      instagram: form.instagram || undefined,
+      twitter: form.twitter || undefined,
+      linkedin: form.linkedin || undefined,
+      contactName: form.contactName || undefined,
+      contactRole: form.contactRole || undefined,
+      phone: form.contactPhone || undefined,
+      contactEmail: form.contactEmail || undefined,
+      foundedYear: form.year ? Number(form.year) : undefined,
+      tags: form.tags.length > 0 ? JSON.stringify(form.tags) : undefined,
+      activityLevel: form.activity || undefined,
+      partnershipLevel: form.partnership || undefined,
+    });
   }
 
   function addTag() {
@@ -715,22 +764,30 @@ export default function Directory() {
                   />
                 </div>
               </div>
-              {[
-                { label: "اسم الجهة", key: "name", placeholder: "مثال: مجتمع سرة" },
-                { label: "سنة التأسيس", key: "year", placeholder: "مثال: 2018" },
-              ].map((f) => (
-                <div key={f.key}>
-                  <label style={labelStyle}>{f.label}</label>
-                  <input type="text" placeholder={f.placeholder} value={(form as any)[f.key]} onChange={(e) => setForm((prev) => ({ ...prev, [f.key]: e.target.value }))} style={formInputStyle} />
-                </div>
-              ))}
+              <div>
+                <label style={labelStyle}>اسم الجهة <span style={{ color: "#e57373" }}>*</span></label>
+                <input
+                  id="form-field-name"
+                  type="text"
+                  placeholder="مثال: مجتمع سرة"
+                  value={form.name}
+                  onChange={(e) => { setForm((prev) => ({ ...prev, name: e.target.value })); if (formErrors.name) setFormErrors((p) => ({ ...p, name: "" })); }}
+                  style={{ ...formInputStyle, ...(formErrors.name ? { borderColor: "#e57373" } : {}) }}
+                />
+                {formErrors.name && <p id="form-error-name" style={{ color: "#e57373", fontSize: "0.75rem", marginTop: "0.25rem" }}>{formErrors.name}</p>}
+              </div>
+              <div>
+                <label style={labelStyle}>سنة التأسيس</label>
+                <input type="text" placeholder="مثال: 2018" value={form.year} onChange={(e) => setForm((prev) => ({ ...prev, year: e.target.value }))} style={formInputStyle} />
+              </div>
               {/* حقل التصنيف الموحّد */}
               <div style={{ gridColumn: "span 2" }}>
                 <label style={labelStyle}>تصنيف الجهة <span style={{ color: "#e57373" }}>*</span></label>
                 <select
+                  id="form-field-category"
                   value={form.category}
-                  onChange={(e) => setForm((prev) => ({ ...prev, category: e.target.value }))}
-                  style={{ ...formInputStyle, background: "#0d0d0d" }}
+                  onChange={(e) => { setForm((prev) => ({ ...prev, category: e.target.value })); if (formErrors.category) setFormErrors((p) => ({ ...p, category: "" })); }}
+                  style={{ ...formInputStyle, background: "#0d0d0d", ...(formErrors.category ? { borderColor: "#e57373" } : {}) }}
                 >
                   <option value="" style={{ background: "#111" }}>اختر تصنيف الجهة...</option>
                   {CULTURAL_CATEGORIES.map((cat) => (
@@ -739,21 +796,34 @@ export default function Directory() {
                     </option>
                   ))}
                 </select>
+                {formErrors.category && <p id="form-error-category" style={{ color: "#e57373", fontSize: "0.75rem", marginTop: "0.25rem" }}>{formErrors.category}</p>}
               </div>
-              {[
-                { label: "نوع الجهة", key: "type", options: ["", "مجتمع", "مساحة إبداعية", "جمعية", "مقهى ثقافي", "مبادرة", "استوديو", "مؤسسة داعمة", "متجر"] },
-                { label: "المدينة", key: "city", options: CITIES },
-              ].map((f) => (
-                <div key={f.key}>
-                  <label style={labelStyle}>{f.label}</label>
-                  <select value={(form as any)[f.key]} onChange={(e) => setForm((prev) => ({ ...prev, [f.key]: e.target.value }))} style={{ ...formInputStyle, background: "#0d0d0d" }}>
-                    {f.options.map((o) => <option key={o} value={o} style={{ background: "#111" }}>{o || "اختر..."}</option>)}
-                  </select>
-                </div>
-              ))}
+              <div>
+                <label style={labelStyle}>نوع الجهة</label>
+                <select value={form.type} onChange={(e) => setForm((prev) => ({ ...prev, type: e.target.value }))} style={{ ...formInputStyle, background: "#0d0d0d" }}>
+                  {["", "مجتمع", "مساحة إبداعية", "جمعية", "مقهى ثقافي", "مبادرة", "استوديو", "مؤسسة داعمة", "متجر"].map((o) => <option key={o} value={o} style={{ background: "#111" }}>{o || "اختر النوع..."}</option>)}
+                </select>
+              </div>
+              <div>
+                <label style={labelStyle}>المدينة <span style={{ color: "#e57373" }}>*</span></label>
+                <select
+                  value={form.city}
+                  onChange={(e) => { setForm((prev) => ({ ...prev, city: e.target.value })); if (formErrors.city) setFormErrors((p) => ({ ...p, city: "" })); }}
+                  style={{ ...formInputStyle, background: "#0d0d0d", ...(formErrors.city ? { borderColor: "#e57373" } : {}) }}
+                >
+                  {CITIES.map((o) => <option key={o} value={o} style={{ background: "#111" }}>{o || "اختر المدينة..."}</option>)}
+                </select>
+                {formErrors.city && <p style={{ color: "#e57373", fontSize: "0.75rem", marginTop: "0.25rem" }}>{formErrors.city}</p>}
+              </div>
               <div style={{ gridColumn: "span 2" }}>
-                <label style={labelStyle}>وصف مختصر</label>
-                <textarea placeholder="اكتب وصفاً مختصراً عن جهتك، رسالتها، وأبرز أنشطتها..." value={form.desc} onChange={(e) => setForm((prev) => ({ ...prev, desc: e.target.value }))} style={{ ...formInputStyle, minHeight: "90px", resize: "vertical" }} />
+                <label style={labelStyle}>وصف مختصر <span style={{ color: "#e57373" }}>*</span></label>
+                <textarea
+                  placeholder="اكتب وصفاً مختصراً عن جهتك، رسالتها، وأبرز أنشطتها..."
+                  value={form.desc}
+                  onChange={(e) => { setForm((prev) => ({ ...prev, desc: e.target.value })); if (formErrors.desc) setFormErrors((p) => ({ ...p, desc: "" })); }}
+                  style={{ ...formInputStyle, minHeight: "90px", resize: "vertical", ...(formErrors.desc ? { borderColor: "#e57373" } : {}) }}
+                />
+                {formErrors.desc && <p style={{ color: "#e57373", fontSize: "0.75rem", marginTop: "0.25rem" }}>{formErrors.desc}</p>}
               </div>
 
               {/* التخصص والمجال */}
@@ -832,13 +902,19 @@ export default function Directory() {
               </div>
             </div>
 
+            {submitError && (
+              <div style={{ background: "rgba(229,115,115,0.1)", border: "1px solid rgba(229,115,115,0.3)", borderRadius: "6px", padding: "0.75rem 1rem", color: "#e57373", fontSize: "0.85rem", marginTop: "1rem", fontFamily: fontBase }}>
+                {submitError}
+              </div>
+            )}
             <button
               onClick={handleSubmit}
-              style={{ background: GOLD, color: "white", border: "none", borderRadius: "0", padding: "0.875rem 2rem", fontFamily: fontBase, fontSize: "0.95rem", fontWeight: 700, cursor: "pointer", width: "100%", marginTop: "1.75rem", transition: "background 0.2s" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = GOLD_HOVER; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = GOLD; }}
+              disabled={isSubmitting}
+              style={{ background: isSubmitting ? "rgba(196,98,45,0.5)" : GOLD, color: "white", border: "none", borderRadius: "0", padding: "0.875rem 2rem", fontFamily: fontBase, fontSize: "0.95rem", fontWeight: 700, cursor: isSubmitting ? "not-allowed" : "pointer", width: "100%", marginTop: "1.75rem", transition: "background 0.2s" }}
+              onMouseEnter={(e) => { if (!isSubmitting) (e.currentTarget as HTMLElement).style.background = GOLD_HOVER; }}
+              onMouseLeave={(e) => { if (!isSubmitting) (e.currentTarget as HTMLElement).style.background = GOLD; }}
             >
-              إضافة للدليل
+              {isSubmitting ? "جاري الإرسال..." : "إضافة للدليل"}
             </button>
           </div>
         </div>

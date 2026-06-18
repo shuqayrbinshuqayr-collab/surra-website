@@ -267,7 +267,109 @@ export const directoryRouter = router({
       return { success: true };
     }),
 
-  // ── ADMIN: stats dashboard ─────────────────────────────────────────────────
+  // ── PUBLIC: submit a new entity registration request (saved as pending) ───────
+  publicSubmit: publicProcedure
+    .input(
+      z.object({
+        nameAr: z.string().min(1, "اسم الجهة مطلوب"),
+        category: z.string().min(1, "التصنيف مطلوب"),
+        entityType: z.string().optional(),
+        city: z.string().optional(),
+        descriptionAr: z.string().optional(),
+        focus: z.string().optional(),
+        logoUrl: z.string().optional(),
+        instagram: z.string().optional(),
+        twitter: z.string().optional(),
+        linkedin: z.string().optional(),
+        website: z.string().optional(),
+        contactEmail: z.string().optional(),
+        phone: z.string().optional(),
+        contactName: z.string().optional(),
+        contactRole: z.string().optional(),
+        foundedYear: z.number().optional(),
+        tags: z.string().optional(),
+        activityLevel: z.string().optional(),
+        partnershipLevel: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "DB unavailable" });
+
+      const slug = input.nameAr
+        .replace(/\s+/g, "-")
+        .replace(/[^\u0600-\u06FFa-zA-Z0-9-]/g, "")
+        .toLowerCase() + "-" + Date.now();
+
+      const result = await db.insert(culturalEntities).values({
+        nameAr: input.nameAr,
+        category: input.category,
+        entityType: input.entityType,
+        city: input.city,
+        descriptionAr: input.descriptionAr,
+        categoryEn: input.focus,
+        logoUrl: input.logoUrl,
+        instagram: input.instagram,
+        twitter: input.twitter,
+        socialLinks: input.linkedin ? JSON.stringify({ linkedin: input.linkedin }) : undefined,
+        website: input.website,
+        contactEmail: input.contactEmail,
+        phone: input.phone,
+        foundedYear: input.foundedYear ? Number(input.foundedYear) : undefined,
+        tags: input.tags,
+        activityLevel: input.activityLevel,
+        partnershipLevel: input.partnershipLevel,
+        slug,
+        status: "pending",
+        published: false,
+        featured: false,
+      });
+
+      return { id: Number(result[0].insertId), success: true };
+    }),
+
+  // ── ADMIN: update entity status (approve / reject) ─────────────────────────────────────────
+  updateStatus: adminProcedure
+    .input(
+      z.object({
+        id: z.number(),
+        status: z.enum(["active", "pending", "archived"]),
+        published: z.boolean().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "DB unavailable" });
+
+      // When approving (active), auto-publish; when rejecting (archived), unpublish
+      const published = input.published !== undefined
+        ? input.published
+        : input.status === "active";
+
+      await db
+        .update(culturalEntities)
+        .set({ status: input.status, published, updatedBy: ctx.user.id })
+        .where(eq(culturalEntities.id, input.id));
+
+      return { success: true };
+    }),
+
+  // ── ADMIN: list pending submissions for review ─────────────────────────────
+  pendingList: adminProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "DB unavailable" });
+
+    const rows = await db
+      .select()
+      .from(culturalEntities)
+      .where(eq(culturalEntities.status, "pending"))
+      .orderBy(desc(culturalEntities.createdAt))
+      .limit(100);
+
+    return rows;
+  }),
+
+  // ── ADMIN: stats dashboard ─────────────────────────────────────────────────────
   stats: adminProcedure.query(async () => {
     const db = await getDb();
     if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "DB unavailable" });

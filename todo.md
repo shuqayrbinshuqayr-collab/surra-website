@@ -38,3 +38,14 @@
 - [x] إضافة حقل التصنيف (category) في نموذج تسجيل الجهات (submit form) يستخدم CULTURAL_CATEGORIES
 - [x] إصلاح خطأ StarOff في AdminDirectory.tsx (إضافة import)
 - [x] 0 أخطاء TypeScript حقيقية
+
+## نظام مراجعة الجهات المُقدَّمة من الموقع العام
+
+- [x] إضافة حقل `status` (pending/active/archived) موجود فعلاً في الـ schema
+- [x] قاعدة البيانات جاهزة (status موجود فعلاً)
+- [x] إنشاء publicProcedure `directory.publicSubmit` لحفظ الطلب بحالة pending
+- [x] `directory.list` يعرض فقط الجهات النشطة (active)
+- [x] ربط نموذج تسجيل الجهات في Directory.tsx بـ trpc.directory.publicSubmit
+- [x] إضافة تبويب "طلبات التسجيل" في AdminDirectory.tsx يعرض الجهات بحالة pending
+- [x] إضافة أزرار قبول ونشر / رفض لكل طلب في لوحة التحكم
+- [x] إضافة adminProcedure `directory.updateStatus` لتغيير حالة الجهة
