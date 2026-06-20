@@ -169,7 +169,7 @@ export default function Directory() {
     onSuccess: () => {
       setSubmitSuccess(true);
       setSubmitError("");
-      setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", category: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
+      setForm({ name: "", type: "", city: "", year: "", desc: "", focus: "", category: "", website: "", phone: "", address: "", activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "", contactName: "", contactRole: "", contactPhone: "", contactEmail: "", tagInput: "", tags: [], logo: "" });
       setTimeout(() => setSubmitSuccess(false), 6000);
     },
     onError: (err) => {
@@ -181,6 +181,7 @@ export default function Directory() {
   const [form, setForm] = useState({
     name: "", type: "", city: "", year: "", desc: "", focus: "",
     category: "",
+    website: "", phone: "", address: "",
     activity: "نشط", partnership: "متوسطة", instagram: "", linkedin: "", twitter: "",
     contactName: "", contactRole: "", contactPhone: "", contactEmail: "",
     tagInput: "", tags: [] as string[], logo: "",
@@ -256,15 +257,17 @@ export default function Directory() {
       category: form.category,
       entityType: form.type || undefined,
       city: form.city || undefined,
+      address: form.address || undefined,
       descriptionAr: form.desc || undefined,
       focus: form.focus || undefined,
       logoUrl: form.logo || undefined,
+      website: form.website || undefined,
       instagram: form.instagram || undefined,
       twitter: form.twitter || undefined,
       linkedin: form.linkedin || undefined,
+      phone: form.phone || undefined,
       contactName: form.contactName || undefined,
       contactRole: form.contactRole || undefined,
-      phone: form.contactPhone || undefined,
       contactEmail: form.contactEmail || undefined,
       foundedYear: form.year ? Number(form.year) : undefined,
       tags: form.tags.length > 0 ? JSON.stringify(form.tags) : undefined,
@@ -845,6 +848,23 @@ export default function Directory() {
                 <select value={form.partnership} onChange={(e) => setForm((prev) => ({ ...prev, partnership: e.target.value }))} style={{ ...formInputStyle, background: "#0d0d0d" }}>
                   {["عالية", "متوسطة", "منخفضة"].map((o) => <option key={o} value={o} style={{ background: "#111" }}>{o}</option>)}
                 </select>
+              </div>
+
+              {/* معلومات التواصل المباشر */}
+              <div style={{ gridColumn: "span 2", paddingBottom: "0.5rem", borderBottom: `1px solid ${BORDER}`, marginTop: "0.5rem", marginBottom: "0.25rem" }}>
+                <span style={{ fontFamily: fontBase, fontSize: "0.75rem", fontWeight: 700, color: GOLD, textTransform: "uppercase" }}>معلومات التواصل</span>
+              </div>
+              <div>
+                <label style={labelStyle}>الموقع الإلكتروني</label>
+                <input type="url" placeholder="https://example.com" value={form.website} onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))} style={formInputStyle} />
+              </div>
+              <div>
+                <label style={labelStyle}>رقم التواصل المباشر</label>
+                <input type="tel" placeholder="+966 5X XXX XXXX" value={form.phone} onChange={(e) => setForm((prev) => ({ ...prev, phone: e.target.value }))} style={formInputStyle} />
+              </div>
+              <div style={{ gridColumn: "span 2" }}>
+                <label style={labelStyle}>العنوان / اللوكيشن</label>
+                <input type="text" placeholder="مثال: حي السفارات، شارع التحلية، برج المملكة" value={form.address} onChange={(e) => setForm((prev) => ({ ...prev, address: e.target.value }))} style={formInputStyle} />
               </div>
 
               {/* وسائل التواصل الاجتماعي */}

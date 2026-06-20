@@ -46,6 +46,7 @@ export const culturalEntities = mysqlTable("cultural_entities", {
   // Location
   city: varchar("city", { length: 100 }),
   country: varchar("country", { length: 100 }).default("Saudi Arabia"),
+  address: varchar("address", { length: 500 }), // عنوان تفصيلي / لوكيشن
   // Media
   logoUrl: varchar("logoUrl", { length: 1000 }),
   coverImageUrl: varchar("coverImageUrl", { length: 1000 }),

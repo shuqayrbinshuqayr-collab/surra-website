@@ -1,0 +1,1 @@
+ALTER TABLE `cultural_entities` ADD `address` varchar(500);
