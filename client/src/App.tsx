@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import CommunityDetail from "./pages/CommunityDetail";
 import CreateCommunity from "./pages/CreateCommunity";
 import Directory from "./pages/Directory";
+import EntityDetail from "./pages/EntityDetail";
 import Register from "./pages/Register";
 import Store from "./pages/Store";
 import Media from "./pages/Media";
@@ -43,6 +44,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/create-community"} component={CreateCommunity} />
       <Route path={"/directory"} component={Directory} />
+      <Route path={"/directory/:id"} component={EntityDetail} />
       <Route path={"/register"} component={Register} />
       <Route path={"/store"} component={Store} />
       <Route path={"/media"} component={Media} />

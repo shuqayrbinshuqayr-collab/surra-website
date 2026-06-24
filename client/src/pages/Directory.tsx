@@ -4,6 +4,7 @@
  * Inspired by saudistudios.com layout
  */
 import { useState, useMemo } from "react";
+import { useLocation } from "wouter";
 import Navbar from "@/components/Navbar";
 import { VideoBackground } from "@/components/VideoBackground";
 import Footer from "@/components/Footer";
@@ -159,7 +160,8 @@ export default function Directory() {
   const [filterCity, setFilterCity] = useState("");
   const [filterType, setFilterType] = useState("");
   const [tab, setTab] = useState<"directory" | "submit" | "about">("directory");
-  const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
+   const [, navigate] = useLocation();
+  const [selectedEntity, setSelectedEntity] = useState<any>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -488,7 +490,7 @@ export default function Directory() {
               {filtered.map((e) => (
                 <div
                   key={e.id}
-                  onClick={() => setSelectedEntity(e)}
+                  onClick={() => navigate(`/directory/${e.id}`)}
                   style={{
                     background: "linear-gradient(145deg, #141414 0%, #0f0f0f 100%)",
                     border: `1px solid ${CARD_BORDER}`,
@@ -965,7 +967,7 @@ export default function Directory() {
             </div>
             <p style={{ fontSize: "0.87rem", color: MUTED, lineHeight: 1.8, marginBottom: "1.25rem" }}>{selectedEntity.desc}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-              {selectedEntity.tags.map((t) => (
+              {selectedEntity.tags.map((t: string) => (
                 <span key={t} style={{ background: "rgba(196,98,45,0.08)", color: GOLD, fontSize: "0.72rem", fontWeight: 600, padding: "0.22rem 0.6rem", border: `1px solid rgba(196,98,45,0.2)` }}>{t}</span>
               ))}
             </div>
